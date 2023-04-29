@@ -53,7 +53,7 @@
                                     <b>Nombres</b> <a class="float-right">{{ $users->firstname }} {{$users->lastname}} {{$users->names}}</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b>DNI</b> <a class="float-right">{{ $users->dni }}</a>
+                                        <b>DNI</b> <a class="float-right">{{ $users->dni."s" }}</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b>Celular</b> <a class="float-right">{{ $users->cellphone }}</a>
@@ -64,6 +64,7 @@
                                     <li class="list-group-item">
                                         <b>Email</b> <a class="float-right">{{ $users->email }}</a>
                                     </li>
+
                                 </ul>
 
                                 <!-- Button trigger modal -->

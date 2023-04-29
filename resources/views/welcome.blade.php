@@ -23,7 +23,7 @@
 <body class="hold-transition login-page" style="background-image: url('https://img.freepik.com/free-vector/retro-abstract-ornamental-flowers-background_23-2148370307.jpg?size=626&ext=jpg')">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#" class="text-orange" ><b class="text-white"></b> CERTIFICADOS SDC</a>
+            <a href="#" class="text-orange" ><b class="text-white"></b>CERTIFICADOS SDC</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -18,9 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'dni','firstname','lastname','names', 'password','datebirth','cellphone','photo','sex', 'email'
     ];
 
     /**
@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function roles_()
+    {
+        //pertenece a muchas roles - agregamos el id de la tabla asociativa - pivot
+        return $this->belongsToMany('Spatie\Permission\Models\Role', 'model_has_roles','model_id')->withPivot('model_id','model_type');
+    }
+    public function roles_one()
+    {
+        //pertenece a muchas roles - agregamos el id de la tabla asociativa - pivot
+        return $this->belongsTo('Spatie\Permission\Models\Role', 'model_has_roles','model_id');
+    }
 }
