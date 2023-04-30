@@ -33,3 +33,6 @@ function photoDestroy($photo, $directory)
                return "<div style='background-color:red'> ERROR de carga de imagen</div>";
     }
 }
+function saludo(){
+    return "hola";
+}
