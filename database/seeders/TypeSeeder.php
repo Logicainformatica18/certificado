@@ -11,16 +11,8 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::create(['description' => 'Acrilico','detail' =>'']);
-        Type::create(['description' => 'Loza/Cerámica','detail' =>'']);
-        Type::create(['description' => 'Madera','detail' =>'']);
-        Type::create(['description' => 'Metal','detail' =>'']);
-        Type::create(['description' => 'Plastico','detail' =>'']);
-        Type::create(['description' => 'Ternopor','detail' =>'']);
-
-        Type::create(['description' => 'Carton','detail' =>'']);
-        Type::create(['description' => 'Papeleria','detail' =>'']);
-        Type::create(['description' => 'Tela','detail' =>'']);
-        Type::create(['description' => 'Vidrio','detail' =>'']);
+        type::create(['description' => 'Programas','detail' =>'']);
+        type::create(['description' => 'Complementario','detail' =>'']);
+        type::create(['description' => 'Asicrónico','detail' =>'']);
     }
 }

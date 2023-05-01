@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistema | Almacén</title>
+    <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -30,16 +30,16 @@
 
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('category.js') }}"></script>
-    <script src="{{ asset('provider.js') }}"></script>
-    <script src="{{ asset('warehouse.js') }}"></script>
+
+
     <script src="{{ asset('function.js') }}"></script>
-    <script src="{{ asset('product.js') }}"></script>
-    <script src="{{ asset('customer.js') }}"></script>
+
+
     <script src="{{ asset('user.js') }}"></script>
     <script src="{{ asset('role.js') }}"></script>
-    <script src="{{ asset('distribution.js') }}"></script>
-    <script src="{{ asset('color.js') }}"></script>
-    <script src="{{ asset('size.js') }}"></script>
+
+
+
     <script src="{{ asset('type.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -400,60 +400,23 @@
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('productos.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Productos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('distribuciones.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Distribución Productos</p>
-                                    </a>
-                                </li>
+
+
                                 <li class="nav-item">
                                     <a href="{{ route('categorias.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Categorías</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('proveedores.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Proveedores</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('almacenes.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Almacenes</p>
-                                    </a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a href="{{ route('roles.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Roles</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('clientes.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Clientes</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('colores.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Colores</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('medidas.index') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Medidas</p>
-                                    </a>
-                                </li>
+
+
                                 <li class="nav-item">
                                     <a href="{{ route('tipos.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
