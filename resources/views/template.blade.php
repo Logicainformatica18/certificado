@@ -34,13 +34,13 @@
 
     <script src="{{ asset('function.js') }}"></script>
 
-
     <script src="{{ asset('user.js') }}"></script>
     <script src="{{ asset('role.js') }}"></script>
 
 
 
     <script src="{{ asset('type.js') }}"></script>
+    <script src="{{ asset('course.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- jQuery -->
@@ -408,7 +408,12 @@
                                         <p>Categorías</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="{{ route('cursos.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Cursos</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('roles.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

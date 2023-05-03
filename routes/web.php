@@ -79,5 +79,14 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('typeDestroy',[App\Http\Controllers\TypeController::class, 'destroy']);
    Route::post('typeShow',[App\Http\Controllers\TypeController::class, 'show']);
 
+   Route::resource("cursos", App\Http\Controllers\CourseController::class);
+   Route::post('courseStore',[App\Http\Controllers\CourseController::class, 'store']);
+   Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
+   Route::post('courseUpdate',[App\Http\Controllers\CourseController::class, 'update']);
+   Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
+   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'store']);
+
+
 });
+
 
