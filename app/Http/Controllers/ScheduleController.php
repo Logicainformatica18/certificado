@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 use App\Models\Schedule;
-use App\Http\Requests\StoreScheduleRequest;
-use App\Http\Requests\UpdateScheduleRequest;
+
 
 class ScheduleController extends Controller
 {
@@ -13,7 +13,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $schedule = Schedule::orderBy('id','DESC')->get();
+        return view("schedule", compact("schedule"));
     }
 
     /**
@@ -21,46 +22,61 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        $schedule = Schedule::orderBy('id','DESC')->get();
+        return view("scheduletable", compact("schedule"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreScheduleRequest $request)
+    public function store(Request $request)
     {
-        //
+        $schedule = new Schedule;
+        $schedule->description = $request->description;
+        $schedule->detail = $request->detail;
+        $schedule->save();
+       return $this->create();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Schedule $schedule)
+    public function show(Request $request)
     {
-        //
+        $show="%".$request["show"]."%";
+        $schedule=Schedule::where('description',"like",$show)->all();
+        return view('typetable',compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Schedule $schedule)
+    public function edit(Request $request )
     {
-        //
-    }
+       $schedule = Schedule::find($request->id);
+        return $schedule;
+
+        }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateScheduleRequest $request, Schedule $schedule)
+    public function update(Request $request)
     {
-        //
+        $schedule = Schedule::find($request->id);
+        $schedule->description = $request->description;
+        $schedule->detail = $request->detail;
+        $schedule->save();
+        return $this->create();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Request $request)
     {
-        //
+        Schedule::find($request->id)->delete();
+        return $this->create();
+
     }
 }

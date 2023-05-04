@@ -23,6 +23,10 @@ return new class extends Migration
                    $table->foreign(['student_m','student_t','student_r'])
                    ->references(['model_id','model_type','role_id'])->on('model_has_roles');
 
+                   $table->time('hour_start');
+                   $table->time('hour_end');
+                   $table->string('fec_start');
+                   $table->string('fec_end');
             $table->timestamps();
         });
     }

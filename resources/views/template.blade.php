@@ -36,7 +36,7 @@
 
     <script src="{{ asset('user.js') }}"></script>
     <script src="{{ asset('role.js') }}"></script>
-
+    <script src="{{ asset('schedule.js') }}"></script>
 
 
     <script src="{{ asset('type.js') }}"></script>
@@ -412,6 +412,12 @@
                                     <a href="{{ route('cursos.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Cursos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('horarios.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Horarios</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

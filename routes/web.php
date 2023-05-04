@@ -34,7 +34,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('categoryEdit',[App\Http\Controllers\CategoryController::class, 'edit']);
    Route::post('categoryUpdate',[App\Http\Controllers\CategoryController::class, 'update']);
    Route::post('categoryDestroy',[App\Http\Controllers\CategoryController::class, 'destroy']);
-   Route::post('categoryShow',[App\Http\Controllers\CategoryController::class, 'store']);
+   Route::post('categoryShow',[App\Http\Controllers\CategoryController::class, 'show']);
 
 
    Route::post('category_productDestroy',"ProductController@category_productDestroy");
@@ -84,9 +84,14 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
    Route::post('courseUpdate',[App\Http\Controllers\CourseController::class, 'update']);
    Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
-   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'store']);
+   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'show']);
 
-
+   Route::resource("horarios", App\Http\Controllers\ScheduleController::class);
+   Route::post('scheduleStore',[App\Http\Controllers\ScheduleController::class, 'store']);
+   Route::post('scheduleEdit',[App\Http\Controllers\ScheduleController::class, 'edit']);
+   Route::post('scheduleUpdate',[App\Http\Controllers\ScheduleController::class, 'update']);
+   Route::post('scheduleDestroy',[App\Http\Controllers\ScheduleController::class, 'destroy']);
+   Route::post('scheduleShow',[App\Http\Controllers\ScheduleController::class, 'show']);
 });
 
 
