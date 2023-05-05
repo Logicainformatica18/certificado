@@ -56,7 +56,10 @@
                                                     onclick="registryEdit('{{ $registrys->id }}'); Up();  return false"></button>
 
                                                 <!-- <button class="note-icon-pencil" ></button> -->
+                                                <a class="btn btn-warning note-icon-pencil" onclick="registryDetail('{{ $registrys->id }}')" href="{{route('registros_mantenimiento.index')}}"></a>
                                                 <button class="btn btn-danger note-icon-trash" onclick="registryDestroy('{{ $registrys->id }}'); return false"></button>
+
+                                                    <!-- <button class="note-icon-pencil" ></button> -->
                                             </td>
 
                                         </tr>

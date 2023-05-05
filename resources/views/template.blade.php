@@ -39,7 +39,7 @@
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
 
-
+    <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">

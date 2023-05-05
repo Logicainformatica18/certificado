@@ -13,9 +13,12 @@ use App\Models\Schedule;
 use App\Models\Assistant;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Model;
-
+use Illuminate\Support\Facades\Session;
 class RegistryController extends Controller{
+
+
     /**
+
      * Display a listing of the resource.
      */
     public function index()
@@ -103,10 +106,7 @@ class RegistryController extends Controller{
     /**
      * Display the specified resource.
      */
-    public function show(Request $registry)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.

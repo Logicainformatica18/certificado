@@ -99,6 +99,23 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
    Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
    Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
+
+   Route::post('registry_detail',[App\Http\Controllers\RegistryDetailController::class, 'registry_detail']);
+
+   Route::resource("registros_mantenimiento", App\Http\Controllers\RegistryDetailController::class);
+   Route::post('registry_detailStore',[App\Http\Controllers\RegistryDetailController::class, 'store']);
+   Route::post('registry_detailEdit',[App\Http\Controllers\RegistryDetailController::class, 'edit']);
+   Route::post('registry_detailUpdate',[App\Http\Controllers\RegistryDetailController::class, 'update']);
+   Route::post('registry_detailDestroy',[App\Http\Controllers\RegistryDetailController::class, 'destroy']);
+   Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
+
+
+   Route::resource("estudiantes", App\Http\Controllers\StudientController::class);
+   Route::post('studientStore',[App\Http\Controllers\StudientController::class, 'store']);
+   Route::post('studientEdit',[App\Http\Controllers\StudientController::class, 'edit']);
+   Route::post('studientUpdate',[App\Http\Controllers\StudientController::class, 'update']);
+   Route::post('studientDestroy',[App\Http\Controllers\StudientController::class, 'destroy']);
+   Route::post('studientShow',[App\Http\Controllers\StudientController::class, 'show']);
 });
 
 
