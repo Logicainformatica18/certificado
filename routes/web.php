@@ -92,6 +92,13 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('scheduleUpdate',[App\Http\Controllers\ScheduleController::class, 'update']);
    Route::post('scheduleDestroy',[App\Http\Controllers\ScheduleController::class, 'destroy']);
    Route::post('scheduleShow',[App\Http\Controllers\ScheduleController::class, 'show']);
+
+   Route::resource("registros", App\Http\Controllers\RegistryController::class);
+   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
+   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
+   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
+   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
+   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
 });
 
 

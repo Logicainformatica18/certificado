@@ -14,9 +14,10 @@ return new class extends Migration
 
         Schema::create('registries', function (Blueprint $table) {
             $table->id();
+            $table->string('description')->nullable();
             //course
-            $table->bigInteger('course')->unsigned();
-            $table->foreign('course')->references('id')->on('courses');
+            $table->bigInteger('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('courses');
             //teacher
             $table->bigInteger('teacher_m')->unsigned();
             $table->string('teacher_t');
@@ -24,19 +25,22 @@ return new class extends Migration
              $table->foreign(['teacher_m','teacher_t','teacher_r'])
              ->references(['model_id','model_type','role_id'])->on('model_has_roles');
             // //assitance
-            $table->bigInteger('assistance_m')->unsigned();
-            $table->string('assistance_t');
-           $table->bigInteger('assistance_r')->unsigned();
-             $table->foreign(['assistance_m','assistance_t','assistance_r'])
-             ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+            $table->bigInteger('assistance_id')->unsigned();
+            $table->foreign('assistance_id')->references('id')->on('assistants');
             //coordination
-            $table->bigInteger('coordination_m')->unsigned();
-            $table->string('coordination_t');
-           $table->bigInteger('coordination_r')->unsigned();
-             $table->foreign(['coordination_m','coordination_t','coordination_r'])
-             ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+        //     $table->bigInteger('coordination_m')->unsigned();
+        //     $table->string('coordination_t');
+        //    $table->bigInteger('coordination_r')->unsigned();
+        //      $table->foreign(['coordination_m','coordination_t','coordination_r'])
+        //      ->references(['model_id','model_type','role_id'])->on('model_has_roles');
 
               ////////////////
+              $table->time('hour_start');
+              $table->time('hour_end');
+              $table->string('fec_start');
+              $table->string('fec_end');
+              $table->string('detail')->nullable();
+
              $table->bigInteger('schedule_id')->unsigned();
              $table->foreign('schedule_id')->references('id')->on('schedules');
             $table->timestamps();

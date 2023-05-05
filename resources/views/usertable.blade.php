@@ -49,10 +49,10 @@
                                             <td><img src="{{ asset('imageusers/' . $users->photo) }}" alt="" srcset=""
                                                     width="50"></td>
                                             <td>
-
-                                                @foreach ($users->roles_ as $item)
+                                                {{$users->roles_}}
+                                                {{-- @foreach ($users->roles_ as $item)
                                                 {{ $item->name }}
-                                                @endforeach
+                                                @endforeach --}}
                                             </td>
 
                                             <td>

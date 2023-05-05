@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'dni','firstname','lastname','names', 'password','datebirth','cellphone','photo','sex', 'email'
+        'dni','firstname','lastname','names', 'password','datebirth','cellphone','photo','sex', 'email','roles_'
     ];
 
     /**
@@ -51,4 +51,16 @@ class User extends Authenticatable
         //pertenece a muchas roles - agregamos el id de la tabla asociativa - pivot
         return $this->belongsTo('Spatie\Permission\Models\Role', 'model_has_roles','model_id');
     }
+    public function registry(){
+        // return $this->hasMany('App\Models\Teacher', ['teacher_m','teacher_t','teacher_r'],['teacher_m','teacher_t','teacher_r']);
+           //pertenece a muchas roles - agregamos el id de la tabla asociativa - pivot
+           return $this->belongsToMany('App\Models\User', 'model_has_roles','id','model_id')->withPivot('model_id','teacher_m','teacher_t','teacher_r');
+
+         }
+     public function model_has_role()
+     {
+         return $this->hasMany('App\Models\Role', 'roles','model_id');
+     }
+
+
 }
