@@ -7,7 +7,20 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1>Registros Mantenimiento</h1>
+                                            <h1>Registro  : <b>{{$registry_id}}</b>   - Curso <b> {{$registry->course->description}}</b>
+                                                - Edición <b>{{$registry->edition}} </b>
+                                            </h1>
+                                            <h3>ID : <b>  {{$registry->description}}</b>  </h3>
+
+                                            <h3>
+                                                 Frecuencia : {{$registry->schedule->description}}
+                                            </h3>
+                                            <h4>
+                                                Hora Inicio : <b>{{$registry->hour_start}}</b> - Hora Fin : <b>{{$registry->hour_end}}</b>
+                                            </h4>
+                                            <h4>
+                                                Fecha Inicio : <b>{{$registry->fec_start}}</b> - Fecha Fin : <b>{{$registry->fec_end}}</b>
+                                            </h4>
                                             {{ session('success') }}
                                         </div>
                                         <div class="col-sm-6">
@@ -21,8 +34,8 @@
                             </section>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" onclick="New();$('#registry')[0].reset();">
-                                Agregar
+                                data-target="#exampleModal" onclick="New();$('#registry_detail')[0].reset();">
+                                Agregar Estudiante
                             </button>
                             <p></p>
                             Buscar
@@ -54,34 +67,26 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="" method="post" role="form" id="registry" name="form">
+                                            <form action="" method="post" role="form" id="registry_detail" name="registry_detail">
                                                 <input type="hidden" name="id" id="id">
                                                 {{ csrf_field() }}
-                                          Descripción :      <input type="text" name="description" id="description"
-                                                    class="form-control">
 
+                                                Estudiantes
+                                                <select name="student" id="student" class="form-control">
+                                                    @foreach ($student as $item)
+                                                        <option value="{{$item->id}}">{{$item->user->firstname}} {{$item->user->lastname}} {{$item->user->names}}   </option>
+                                                    @endforeach
+                                                </select>
 
-                                                    Fecha Inicio :
-                                                    <input type="date" name="fec_start" id="fec_start" class="form-control">
-                                                    Fecha Fin :
-                                                    <input type="date" name="fec_end" id="fec_end" class="form-control">
-                                                    Hora Inicio :
-                                                    <input type="time" name="hour_start" id="hour_start" class="form-control" value="19:00:00">
-                                                    Hora Fin :
-                                                    <input type="time" name="hour_end" id="hour_end" class="form-control"value="22:00:00">
-
-
-                                                    Detalles :      <textarea type="text" name="detail" id="detail"
-                                                    class="form-control"></textarea>
 
                                         </div>
                                         <div class="modal-footer">
                                             <input type="button" value="Nuevo" class="btn btn-warning"
-                                                onclick="New();$('#registry')[0].reset();" name="new">
+                                                onclick="New();$('#registry_detail')[0].reset();" name="new">
                                             <input type="button" value="Guardar" class="btn btn-success"id="create"
-                                                onclick="registryStore()" name="create">
+                                                onclick="registry_detailStore()" name="create">
                                             <input type="button" value="Modificar" class="btn btn-danger"id="update"
-                                                onclick="registryUpdate();" name="update">
+                                                onclick="registry_detailUpdate();" name="update">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Cerrar</button>
                                             </form>

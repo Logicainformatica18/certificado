@@ -21,20 +21,20 @@
                             </section>
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" onclick="New();$('#studient')[0].reset();">
+                                data-target="#exampleModal" onclick="New();$('#student')[0].reset();">
                                 Agregar
                             </button>
                             <p></p>
                             Buscar
                             <form  name="for"id="show">
-                                <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="studientShow();">
+                                <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="studentShow();">
                             </form>
 
                             <p></p>
                              <!-- /.content -->
-                             {{-- {{ $studient->onEachSide(5)->links() }} --}}
+                             {{-- {{ $student->onEachSide(5)->links() }} --}}
                             <div id="mycontent">
-                                @include("studienttable")
+                                @include("studenttable")
                             </div>
 
 
@@ -50,7 +50,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="" method="post" role="form" id="studient" name="form">
+                                            <form action="" method="post" role="form" id="student" name="form">
                                                 <input type="hidden" name="id" id="id">
                                                 {{ csrf_field() }}
                                           Descripción :      <input type="text" name="description" id="description"
@@ -62,11 +62,11 @@
                                         </div>
                                         <div class="modal-footer">
                                             <input type="button" value="Nuevo" class="btn btn-warning"
-                                                onclick="New();$('#studient')[0].reset();" name="new">
+                                                onclick="New();$('#student')[0].reset();" name="new">
                                             <input type="button" value="Guardar" class="btn btn-success"id="create"
-                                                onclick="studientStore()" name="create">
+                                                onclick="studentStore()" name="create">
                                             <input type="button" value="Modificar" class="btn btn-danger"id="update"
-                                                onclick="studientUpdate();" name="update">
+                                                onclick="studentUpdate();" name="update">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Cerrar</button>
                                             </form>

@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Model_has_role extends Model
 {
-    protected $fillable = ['role_id','model_id','model_type'];
+    protected $fillable = ['model_id','model_type','role_id'];
 
     use HasFactory;
     public function teacher()
     {
-        return $this->belongsToMany('App\Models\User', 'id','model_id');
+        return $this->hasOne('App\Models\User', 'id','model_id');
         //return $this->hasOne('App\Models\Type', 'id','type_id');
+    }
+    public function student()
+    {
+        return $this->hasOne('App\Models\User', 'id','model_id');
+
     }
 }

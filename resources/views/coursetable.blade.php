@@ -16,7 +16,7 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th ></th>
-                                    <th class="sorting">Código</th>
+                                    <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
                                     <th class="sorting">Detalle</th>

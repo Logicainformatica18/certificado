@@ -19,7 +19,7 @@ class RegistrySeeder extends Seeder
              //   'coordination_m' => '2',
             //    'coordination_t' => 'App\Models\User',
             ///    'coordination_r' => '2',
-            'description' => '',
+            'description' => 'SQL37-2023-004',
 
                 'teacher_m' => '3',
                 'teacher_t' => 'App\Models\User',
@@ -33,7 +33,8 @@ class RegistrySeeder extends Seeder
                 'hour_end' => '22:00:00',
                 'fec_start' => '2023-05-04',
                 'fec_end' => '2023-06-06',
-                'detail' => ''
+                'detail' => '',
+                'edition' => '40'
             ]);
     }
 }

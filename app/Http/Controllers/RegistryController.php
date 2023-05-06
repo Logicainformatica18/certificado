@@ -24,23 +24,24 @@ class RegistryController extends Controller{
     public function index()
     {
      //   $registry = Registry::orderBy('id','DESC')->get();
-        $registry =DB::select("select r.*,u.firstname ,u.lastname ,u.names,c.description as course,t.description as type, s.description as schedule  FROM registries r
+     /*
+        $registry =DB::select("select r.*,u.firstname ,r.edition,u.lastname ,u.names,c.description as course,t.description as type, s.description as schedule  FROM registries r
         inner join model_has_roles m on
         m.model_id = r.teacher_m and m.model_type= r.teacher_t and m.role_id = r.teacher_r
         inner join users u on u.id = m.model_id
         inner join courses c on c.id = r.course_id
         inner join types t on t.id = c.type_id
         inner join schedules s on s.id = r.schedule_id order by r.id desc");
-
+*/
         $schedule = Schedule::orderBy('description','asc')->get();
-
+        $registry = Registry::all();
 
     $course = Course::orderBy('id','DESC')->get();
    // $model = Model_has_role::where('role_id','like','3')->get();
  //  $teacher =  Model::all();
 
 
-        $teacher_new =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from u185878096_sdc_lms.users u
+        $teacher_new =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=3");
         $assistant =Assistant::orderBy('description','asc')->get();
 
@@ -58,13 +59,8 @@ class RegistryController extends Controller{
      */
     public function create()
     {
-        $registry =DB::select("select r.*,u.firstname ,u.lastname ,u.names,c.description as course,t.description as type, s.description as schedule  FROM registries r
-        inner join model_has_roles m on
-        m.model_id = r.teacher_m and m.model_type= r.teacher_t and m.role_id = r.teacher_r
-        inner join users u on u.id = m.model_id
-        inner join courses c on c.id = r.course_id
-        inner join types t on t.id = c.type_id
-        inner join schedules s on s.id = r.schedule_id order by r.id desc");
+        $registry = Registry::all();
+
         return view("registrytable", compact("registry"));
     }
 
@@ -80,7 +76,7 @@ class RegistryController extends Controller{
 
 
         $registry->teacher_m = $teacher[0];
-        $registry->teacher_t = $teacher[1];
+      $registry->teacher_t = $teacher[1];
         $registry->teacher_r = $teacher[2];
 
         $registry->assistance_id =$request->assistance ;
@@ -97,7 +93,7 @@ class RegistryController extends Controller{
         $registry->fec_start = $request->fec_start;
         $registry->fec_end = $request->fec_end;
         $registry->detail = $request->detail;
-
+        $registry->edition = $request->edition;
         $registry->save();
       //return print_r($registry);
       return $this->create();
@@ -122,7 +118,7 @@ class RegistryController extends Controller{
      */
     public function update(Request $request)
     {
-        $type = Type::find($request->id);
+        $registry = Registry::find($request->id);
         $registry->description = $request->description;
         $teacher =explode("-", $request->teacher) ;
         $registry->teacher_m = $teacher[0];
@@ -137,7 +133,7 @@ class RegistryController extends Controller{
         $registry->fec_end = $request->fec_end;
         $registry->detail = $request->detail;
 
-        $type->save();
+        $registry->save();
         return $this->create();
     }
 

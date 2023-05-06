@@ -7,6 +7,7 @@ use App\Http\Requests\StoreRegistryDetailRequest;
 use App\Http\Requests\UpdateRegistryDetailRequest;
 use Illuminate\Http\Request;
 use App\Models\Registry;
+use App\Models\Student;
 use App\Helpers;
 use Illuminate\Support\Facades\Session;
 class RegistryDetailController extends Controller
@@ -15,12 +16,17 @@ class RegistryDetailController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
 //variable creadas en sesion
         $registry_id = Session::get('registry_id');
+        $registry = Registry::find($registry_id);
+        $registry_detail = RegistryDetail::where("registry_id","=",$registry_id)->get();
+        $student = Student::all();
 
-        return view('registry_detail');
+
+        return view('registry_detail',compact('registry_id','registry_detail','student','registry'));
+
 
     }
 
@@ -29,15 +35,28 @@ class RegistryDetailController extends Controller
      */
     public function create()
     {
-        //
+        $registry_id = Session::get('registry_id');
+
+        $registry_detail = RegistryDetail::where("registry_id","=",$registry_id)->get();
+
+        return view('registry_detailtable',compact('registry_detail'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRegistryDetailRequest $request)
+    public function store(Request $request)
     {
-        //
+        $registry_detail = new RegistryDetail;
+        $registry_detail->student_id = $request->student;
+      $registry_id = Session::get('registry_id');
+        $registry_detail->registry_id   =   $registry_id;
+
+
+      $registry_detail->save();
+
+    return $this->create();
+   //  return    $registry_id ;
     }
 
     /**

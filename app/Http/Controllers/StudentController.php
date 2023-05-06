@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Studient;
-use App\Http\Requests\StoreStudientRequest;
-use App\Http\Requests\UpdateStudientRequest;
+use App\Models\Student;
+use App\Http\Requests\StoreStudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 
-class StudientController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $studient = Studient::orderBy('id','DESC')->get();
-      //  $type = Studient::all();
-        return view("studient", compact("studient"));
+        $student = Student::orderBy('id','DESC')->get();
+      //  $type = Student::all();
+        return view("student", compact("student"));
     }
 
     /**
@@ -29,7 +29,7 @@ class StudientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStudientRequest $request)
+    public function store(StoreStudentRequest $request)
     {
         //
     }
@@ -37,7 +37,7 @@ class StudientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Studient $studient)
+    public function show(Student $student)
     {
         //
     }
@@ -45,7 +45,7 @@ class StudientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Studient $studient)
+    public function edit(Student $student)
     {
         //
     }
@@ -53,7 +53,7 @@ class StudientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStudientRequest $request, Studient $studient)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
         //
     }
@@ -61,7 +61,7 @@ class StudientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Studient $studient)
+    public function destroy(Student $student)
     {
         //
     }

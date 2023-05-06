@@ -16,8 +16,10 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th ></th>
+                                    <th class="sorting">ID</th>
                                     <th class="sorting">Código</th>
                                     <th class="sorting">Curso</th>
+                                    <th class="sorting">Edición</th>
                                     <th class="sorting">Docente</th>
                                     <th class="sorting">Fecha Inicio</th>
                                     <th class="sorting">Fecha Fin</th>
@@ -33,22 +35,24 @@
                                         <tr>
                                             <td></td>
                                             <td>{{ $registrys->id }}</td>
-                                            <td>{{ $registrys->course }}</td>
+                                            <td>{{ $registrys->description }}</td>
+                                            <td>{{ $registrys->course->description }}</td>
+                                            <td>{{ $registrys->edition }}</td>
                                             <td>
+                                                    {{ $registrys->model_has_role->teacher->firstname }}
+                                                    {{ $registrys->model_has_role->teacher->lastname }}
+                                                    {{ $registrys->model_has_role->teacher->names }}
 
-                                                {{$registrys->firstname}}
-                                                {{$registrys->lastname}}
-                                                {{$registrys->names}}
 
                                             </td>
                                                 <td>{{ $registrys->fec_start }}</td>
                                                 <td>{{ $registrys->fec_end }}</td>
                                                 <td>{{ $registrys->hour_start }}</td>
                                                 <td>{{ $registrys->hour_end }}</td>
-                                                <td>{{ $registrys->schedule }} </td>
+                                                <td>{{ $registrys->schedule->description }} </td>
 
 
-                                                <td>{{$registrys->type}} </td>
+                                                <td>{{$registrys->course->type->description}} </td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"

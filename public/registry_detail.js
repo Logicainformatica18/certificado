@@ -24,11 +24,11 @@ function registryDetail(id) {
 
 }
 
-function registryStore() {
-    var formData = new FormData(document.getElementById("registry"));
+function registry_detailStore() {
+    var formData = new FormData(document.getElementById("registry_detail"));
     axios({
             method: 'post',
-            url: 'registryStore',
+            url: 'registry_detailStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -49,7 +49,7 @@ function registryStore() {
 
 }
 
-function registryEdit(id) {
+function registry_detailEdit(id) {
     var formData = new FormData(document.getElementById("registry"));
     formData.append("id",id);
     axios({
@@ -85,7 +85,7 @@ function registryEdit(id) {
 
 }
 
-function registryUpdate() {
+function registry_detailUpdate() {
     var formData = new FormData(document.getElementById("registry"));
     axios({
             method: 'post',
@@ -111,7 +111,7 @@ function registryUpdate() {
 
 }
 
-function registryDestroy(id) {
+function registry_detailDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
   var formData = new FormData(document.getElementById("registry"));

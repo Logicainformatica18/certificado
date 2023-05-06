@@ -21,15 +21,15 @@ class Registry extends Model
         return $this->hasOne('App\Models\Schedule', 'id','schedule_id');
 
     }
-    public function teacher(){
+    public function model_has_role(){
 
           // agregamos el id de la tabla asociativa - pivot
        //   return $this->belongsToMany('Spatie\Permission\Models\Role', 'model_has_roles','model_id')
             //pertenece a muchas roles - agregamos el id de la tabla asociativa - pivot
-            return $this->belongsToMany('App\Models\User', 'model_has_roles',['model_id','model_type','role_id'],'id');
+            return $this->hasOne('App\Models\Model_has_role', 'model_id','teacher_m','model_r','teacher_r');
         }
 
 
-
-
  }
+
+

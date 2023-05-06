@@ -39,6 +39,7 @@ return new class extends Migration
               $table->time('hour_end');
               $table->string('fec_start');
               $table->string('fec_end');
+              $table->string('edition');
               $table->string('detail')->nullable();
 
              $table->bigInteger('schedule_id')->unsigned();

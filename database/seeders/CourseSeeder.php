@@ -16,37 +16,44 @@ class CourseSeeder extends Seeder
        Course::create([
         'description' => 'Sql Server',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'MS Excel',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'Power bi',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'Python for Data Science',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'Azure For Data Science',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'R For Data Science',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     Course::create([
         'description' => 'AWS For Data Science',
         'type_id' => '1',
-        'detail' => ''
+        'detail' => '',
+        'hours' => '60 hrs'
     ]);
     }
 }

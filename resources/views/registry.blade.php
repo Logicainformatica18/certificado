@@ -57,9 +57,10 @@
                                             <form action="" method="post" role="form" id="registry" name="form">
                                                 <input type="hidden" name="id" id="id">
                                                 {{ csrf_field() }}
-                                          Descripción :      <input type="text" name="description" id="description"
+                                         Código :      <input type="text" name="description" id="description"
                                                     class="form-control">
-
+                                                    Edición:  <input type="number" name="edition" id="edition"
+                                                    class="form-control">
                                                     Docente
                                                     <select name="teacher" id="teacher" class="form-control">
                                                         @foreach ($teacher_new as $item)

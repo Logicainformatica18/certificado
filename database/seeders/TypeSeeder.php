@@ -11,7 +11,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        Type::create(['description' => 'Programas','detail' =>'']);
+        Type::create(['description' => 'Programa','detail' =>'']);
         Type::create(['description' => 'Complementario','detail' =>'']);
         Type::create(['description' => 'Asicrónico','detail' =>'']);
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('description');
+            $table->string('hours');
             $table->string('detail')->nullable();
             $table->timestamps();
         });

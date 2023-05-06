@@ -16,11 +16,12 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th></th>
-                                    <th>Código</th>
+                                    <th>ID</th>
                                     <th>Dni</th>
                                     <th>Paterno</th>
                                     <th>Materno</th>
                                     <th>Nombres</th>
+                                    <th>Email</th>
                                     <th>Celular</th>
                                     <th>Foto</th>
                                     <th>Rol ó Cargo</th>
@@ -35,6 +36,7 @@
                                             <td>{{ $users->firstname }}</td>
                                             <td>{{ $users->lastname }}</td>
                                             <td>{{ $users->names }}</td>
+                                            <td>{{ $users->email }}</td>
                                             <td>{{ $users->cellphone }}</td>
                                             @if ($users->photo == '' && $users->sex == 'M')
                                                 @php

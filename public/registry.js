@@ -49,7 +49,7 @@ function registryEdit(id) {
            registry.hour_start.value=    response.data["hour_start"];
 
            registry.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
-           registry.assistance.value=    response.data["assistant_id"];
+           registry.assistance.value=    response.data["assistance_id"];
 
 
         })

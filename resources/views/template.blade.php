@@ -39,6 +39,7 @@
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
 
+
     <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
@@ -425,6 +426,12 @@
                                     <a href="{{ route('registros.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Registros</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('estudiantes.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Estudiantes</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

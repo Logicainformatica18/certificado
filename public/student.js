@@ -1,9 +1,9 @@
 
-function studientStore() {
-    var formData = new FormData(document.getElementById("studient"));
+function studentStore() {
+    var formData = new FormData(document.getElementById("student"));
     axios({
             method: 'post',
-            url: 'studientStore',
+            url: 'studentStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -24,12 +24,12 @@ function studientStore() {
 
 }
 
-function studientEdit(id) {
-    var formData = new FormData(document.getElementById("studient"));
+function studentEdit(id) {
+    var formData = new FormData(document.getElementById("student"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'studientEdit',
+            url: 'studentEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -39,10 +39,10 @@ function studientEdit(id) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data["description"];
-            studient.id.value=response.data["id"];
-            studient.description.value=response.data["description"];
-          studient.detail.value=response.data["detail"];
-           studient.type.value=    response.data["type_id"];
+            student.id.value=response.data["id"];
+            student.description.value=response.data["description"];
+          student.detail.value=response.data["detail"];
+           student.type.value=    response.data["type_id"];
         })
         .catch(function(response) {
             //handle error
@@ -51,11 +51,11 @@ function studientEdit(id) {
 
 }
 
-function studientUpdate() {
-    var formData = new FormData(document.getElementById("studient"));
+function studentUpdate() {
+    var formData = new FormData(document.getElementById("student"));
     axios({
             method: 'post',
-            url: 'studientUpdate',
+            url: 'studentUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -77,14 +77,14 @@ function studientUpdate() {
 
 }
 
-function studientDestroy(id) {
+function studentDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("studient"));
+  var formData = new FormData(document.getElementById("student"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'studientDestroy',
+            url: 'studentDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -106,11 +106,11 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function studientShow() {
+function studentShow() {
     var formData = new FormData(document.getElementById("show"));
     axios({
             method: 'post',
-            url: 'studientShow',
+            url: 'studentShow',
             data: formData,
         })
         .then(function(response) {

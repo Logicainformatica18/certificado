@@ -15,4 +15,9 @@ class Course extends Model
 
         return $this->hasOne('App\Models\Type', 'id','type_id');
     }
+    public function registry_detail()
+    {
+
+        return $this->hasMany('App\Models\RegistryDetail', 'course_id','id');
+    }
 }
