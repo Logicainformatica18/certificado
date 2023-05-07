@@ -17,15 +17,25 @@ return new class extends Migration
             $table->foreign('registry_id')->references('id')->on('registries');
             //student
 
-                  $table->bigInteger('student_id')->unsigned();
+                //  $table->bigInteger('student_id')->unsigned();
 
-                   $table->foreign('student_id')
-                   ->references('id')->on('students');
+                //   $table->foreign('student_id')
+                //   ->references('id')->on('students');
 
                    $table->bigInteger('n1')->default("0");
                    $table->bigInteger('n2')->default("0");
                    $table->bigInteger('n3')->default("0");
 
+            //student
+             $table->bigInteger('student_m')->unsigned();
+             $table->string('student_t');
+            $table->bigInteger('student_r')->unsigned();
+
+              $table->foreign(['student_m','student_t','student_r'])
+              ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+
+                $table->string('url_certification')->nullable();
+                  $table->string('state_certification')->nullable();
             $table->timestamps();
         });
     }

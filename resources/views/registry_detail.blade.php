@@ -72,12 +72,12 @@
                                                 {{ csrf_field() }}
 
                                                 Estudiantes
+
                                                 <select name="student" id="student" class="form-control">
                                                     @foreach ($student as $item)
-                                                        <option value="{{$item->id}}">{{$item->user->firstname}} {{$item->user->lastname}} {{$item->user->names}}   </option>
+                                                        <option value="{{ $item->model_id }}-{{$item->model_type}}-{{$item->role_id}}">{{$item->firstname}} {{$item->lastname}} {{$item->names}} </option>
                                                     @endforeach
                                                 </select>
-
 
                                         </div>
                                         <div class="modal-footer">
@@ -96,4 +96,45 @@
                             </div>
 
 
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+
+                                                                    <p></p>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Calificaciones</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="" method="post" role="form" id="qualification" name="qualification">
+                                                                        <input type="hidden" name="id" id="id">
+                                                                        {{ csrf_field() }}
+
+                                                                        <h3 id="student_description" >
+
+                                                                        </h3>
+                                                                        Nota 1 :
+                                                                           <input type="number" name="n1" id="n1"
+                                                    class="form-control">
+                                                    Nota 2 :      <input type="number" name="n2" id="n2"
+                                                    class="form-control">
+                                                    Nota 3 :      <input type="number" name="n3" id="n3"
+                                                    class="form-control">
+
+                                                                </div>
+                                                                <div class="modal-footer">
+
+                                                                    <input type="button" value="Modificar" class="btn btn-success"id="update"
+                                                                        onclick="registry_detailUpdate();" name="update">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Cerrar</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 @endsection

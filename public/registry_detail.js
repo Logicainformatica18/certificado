@@ -49,12 +49,12 @@ function registry_detailStore() {
 
 }
 
-function registry_detailEdit(id) {
-    var formData = new FormData(document.getElementById("registry"));
+function registry_detailEdit(id,student) {
+    var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'registryEdit',
+            url: 'registry_detailEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -62,19 +62,12 @@ function registry_detailEdit(id) {
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("mycontent");
-           // contentdiv.innerHTML = response.data["description"];
-            registry.id.value=          response.data["id"];
-            registry.description.value= response.data["description"];
-          registry.detail.value=    response.data["detail"];
-           registry.schedule.value=    response.data["schedule_id"];
-           registry.course.value=    response.data["course_id"];
-           registry.fec_start.value=    response.data["fec_start"];
-           registry.fec_end.value=    response.data["fec_end"];
-           registry.hour_start.value=    response.data["hour_start"];
-
-           registry.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
-           registry.assistance.value=    response.data["assistant_id"];
+            var contentdiv = document.getElementById("student_description");
+            contentdiv.innerHTML = student;
+            qualification.id.value=          response.data["id"];
+            qualification.n1.value=          response.data["n1"];
+            qualification.n2.value=          response.data["n2"];
+            qualification.n3.value=          response.data["n3"];
 
 
         })
@@ -86,10 +79,10 @@ function registry_detailEdit(id) {
 }
 
 function registry_detailUpdate() {
-    var formData = new FormData(document.getElementById("registry"));
+    var formData = new FormData(document.getElementById("qualification"));
     axios({
             method: 'post',
-            url: 'registryUpdate',
+            url: 'registry_detailUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -114,11 +107,11 @@ function registry_detailUpdate() {
 function registry_detailDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("registry"));
+  var formData = new FormData(document.getElementById("registry_detail"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'registryDestroy',
+            url: 'registry_detailDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'

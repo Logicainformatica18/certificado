@@ -5,7 +5,8 @@
                 <div class="col-12">
                     <div class="card">
 
-
+                    <button class="btn btn-danger note-icon-"
+                        onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
                         <div class="card-header">
                             <h3 class="card-title">Tabla de mantenimiento</h3>
                         </div>
@@ -88,8 +89,8 @@
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal1"
                                                     onclick="registry_detailEdit('{{ $registry_details->id }}','{{$student }}');  return false"></button>
-
-     <button class="btn btn-warning note-icon-table" onclick="registry_detail_certification('{{ $registry_details->id }}'); return false"></button>
+<button class="btn"></button>
+     <button class="btn btn-danger note-icon-document" onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
                                                 <button class="btn btn-danger note-icon-trash" onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
 
                                                     <!-- <button class="note-icon-pencil" ></button> -->
