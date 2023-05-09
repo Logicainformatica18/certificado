@@ -126,6 +126,9 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('studentDestroy',[App\Http\Controllers\StudentController::class, 'destroy']);
    Route::post('studentShow',[App\Http\Controllers\StudentController::class, 'show']);
 
+Route::get('qrcode', function () {
+     return QrCode::size(300)->generate('Hola equipo SDC!');
+ });
 
 });
 
