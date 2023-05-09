@@ -110,12 +110,23 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
 
+    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
+   Route::resource("certificaciones", App\Http\Controllers\CertificationController::class);
+
+   Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
+   Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
+   Route::post('certificationUpdate',[App\Http\Controllers\CertificationController::class, 'update']);
+   Route::post('certificationDestroy',[App\Http\Controllers\CertificationController::class, 'destroy']);
+   Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
+
    Route::resource("estudiantes", App\Http\Controllers\StudentController::class);
    Route::post('studentStore',[App\Http\Controllers\StudentController::class, 'store']);
    Route::post('studentEdit',[App\Http\Controllers\StudentController::class, 'edit']);
    Route::post('studentUpdate',[App\Http\Controllers\StudentController::class, 'update']);
    Route::post('studentDestroy',[App\Http\Controllers\StudentController::class, 'destroy']);
    Route::post('studentShow',[App\Http\Controllers\StudentController::class, 'show']);
+
+
 });
 
 

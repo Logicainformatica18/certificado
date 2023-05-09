@@ -111,4 +111,12 @@ class RegistryDetailController extends Controller
         RegistryDetail::find($request->id)->delete();
         return $this->create();
     }
+        public function certificationGenerate(Request $request)
+    {
+
+       $registry_detail =  RegistryDetail::find($request->id);
+            return Session::put('registry_detail_id',$request->id );
+        return $request->id;
+      //return view("certification");
+    }
 }

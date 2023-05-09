@@ -1,34 +1,9 @@
-function registryDetail(id) {
-    var formData = new FormData(document.getElementById("registry"));
-    formData.append("id",id);
+
+function certificationStore() {
+    var formData = new FormData(document.getElementById("certification"));
     axios({
             method: 'post',
-            url: 'registry_detail',
-            data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function(response) {
-            //handle success
-          window.location.href = "registros_mantenimiento";
-           // var contentdiv = document.getElementById("mycontent");
-           // contentdiv.innerHTML = response.data;
-          //  alert("hola");
-
-        })
-        .catch(function(response) {
-            //handle error
-            console.log(response);
-        });
-
-}
-
-function registry_detailStore() {
-    var formData = new FormData(document.getElementById("registry_detail"));
-    axios({
-            method: 'post',
-            url: 'registry_detailStore',
+            url: 'certificationStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -49,12 +24,12 @@ function registry_detailStore() {
 
 }
 
-function registry_detailEdit(id,student) {
-    var formData = new FormData(document.getElementById("qualification"));
+function certificationEdit(id) {
+    var formData = new FormData(document.getElementById("certification"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'registry_detailEdit',
+            url: 'certificationEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -62,12 +37,19 @@ function registry_detailEdit(id,student) {
         })
         .then(function(response) {
             //handle success
-            var contentdiv = document.getElementById("student_description");
-            contentdiv.innerHTML = student;
-            qualification.id.value=          response.data["id"];
-            qualification.n1.value=          response.data["n1"];
-            qualification.n2.value=          response.data["n2"];
-            qualification.n3.value=          response.data["n3"];
+            var contentdiv = document.getElementById("mycontent");
+           // contentdiv.innerHTML = response.data["description"];
+            certification.id.value=          response.data["id"];
+            certification.description.value= response.data["description"];
+          certification.detail.value=    response.data["detail"];
+           certification.schedule.value=    response.data["schedule_id"];
+           certification.course.value=    response.data["course_id"];
+           certification.fec_start.value=    response.data["fec_start"];
+           certification.fec_end.value=    response.data["fec_end"];
+           certification.hour_start.value=    response.data["hour_start"];
+
+           certification.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
+           certification.assistance.value=    response.data["assistance_id"];
 
 
         })
@@ -78,11 +60,38 @@ function registry_detailEdit(id,student) {
 
 }
 
-function registry_detailUpdate() {
+function certificationGenerate(id) {
     var formData = new FormData(document.getElementById("qualification"));
+    formData.append("id",id);
     axios({
             method: 'post',
-            url: 'registry_detailUpdate',
+            url: 'certificationGenerate',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+         //   var contentdiv = document.getElementById("mycontent");
+           // contentdiv.innerHTML = response.data["description"];
+            window.location.href = "certificaciones";
+           //    datatable_load();
+
+
+        })
+        .catch(function (response) {
+
+            //handle error
+            console.log(response);
+        });
+
+}
+function certificationUpdate() {
+    var formData = new FormData(document.getElementById("certification"));
+    axios({
+            method: 'post',
+            url: 'certificationUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -104,14 +113,14 @@ function registry_detailUpdate() {
 
 }
 
-function registry_detailDestroy(id) {
+function certificationDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("registry_detail"));
+  var formData = new FormData(document.getElementById("certification"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'registry_detailDestroy',
+            url: 'certificationDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -133,11 +142,11 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function registryShow() {
+function certificationShow() {
     var formData = new FormData(document.getElementById("show"));
     axios({
             method: 'post',
-            url: 'registryShow',
+            url: 'certificationShow',
             data: formData,
         })
         .then(function(response) {

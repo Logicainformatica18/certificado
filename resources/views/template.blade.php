@@ -38,7 +38,7 @@
     <script src="{{ asset('role.js') }}"></script>
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
-
+    <script src="{{ asset('certification.js') }}"></script>
 
     <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
