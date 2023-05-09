@@ -35,7 +35,9 @@ class CourseSeeder extends Seeder
         'description' => 'Python for Data Science',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'python_datascience',
+
     ]);
     Course::create([
         'description' => 'Azure For Data Science',

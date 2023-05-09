@@ -19,6 +19,7 @@
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
+                                       <th class="sorting">Carpeta Certificado</th>
                                     <th class="sorting">Detalle</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
@@ -29,6 +30,7 @@
                                             <td>{{ $courses->id }}</td>
                                             <td>{{ $courses->description }}</td>
                                             <td>{{ $courses->type->description }}</td>
+                                            <td>{{ $courses->folder_certification }}</td>
                                             <td>{{ $courses->detail }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->

@@ -67,7 +67,10 @@ var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
 
   var image = new Image();
-   image.src ="{{ asset('certification/python_datascience/spanish/1.png')}}";
+      let url_=    "{{ $registry_detail->registry->course->folder_certification}}";
+        alert(url_);
+
+      image.src ="{{ asset('certification/python_datascience/spanish/1.png')}}";
  image.onload = function() {
             ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
                    /* Definimos tamaño de la fuente */

@@ -65,6 +65,8 @@
                                                     </select>
                                                     Detalle :      <input type="text" name="detail" id="detail"
                                                     class="form-control">
+                                                    Nombre de Carpeta de Certificados :      <input type="text" name="folder_certification" id="folder_certification"
+                                                    class="form-control">
 
                                         </div>
                                         <div class="modal-footer">

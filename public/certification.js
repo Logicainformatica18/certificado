@@ -73,10 +73,9 @@ function certificationGenerate(id) {
         })
         .then(function(response) {
             //handle success
-         //   var contentdiv = document.getElementById("mycontent");
-           // contentdiv.innerHTML = response.data["description"];
+
             window.location.href = "certificaciones";
-           //    datatable_load();
+
 
 
         })

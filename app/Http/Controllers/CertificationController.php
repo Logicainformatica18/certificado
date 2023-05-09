@@ -21,7 +21,9 @@ class CertificationController extends Controller
         $registry_detail = RegistryDetail::find($registry_detail_id);
 
 
-       return view("certification",compact("registry_detail"));
+      return view("certification",compact("registry_detail"));
+
+
 
     }
 
