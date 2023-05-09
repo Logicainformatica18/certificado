@@ -68,7 +68,7 @@ var c = document.getElementById("canvas");
 
   var image = new Image();
       let url_=    "{{ $registry_detail->registry->course->folder_certification}}";
-        alert(url_);
+     //   alert(url_);
 
       image.src ="{{ asset('certification/python_datascience/spanish/1.png')}}";
  image.onload = function() {
@@ -96,8 +96,8 @@ var c = document.getElementById("canvas");
 
 
 var fechaActual = new Date();
-fechaActual.setMonth(fechaActual.getMonth()-2);
-fechaActual.setDate(fechaActual.getDate()+20);
+fechaActual.setMonth(fechaActual.getMonth());
+fechaActual.setDate(fechaActual.getDate());
 var dia = fechaActual.getDate();
 var mesCorto = fechaActual.toLocaleDateString('en-US', { month: 'long' });
 var anio = fechaActual.getFullYear();
@@ -184,6 +184,8 @@ let = orientacion_anio=x;
         };
 
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

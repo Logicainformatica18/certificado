@@ -117,7 +117,7 @@ class RegistryDetailController extends Controller
 
        $registry_detail =  RegistryDetail::find($request->id);
             return Session::put('registry_detail_id',$request->id );
-        return $request->id;
+
       //return view("certification");
     }
 }

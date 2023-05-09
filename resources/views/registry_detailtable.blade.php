@@ -89,7 +89,7 @@
                                                     data-toggle="modal" data-target="#exampleModal1"
                                                     onclick="registry_detailEdit('{{ $registry_details->id }}','{{$student }}');  return false"></button>
  <!-- <button class="note-icon-pencil" ></button> -->
-                                                <a  class="btn btn-warning note-icon-table" onclick="certificationGenerate('{{ $registry_details->id }}')"></a>
+                                                <a class="btn btn-warning note-icon-table" onclick="certificationGenerate('{{ $registry_details->id }}')" ></a>
 
                                                 <button class="btn btn-danger note-icon-trash" onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
 

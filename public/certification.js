@@ -73,8 +73,9 @@ function certificationGenerate(id) {
         })
         .then(function(response) {
             //handle success
+            //abrin nueva pestaña el cerficado generato
+            window.open("certificaciones","_blank")
 
-            window.location.href = "certificaciones";
 
 
 
@@ -84,6 +85,9 @@ function certificationGenerate(id) {
             //handle error
             console.log(response);
         });
+
+}
+function qrGenerate(id) {
 
 }
 function certificationUpdate() {
