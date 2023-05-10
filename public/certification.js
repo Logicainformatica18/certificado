@@ -75,10 +75,20 @@ function certificationGenerate(id) {
             //handle success
             //abrin nueva pestaña el cerficado generato
             window.open("certificaciones","_blank")
+//////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
+
+
+
+
+////////////////////////////
         })
         .catch(function (response) {
 
@@ -87,6 +97,33 @@ function certificationGenerate(id) {
         });
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function qrGenerate(id) {
 
 }

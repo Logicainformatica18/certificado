@@ -40,9 +40,15 @@
       <div class="wd-lg-70p wd-xl-50p tx-center pd-x-40">
         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
 
-          <canvas id="canvas" height="650px" width="900px" class="img-fluid" alt="Responsive image">
+          {{-- <canvas id="canvas" height="3672px" width="4752px" class="img-fluid" alt="Responsive image">
+
+          </canvas> --}}
+
+    <canvas id="canvas" height="750px" width="1000px" class="img-fluid" alt="Responsive image">
 
           </canvas>
+
+
 
         </h1>
         <br>
@@ -53,6 +59,7 @@
 
 
         <div id="qrcode"></div>
+        {{ QrCode::size(100)->generate('https://certificados.socialdata-peru.com/')}}
 
         <div class="form-layout-footer">
             <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
@@ -61,7 +68,10 @@
 
       </div>
     </div>
-    <script>
+
+
+<script>
+
 
 var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -76,7 +86,7 @@ var c = document.getElementById("canvas");
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 36px Open Sans";
+ ctx.font = "bold 50px Open Sans";
 
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle';
@@ -88,15 +98,15 @@ var c = document.getElementById("canvas");
            // student = student.toUpperCase();
         let x = canvas.width / 2  ;
 
-            ctx.fillText(student, x, 260);
+            ctx.fillText(student, x, 300);
 
-        ctx.font = "bold 16px Open Sans";
+        ctx.font = "bold 20px Open Sans";
        ctx.fillStyle ="#01233A";
             ctx.textAlign = "center";
 
 
 var fechaActual = new Date();
-fechaActual.setMonth(fechaActual.getMonth());
+fechaActual.setMonth(fechaActual.getMonth()+2);
 fechaActual.setDate(fechaActual.getDate());
 var dia = fechaActual.getDate();
 var mesCorto = fechaActual.toLocaleDateString('en-US', { month: 'long' });
@@ -134,8 +144,8 @@ let = orientacion_anio=x;
         orientacion_anio = orientacion_anio -10;
     }
     if(mesCorto== "June") {
-        orientacion_th= orientacion_th ;
-        orientacion_anio = orientacion_anio -10;
+        orientacion_th= orientacion_th +1 ;
+        orientacion_anio = orientacion_anio -9;
     }
     if(mesCorto== "July") {
         orientacion_th= orientacion_th ;
@@ -148,18 +158,18 @@ let = orientacion_anio=x;
     }
     if(mesCorto== "September") {
         x= x+3;
-        orientacion_th= orientacion_th +31;
-        orientacion_anio = orientacion_anio  +20;
+        orientacion_th= orientacion_th +36
+        orientacion_anio = orientacion_anio  +27;
     }
     if(mesCorto== "October") {
         x= x+2;
-        orientacion_th= orientacion_th +20;
-        orientacion_anio = orientacion_anio  +10;
+        orientacion_th= orientacion_th +21;
+        orientacion_anio = orientacion_anio  +12;
     }
     if(mesCorto== "November") {
         x= x+1;
-        orientacion_th= orientacion_th +31;
-        orientacion_anio = orientacion_anio  +20;
+        orientacion_th= orientacion_th +33;
+        orientacion_anio = orientacion_anio  +24;
     }
     if(mesCorto== "December") {
         x= x+1;
@@ -175,17 +185,15 @@ let = orientacion_anio=x;
 
 
 
-    ctx.fillText( mesCorto+" "+dia + "  "  , x -28, 425);
-    ctx.font = "bold 10px Open Sans";
-            ctx.fillText(text_th  , orientacion_th, 420);
-            ctx.font = "bold 16px Open Sans";
-            ctx.fillText(", " +anio  , orientacion_anio  + 40, 425);
+    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 492);
+    ctx.font = "bold 15px Open Sans";
+            ctx.fillText(text_th  , orientacion_th +3, 490);
+            ctx.font = "bold 20px Open Sans";
+            ctx.fillText(", " +anio  , orientacion_anio  + 48, 492);
 
         };
 
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -204,7 +212,28 @@ $(document).on("click","#btnpdf", function(){
     doc.addImage(imgData, 'PNG', 30, 15);
     doc.save('Certificado.pdf');
 });
-    </script>
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script type="text/javascript" src="certification.js"></script>
@@ -212,4 +241,6 @@ $(document).on("click","#btnpdf", function(){
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+  </body>
 

@@ -127,7 +127,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('studentShow',[App\Http\Controllers\StudentController::class, 'show']);
 
 Route::get('qrcode', function () {
-     return QrCode::size(300)->generate('Hola equipo SDC!');
+     return QrCode::size(300)->generate('https://certificados.socialdata-peru.com/');
  });
 
 });
