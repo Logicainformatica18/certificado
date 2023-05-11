@@ -110,8 +110,8 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
 
-    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
-   Route::resource("certificaciones", App\Http\Controllers\CertificationController::class);
+   Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
+
 
    Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
    Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
@@ -133,3 +133,5 @@ Route::get('qrcode', function () {
 });
 
 
+  // Route::resource("certificaciones", App\Http\Controllers\CertificationController::class);
+    Route::get('certificaciones/{registry_detail_id}',[App\Http\Controllers\CertificationController::class, 'index']);

@@ -14,12 +14,15 @@ class CertificationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-          $registry_detail_id = Session::get('registry_detail_id');
-        $registry_detail = RegistryDetail::find($registry_detail_id);
+          //$registry_detail_id = Session::get('registry_detail_id');
 
+         $id =explode("=",$request->registry_detail_id);
+
+          $registry_detail = RegistryDetail::find($id[1]);
+    
 
       return view("certification",compact("registry_detail"));
 
