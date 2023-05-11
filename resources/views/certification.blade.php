@@ -53,10 +53,13 @@
 
 
     </canvas>
+ 
 <form action="" method="post" id="certification"></form>
         </h1>
 
        <center>
+           {!! QrCode::size(200)->generate('http://localhost:8000/certificaciones/registry_detail_id=4') !!}
+           <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF Todo</button>
@@ -74,6 +77,7 @@
           {{-- <canvas id="canvas" height="3672px" width="4752px" class="img-fluid" alt="Responsive image">  </canvas> --}}
     <canvas id="canvas2" height="750px" width="1000px" class="img-fluid padre" alt="Responsive image"> </canvas>
    </h1>
+
 
         <center>
             <div class="form-layout-footer align-content-center">
