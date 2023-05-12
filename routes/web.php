@@ -134,4 +134,4 @@ Route::get('qrcode', function () {
 
 
   // Route::resource("certificaciones", App\Http\Controllers\CertificationController::class);
-    Route::get('certificaciones/{registry_detail_id}',[App\Http\Controllers\CertificationController::class, 'index']);
+    Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'index']);

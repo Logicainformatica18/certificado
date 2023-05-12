@@ -1,194 +1,73 @@
-@extends('template')
+@extends('layouts.app')
+
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Perfil</h1>
-                    {{ session('success') }}
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Perfil</li>
-                    </ol>
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ 'Forgot Your Password?' }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
-
-    <div id="mycontent">
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <div class="col-md-4">
-                        <!-- Profile Image -->
-                        <div class="card card-primary card-outline" id="mycontent">
-                            <div class="card-body box-profile">
-                                <div class="text-center">
-
-                                    @if ($users->photo == '' && $users->sex == 'M')
-                                        <img src='male.png' class='profile-user-img img-fluid img-circle'
-                                            alt='User Image'>
-                                    @elseif($users->photo == '' && $users->sex == 'F')
-                                        <img src='female.png' class='profile-user-img img-fluid img-circle'
-                                            alt='User Image'>
-                                    @else
-                                        <img src="imageusers/{{$users->photo}}" class='profile-user-img img-fluid img-circle'
-                                            alt='User Image'>
-                                    @endif
-
-                                </div>
-                                <h3 class="profile-username text-center"></h3>
-                                <p class="text-muted text-center"></p>
-
-                                <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item">
-                                    <b>Nombres</b> <a class="float-right">{{ $users->firstname }} {{$users->lastname}} {{$users->names}}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>DNI</b> <a class="float-right">{{ $users->dni."s" }}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Celular</b> <a class="float-right">{{ $users->cellphone }}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Nacimiento</b> <a class="float-right">{{ $users->datebirth }}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Email</b> <a class="float-right">{{ $users->email }}</a>
-                                    </li>
-
-                                </ul>
-
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal">
-                                    Cambiar Contraseña
-                                </button>
-                                <p></p>
-                                <button type="button" class="btn btn-success" onclick="whatsapp('997852483')">Whatsapp
-                                    Desarrollador</button>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-
-
-                        <!-- /.card -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-md-8">
-                        <div class="card">
-                            <form accept-charset="utf-8" id="user" method="POST" action="" enctype="multipart/form-data"
-                                name="user">
-                        <input type="hidden" name="id"value="{{$users->id}}">
-                                <div class="card-header p-2">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item"><a class="nav-link active" href="#settings"
-                                                data-toggle="tab">Configuración</a></li>
-                                    </ul>
-                                </div><!-- /.card-header -->
-                                <div class="card-body">
-                                    <div class="tab-content">
-                                        <div class="active tab-pane" id="settings">
-                                            <div class="form-group row">
-                                                <label for="inputEmail" class="col-sm-2
-                                            col-form-label">Fotografía</label>
-                                                <div class="btn btn-default btn-file col-10">
-                                                    <i class="fas fa-paperclip"></i> Subir
-                                                    <input type='file' id="imgInp" name="photo" onchange="readImage(this);">
-                                                </div>
-                                                <div class="col-sm-2"></div>
-                                                <div class="col-sm-8">
-                                                    <br>
-                                                    <img id="blah" src="https://via.placeholder.com/150" alt="Tu imagen"
-                                                        class="img-bordered" width="200">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="inputcellphone" class="col-sm-2
-                                            col-form-label">Celular</label>
-                                                <div class="col-sm-10">
-                                                    <input type="number" name="cellphone" class="form-control"
-                                                placeholder="cellphone" value="{{$users->cellphone}}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputdatebirth" class="col-sm-2
-                                            col-form-label">Nacimiento</label>
-                                                <div class="col-sm-10">
-
-                                                    <div class="row">
-                                                        <div class="col s4">
-
-
-                                                            <select name="day" class="form-control">
-                                                                <option>Dia</option>
-                                                                <?php for ($a = 1; $a <= 31; $a++) {
-                                                                    echo "<option value='$a'>" . $a . '</option>' ; } ?> </select>
-                                                        </div>
-
-                                                        <div class="col s4">
-                                                            <select name="month" class="form-control">
-                                                                <option>Mes</option>
-                                                                <?php
-                                                                $mes = ['', 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul',
-                                                                'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-                                                                for ($b = 1; $b <= 12; $b++) { echo "<option value='$b'>" .
-                                                                    $mes[$b] . '</option>' ; } ?> </select>
-                                                        </div>
-                                                        <div class="col s4">
-                                                            <select name="year" class="form-control">
-                                                                <option>Año</option>
-                                                                <?php
-                                                                $c = 2020;
-                                                                while ($c >= 1905) {
-                                                                echo "<option value='$c'>" . $c . '</option>';
-                                                                $c = $c - 1;
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                            <?php  echo "<script> user.day.value=".substr($users->datebirth,8,2).";</script>"  ?>
-                                                            <?php  echo "<script> user.month.value=".substr($users->datebirth,5,2).";</script>"  ?>
-                                                            <?php  echo "<script> user.year.value=".substr($users->datebirth,0,4).";</script>"  ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                    <button type="button" class="btn btn-danger"
-                                                        onclick="userUpdateProfile();">Guardar cambios</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- /.tab-pane -->
-                                    </div>
-                                    <!-- /.tab-content -->
-                                </div><!-- /.card-body -->
-
-                        </div>
-                        <!-- /.nav-tabs-custom -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
+        </div>
     </div>
-
-
-
-
-
+</div>
 @endsection

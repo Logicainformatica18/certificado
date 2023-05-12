@@ -30,6 +30,7 @@
 
                                      <th class="sorting">Certificado URL</th>
                                       <th class="sorting">Certificado Estado de Envio</th>
+                                      <th>Certificado</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
@@ -80,17 +81,21 @@
                                         <td>
                                             {{$registry_details->state_certification}}
                                         </td>
+                                               <td>
+                                                      <button class="btn btn-warning" onclick="certificationGenerate('{{ $registry_details->id }}','spanish')" >Español</button>
+<button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','english')" >Ingles</button>
+                                                </td>
                                             <td>
                                                 <?php
                                                 $student= $registry_details->model_has_role->student->firstname." ".$registry_details->model_has_role->student->lastname." ".$registry_details->model_has_role->student->names;
                                                 ?>
+                                         
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal1"
                                                     onclick="registry_detailEdit('{{ $registry_details->id }}','{{$student }}');  return false"></button>
- <!-- <button class="note-icon-pencil" ></button> -->
-                                                <a class="btn btn-warning note-icon-table" onclick="certificationGenerate('{{ $registry_details->id }}')" ></a>
 
+                                              
                                                 <button class="btn btn-danger note-icon-trash" onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
 
                                                     <!-- <button class="note-icon-pencil" ></button> -->

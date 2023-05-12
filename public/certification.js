@@ -60,7 +60,7 @@ function certificationEdit(id) {
 
 }
 
-function certificationGenerate(id) {
+function certificationGenerate(id,language) {
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
     axios({
@@ -74,7 +74,7 @@ function certificationGenerate(id) {
         .then(function(response) {
             //handle success
             //abrin nueva pestaña el cerficado generato
-            let url = "certificaciones/registry_detail_id=" + id;
+            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language;
             window.open(url, "_blank");
 
 
@@ -120,7 +120,7 @@ function generateCerticationSpanish(image_src, student,canvas_id) {
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 50px Open Sans";
+ ctx.font = "bold 40px Open Sans";
 
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle';
@@ -234,18 +234,15 @@ let = orientacion_anio=x;
 
 
  }
-    
-    
-    
-
 
 }
+
 function buttons_png(params) {
          //generar png
         $(document).on("click","#btnpng", function(){
     let lblpng = document.createElement('a');
             lblpng.download = "Certificado.png";
-           
+
     lblpng.href =  canvas_id.toDataURL('image/jpeg');
     lblpng.click();
         });
@@ -255,11 +252,11 @@ function buttons_png(params) {
 function buttons_pdf(canvas_id) {
 
       var canvas_id = document.getElementById(canvas_id);
-   
-    
-    
-    
-    
+
+
+
+
+
 //generar pdf
 $(document).on("click","#btnpdf", function(){
     var imgData1 = canvas1.toDataURL('image/png');
@@ -271,7 +268,7 @@ $(document).on("click","#btnpdf", function(){
     var imgData7 = canvas7.toDataURL('image/png');
     var imgData8 = canvas8.toDataURL('image/png');
 
-    
+
     var doc = new jsPDF('l', 'mm');
     doc.addImage(imgData1, 'PNG', 15, 5);
     doc.addPage();
@@ -301,7 +298,49 @@ $(document).on("click","#btnpdf", function(){
 
 
 
+function generateCerticationSpanishEnd(image_src, student,canvas_id,promedio) {
+      var c = document.getElementById(canvas_id);
+  //  var c = document.getElementById("canvas");
+  var ctx = c.getContext("2d");
 
+  var image = new Image();
+
+
+
+      image.src =image_src;
+ image.onload = function() {
+            ctx.drawImage(image, 0, 0, canvas1.width, canvas1.height);
+                   /* Definimos tamaño de la fuente */
+         //   ctx.font = '35px Relaway';
+        //   ctx.font = "bold 10pt Courier";
+ ctx.font = "bold 38px Open Sans";
+
+        ctx.textAlign = "center";
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle ="white";
+       // ctx.
+
+           // student = student.toUpperCase();
+        let x = canvas1.width / 2  ;
+
+     ctx.fillText(student, x, 322);
+      ctx.font = "20px Open Sans";
+    ctx.fillText(promedio, x+63, 433);
+
+
+
+// let image1= new Image();
+
+//       image1.src ="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png";
+//  image1.onload = function() {
+
+//      ctx.drawImage(image1, 0, 0, 50, 50);
+ //}
+
+
+ }
+
+}
 
 
 

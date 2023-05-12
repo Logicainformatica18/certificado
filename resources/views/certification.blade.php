@@ -30,7 +30,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
       <script type="text/javascript" src="{{asset('certification.js')}}"></script>
  <script src="{{ asset('axios.min.js') }}"></script>
- 
+
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
 
@@ -53,11 +53,12 @@
 
 
     </canvas>
- 
+
 <form action="" method="post" id="certification"></form>
         </h1>
 
        <center>
+
            {!! QrCode::size(200)->generate('http://localhost:8000/certificaciones/registry_detail_id=4') !!}
            <p></p>
             <div class="form-layout-footer align-content-center">
@@ -212,54 +213,73 @@
 $folder = $registry_detail->registry->course->folder_certification;
 $name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
 
+
+
+
 $img = "1";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1");
 <?php
 $img = "2";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas2");
 <?php
 $img = "3";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas3");
 <?php
 $img = "4";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas4");
 <?php
 $img = "5";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas5");
 <?php
 $img = "6";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas6");
 <?php
 $img = "7";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
 ?>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas7");
 <?php
 $img = "8";
-$language="spanish";
+
 $route_certification = asset("certification/$folder/$language/$img.png");
+
+
+$promedio=round(($registry_detail->n1 +$registry_detail->n2 +$registry_detail->n3) /3 );
+
+
+
+                          if($promedio >= 14){
+
+
 ?>
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas8");
+                                generateCerticationSpanishEnd("{{$route_certification}}","{{$name}}","canvas8","{{$promedio}}");
+<?php
+
+}
+
+
+?>
+
 
 
 
