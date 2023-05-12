@@ -82,6 +82,15 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Iniciar Sesión') }}
                             </button>
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6 align-center">
+                          @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('¿Olvidaste tu contraseña?') }}
+                                    </a>
+                                @endif
                         </div>
                         <!-- /.col -->
                       </div>
