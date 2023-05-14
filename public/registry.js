@@ -50,7 +50,8 @@ function registryEdit(id) {
 
            registry.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
            registry.assistance.value=    response.data["assistance_id"];
-
+            registry.edition.value = response.data["edition"];
+             registry.type.value=    response.data["type"];
 
         })
         .catch(function(response) {

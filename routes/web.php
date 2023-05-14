@@ -21,11 +21,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
+Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
 
+Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
+
+Route::resource('Mis-certificados', App\Http\Controllers\CertificateController::class);
+
+
+ Route::resource('Docente', App\Http\Controllers\TeacherController::class);
+Route::get('/Coordinación', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
+Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
+/////////////////////////////////////////
 
 Route::group(['middleware' => ['role:Coordinación']], function () {
     //

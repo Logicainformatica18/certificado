@@ -21,13 +21,13 @@
                                     <th class="sorting">Curso</th>
                                     <th class="sorting">Edición</th>
                                     <th class="sorting">Docente</th>
+                                    <th class="sorting">Tipo </th>
+                                    <th class="sorting">Frecuencia</th>
                                     <th class="sorting">Fecha Inicio</th>
                                     <th class="sorting">Fecha Fin</th>
                                     <th class="sorting">Hora Inicio</th>
                                     <th class="sorting">Hora Fin</th>
-                                    <th class="sorting">Frecuencia</th>
-
-                                    <th class="sorting">Tipo</th>
+                                    <th class="sorting">Tipo de Curso</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
@@ -45,11 +45,12 @@
 
 
                                             </td>
+                                            <td>{{ $registrys->type }}</td>
+                                            <td>{{ $registrys->schedule->description }} </td>
                                                 <td>{{ $registrys->fec_start }}</td>
                                                 <td>{{ $registrys->fec_end }}</td>
                                                 <td>{{ $registrys->hour_start }}</td>
                                                 <td>{{ $registrys->hour_end }}</td>
-                                                <td>{{ $registrys->schedule->description }} </td>
 
 
                                                 <td>{{$registrys->course->type->description}} </td>

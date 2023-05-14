@@ -34,7 +34,8 @@ class RegistrySeeder extends Seeder
                 'fec_start' => '2023-05-04',
                 'fec_end' => '2023-06-06',
                 'detail' => '',
-                'edition' => '40'
+                'edition' => '40',
+                'type' => 'Clase'
             ]);
     }
 }

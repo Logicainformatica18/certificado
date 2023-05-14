@@ -9,7 +9,7 @@ class Registry extends Model
 {
     use HasFactory;
     protected $fillable = ['id','description','course_id','teacher_m','teacher_t','teacher_r','assistance_t',
-    'assistance_r','assistance_m','schedule_id','detail'];
+    'assistance_r','assistance_m','schedule_id','detail','type'];
 
     public function course()
     {

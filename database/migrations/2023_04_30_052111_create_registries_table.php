@@ -40,6 +40,7 @@ return new class extends Migration
               $table->string('fec_start');
               $table->string('fec_end');
               $table->string('edition');
+                $table->string('type');
               $table->string('detail')->nullable();
 
              $table->bigInteger('schedule_id')->unsigned();

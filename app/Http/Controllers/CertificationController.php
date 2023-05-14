@@ -78,4 +78,9 @@ class CertificationController extends Controller
     {
         //
     }
+        public function studentCertification()
+    {
+        //
+        return "hola";
+    }
 }

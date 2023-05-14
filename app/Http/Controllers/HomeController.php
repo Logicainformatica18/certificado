@@ -28,6 +28,14 @@ class HomeController extends Controller
     {
        $users= Auth::user();
 
+      //  return $users->roles_;
       return view('home',compact("users"));
+    }
+    public function sistema()
+    {
+       $users= Auth::user();
+
+
+      return view('sistema',compact("users"));
     }
 }

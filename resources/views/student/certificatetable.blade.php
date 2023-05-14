@@ -7,7 +7,7 @@
 
 
                         <div class="card-header">
-                            <h3 class="card-title">Tabla de mantenimiento</h3>
+                            <h3 class="card-title">Certificados</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -18,28 +18,28 @@
                                     <th ></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
+                                    <th class="sorting">Fecha</th>
+                                    <th class="sorting">Estado</th>
+                                      <th class="sorting">Curso</th>
+                                        <th class="sorting">Docente</th>
                                     <th class="sorting">Detalle</th>
-                                    <th class="sorting">ID de usuario</th>
-                                    <th class="sorting">Usuario</th>
+                                        <th class="sorting">Qr</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($student as $students)
+                                    @foreach ($certificate as $certificates)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $students->id }}</td>
-                                            <td>{{ $students->description }}</td>
-                                            <td>{{ $students->detail }}</td>
-                                            <td>{{ $students->user_id }}</td>
-                                            <td>{{ $students->user->firstname }} {{ $students->user->lastname }}{{ $students->user->names }}</td>
+                                            <td>{{ $certificates->id }}</td>
+                                            <td>{{ $certificates->description }}</td>
+                                            <td>{{ $certificates->detail }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal"
-                                                    onclick="studentEdit('{{ $students->id }}'); Up();  return false"></button>
+                                                    onclick="certificateMostrar('{{ $certificates->id }}'); Up();  return false"></button>
 
-                                                <!-- <button class="note-icon-pencil" ></button> -->
-                                                <button class="btn btn-danger note-icon-trash" onclick="studentDestroy('{{ $students->id }}'); return false"></button>
+
                                             </td>
 
                                         </tr>

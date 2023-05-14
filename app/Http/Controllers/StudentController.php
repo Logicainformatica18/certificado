@@ -15,7 +15,7 @@ class StudentController extends Controller
     {
         $student = Student::orderBy('id','DESC')->get();
       //  $type = Student::all();
-        return view("student", compact("student"));
+        return view("student/student", compact("student"));
     }
 
     /**

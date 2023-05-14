@@ -14,6 +14,8 @@ class CertificateController extends Controller
     public function index()
     {
         //
+    $certificate=Certificate::all();
+   return view('student/certificate',compact('certificate'));
     }
 
     /**

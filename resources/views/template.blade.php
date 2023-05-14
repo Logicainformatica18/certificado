@@ -138,10 +138,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
-                <span class="brand-text font-weight-light">Sistema</span>
+            <a href="" class="brand-link">
+                <img src="https://sdc-learning.pe/wp-content/uploads/2022/11/logo-largo_v2.png.webp" alt="AdminLTE Logo" class="" width="100%"                 style="opacity: .8">
+                {{-- <span class="brand-text font-weight-light">Certificaciones</span> --}}
+                <p></p>
             </a>
 
             <!-- Sidebar -->
@@ -172,7 +172,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
+                        {{-- <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -181,26 +181,26 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                {{-- <li class="nav-item">
+                                 <li class="nav-item">
                                     <a href="./index.html" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v1</p>
                                     </a>
-                                </li> --}}
-                                {{-- <li class="nav-item">
+                                </li>
+                                 <li class="nav-item">
                                     <a href="./index2.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v2</p>
                                     </a>
-                                </li> --}}
-                                {{-- <li class="nav-item">
+                                </li>
+                               <li class="nav-item">
                                     <a href="./index3.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Dashboard v3</p>
                                     </a>
-                                </li> --}}
+                                </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-item">
                             <a href="pages/widgets.html" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -391,20 +391,19 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-table"></i>
                                 <p>
-                                    Tables
+                                    Módulos
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+@role('Administrador|Coordinación')
+      <li class="nav-item">
                                     <a href="{{ route('usuarios.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Usuarios</p>
                                     </a>
                                 </li>
-
-
-                                <li class="nav-item">
+      <li class="nav-item">
                                     <a href="{{ route('categorias.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Categorías</p>
@@ -448,6 +447,20 @@
                                         <p>Tipos</p>
                                     </a>
                                 </li>
+
+@elseif('Estudiante')
+                              <li class="nav-item">
+                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Certificados</p>
+                                    </a>
+                                </li>
+@endrole
+
+
+
+
+
                                 {{-- <li class="nav-item">
                                     <a href="pages/tables/data.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

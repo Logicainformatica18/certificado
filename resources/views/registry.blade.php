@@ -73,6 +73,12 @@
                                                             <option value="{{ $item->id }}">{{$item->description}} -{{$item->type->description}} </option>
                                                         @endforeach
                                                     </select>
+                                                    Tipo :
+                                                    <select name="type" id="type" class="form-control">
+
+                                                            <option value="Clase">Clase</option>
+                                                            <option value="Evento">Evento</option>
+                                                    </select>
                                                     Fecha Inicio :
                                                     <input type="date" name="fec_start" id="fec_start" class="form-control">
                                                     Fecha Fin :
@@ -93,6 +99,7 @@
                                                             <option value="{{$item->id}}">{{$item->description}} </option>
                                                         @endforeach
                                                     </select>
+
                                                     Detalles :      <textarea type="text" name="detail" id="detail"
                                                     class="form-control"></textarea>
 
