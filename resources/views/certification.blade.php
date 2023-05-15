@@ -58,8 +58,12 @@
         </h1>
 
        <center>
+<?php
+        $host=$_SERVER["HTTP_HOST"];
+        $qr_url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
+?>
 
-           {!! QrCode::size(200)->generate('http://localhost:8000/certificaciones/registry_detail_id=4') !!}
+        {{ QrCode::size(200)->generate($qr_url) }}
            <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
