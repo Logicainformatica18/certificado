@@ -141,7 +141,7 @@ function getCertification(id) {
 
 
 
-function generateCerticationSpanish(image_src, student,canvas_id) {
+function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id) {
       var c = document.getElementById(canvas_id);
   //  var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -259,14 +259,22 @@ let = orientacion_anio=x;
             ctx.font = "bold 20px Open Sans";
             ctx.fillText(", " +anio  , orientacion_anio  + 48, 492);
 
-
+//agregar qr encima de certificado
 let image1= new Image();
 
-      image1.src ="/certification_qr/codigo.png";
+      image1.src =qr_url;
  image1.onload = function() {
 
      ctx.drawImage(image1, 800, 40, 150, 150);
  }
+
+
+
+ ctx.font = "14px Open Sans";
+ ctx.fillStyle ="#01233A";
+ ctx.textAlign = "center";
+ ctx.fillText("ID "+id, 876, 205);
+
 
 
  }

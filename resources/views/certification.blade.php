@@ -91,9 +91,10 @@ $name = $registry_detail->model_has_role->student->firstname." ".$registry_detai
 $img = "1";
 
 $route_certification = asset("certification/$folder/$language/$img.png");
-?>
+$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
 
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1");
+?>
+generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
 
 
 buttons_pdf("canvas")
