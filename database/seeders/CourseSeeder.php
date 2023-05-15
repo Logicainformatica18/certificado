@@ -17,19 +17,22 @@ class CourseSeeder extends Seeder
         'description' => 'Sql Server',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'sql_server',
     ]);
     Course::create([
         'description' => 'MS Excel',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'ms_excel',
     ]);
     Course::create([
         'description' => 'Power bi',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'powerbi',
     ]);
     Course::create([
         'description' => 'Python for Data Science',
@@ -43,19 +46,23 @@ class CourseSeeder extends Seeder
         'description' => 'Azure For Data Science',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'azure_datascience',
     ]);
     Course::create([
         'description' => 'R For Data Science',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+          'folder_certification' => 'r_datascience',
+
     ]);
     Course::create([
         'description' => 'AWS For Data Science',
         'type_id' => '1',
         'detail' => '',
-        'hours' => '60 hrs'
+        'hours' => '60 hrs',
+        'folder_certification' => 'aws_datascience',
     ]);
     }
 }
