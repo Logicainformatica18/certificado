@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -31,13 +31,16 @@ return new class extends Migration
              $table->string('student_t');
             $table->bigInteger('student_r')->unsigned();
 
-              $table->foreign(['student_m','student_t','student_r'])
-              ->references(['model_id','model_type','role_id'])->on('model_has_roles');
-
-                $table->string('url_certification')->nullable();
-                  $table->string('state_certification')->nullable();
+            $table->foreign(['student_m','student_t','student_r'])
+            ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+            $table->string('url_certification')->nullable();
+            $table->string('state_certification')->nullable();
             $table->timestamps();
+
+
+
         });
+
     }
 
     /**

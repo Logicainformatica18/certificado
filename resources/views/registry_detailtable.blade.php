@@ -64,12 +64,12 @@
                                                 {{$registry_details->n3}}
                                             </td>
                                             <td>
-                                                {{$promedio=round(  ($registry_details->n1 +$registry_details->n2 +$registry_details->n3) /3 )}}
+                                                {{$registry_details->average}}
                                             </td>
 
 
                                             <td>
-                                                @if ($promedio < 14)
+                                                @if ($registry_details->average < 14)
                                                 Desaprobado
                                             @else
                                                 Aprobado
@@ -89,13 +89,13 @@
                                                 <?php
                                                 $student= $registry_details->model_has_role->student->firstname." ".$registry_details->model_has_role->student->lastname." ".$registry_details->model_has_role->student->names;
                                                 ?>
-                                         
+
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal1"
                                                     onclick="registry_detailEdit('{{ $registry_details->id }}','{{$student }}');  return false"></button>
 
-                                              
+
                                                 <button class="btn btn-danger note-icon-trash" onclick="registry_detailDestroy('{{ $registry_details->id }}'); return false"></button>
 
                                                     <!-- <button class="note-icon-pencil" ></button> -->

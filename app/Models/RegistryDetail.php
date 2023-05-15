@@ -27,4 +27,9 @@ class RegistryDetail extends Model
 
         return $this->hasOne('App\Models\Registry', 'id','registry_id');
     }
+       public function certificate(){
+
+
+          return $this->belongsTo('App\Models\Certificate', 'id','registry_detail_id');
+      }
 }

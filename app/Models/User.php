@@ -63,9 +63,15 @@ class User extends Authenticatable
      {
          return $this->hasMany('App\Models\Role', 'roles','model_id');
      }
+     //este metodo es usado para obtener los certificados de los estudiantes segun model_has_roles hacia registry detail
+     public function model_has_roles()
+     {
+         return $this->hasMany('App\Models\Model_has_role', 'model_id','id');
+     }
 
    public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
     }
+
 }

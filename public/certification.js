@@ -351,9 +351,6 @@ function generateCerticationSpanishEnd(image_src, student,canvas_id,promedio) {
 
 
 
-function qrGenerate(id) {
-
-}
 function certificationUpdate() {
     var formData = new FormData(document.getElementById("certification"));
     axios({
@@ -379,6 +376,48 @@ function certificationUpdate() {
         });
 
 }
+
+
+
+
+
+function qrGenerate(id) {
+
+}
+
+function certificationOne() {
+    var formData = new FormData(document.getElementById("certification"));
+    axios({
+            method: 'post',
+            url: 'certificationOne',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+            var contentdiv = document.getElementById("mycontent");
+            contentdiv.innerHTML = response.data;
+              //carga pdf- csv - excel
+              //datatable_load();
+            let url = "certificaciones/registry_detail_id=" + id ;
+            window.open(url, "_blank");
+
+        })
+        .catch(function(response) {
+            //handle error
+            console.log(response);
+        });
+
+}
+
+
+
+
+
+
+
 
 function certificationDestroy(id) {
 

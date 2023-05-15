@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -13,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::orderBy('id','DESC')->get();
-      //  $type = Student::all();
-        return view("student/student", compact("student"));
+               $users= Auth::user();
+     return view('student/student',compact("users"));
+
     }
 
     /**

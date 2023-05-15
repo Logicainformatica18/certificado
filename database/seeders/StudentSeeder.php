@@ -12,11 +12,6 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-             Student::create([
-            'detail' => '55555',
-            'description' => '55555',
-            'user_id' => '4',
 
-        ]);
     }
 }

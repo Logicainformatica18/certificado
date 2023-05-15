@@ -447,7 +447,12 @@
                                         <p>Tipos</p>
                                     </a>
                                 </li>
-
+   <li class="nav-item">
+                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Certificados</p>
+                                    </a>
+                                </li>
 @elseif('Estudiante')
                               <li class="nav-item">
                                     <a href="{{ route('Mis-certificados.index')}}" class="nav-link">

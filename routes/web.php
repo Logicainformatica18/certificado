@@ -26,7 +26,9 @@ Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])-
 
 Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
+
 Route::resource('Mis-certificados', App\Http\Controllers\CertificateController::class);
+
 
 
  Route::resource('Docente', App\Http\Controllers\TeacherController::class);
@@ -117,7 +119,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
 
-   Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
+
 
 
    Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
@@ -140,5 +142,6 @@ Route::get('qrcode', function () {
 });
 
 
-  // Route::resource("certificaciones", App\Http\Controllers\CertificationController::class);
     Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'index']);
+
+   Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
