@@ -2,22 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Certificate;
-use App\Http\Requests\StoreCertificateRequest;
-use App\Http\Requests\UpdateCertificateRequest;
-
 use App\Models\RegistryDetail;
-class CertificateController extends Controller
+class CertificationStudentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return "SDS";
+ //
+    $certificate=Certificate::all();
 
+
+
+     $user = Auth::user();
+     $user = $user->model_has_roles;
+     $registry_detail=  RegistryDetail::where('student_m',"=",$user[0]->model_id)->where('student_r','=',$user[0]->role_id)->get();
+
+     return view('student/certificate_student',compact('certificate','registry_detail'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +36,7 @@ class CertificateController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCertificateRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -38,7 +44,7 @@ class CertificateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Certificate $certificate)
+    public function show(string $id)
     {
         //
     }
@@ -46,7 +52,7 @@ class CertificateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Certificate $certificate)
+    public function edit(string $id)
     {
         //
     }
@@ -54,7 +60,7 @@ class CertificateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCertificateRequest $request, Certificate $certificate)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -62,7 +68,7 @@ class CertificateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Certificate $certificate)
+    public function destroy(string $id)
     {
         //
     }

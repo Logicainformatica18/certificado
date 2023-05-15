@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-
+                   //course
+            $table->bigInteger('course_id')->unsigned();
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->string("description");
+            $table->string("detail")->nullable();
             $table->timestamps();
         });
     }

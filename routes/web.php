@@ -27,7 +27,7 @@ Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])-
 Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
 
-Route::resource('Mis-certificados', App\Http\Controllers\CertificateController::class);
+Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
 
 
 
@@ -147,6 +147,7 @@ Route::get('qrcode', function () {
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
 
+    //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificaciones-mantenimiento", App\Http\Controllers\CertificationController::class);
-   //obtener registry_detail_id para poder generar el certificado despuees
 
+ Route::resource("certificados", App\Http\Controllers\CertificateController::class);

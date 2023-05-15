@@ -27,7 +27,7 @@
                              <!-- /.content -->
                              {{-- {{ $student->onEachSide(5)->links() }} --}}
                             <div id="mycontent">
-                                @include('student/certificatetable')
+                                @include('student/certificate_studenttable')
                             </div>
 
 
