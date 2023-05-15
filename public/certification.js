@@ -273,13 +273,14 @@ let = orientacion_anio=x;
 
 }
 
-function buttons_png(params) {
-         //generar png
-        $(document).on("click","#btnpng", function(){
+function buttons_png() {
+         //gnerar png
+    $(document).on("click", "#btnpng", function () {
+
     let lblpng = document.createElement('a');
             lblpng.download = "Certificado.png";
 
-    lblpng.href =  canvas_id.toDataURL('image/jpeg');
+    lblpng.href =  canvas1.toDataURL('image/jpeg');
     lblpng.click();
         });
 }
@@ -290,37 +291,34 @@ function buttons_pdf(canvas_id) {
       var canvas_id = document.getElementById(canvas_id);
 
 
-
-
-
 //generar pdf
 $(document).on("click","#btnpdf", function(){
     var imgData1 = canvas1.toDataURL('image/png');
-    var imgData2 = canvas2.toDataURL('image/png');
-    var imgData3 = canvas3.toDataURL('image/png');
-    var imgData4 = canvas4.toDataURL('image/png');
-    var imgData5 = canvas5.toDataURL('image/png');
-    var imgData6 = canvas6.toDataURL('image/png');
-    var imgData7 = canvas7.toDataURL('image/png');
-    var imgData8 = canvas8.toDataURL('image/png');
+    // var imgData2 = canvas2.toDataURL('image/png');
+    // var imgData3 = canvas3.toDataURL('image/png');
+    // var imgData4 = canvas4.toDataURL('image/png');
+    // var imgData5 = canvas5.toDataURL('image/png');
+    // var imgData6 = canvas6.toDataURL('image/png');
+    // var imgData7 = canvas7.toDataURL('image/png');
+    // var imgData8 = canvas8.toDataURL('image/png');
 
 
     var doc = new jsPDF('l', 'mm');
     doc.addImage(imgData1, 'PNG', 15, 5);
-    doc.addPage();
-    doc.addImage(imgData2, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData3, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData4, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData5, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData6, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData7, 'PNG', 15, 5);
-     doc.addPage();
-    doc.addImage(imgData8, 'PNG', 15, 5);
+    // doc.addPage();
+    // doc.addImage(imgData2, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData3, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData4, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData5, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData6, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData7, 'PNG', 15, 5);
+    //  doc.addPage();
+    // doc.addImage(imgData8, 'PNG', 15, 5);
 
     doc.save('Certificado.pdf');
 });
