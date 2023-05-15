@@ -260,13 +260,13 @@ let = orientacion_anio=x;
             ctx.fillText(", " +anio  , orientacion_anio  + 48, 492);
 
 
-// let image1= new Image();
+let image1= new Image();
 
-//       image1.src ="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png";
-//  image1.onload = function() {
+      image1.src ="/certification_qr/codigo.png";
+ image1.onload = function() {
 
-//      ctx.drawImage(image1, 0, 0, 50, 50);
- //}
+     ctx.drawImage(image1, 800, 40, 150, 150);
+ }
 
 
  }
