@@ -115,7 +115,7 @@ class RegistryDetailController extends Controller
         public function certificationGenerate(Request $request)
     {
 
-       $registry_detail =  RegistryDetail::find($request->id);
+      // $registry_detail =  RegistryDetail::find($request->id);
             return Session::put('registry_detail_id',$request->id );
 
       //return view("certification");

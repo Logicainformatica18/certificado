@@ -142,6 +142,11 @@ Route::get('qrcode', function () {
 });
 
 
-    Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'index']);
+    Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
+    //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
+
+         Route::resource("certificaciones-mantenimiento", App\Http\Controllers\CertificationController::class);
+   //obtener registry_detail_id para poder generar el certificado despuees
+

@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
       $this->call(AssistantSeeder::class);
       $this->call(RegistrySeeder::class);
          $this->call(RegistryDetailSeeder::class);
-            $this->call(CertificateSeeder::class);
+            $this->call(CertificationSeeder::class);
     }
 }

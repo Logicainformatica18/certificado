@@ -60,6 +60,42 @@ function certificationEdit(id) {
 
 }
 
+
+function certificationOpen(id) {
+    var formData = new FormData(document.getElementById("qualification"));
+    formData.append("id",id);
+    axios({
+            method: 'post',
+            url: 'certificationGenerate',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+            //abrin nueva pestaña el cerficado generato
+          let url = "certificaciones-mantenimiento";
+           window.open(url, "_blank");
+
+
+
+
+
+
+        })
+        .catch(function (response) {
+
+            //handle error
+            console.log(response);
+        });
+
+}
+
+
+
+
+
 function certificationGenerate(id,language) {
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);

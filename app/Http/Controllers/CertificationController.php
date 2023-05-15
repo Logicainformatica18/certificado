@@ -14,7 +14,16 @@ class CertificationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request,$registry_detail_id,$language)
+    public function index()
+    {
+           $registry_detail_id = Session::get('registry_detail_id');
+            $certification= Certification::where('registry_detail_id','=',$registry_detail_id)->orderBy('id','DESC')->get();
+        return view("certification_maintenance", compact('certification'));
+
+
+    }
+
+    public function report(Request $request,$registry_detail_id,$language)
     {
        // return $id." ".$id1;
         //
@@ -30,7 +39,6 @@ class CertificationController extends Controller
 
 
     }
-
     /**
      * Show the form for creating a new resource.
      */
