@@ -257,16 +257,7 @@ let = orientacion_anio=x;
     ctx.font = "bold 15px Open Sans";
             ctx.fillText(text_th  , orientacion_th +3, 490);
             ctx.font = "bold 20px Open Sans";
-            ctx.fillText(", " +anio  , orientacion_anio  + 48, 492);
-
-//agregar qr encima de certificado
-let image1= new Image();
-
-      image1.src =qr_url;
- image1.onload = function() {
-
-     ctx.drawImage(image1, 800, 40, 150, 150);
- }
+     ctx.fillText(", " + anio, orientacion_anio + 48, 492);
 
 
 
@@ -277,7 +268,19 @@ let image1= new Image();
 
 
 
+
+
+
+
  }
+//agregar qr encima de certificado
+// let image1= new Image();
+
+//       image1.src =qr_url;
+//  image1.onload = function() {
+
+//      ctx.drawImage(image1, 800, 40, 150, 150);
+//  }
 
 }
 
