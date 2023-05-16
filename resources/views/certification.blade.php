@@ -63,7 +63,7 @@
         $qr_url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
 ?>
 
-         {{ QrCode::size(200)->generate($qr_url) }}
+         {{-- {{ QrCode::size(200)->generate($qr_url) }} --}}
            <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
