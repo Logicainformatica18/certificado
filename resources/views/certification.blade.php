@@ -63,7 +63,8 @@
         $qr_url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
 ?>
 
-         {{-- {{ QrCode::size(200)->generate($qr_url) }} --}}
+
+
            <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
@@ -87,8 +88,8 @@ $name = $registry_detail->model_has_role->student->firstname." ".$registry_detai
 $img = "1";
 
 $route_certification = asset("certification/$folder/$language/$img.png");
-$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
-
+//$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
+$route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($qr_url));
 ?>
 <script>
 

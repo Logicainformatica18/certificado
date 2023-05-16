@@ -155,3 +155,4 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
+Route::get('test', fn () => phpinfo());
