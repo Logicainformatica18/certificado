@@ -267,20 +267,20 @@ let = orientacion_anio=x;
  ctx.fillText("ID "+id, 876, 205);
 
 
+ //agregar qr encima de certificado
+ let image1= new Image();
+
+       image1.src =qr_url;
+  image1.onload = function() {
+
+      ctx.drawImage(image1, 800, 40, 150, 150);
+  }
 
 
 
 
 
  }
-//agregar qr encima de certificado
-// let image1= new Image();
-
-//       image1.src =qr_url;
-//  image1.onload = function() {
-
-//      ctx.drawImage(image1, 800, 40, 150, 150);
-//  }
 
 }
 
