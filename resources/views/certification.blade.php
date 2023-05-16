@@ -63,7 +63,7 @@
         $qr_url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
 ?>
 
-        {{-- {{ QrCode::size(200)->generate($qr_url) }} --}}
+         {{ QrCode::size(200)->generate($qr_url) }}
            <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
@@ -76,12 +76,8 @@
     </div>
 <p></p>
 
-
-<script>
-
-//getCertification("");
-
 <?php
+
 $folder = $registry_detail->registry->course->folder_certification;
 $name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
 
@@ -94,6 +90,11 @@ $route_certification = asset("certification/$folder/$language/$img.png");
 $route_qr = asset("certification_qr/r_datascience/41/codigo.png");
 
 ?>
+<script>
+
+//getCertification("");
+
+
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
 
 
