@@ -30,8 +30,8 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">
-                    @csrf
 
+  {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
