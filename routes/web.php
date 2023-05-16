@@ -151,3 +151,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
          Route::resource("certificaciones-mantenimiento", App\Http\Controllers\CertificationController::class);
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
+
+
+ Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
