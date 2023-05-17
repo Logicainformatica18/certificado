@@ -108,10 +108,7 @@ if(confirm("¿Quieres eliminar este registro?")){
 
 function linkedinCertificationGenerate(name,organizationId,issueYear,issueMonth,expirationYear,expirationMonth,certUrl,certId) {
 
-  // certUrl = "https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales";
-
     let linkedin = "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=" + name +"&organizationId="+organizationId+"&issueYear=" + issueYear +"&issueMonth=" +6 +"&issueMonth=" + issueMonth +"&expirationYear=" + expirationYear +"&expirationMonth=" + 6 +"&expirationMonth=" + expirationMonth +"&certUrl=" + certUrl +"&certId="+ certId;
-   //let linkedin=  "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name="+name+"&organizationId=38714525"+"&issueYear="+issueYear+"&issueMonth="+issueMonth+"&expirationYear=12020&expirationMonth=5&certUrl=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultant-sales&certId=12341";
     window.open(linkedin, "_blank");
 }
 
