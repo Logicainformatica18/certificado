@@ -110,27 +110,12 @@ background-repeat:no-repeat
 
 
 <script>
-              let url_image=  canvas1.toDataURL('image/jpeg');
-             // alert(url_image);
 
-              var headTag = document.getElementsByTagName('head')[0];
 
-// Crear el elemento meta
-var metaTag = document.createElement('meta');
 
-// Establecer los atributos del meta tag
-metaTag.setAttribute('property', 'og:image');
-metaTag.setAttribute('content', url_image);
 
-// Añadir el meta tag al elemento head
-headTag.appendChild(metaTag);
+
 </script>
 
-<style>
-    body {
-  /* background-image: url("https://www.nationalgeographic.com.es/medio/2022/12/12/leon-1_b21b27e1_221212155936_1280x720.jpg"); */
-
-}
-</style>
   </body>
 

@@ -268,12 +268,16 @@ let = orientacion_anio=x;
 
 
  //agregar qr encima de certificado
- let image1= new Image();
+     let image1 = new Image();
+
+
+
 
        image1.src =qr_url;
   image1.onload = function() {
 
       ctx.drawImage(image1, 800, 40, 150, 150);
+
   }
 
 
@@ -281,6 +285,14 @@ let = orientacion_anio=x;
 
 
  }
+
+
+
+
+
+
+
+
 
 }
 
@@ -291,10 +303,35 @@ function buttons_png() {
     let lblpng = document.createElement('a');
             lblpng.download = "Certificado.png";
 
-    lblpng.href =  canvas1.toDataURL('image/jpeg');
-    lblpng.click();
-        });
+        lblpng.href = canvas1.toDataURL('image/jpeg');
+
+
+
+
+    // var img = document.getElementById("img_certification");
+    //  img.src = canvas1.toDataURL('image/jpeg');
+    var headTag = document.getElementsByTagName('head')[0];
+
+// Crear el elemento meta
+var metaTag = document.createElement('meta');
+
+// Establecer los atributos del meta tag
+metaTag.setAttribute('property', 'og:image');
+metaTag.setAttribute('content',  canvas1.toDataURL('image/jpeg'));
+
+// Añadir el meta tag al elemento head
+        headTag.appendChild(metaTag);
+
+
+
+        lblpng.click();
+    });
+
+
 }
+
+
+
 
 
 function buttons_pdf(canvas_id) {
