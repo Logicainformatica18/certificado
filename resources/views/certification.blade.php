@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property=”og:image” content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
+    <meta property="og:image" content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
