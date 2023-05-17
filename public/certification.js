@@ -113,11 +113,6 @@ function certificationGenerate(id,language) {
             let url = "certificaciones/registry_detail_id=" + id + "/language=" + language;
             window.open(url, "_blank");
 
-
-
-
-
-
         })
         .catch(function (response) {
 

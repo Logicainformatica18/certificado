@@ -61,13 +61,11 @@
        <center>
 <?php
         $host=$_SERVER["HTTP_HOST"];
-        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
+        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language;
 
 $folder = $registry_detail->registry->course->folder_certification;
 $name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
-
 $img = "1";
-
 $route_certification = asset("certification/$folder/$language/$img.png");
 //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
 $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($url));
@@ -115,7 +113,7 @@ buttons_pdf("canvas")
                 <span>Credencial URL </span> <br>
                 <div class="row center">
                     <div class="col-lg-9">
-                        <input type="text" id="texto" class="form-control" id="" value="{{$url}}">
+                     <input type="text" id="texto" class="form-control" id="" value="{{$url}}">
                          </div>
                     <div class="col-lg-2">
 
