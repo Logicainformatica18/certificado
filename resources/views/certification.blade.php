@@ -28,6 +28,7 @@
     <!-- Google Font: Source Sans Pro -->
 
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <script src="{{asset('linkedin.js')}}"></script>
       <script type="text/javascript" src="{{asset('certification.js')}}"></script>
  <script src="{{ asset('axios.min.js') }}"></script>
 
@@ -60,15 +61,45 @@
        <center>
 <?php
         $host=$_SERVER["HTTP_HOST"];
-        $qr_url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
+        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language=spanish';
+
+$folder = $registry_detail->registry->course->folder_certification;
+$name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
+
+$img = "1";
+
+$route_certification = asset("certification/$folder/$language/$img.png");
+//$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
+$route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($url));
 ?>
+<script>
+generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
 
+buttons_pdf("canvas")
 
+ buttons_png();
 
+</script>
+
+<style>
+    .linkedin{
+
+        background-image: url("{{asset('dist/img/es_ES.png')}}");
+height: 40px;
+width: 160px;
+background-repeat:no-repeat
+
+    }
+</style>
            <p></p>
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF Todo</button>
+                <button class="btn linkedin" onclick="linkedinCertificationGenerate()" > </button>
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share"  data-url="{{$url}}"></script>
+
             </div>
 
         </center>
@@ -77,37 +108,14 @@
     </div>
 <p></p>
 
-<?php
-
-$folder = $registry_detail->registry->course->folder_certification;
-$name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
 
 
 
+<style>
+    body {
+  /* background-image: url("https://www.nationalgeographic.com.es/medio/2022/12/12/leon-1_b21b27e1_221212155936_1280x720.jpg"); */
 
-$img = "1";
-
-$route_certification = asset("certification/$folder/$language/$img.png");
-//$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
-$route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($qr_url));
-?>
-<script>
-
-//getCertification("");
-
-
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
-
-
-buttons_pdf("canvas")
-
- buttons_png();
-
-</script>
-
-
-
-
-
+}
+</style>
   </body>
 
