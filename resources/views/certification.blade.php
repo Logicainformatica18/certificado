@@ -140,7 +140,11 @@ buttons_pdf("canvas")
 
 <script>
 
+// Obtén la etiqueta de meta imagen
+const metaImageTag = document.querySelector('meta[property="og:image"]');
 
+// Establece el contenido de la etiqueta de meta imagen
+metaImageTag.setAttribute('content',canvas.toDataURL('image/png') );
 
 
 
