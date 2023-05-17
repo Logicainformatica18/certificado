@@ -106,14 +106,19 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function linkedinCertificationGenerate(name,organizationId,issueYear,issueMonth,expirationYear,expirationMonth,certUrl,certId) {
+function linkedinCertificationGenerate(name,organizationId,issueYear,issueMonth,expirationYear,expirationMonth,certId) {
 
-    let linkedin = "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=" + name +"&organizationId="+organizationId+"&issueYear=" + issueYear +"&issueMonth=" +6 +"&issueMonth=" + issueMonth +"&expirationYear=" + expirationYear +"&expirationMonth=" + 6 +"&expirationMonth=" + expirationMonth +"&certUrl=" + certUrl +"&certId="+ certId;
+    let linkedin = "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=" + name +"&organizationId="+organizationId+"&issueYear=" + issueYear +"&issueMonth=" +6 +"&issueMonth=" + issueMonth +"&certId="+ certId;
     window.open(linkedin, "_blank");
 }
 
 
-
+  function copiarAlPortapapeles() {
+            let texto = document.getElementById('texto');
+            texto.select();
+            texto.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+        }
 
 
 
