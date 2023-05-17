@@ -109,7 +109,22 @@ background-repeat:no-repeat
 <p></p>
 
 
+<script>
+              let url_image=  canvas1.toDataURL('image/jpeg');
+             // alert(url_image);
 
+              var headTag = document.getElementsByTagName('head')[0];
+
+// Crear el elemento meta
+var metaTag = document.createElement('meta');
+
+// Establecer los atributos del meta tag
+metaTag.setAttribute('property', 'og:image');
+metaTag.setAttribute('content', url_image);
+
+// Añadir el meta tag al elemento head
+headTag.appendChild(metaTag);
+</script>
 
 <style>
     body {
