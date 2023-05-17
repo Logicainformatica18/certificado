@@ -310,17 +310,17 @@ function buttons_png() {
 
     // var img = document.getElementById("img_certification");
     //  img.src = canvas1.toDataURL('image/jpeg');
-    var headTag = document.getElementsByTagName('head')[0];
+ //   var headTag = document.getElementsByTagName('head')[0];
 
-// Crear el elemento meta
-var metaTag = document.createElement('meta');
+// // Crear el elemento meta
+// var metaTag = document.createElement('meta');
 
-// Establecer los atributos del meta tag
-metaTag.setAttribute('property', 'og:image');
-metaTag.setAttribute('content',  canvas1.toDataURL('image/jpeg'));
+// // Establecer los atributos del meta tag
+// metaTag.setAttribute('property', 'og:image');
+// metaTag.setAttribute('content',  canvas1.toDataURL('image/jpeg'));
 
-// Añadir el meta tag al elemento head
-        headTag.appendChild(metaTag);
+// // Añadir el meta tag al elemento head
+//         headTag.appendChild(metaTag);
 
 
 

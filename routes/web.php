@@ -141,6 +141,14 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 });
 
 
+//// social media
+   Route::post('socialMediaShare',[App\Http\Controllers\SocialMediaController::class, 'share']);
+
+//
+
+
+
+
     Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);

@@ -85,18 +85,38 @@ buttons_pdf("canvas")
     .linkedin{
 
         background-image: url("{{asset('dist/img/es_ES.png')}}");
-height: 40px;
-width: 160px;
-background-repeat:no-repeat
+    height: 40px;
+            width: 160px;
+            background-repeat:no-repeat
 
     }
 </style>
            <p></p>
+            <?php
+    $name =$registry_detail->registry->course->description;
+    $organizationId ="38714525";
+    $date = strtotime($registry_detail->registry->fec_end);
+     $issueYear =date("Y", $date);
+
+     $issueMonth =date("m", $date);
+      $expirationYear = date("Y", $date);
+
+      $expirationMonth = date("m", $date);
+      $url =   str_replace(":", "%3A", $url);
+          $url =   str_replace("/", "%2F", $url);
+            // modelo url pagina
+          //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
+          $certId =$registry_detail->registry->description;
+                ?>
+
             <div class="form-layout-footer align-content-center">
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF Todo</button>
-                <button class="btn linkedin" onclick="linkedinCertificationGenerate()" > </button>
+           <button class="btn linkedin"
+   onclick="linkedinCertificationGenerate('{{$name}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$expirationYear}}','{{$expirationMonth}}','{{$url}}','{{$certId}}')" >
 
+
+                </button>
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share"  data-url="{{$url}}"></script>
 
