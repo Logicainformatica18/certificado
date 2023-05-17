@@ -106,9 +106,9 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function linkedinCertificationGenerate(name,organizationId,issueYear,issueMonth,expirationYear,expirationMonth,certId) {
+function linkedinCertificationGenerate(name,organizationId,issueYear,issueMonth,certId) {
 
-    let linkedin = "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=" + name +"&organizationId="+organizationId+"&issueYear=" + issueYear +"&issueMonth=" +6 +"&issueMonth=" + issueMonth +"&certId="+ certId;
+    let linkedin = "https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=" + name +"&organizationId="+organizationId+"&issueYear=" + issueYear +"&issueMonth=" + issueMonth +"&certId="+ certId;
     window.open(linkedin, "_blank");
 }
 

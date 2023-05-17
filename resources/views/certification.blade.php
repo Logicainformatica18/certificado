@@ -126,7 +126,7 @@ buttons_pdf("canvas")
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF</button>
            <button class="btn linkedin"
-   onclick="linkedinCertificationGenerate('{{$name}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$expirationYear}}','{{$expirationMonth}}','{{$certId}}')" >
+   onclick="linkedinCertificationGenerate('{{$name}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
   </button>
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share"  data-url="https://certificado.socialdata-peru.com/certificaciones/registry_detail_id=1/language=spanish"></script>
