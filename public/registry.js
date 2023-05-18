@@ -43,11 +43,12 @@ function registryEdit(id) {
             registry.description.value= response.data["description"];
           registry.detail.value=    response.data["detail"];
            registry.schedule.value=    response.data["schedule_id"];
-           registry.course.value=    response.data["course_id"];
-           registry.fec_start.value=    response.data["fec_start"];
-           registry.fec_end.value=    response.data["fec_end"];
-           registry.hour_start.value=    response.data["hour_start"];
+            registry.course.value = response.data["course_id"];
 
+             registry.fec_start.value = response.data["fec_start"].substr(0, 10);
+            registry.fec_end.value = response.data["fec_end"].substr(0, 10);
+           registry.hour_start.value=    response.data["hour_start"];
+registry.date_certification.value = response.data["date_certification"].substr(0, 10);
            registry.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
            registry.assistance.value=    response.data["assistance_id"];
             registry.edition.value = response.data["edition"];

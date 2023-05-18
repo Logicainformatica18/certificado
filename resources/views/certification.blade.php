@@ -88,7 +88,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
             <?php
     $name =$registry_detail->registry->course->description;
     $organizationId ="38714525";
-    $date = strtotime($registry_detail->registry->fec_end);
+    $date = strtotime($registry_detail->registry->date_certification);
      $issueYear =date("Y", $date);
 
      $issueMonth =date("m", $date);

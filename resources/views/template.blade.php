@@ -56,6 +56,9 @@
         $.widget.bridge('uibutton', $.ui.button)
 
     </script>
+<!-- FORMATEAR FECHA DE DATE A STRING PARA JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- ChartJS -->
@@ -449,17 +452,23 @@
                                         <p>Tipos</p>
                                     </a>
                                 </li>
-   <li class="nav-item">
-                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
+                                           <li class="nav-item">
+                                    <a href="{{ route('certificados-mantenimiento.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Certificados</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mis Certificados</p>
                                     </a>
                                 </li>
 @elseif('Estudiante')
                               <li class="nav-item">
                                     <a href="{{ route('Mis-certificados.index')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Certificados</p>
+                                        <p>Mis Certificados</p>
                                     </a>
                                 </li>
 @endrole

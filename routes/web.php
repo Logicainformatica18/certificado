@@ -155,7 +155,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
 
     //obtener registry_detail_id para poder generar el certificado despuees
-         Route::resource("certificaciones-mantenimiento", App\Http\Controllers\CertificationController::class);
+         Route::resource("certificados-mantenimiento", App\Http\Controllers\CertificationController::class);
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
 
