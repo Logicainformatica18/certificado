@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:image" content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
-<meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en SDC LEARNING."/>
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">

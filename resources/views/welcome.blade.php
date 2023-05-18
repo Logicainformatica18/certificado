@@ -19,15 +19,24 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<style type="text/css">
+ .welcome {
+   margin:0px;
+   background-image: url('https://sdc-learning.pe/wp-content/uploads/2022/12/portada_img_1.jpg');
 
-<body class="hold-transition login-page" style="background-image: url('https://img.freepik.com/free-vector/retro-abstract-ornamental-flowers-background_23-2148370307.jpg?size=626&ext=jpg')">
+   width:100%;
+   background-repeat:no-repeat
+ }
+</style>
+<body class="login-page welcome">
     <div class="login-box">
-        <div class="login-logo">
-            <a href="#" class="text-orange" ><b class="text-white"></b>CERTIFICADOS SDC</a>
-        </div>
+
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
+                  <div class="login-logo">
+            <b class="text-blue">CERTIFICADOS SDC</b>
+        </div>
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">
 

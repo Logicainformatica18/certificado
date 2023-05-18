@@ -95,6 +95,7 @@ class RegistryController extends Controller{
         $registry->detail = $request->detail;
         $registry->edition = $request->edition;
        $registry->type = $request->type;
+         $registry->date_certification = $request->date_certification;
         $registry->save();
       //return print_r($registry);
       return $this->create();
@@ -133,6 +134,7 @@ class RegistryController extends Controller{
         $registry->fec_start = $request->fec_start;
         $registry->fec_end = $request->fec_end;
         $registry->detail = $request->detail;
+           $registry->date_certification = $request->date_certification;
    $registry->type = $request->type;
         $registry->save();
         return $this->create();

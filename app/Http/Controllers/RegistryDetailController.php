@@ -23,12 +23,14 @@ class RegistryDetailController extends Controller
         $registry_id = Session::get('registry_id');
         $registry = Registry::find($registry_id);
         $registry_detail = RegistryDetail::where("registry_id","=",$registry_id)->get();
+
         //$student = Student::all();
 
         $student =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=5");
 
-        return view('registry_detail',compact('registry_id','registry_detail','student','registry'));
+      
+       return view('registry_detail',compact('registry_id','registry_detail','student','registry'));
 
 
     }

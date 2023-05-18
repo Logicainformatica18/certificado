@@ -27,7 +27,6 @@
                                     <th class="sorting">Nota 3</th>
                                     <th class="sorting">Promedio</th>
                                     <th class="sorting">Estado</th>
-
                                      <th class="sorting">Certificado URL</th>
                                       <th class="sorting">Certificado Estado de Envio</th>
                                       <th>Generar Certificado</th>
@@ -35,10 +34,14 @@
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $enumeracion =0;
+                                    ?>
                                     @foreach ($registry_detail as $registry_details)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $registry_details->id }}</td>
+                                            {{-- <td>{{ $registry_details->id }}</td> --}}
+                                            <td>{{ $enumeracion=  $enumeracion + 1  }}</td>
                                             <td>
                                                 {{$registry_details->model_has_role->student->names }}
                                             </td>

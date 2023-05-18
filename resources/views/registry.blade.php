@@ -83,6 +83,9 @@
                                                     <input type="date" name="fec_start" id="fec_start" class="form-control">
                                                     Fecha Fin :
                                                     <input type="date" name="fec_end" id="fec_end" class="form-control">
+                                                     Fecha Fecha de Certificación :
+
+                                                    <input type="date" name="date_certification" id="date_certification" class="form-control">
                                                     Hora Inicio :
                                                     <input type="time" name="hour_start" id="hour_start" class="form-control" value="19:00:00">
                                                     Hora Fin :

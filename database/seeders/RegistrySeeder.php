@@ -33,6 +33,7 @@ class RegistrySeeder extends Seeder
                 'hour_end' => '22:00:00',
                 'fec_start' => '2023-05-04',
                 'fec_end' => '2023-06-06',
+                'date_certification' => '2023-05-06',
                 'detail' => '',
                 'edition' => '40',
                 'type' => 'Clase'

@@ -37,8 +37,9 @@ return new class extends Migration
               ////////////////
               $table->time('hour_start');
               $table->time('hour_end');
-              $table->string('fec_start');
-              $table->string('fec_end');
+              $table->dateTime('fec_start');
+              $table->dateTime('fec_end');
+              $table->date('date_certification');
               $table->string('edition');
                 $table->string('type');
               $table->string('detail')->nullable();
