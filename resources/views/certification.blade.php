@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en {{$registry_detail->registry->course->description}}, realizado en SDC LEARNING."/>
     <title>Certificados SDC</title>
