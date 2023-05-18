@@ -86,7 +86,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
 
 
             <?php
-    $name =$registry_detail->registry->course->description;
+    $name_course =$registry_detail->registry->course->description;
     $organizationId ="38714525";
     $date = strtotime($registry_detail->registry->date_certification);
      $issueYear =date("Y", $date);
@@ -122,7 +122,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF</button>
            <button class="btn linkedin"
-   onclick="linkedinCertificationGenerate('{{$name}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
+   onclick="linkedinCertificationGenerate('{{$name_course}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
   </button>
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share"  data-url="https://certificado.socialdata-peru.com/certificaciones/registry_detail_id=1/language=spanish"></script>
