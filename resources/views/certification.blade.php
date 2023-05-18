@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:image" content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
+    <meta property="og:image" content=""/>
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
+<meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en {{$registry_detail->registry->course->description}}, realizado en SDC LEARNING."/>
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,14 +115,18 @@ buttons_pdf("canvas")
             <div class="form-layout-footer align-content-center">
                 <span>Credencial URL </span> <br>
                 <div class="row center">
-                    <div class="col-lg-9">
-                     <input type="text" id="texto" class="form-control" id="" value="{{$url}}">
-                         </div>
                     <div class="col-lg-2">
 
-                <button class="btn btn-success"onclick="copiarAlPortapapeles() ;"><i class="fa fa-send mg-r-10"></i> Copiar</button>
+                    </div>
+                    <div class="col-lg-">
+<input type="text" id="texto" class="form-control" id="" value="{{$url}}">
+                <button class="btn btn-success btn-sm"onclick="copiarAlPortapapeles() ;"><i class="fa fa-send mg-r-10"></i> Copiar</button>
+                        </div>
+                    <div class="col-lg-2">
+
                          </div>
                 </div>
+
                 <p></p>
                 <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
                 <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i> PDF</button>
