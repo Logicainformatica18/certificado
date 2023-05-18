@@ -7,7 +7,7 @@
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="icon" type="image/jpg" href="{{asset('dist/img/favicon.png')}}"/>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -35,7 +35,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                   <div class="login-logo">
-            <b class="text-blue">CERTIFICADOS SDC</b>
+            <b class="text-blue" style="font-family: Arial 50px">CERTIFICADOS SDC</b>
         </div>
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">
@@ -96,7 +96,7 @@
                         <!-- /.col -->
                         <div class="col-6 align-center">
                           @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link text-orange" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
