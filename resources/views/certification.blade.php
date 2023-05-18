@@ -118,7 +118,7 @@ buttons_pdf("canvas")
                     <div class="col-lg-2">
 
                     </div>
-                    <div class="col-lg-">
+                    <div class="col-lg-8">
 <input type="text" id="texto" class="form-control" id="" value="{{$url}}">
                 <button class="btn btn-success btn-sm"onclick="copiarAlPortapapeles() ;"><i class="fa fa-send mg-r-10"></i> Copiar</button>
                         </div>
