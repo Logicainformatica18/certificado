@@ -73,14 +73,6 @@ $route_certification = asset("certification/$folder/$language/$img.png");
 //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
 $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($url));
 ?>
-<script>
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
-
-buttons_pdf("canvas")
-
- buttons_png();
-
-</script>
 
 <style>
     .linkedin{
@@ -144,15 +136,13 @@ buttons_pdf("canvas")
 <p></p>
 
 
+
 <script>
+generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
 
-// Obtén la etiqueta de meta imagen
-const metaImageTag = document.querySelector('meta[property="og:image"]');
+buttons_pdf("canvas")
 
-// Establece el contenido de la etiqueta de meta imagen
-metaImageTag.setAttribute('content',canvas.toDataURL('image/png') );
-
-
+ buttons_png();
 
 </script>
 
