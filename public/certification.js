@@ -269,8 +269,19 @@ let = orientacion_anio=x;
      image1.addEventListener("load", function() {
   // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
    // alert("El canvas ha terminado de cargar");
-    let imagen = document.getElementById("imagen");
-    imagen.src=canvas1.toDataURL('image/jpeg');
+    //let imagen = document.getElementById("imagen");
+   // imagen.src=canvas1.toDataURL('image/jpeg');
+
+           var metaTag = document.createElement("meta");
+  metaTag.setAttribute("property", "og:image");
+  metaTag.setAttribute("content", canvas1.toDataURL('image/jpeg'));
+  document.head.appendChild(metaTag);
+
+
+
+
+
+
      });
 
  }
