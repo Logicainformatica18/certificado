@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
+<meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
+
+
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +49,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
-    </head>
+</head>
   <body class="pos-relative">
 
     <div class="ht-100v d-flex align-items-center justify-content-center">
