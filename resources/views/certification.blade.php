@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta property="og:image" content="https://socialdata-peru.com/wp-content/uploads/2020/12/logozul-e1631903589402-300x300.png"/>
+
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
