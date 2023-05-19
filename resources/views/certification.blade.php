@@ -7,7 +7,7 @@
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
-<meta name="image" id="oimage"property="og:image" content="{{asset('imageusers/1683166462_imagen_2023-05-03_211418888.png')}}">
+<meta name="image" id="oimage"property="og:image" content="{{asset('dist/img/AdminLTELogo.png')}}">
 
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
