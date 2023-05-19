@@ -27,9 +27,10 @@
                                     <th class="sorting">Nota 3</th>
                                     <th class="sorting">Promedio</th>
                                     <th class="sorting">Estado</th>
-                                     <th class="sorting">Certificado URL</th>
+                                     <th class="sorting">Código Certificado previo</th>
+                                      <th class="sorting">Código Certificado Guardado</th>
                                       <th class="sorting">Certificado Estado de Envio</th>
-                                      <th>Generar Certificado</th>
+                             
                                       <th>Certificado</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
@@ -80,17 +81,27 @@
                                             @endif
                                          </td>
                                          <td>
-                                            {{$registry_details->url_certification}}
+                                            <?php
+                                            if ($enumeracion > 9 && $enumeracion <100) {
+                                                $enumeracion = "0".$enumeracion;
+                                            }
+                                            elseif ($enumeracion <10) {
+                                                $enumeracion = "00".$enumeracion;
+                                            }
+
+                                            ?>
+                                            {{ $code_certification =$registry_details->registry->description."-".$enumeracion}}
+                                        </td>
+                                         <td>
+                                            {{$registry_details->code_certification}}
                                         </td>
                                         <td>
                                             {{$registry_details->state_certification}}
                                         </td>
-                                        <td>
-                                             <button class="btn btn-success" onclick="certificationOpen('{{ $registry_details->id }}')" >Generar</button>
-                                        </td>
+                                      
                                                <td>
-                                                      <button class="btn btn-warning" onclick="certificationGenerate('{{ $registry_details->id }}','spanish')" >Español</button>
-<button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','english')" >Ingles</button>
+                                                      <button class="btn btn-warning" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Español</button>
+<button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Ingles</button>
                                                 </td>
                                             <td>
                                                 <?php

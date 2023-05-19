@@ -23,7 +23,7 @@ class CertificationController extends Controller
 
     }
 
-    public function report(Request $request,$registry_detail_id,$language)
+    public function report(Request $request,$registry_detail_id,$language,$code_certification)
     {
        // return $id." ".$id1;
         //
@@ -32,7 +32,17 @@ class CertificationController extends Controller
          $id =explode("=",$registry_detail_id);
          $language = explode("=",$language);
         $language = $language[1];
-          $registry_detail = RegistryDetail::find($id[1]);
+
+        $code_certification = explode("=",$code_certification);
+        $code_certification = $code_certification[1];
+          //$registry_detail = RegistryDetail::find($id[1]);
+//actualizar campo code_certification
+  $registry_detail =  RegistryDetail::find($id[1]);
+    $registry_detail->code_certification = $code_certification;  
+$registry_detail->save();
+
+
+
 
       return view("certification",compact("registry_detail","language"));
 

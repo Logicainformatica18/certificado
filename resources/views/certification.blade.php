@@ -63,7 +63,7 @@
        <center>
 <?php
         $host=$_SERVER["HTTP_HOST"];
-        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language;
+        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language.'/id='.$registry_detail->code_certification;
 
 $folder = $registry_detail->registry->course->folder_certification;
 $name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
@@ -125,7 +125,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
    onclick="linkedinCertificationGenerate('{{$name_course}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
   </button>
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share"  data-url="https://certificado.socialdata-peru.com/certificaciones/registry_detail_id=1/language=spanish"></script>
+<script type="IN/Share"  data-url="{{$url}}"></script>
             </div>
 
         </center>
@@ -137,7 +137,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
 
 
 <script>
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->registry->description}}");
+generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
 
 buttons_pdf("canvas")
 

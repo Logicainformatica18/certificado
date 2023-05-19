@@ -96,7 +96,7 @@ function certificationOpen(id) {
 
 
 
-function certificationGenerate(id,language) {
+function certificationGenerate(id,language,code_certification) {
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
     axios({
@@ -110,7 +110,7 @@ function certificationGenerate(id,language) {
         .then(function(response) {
             //handle success
             //abrin nueva pestaña el cerficado generato
-            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language;
+            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language +"/id="+code_certification;
             window.open(url, "_blank");
 
         })
@@ -259,7 +259,7 @@ let = orientacion_anio=x;
  ctx.font = "14px Open Sans";
  ctx.fillStyle ="#01233A";
  ctx.textAlign = "center";
- ctx.fillText("ID "+id, 876, 205);
+ ctx.fillText("ID: SDC "+id, 875, 205);
 
 
  //agregar qr encima de certificado

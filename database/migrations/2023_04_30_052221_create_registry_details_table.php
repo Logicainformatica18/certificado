@@ -33,6 +33,7 @@ return new class extends Migration
 
             $table->foreign(['student_m','student_t','student_r'])
             ->references(['model_id','model_type','role_id'])->on('model_has_roles');
+            $table->string('code_certification')->nullable();
             $table->string('url_certification')->nullable();
             $table->string('state_certification')->nullable();
             $table->timestamps();

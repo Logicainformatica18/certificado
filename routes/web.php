@@ -149,7 +149,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
 
 
-    Route::get('certificaciones/{registry_detail_id}/{language}',[App\Http\Controllers\CertificationController::class, 'report']);
+    Route::get('certificaciones/{registry_detail_id}/{language}/{id}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
@@ -162,4 +162,4 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
-Route::get('test', fn () => phpinfo());
+//Route::get('test', fn () => phpinfo());

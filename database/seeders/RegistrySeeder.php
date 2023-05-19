@@ -19,7 +19,7 @@ class RegistrySeeder extends Seeder
              //   'coordination_m' => '2',
             //    'coordination_t' => 'App\Models\User',
             ///    'coordination_r' => '2',
-            'description' => 'SQL37-2023-004',
+            'description' => 'PR25-2021-01',
 
                 'teacher_m' => '3',
                 'teacher_t' => 'App\Models\User',
