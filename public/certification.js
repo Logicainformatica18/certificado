@@ -254,41 +254,26 @@ let = orientacion_anio=x;
             ctx.font = "bold 20px Open Sans";
      ctx.fillText(", " + anio, orientacion_anio + 48, 492);
 
-
-
  ctx.font = "14px Open Sans";
  ctx.fillStyle ="#01233A";
  ctx.textAlign = "center";
  ctx.fillText("ID: SDC "+id, 875, 205);
 
-
  //agregar qr encima de certificado
      let image1 = new Image();
-
-
-
-
        image1.src =qr_url;
   image1.onload = function() {
-
       ctx.drawImage(image1, 800, 40, 150, 150);
-
   }
 
-
-
-
+     image1.addEventListener("load", function() {
+  // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
+   // alert("El canvas ha terminado de cargar");
+    let imagen = document.getElementById("imagen");
+    imagen.src=canvas1.toDataURL('image/jpeg');
+     });
 
  }
-
-
-
-
-
-
-
-
-
 }
 
 function buttons_png() {

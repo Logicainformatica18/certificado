@@ -43,7 +43,9 @@
   {{ session('success') }}
 
    <!-- jQuery -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
     </head>
   <body class="pos-relative">
 
@@ -125,7 +127,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
    onclick="linkedinCertificationGenerate('{{$name_course}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
   </button>
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share"  data-url="{{$url}}"></script>
+<script type="IN/Share"  data-url="{{""}}"></script>
             </div>
 
         </center>
@@ -134,16 +136,27 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
     </div>
 <p></p>
 
-
-
 <script>
 generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
 
 buttons_pdf("canvas")
 
- buttons_png();
+ //buttons_png();
+
+    $(document).on("click", "#btnpng", function () {
+
+   let lblpng = document.createElement('a');
+           lblpng.download = "Certificado.png";
+           lblpng.href = canvas1.toDataURL('image/jpeg');
+           lblpng.click();
+
+    });
+
 
 </script>
+
+  <img id="imagen" src="{{$route_qr}}" alt="sdssd">
+
 
   </body>
 
