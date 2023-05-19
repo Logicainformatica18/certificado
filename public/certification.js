@@ -272,8 +272,8 @@ let = orientacion_anio=x;
    let imagen = document.getElementById("imagen");
     imagen.src=canvas1.toDataURL('image/jpeg');
 
-   let oimage = document.getElementById("oimage");
-        oimage.content=canvas1.toDataURL('image/jpeg');
+//   let oimage = document.getElementById("oimage");
+//        oimage.content=canvas1.toDataURL('image/jpeg');
 
 
      });

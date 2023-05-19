@@ -158,7 +158,7 @@ buttons_pdf("canvas")
 
 </script>
 
-  <img id="imagen" src="{{$route_qr}}" alt="sdssd">
+  {{-- <img id="imagen" src="{{$route_qr}}" alt="sdssd"> --}}
 
 
   </body>
