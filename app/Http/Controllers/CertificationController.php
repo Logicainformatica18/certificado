@@ -57,7 +57,7 @@ $registry_detail->save();
 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->id));
 
 // Nombre del archivo de salida
-$filename = "certificados/r/edicion/40/certificado.png";
+$filename = storage_path('app/public/certificados/r/edicion/40/certificado.png');
 // Guardar la imagen en un archivo
 file_put_contents($filename, $imageData);
 
