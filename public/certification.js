@@ -112,7 +112,7 @@ function getCertification(id) {
 
 
 
-function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id) {
+function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id,validate_user) {
       var c = document.getElementById(canvas_id);
   //  var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -253,7 +253,10 @@ let = orientacion_anio=x;
 //        oimage.content=canvas1.toDataURL('image/jpeg');
 
 //  GUARDAR IMAGEN EN INPUT
-            certificationSavePhoto(imagen.value,id)
+
+             certificationSavePhoto(imagen.value, id);
+
+
      });
 
  }

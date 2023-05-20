@@ -29,8 +29,8 @@
                                     <th class="sorting">Estado</th>
                                      <th class="sorting">Código Certificado previo</th>
                                       <th class="sorting">Código Certificado Guardado</th>
-                                      <th class="sorting">Certificado Estado de Envio</th>
-                             
+                                      <th class="sorting">Estado</th>
+
                                       <th>Certificado</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
@@ -95,10 +95,15 @@
                                          <td>
                                             {{$registry_details->code_certification}}
                                         </td>
-                                        <td>
-                                            {{$registry_details->state_certification}}
+                                        <td >
+                                            @if ($registry_details->code_certification=="")
+                                             <b class="text-red">  No generado</b>
+                                            @else
+                                               <b>Certificado Generado</b>
+                                            @endif
+                                            {{-- {{$registry_details->state_certification}} --}}
                                         </td>
-                                      
+
                                                <td>
                                                       <button class="btn btn-warning" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Español</button>
 <button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Ingles</button>

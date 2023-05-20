@@ -172,18 +172,19 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
 //Route::get('test', fn () => phpinfo());
 
-Route::get('storage/{filename}', function ($filename) {
-    $path = storage_path('app/public/certificados/r/edicion/40' . $filename);
+// Route::get('storage/{filename}', function ($filename) {
+//     $path = storage_path('app/public/certificados/r/edicion/40' . $filename);
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+//     if (!File::exists($path)) {
+//         abort(404);
+//     }
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
+//     $file = File::get($path);
+//     $type = File::mimeType($path);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
+//     $response = Response::make($file, 200);
+//     $response->header("Content-Type", $type);
 
-    return $response;
-})->where('filename', '(.*)');
+//     return $response;
+// })->where('filename', '(.*)');
+

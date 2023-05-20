@@ -7,7 +7,7 @@
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
-<meta name="image" id="oimage"property="og:image" content="{{url('storage/certificado.png')}}">
+<meta name="image" id="oimage"property="og:image" content="{{url('storage/certificados/r/edicion/40/'.$registry_detail->code_certification.".png")}}">
 
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -107,6 +107,8 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
             // modelo url pagina
           //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
           $certId =$registry_detail->registry->description;
+
+
                 ?>
 
             <div class="form-layout-footer align-content-center">
@@ -135,8 +137,8 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
 @role('Coordinación')
                     <form  id="certification" method="post" action="" enctype="multipart/form-data"
                                 name="certification">
-                                <button class="btn btn-danger"   onclick="certificationSavePhoto();" >Guardar </button>
-  <input type='hidden' id="img_source" name="photo" >
+                                {{-- <button class="btn btn-danger"   onclick="certificationSavePhoto();" >Guardar </button>
+  <input type='hidden' id="img_source" name="photo" > --}}
                     </form>
 @endrole
 
@@ -152,7 +154,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
 <p></p>
 
 <script>
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
+    generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
 
 buttons_pdf("canvas")
 
@@ -172,6 +174,7 @@ buttons_pdf("canvas")
 <input type="hidden" id="imagen" value="">
 
 <div id="mycontent"></div>
+
 
   </body>
 
