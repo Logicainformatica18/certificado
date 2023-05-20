@@ -170,7 +170,7 @@ buttons_pdf("canvas")
 
 </script>
 
-   <img id="imagen" src="{{$route_qr}}" alt="sdssd">
+   <img id="imagen" src="{{asset('certificados/r/40/certificado.png')}}" alt="sdssd">
 <div id="mycontent"></div>
 
   </body>

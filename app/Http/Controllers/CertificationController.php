@@ -58,13 +58,9 @@ $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $reque
 
 // Nombre del archivo de salida
 $filename = "certificados/r/edicion/40/certificado.png";
-
 // Guardar la imagen en un archivo
 file_put_contents($filename, $imageData);
 
-//Guardar la imagen en un archivo
-//file_put_contents($filename, $imageData);
-      echo "La imagen se ha convertido y guardado correctamente";
     }
 
 
