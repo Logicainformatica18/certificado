@@ -264,7 +264,7 @@ function certificationSavePhoto(id,code_certification) {
          formData.append("code_certification",code_certification);
     axios({
             method: 'post',
-            url: '../../certificationSavePhoto',
+            url: "http://localhost:8000/certificaciones/certificationSavePhoto",
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
