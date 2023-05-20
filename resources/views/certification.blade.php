@@ -152,7 +152,7 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
 <p></p>
 
 <script>
-generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
+generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}","{{'http://'.$host.'/certificaciones/certificationSavePhoto'}}");
 
 buttons_pdf("canvas")
 
