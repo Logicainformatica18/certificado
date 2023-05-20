@@ -7,7 +7,7 @@
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
-<meta name="image" id="oimage"property="og:image" content="{{asset('dist/img/AdminLTELogo.png')}}">
+<meta name="image" id="oimage"property="og:image" content="{{asset('certificados/r/40/certificado.png')}}">
 
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -36,6 +36,7 @@
     <script src="{{asset('linkedin.js')}}"></script>
       <script type="text/javascript" src="{{asset('certification.js')}}"></script>
  <script src="{{ asset('axios.min.js') }}"></script>
+  <script src="{{ asset('function.js') }}"></script>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
@@ -129,8 +130,19 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
            <button class="btn linkedin"
    onclick="linkedinCertificationGenerate('{{$name_course}}','{{$organizationId}}','{{$issueYear}}','{{$issueMonth}}','{{$certId}}')" >
   </button>
+
+
+@role('Coordinación')
+                    <form  id="certification" method="post" action="" enctype="multipart/form-data"
+                                name="certification">
+                                <button class="btn btn-danger"   onclick="certificationSavePhoto();" >Guardar </button>
+  <input type='hidden' id="img_source" name="photo" >
+                    </form>
+@endrole
+
+
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-<script type="IN/Share"  data-url="{{""}}"></script>
+<script type="IN/Share"  data-url="{{''}}"></script>
             </div>
 
         </center>
@@ -158,8 +170,8 @@ buttons_pdf("canvas")
 
 </script>
 
-  {{-- <img id="imagen" src="{{$route_qr}}" alt="sdssd"> --}}
-
+   <img id="imagen" src="{{$route_qr}}" alt="sdssd">
+<div id="mycontent"></div>
 
   </body>
 

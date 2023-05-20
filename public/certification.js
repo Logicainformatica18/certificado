@@ -1,28 +1,4 @@
 
-function certificationStore() {
-    var formData = new FormData(document.getElementById("certification"));
-    axios({
-            method: 'post',
-            url: 'certificationStore',
-            data: formData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function(response) {
-            //handle success
-            var contentdiv = document.getElementById("mycontent");
-            contentdiv.innerHTML = response.data;
-  //carga pdf- csv - excel
-  datatable_load();
-  alert('Registrado Correctamente');
-        })
-        .catch(function(response) {
-            //handle error
-            console.log(response);
-        });
-
-}
 
 function certificationEdit(id) {
     var formData = new FormData(document.getElementById("certification"));
@@ -269,17 +245,63 @@ let = orientacion_anio=x;
      image1.addEventListener("load", function() {
   // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
    // alert("El canvas ha terminado de cargar");
-   let imagen = document.getElementById("imagen");
+
+       let imagen = document.getElementById("imagen");
     imagen.src=canvas1.toDataURL('image/jpeg');
 
 //   let oimage = document.getElementById("oimage");
 //        oimage.content=canvas1.toDataURL('image/jpeg');
 
-
+//  GUARDAR IMAGEN EN INPUT
+            certificationSavePhoto(imagen.src)
      });
 
  }
 }
+function certificationSavePhoto(id) {
+    var formData = new FormData(document.getElementById("certification"));
+     formData.append("id",id);
+    axios({
+            method: 'post',
+            url: '../../certificationSavePhoto',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+
+           var contentdiv = document.getElementById("mycontent");
+           contentdiv.innerHTML = response.data;
+  //carga pdf- csv - excel
+
+            alert('Guardado en disco correctamente');
+        })
+        .catch(function(response) {
+            //handle error
+            console.log(response);
+        });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function buttons_png() {
          //gnerar png

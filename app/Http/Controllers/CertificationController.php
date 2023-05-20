@@ -38,7 +38,7 @@ class CertificationController extends Controller
           //$registry_detail = RegistryDetail::find($id[1]);
 //actualizar campo code_certification
   $registry_detail =  RegistryDetail::find($id[1]);
-    $registry_detail->code_certification = $code_certification;  
+    $registry_detail->code_certification = $code_certification;
 $registry_detail->save();
 
 
@@ -49,6 +49,25 @@ $registry_detail->save();
 
 
     }
+
+    public function savePhoto(Request $request)
+    {
+
+//     Decodificar la cadena base64
+$imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->id));
+
+// Nombre del archivo de salida
+$filename = "certificados/r/edicion/40/certificado.png";
+
+// Guardar la imagen en un archivo
+file_put_contents($filename, $imageData);
+
+//Guardar la imagen en un archivo
+//file_put_contents($filename, $imageData);
+      echo "La imagen se ha convertido y guardado correctamente";
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

@@ -127,6 +127,14 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('certificationDestroy',[App\Http\Controllers\CertificationController::class, 'destroy']);
    Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
 
+
+
+   //Route::get('certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
+
+  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
+
+
+
    Route::resource("estudiantes", App\Http\Controllers\StudentController::class);
    Route::post('studentStore',[App\Http\Controllers\StudentController::class, 'store']);
    Route::post('studentEdit',[App\Http\Controllers\StudentController::class, 'edit']);

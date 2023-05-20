@@ -68,10 +68,10 @@
                                 </ul>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                {{-- <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#exampleModal">
                                     Cambiar Contraseña
-                                </button>
+                                </button> --}}
                                 <p></p>
                                 <button type="button" class="btn btn-success" onclick="whatsapp('997852483')">Whatsapp
                                     Desarrollador</button>
@@ -175,7 +175,7 @@
                                     </div>
                                     <!-- /.tab-content -->
                                 </div><!-- /.card-body -->
-
+                            </form>
                         </div>
                         <!-- /.nav-tabs-custom -->
                     </div>
