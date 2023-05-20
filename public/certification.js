@@ -112,7 +112,7 @@ function getCertification(id) {
 
 
 
-function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id,url) {
+function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id) {
       var c = document.getElementById(canvas_id);
   //  var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -253,18 +253,18 @@ let = orientacion_anio=x;
 //        oimage.content=canvas1.toDataURL('image/jpeg');
 
 //  GUARDAR IMAGEN EN INPUT
-            certificationSavePhoto(imagen.value,id,url)
+            certificationSavePhoto(imagen.value,id)
      });
 
  }
 }
-function certificationSavePhoto(id,code_certification,url) {
+function certificationSavePhoto(id,code_certification) {
     var formData = new FormData(document.getElementById("certification"));
      formData.append("id",id);
          formData.append("code_certification",code_certification);
     axios({
             method: 'post',
-            url:  url,
+            url:  "../../certificationSavePhoto",
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
