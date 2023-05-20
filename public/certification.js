@@ -246,8 +246,8 @@ let = orientacion_anio=x;
   // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
    // alert("El canvas ha terminado de cargar");
 
-       let imagen = document.getElementById("imagen");
-    imagen.src=canvas1.toDataURL('image/jpeg');
+      let imagen = document.getElementById("imagen");
+    imagen.value=canvas1.toDataURL('image/jpeg');
 
 //   let oimage = document.getElementById("oimage");
 //        oimage.content=canvas1.toDataURL('image/jpeg');

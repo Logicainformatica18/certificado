@@ -7,7 +7,7 @@
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}}"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
-<meta name="image" id="oimage"property="og:image" content="{{storage_path('app/public/certificados/r/edicion/40/certificado.png')}}">
+<meta name="image" id="oimage"property="og:image" content="{{asset('storage/certificados/r/edicion/40/certificado.png')}}">
 
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -169,8 +169,8 @@ buttons_pdf("canvas")
 
 
 </script>
+<input type="hidden" id="imagen" value="">
 
-   <img id="imagen" src="{{ storage_path('app/public/certificados/r/edicion/40/certificado.png')}}" alt="sdssd">
 <div id="mycontent"></div>
 
   </body>
