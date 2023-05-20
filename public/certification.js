@@ -253,14 +253,15 @@ let = orientacion_anio=x;
 //        oimage.content=canvas1.toDataURL('image/jpeg');
 
 //  GUARDAR IMAGEN EN INPUT
-            certificationSavePhoto(imagen.src)
+            certificationSavePhoto(imagen.value,id)
      });
 
  }
 }
-function certificationSavePhoto(id) {
+function certificationSavePhoto(id,code_certification) {
     var formData = new FormData(document.getElementById("certification"));
      formData.append("id",id);
+         formData.append("code_certification",code_certification);
     axios({
             method: 'post',
             url: '../../certificationSavePhoto',
