@@ -25,7 +25,7 @@
 
                                         <th class="sorting">Docente</th>
                                     <th class="sorting">Detalle</th>
-                              
+
                                         {{-- <th class="sorting">Qr</th> --}}
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
@@ -34,7 +34,7 @@
                                         <tr>
                                             <td></td>
 
-                                             <td>{{ $registry_details->registry->description }}</td>
+                                             <td>{{ $registry_details->code_certification }}</td>
                                               <td>{{ $registry_details->registry->course->description }}</td>
                                                <td>
     @if ($registry_details->average < 14)
@@ -51,8 +51,8 @@
                                                <td>
    <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger"
-                                                 onclick="certificationGenerate('{{ $registry_details->id }}','spanish');  return false">Descargar</button>
-                                              
+                                                 onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$registry_details->code_certification}}');  return false">Descargar</button>
+
                                                 {{-- <button type="button" class="btn btn-success"onclick="certificationOne('{{ $registry_details->id }}');  return false">Compartir</button> --}}
                                                     </td>
                                         </tr>
