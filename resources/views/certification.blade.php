@@ -164,10 +164,6 @@ data-layout="button_count">
 </div>
 
 
-<a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text={{urlencode($url)}}"
-  data-size="large">
-Tweet</a>
 </center>
 
       </div>
