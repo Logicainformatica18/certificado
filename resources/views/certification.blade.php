@@ -162,7 +162,12 @@ fjs.parentNode.insertBefore(js, fjs);
 data-href=""
 data-layout="button_count">
 </div>
-{{$url}}
+
+
+<a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text={{urlencode($url)}}"
+  data-size="large">
+Tweet</a>
 </center>
 
       </div>
