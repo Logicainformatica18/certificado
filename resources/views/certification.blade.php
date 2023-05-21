@@ -146,11 +146,23 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share"  data-url="{{''}}"></script>
             </div>
-<div class="fb-share-button" data-href="{{$url}}" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-<a class="twitter-share-button"
-  href="{{$url}}" target="_blank"
-  data-size="large">
-Tweet</a>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your share button code -->
+<div class="fb-share-button"
+data-href="{{$url}}"
+data-layout="button_count">
+</div>
+
 </center>
 
       </div>
