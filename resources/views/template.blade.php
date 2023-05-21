@@ -56,8 +56,7 @@
         $.widget.bridge('uibutton', $.ui.button)
 
     </script>
-<!-- FORMATEAR FECHA DE DATE A STRING PARA JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+
 
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -83,7 +82,7 @@
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <!-- <script src="dist/js/pages/dashboard.js"></script> -->
+     {{-- <script src="{{asset('dist/js/pages/dashboard.js')}}"></script> --}}
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
@@ -141,11 +140,12 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4"">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
                 <img src="https://sdc-learning.pe/wp-content/uploads/2022/11/logo-largo_v2.png.webp" alt="AdminLTE Logo" class="" width="100%"                 style="opacity: .8">
-                {{-- <span class="brand-text font-weight-light">Certificaciones</span> --}}
+                <p></p>
+                <span class="brand-text font-weight-light center">Certificaciones</span>
                 <p></p>
             </a>
 
@@ -177,7 +177,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        {{-- <li class="nav-item has-treeview menu-open">
+                         {{-- <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>

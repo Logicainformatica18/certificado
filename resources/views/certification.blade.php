@@ -146,8 +146,12 @@ $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(1
            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 <script type="IN/Share"  data-url="{{''}}"></script>
             </div>
-
-        </center>
+<div class="fb-share-button" data-href="{{$url}}" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+<a class="twitter-share-button"
+  href="{{$url}}" target="_blank"
+  data-size="large">
+Tweet</a>
+</center>
 
       </div>
     </div>
@@ -175,6 +179,8 @@ buttons_pdf("canvas")
 
 <div id="mycontent"></div>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=859285638195545&autoLogAppEvents=1" nonce="dd5Wfr6m"></script>
 
-  </body>
+</body>
 
