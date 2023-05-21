@@ -162,7 +162,7 @@ fjs.parentNode.insertBefore(js, fjs);
 data-href="{{$url}}"
 data-layout="button_count">
 </div>
-
+{{$url}}
 </center>
 
       </div>
