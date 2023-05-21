@@ -159,7 +159,7 @@ fjs.parentNode.insertBefore(js, fjs);
 
 <!-- Your share button code -->
 <div class="fb-share-button"
-data-href="{{$url}}"
+data-href=""
 data-layout="button_count">
 </div>
 {{$url}}
