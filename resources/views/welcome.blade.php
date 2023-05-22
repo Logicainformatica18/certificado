@@ -22,8 +22,7 @@
 <style type="text/css">
  .welcome {
    margin:0px;
-   background-image: url('https://sdc-learning.pe/wp-content/uploads/2022/12/portada_img_1.jpg');
-
+   background-image: url("{{asset('dist/img/portada.png')}}");
    width:100%;
    background-repeat:no-repeat
  }
