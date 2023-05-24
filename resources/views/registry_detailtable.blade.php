@@ -106,7 +106,7 @@
 
                                                <td>
                                                       <button class="btn btn-warning" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Español</button>
-<button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{$code_certification}}')" >Ingles</button>
+<button class="btn btn-primary" onclick="certificationGenerate('{{ $registry_details->id }}','english','{{$code_certification}}')" >Ingles</button>
                                                 </td>
                                             <td>
                                                 <?php
