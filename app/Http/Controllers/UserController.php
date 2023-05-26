@@ -11,6 +11,10 @@ use Spatie\Permission\Models\Permission;
 // con esto le damos roles a los usuarios
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+//excel
+use App\Exports\ExportUsers;
+use App\Imports\ImportUsers;
+use Maatwebsite\Excel\Facades\Excel;
 class UserController extends Controller
 {
     use Notifiable;
@@ -215,5 +219,10 @@ class UserController extends Controller
         $user = User::find($id);
         return view("user_roletable", compact("user"));
     }
-
+   public function import() 
+    {
+        Excel::import(new ImportUsers, request()->file('file'));
+            
+        return back();
+    }
 }

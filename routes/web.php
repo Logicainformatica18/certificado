@@ -170,21 +170,9 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
-//Route::get('test', fn () => phpinfo());
 
-// Route::get('storage/{filename}', function ($filename) {
-//     $path = storage_path('app/public/certificados/r/edicion/40' . $filename);
-
-//     if (!File::exists($path)) {
-//         abort(404);
-//     }
-
-//     $file = File::get($path);
-//     $type = File::mimeType($path);
-
-//     $response = Response::make($file, 200);
-//     $response->header("Content-Type", $type);
-
-//     return $response;
-// })->where('filename', '(.*)');
-
+ Route::controller(App\Http\Controllers\UserController::class)->group(function(){
+    Route::get('users', 'index');
+    Route::get('users-export', 'export')->name('users.export');
+    Route::post('users-import', 'import')->name('users.import');
+});

@@ -170,8 +170,9 @@ return [
         App\Providers\RouteServiceProvider::class,
             Spatie\Permission\PermissionServiceProvider::class,
 //////// qr
-SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
+Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -187,7 +188,8 @@ SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class
     ])->toArray(),
 
 ];
