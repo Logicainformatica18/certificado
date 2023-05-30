@@ -32,16 +32,19 @@
                                     </div>
                                 </div><!-- /.container-fluid -->
                             </section>
-                            <!-- Button trigger modal -->
+                            @role('Coordinación|Administrador')
+<!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModal" onclick="New();$('#registry_detail')[0].reset();">
                                 Agregar Estudiante
                             </button>
+                            @endrole
+                            
                             <p></p>
-                            Buscar
+                            {{-- Buscar
                             <form  name="for"id="show">
                                 <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="registryShow();">
-                            </form>
+                            </form> --}}
 
                             <p></p>
                              <!-- /.content -->

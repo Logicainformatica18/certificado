@@ -12,6 +12,7 @@ use App\Models\Course;
 use App\Models\Schedule;
 use App\Models\Assistant;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Model;
 use Illuminate\Support\Facades\Session;
 class RegistryController extends Controller{
@@ -32,25 +33,25 @@ class RegistryController extends Controller{
         inner join courses c on c.id = r.course_id
         inner join types t on t.id = c.type_id
         inner join schedules s on s.id = r.schedule_id order by r.id desc");
-*/
+        */
+        $user=Auth::user();
+        //$user->model_has_roles[0]->role_id;
+        if ($user->roles_[0]->name=="Docente") {
+          
+          $registry = Registry::where('teacher_m','=',$user->model_has_roles[0]->model_id)->get();
+        }
+        else{
+          $registry = Registry::all();
+        }
         $schedule = Schedule::orderBy('description','asc')->get();
-        $registry = Registry::all();
-
     $course = Course::orderBy('id','DESC')->get();
-   // $model = Model_has_role::where('role_id','like','3')->get();
- //  $teacher =  Model::all();
 
-
+    // teacher_new = trae lista de profesores a asignar en un nuevo registro
+    //teacher
         $teacher_new =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=3");
         $assistant =Assistant::orderBy('description','asc')->get();
-
-        // teacher_new = trae lista de profesores a asignar en un nuevo registro
-        //teacher
-
-
-
-
+  //  return $user->model_has_roles[0]->model_id;
         return view("registry", compact("registry","course","teacher_new","schedule","assistant"));
     }
 

@@ -30,10 +30,42 @@ Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentCon
 
 
 
- Route::resource('Docente', App\Http\Controllers\TeacherController::class);
+ Route::get('Docente', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Coordinación', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 /////////////////////////////////////////
+Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
+   Route::resource("registros", App\Http\Controllers\RegistryController::class);
+   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
+   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
+   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
+   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
+   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
+
+   Route::post('registry_detail',[App\Http\Controllers\RegistryDetailController::class, 'registry_detail']);
+
+   Route::resource("registros_mantenimiento", App\Http\Controllers\RegistryDetailController::class);
+   Route::post('registry_detailStore',[App\Http\Controllers\RegistryDetailController::class, 'store']);
+   Route::post('registry_detailEdit',[App\Http\Controllers\RegistryDetailController::class, 'edit']);
+   Route::post('registry_detailUpdate',[App\Http\Controllers\RegistryDetailController::class, 'update']);
+   Route::post('registry_detailDestroy',[App\Http\Controllers\RegistryDetailController::class, 'destroy']);
+   Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
+
+   
+
+
+   Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
+   Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
+   Route::post('certificationUpdate',[App\Http\Controllers\CertificationController::class, 'update']);
+   Route::post('certificationDestroy',[App\Http\Controllers\CertificationController::class, 'destroy']);
+   Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
+
+
+  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
+
+});
+
+
 
 Route::group(['middleware' => ['role:Coordinación']], function () {
     //
@@ -101,37 +133,8 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('scheduleDestroy',[App\Http\Controllers\ScheduleController::class, 'destroy']);
    Route::post('scheduleShow',[App\Http\Controllers\ScheduleController::class, 'show']);
 
-   Route::resource("registros", App\Http\Controllers\RegistryController::class);
-   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
-   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
-   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
-   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
-   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
-
-   Route::post('registry_detail',[App\Http\Controllers\RegistryDetailController::class, 'registry_detail']);
-
-   Route::resource("registros_mantenimiento", App\Http\Controllers\RegistryDetailController::class);
-   Route::post('registry_detailStore',[App\Http\Controllers\RegistryDetailController::class, 'store']);
-   Route::post('registry_detailEdit',[App\Http\Controllers\RegistryDetailController::class, 'edit']);
-   Route::post('registry_detailUpdate',[App\Http\Controllers\RegistryDetailController::class, 'update']);
-   Route::post('registry_detailDestroy',[App\Http\Controllers\RegistryDetailController::class, 'destroy']);
-   Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
 
-
-
-
-   Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
-   Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
-   Route::post('certificationUpdate',[App\Http\Controllers\CertificationController::class, 'update']);
-   Route::post('certificationDestroy',[App\Http\Controllers\CertificationController::class, 'destroy']);
-   Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
-
-
-
-   //Route::get('certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
-
-  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
 
