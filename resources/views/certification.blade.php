@@ -69,12 +69,11 @@
        <center>
 <?php
         $host=$_SERVER["HTTP_HOST"];
-        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language.'/id='.$registry_detail->code_certification;
+        $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language.'/id='.$registry_detail->code_certification.'/cert='.$cert;
 
 $folder = $registry_detail->registry->course->folder_certification;
 $name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
-$img = "1";
-$route_certification = asset("certification/$folder/$language/$img.png");
+$route_certification = asset("certification/$folder/$language/$cert.png");
 //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
 $route_qr = "data:image/png;base64,".base64_encode(QrCode::format('png')->size(150)->generate($url));
 ?>
@@ -171,7 +170,7 @@ data-layout="button_count">
 <p></p>
 
 <script>
-    generateCerticationSpanish("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}");
+    generateCertication("{{$route_certification}}","{{$name}}","canvas1","{{$route_qr}}","{{$registry_detail->code_certification}}",'{{$cert}}');
 
 buttons_pdf("canvas")
 

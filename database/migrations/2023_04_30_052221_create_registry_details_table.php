@@ -25,6 +25,12 @@ return new class extends Migration
                    $table->bigInteger('n1')->default("0");
                    $table->bigInteger('n2')->default("0");
                    $table->bigInteger('n3')->default("0");
+                      $table->bigInteger('n4')->default("0");
+                         $table->bigInteger('n5')->default("0");
+                        $table->bigInteger('n6')->default("0");
+                    $table->bigInteger('n7')->default("0");
+                    $table->bigInteger('n8')->default("0");
+                                    
 
             //student
              $table->bigInteger('student_m')->unsigned();

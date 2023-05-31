@@ -72,7 +72,7 @@ function certificationOpen(id) {
 
 
 
-function certificationGenerate(id,language,code_certification) {
+function certificationGenerate(id,language,code_certification,cert) {
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
     axios({
@@ -86,7 +86,7 @@ function certificationGenerate(id,language,code_certification) {
         .then(function(response) {
             //handle success
             //abrin nueva pestaña el cerficado generato
-            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language +"/id="+code_certification;
+            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language +"/id="+code_certification +"/cert="+cert;
             window.open(url, "_blank");
 
         })
@@ -112,7 +112,7 @@ function getCertification(id) {
 
 
 
-function generateCerticationSpanish(image_src, student,canvas_id,qr_url,id,validate_user) {
+function generateCertication(image_src, student,canvas_id,qr_url,id,cert) {
       var c = document.getElementById(canvas_id);
   //  var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -254,20 +254,21 @@ let = orientacion_anio=x;
 
 //  GUARDAR IMAGEN EN INPUT
 
-             certificationSavePhoto(imagen.value, id);
+             certificationSavePhoto(imagen.value, id,cert);
 
 
      });
 
  }
 }
-function certificationSavePhoto(id,code_certification) {
+function certificationSavePhoto(id,code_certification,cert) {
     var formData = new FormData(document.getElementById("certification"));
-     formData.append("id",id);
+    formData.append("id", id);
+      formData.append("cert",cert);
          formData.append("code_certification",code_certification);
     axios({
             method: 'post',
-            url:  "../../certificationSavePhoto",
+            url:  "../../../certificationSavePhoto",
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'

@@ -160,7 +160,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 
 
 
-    Route::get('certificaciones/{registry_detail_id}/{language}/{id}',[App\Http\Controllers\CertificationController::class, 'report']);
+    Route::get('certificaciones/{registry_detail_id}/{language}/{id}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);

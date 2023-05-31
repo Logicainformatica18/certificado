@@ -52,7 +52,8 @@ registry.date_certification.value = response.data["date_certification"].substr(0
            registry.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
            registry.assistance.value=    response.data["assistance_id"];
             registry.edition.value = response.data["edition"];
-             registry.type.value=    response.data["type"];
+            registry.type.value = response.data["type"];
+               registry.count_notes.value=    response.data["count_notes"];
 
         })
         .catch(function(response) {

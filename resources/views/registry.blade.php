@@ -106,7 +106,8 @@
                                     <option value="{{ $item->id }}">{{ $item->description }} </option>
                                 @endforeach
                             </select>
-
+  Cantidad de Certificados :
+                            <input type="number" name="count_notes" id="count_notes" class="form-control"value="8">
                             Detalles :
                             <textarea type="text" name="detail" id="detail" class="form-control"></textarea>
 

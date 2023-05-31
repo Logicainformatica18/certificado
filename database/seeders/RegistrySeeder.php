@@ -36,7 +36,8 @@ class RegistrySeeder extends Seeder
                 'date_certification' => '2023-05-06',
                 'detail' => '',
                 'edition' => '40',
-                'type' => 'Clase'
+                'type' => 'Clase',
+                   'count_notes' => '7'
             ]);
     }
 }

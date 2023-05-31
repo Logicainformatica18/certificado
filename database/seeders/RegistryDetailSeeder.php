@@ -19,6 +19,11 @@ class RegistryDetailSeeder extends Seeder
            'n1' => '20',
             'n2' => '15',
             'n3' => '16',
+            'n4' => '16',
+            'n5' => '16',
+             'n6' => '16',
+            'n7' => '16',
+
                 'student_m' => '4',
                 'student_t' => 'App\Models\User',
                 'student_r' => '5',

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('registry_details', function (Blueprint $table) {
 
-             DB::statement('ALTER TABLE registry_details ADD average bigINT  AS ((n1 + n2 + n3) /3)');
+             DB::statement('ALTER TABLE registry_details ADD average bigINT  AS ((n1 + n2 + n3+ n4 + n5 + n6 + n7 + n8))');
             //
         });
     }

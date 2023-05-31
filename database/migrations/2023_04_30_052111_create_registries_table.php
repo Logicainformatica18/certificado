@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('registries', function (Blueprint $table) {
             $table->id();
             $table->string('description')->nullable();
+
             //course
             $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
@@ -43,6 +44,7 @@ return new class extends Migration
               $table->string('edition');
                 $table->string('type');
               $table->string('detail')->nullable();
+   $table->bigInteger('count_notes')->default('0');
 
              $table->bigInteger('schedule_id')->unsigned();
              $table->foreign('schedule_id')->references('id')->on('schedules');

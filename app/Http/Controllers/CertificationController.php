@@ -23,7 +23,7 @@ class CertificationController extends Controller
 
     }
 
-    public function report(Request $request,$registry_detail_id,$language,$code_certification)
+    public function report(Request $request,$registry_detail_id,$language,$code_certification,$cert)
     {
        // return $id." ".$id1;
         //
@@ -32,6 +32,9 @@ class CertificationController extends Controller
          $id =explode("=",$registry_detail_id);
          $language = explode("=",$language);
         $language = $language[1];
+
+          $cert = explode("=",$cert);
+        $cert = $cert[1];
 
         $code_certification = explode("=",$code_certification);
         $code_certification = $code_certification[1];
@@ -44,7 +47,7 @@ $registry_detail->save();
 
 
 
-      return view("certification",compact("registry_detail","language"));
+      return view("certification",compact("registry_detail","language","cert"));
 
 
 
@@ -57,7 +60,7 @@ $registry_detail->save();
 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->id));
 
 // Nombre del archivo de salida
-$filename = 'storage/certificados/'.$request->code_certification.".png";
+$filename = 'storage/certificados/'.$request->code_certification."_".$request->cert.".png";
 // Guardar la imagen en un archivo
 file_put_contents($filename, $imageData);
 
