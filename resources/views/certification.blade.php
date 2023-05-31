@@ -7,7 +7,7 @@
 
     <meta property="og:title" content="Mi Certificación en : {{$registry_detail->registry->course->description}} en SDC Learning"/>
 <meta property="og:description" content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{$registry_detail->registry->course->description}}"/>
-<meta name="image" id="oimage"property="og:image" content="{{url('storage/certificados/'.$registry_detail->code_certification.".png")}}">
+<meta name="image" id="oimage"property="og:image" content="{{url('storage/certificados/'.$registry_detail->code_certification."_".$cert.".png")}}">
 
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
