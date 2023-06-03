@@ -37,7 +37,7 @@ class RegistrySeeder extends Seeder
                 'detail' => '',
                 'edition' => '40',
                 'type' => 'Clase',
-                   'count_notes' => '7'
+                   'count_notes' => '8'
             ]);
     }
 }

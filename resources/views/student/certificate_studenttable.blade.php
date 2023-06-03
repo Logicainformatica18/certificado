@@ -25,54 +25,66 @@
 
                                     <th class="sorting">Docente</th>
 
-                                    @foreach ($registry_detail as $registry_details)
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes; $i++)
-                                            <th class="sorting">Nota {{ $i }} </th>
-                                            <th class="sorting" style="background-color: rgb(3, 206, 3)">Certificado
-                                                {{ $i }} </th>
-                                        @endfor
-                                     
+
+                                    @for ($i = 1; $i <= $registry->count_notes - 1; $i++)
+                                        <th class="sorting">Nota {{ $i }} </th>
+                                        <th class="sorting" style="background-color: rgb(3, 206, 3)">Certificado
+                                            {{ $i }} </th>
+                                    @endfor
+
                                 </thead>
                                 <tbody>
-
-                                    <tr>
-                                        <td></td>
-
-                                        <td>{{ $registry_details->code_certification }}</td>
-                                        <td>{{ $registry_details->registry->course->description }}</td>
-                                        <td>
-                                            @if ($registry_details->average < 14)
-                                                Desaprobado
+                                    @foreach ($registry_detail as $registry_details)
+                                        <tr>
+                                            <td></td>
+                                            @if ($registry_details->code_certification=="")
+                                            <td>{{ $registry_details->registry->description }}</td>    
                                             @else
-                                                Aprobado
+                                            <td>{{ $registry_details->code_certification }}</td>
+                                                
                                             @endif
-
-                                        </td>
-
-                                        <td>{{ $registry_details->registry->model_has_role->teacher->firstname }}
-                                            {{ $registry_details->registry->model_has_role->teacher->last }}
-                                            {{ $registry_details->registry->model_has_role->teacher->names }} </td>
-
-
-
-
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes; $i++)
-                                            <?php
-                                            $property = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
-                                            ?>
+                                            <td>{{ $registry_details->registry->course->description }}</td>
                                             <td>
-                                                {{ $registry_details->$property }}
+                                                @if ($registry_details->average < 14)
+                                                    Desaprobado
+                                                @else
+                                                    Aprobado
+                                                @endif
 
                                             </td>
-                                            <td>
-                                                <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
-                                                <button class="btn btn-danger"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">Ingles</button>
-                                            </td>
-                                        @endfor
-                                       
-                                    </tr>
+
+                                            <td>{{ $registry_details->registry->model_has_role->teacher->firstname }}
+                                                {{ $registry_details->registry->model_has_role->teacher->last }}
+                                                {{ $registry_details->registry->model_has_role->teacher->names }} </td>
+
+
+
+
+                                            @for ($i = 1; $i <= $registry_details->registry->count_notes - 1; $i++)
+                                                <?php
+                                                $notes = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
+                                                ?>
+                                                <td>
+
+                                                    {{ $registry_details->$notes }}
+
+                                                </td>
+                                                <td>
+                                                    @if ($registry_details->$notes > 13.5)
+                                                        <button class="btn btn-warning"
+                                                            onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
+                                                        <button class="btn btn-danger"
+                                                            onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">Ingles</button>
+                                                    @else
+                                                        <button class="btn btn-warning" onclick=""
+                                                            disabled>Español</button>
+                                                        <button class="btn btn-danger" onclick=""
+                                                            disabled>Ingles</button>
+                                                    @endif
+                                                </td>
+                                            @endfor
+
+                                        </tr>
                                     @endforeach
                                 </tbody>
 

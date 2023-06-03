@@ -23,26 +23,28 @@
                                     <th class="sorting">Dni</th>
                                     <th class="sorting">Email</th>
 
-                                    @foreach ($registry_detail as $registry_details)
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes; $i++)
+                                  
+                                        @for ($i = 1; $i <= $registry->count_notes -1; $i++)
                                             <th class="sorting">Nota {{ $i }} </th>
                                             <th class="sorting" style="background-color: rgb(3, 206, 3)">Certificado {{ $i }} </th>
                                         @endfor
+                                           <th class="sorting">Certificado Final</th>
                                         <th class="sorting">Promedio</th>
                                         <th class="sorting">Estado</th>
                                         <th class="sorting">Código Certificado previo</th>
                                         <th class="sorting">Código Certificado Guardado</th>
                                         <th class="sorting">Estado</th>
 
-                                        <th>Certificado</th>
                                         <th><img width="20"
                                                 src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
                                                 alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                      <?php
                                     $enumeracion = 0;
                                     ?>
+                                      @foreach ($registry_detail as $registry_details)
+                                  
 
                                     <tr>
                                         <td></td>
@@ -71,7 +73,7 @@
                                         }
                                         $code_certification = $registry_details->registry->description . '-' . $enumeracion;
                                         ?>
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes; $i++)
+                                        @for ($i = 1; $i <= $registry_details->registry->count_notes -1; $i++)
                                             <?php
                                             $property = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
                                             ?>
@@ -81,7 +83,7 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}')">Español</button>
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
                                                 <button class="btn btn-danger"
                                                     onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{ $i }}')">Ingles</button>
                                             </td>
@@ -89,10 +91,16 @@
                                             
                                         @endfor
 
+                                        
+                                            <td>
+                                                 <button class="btn btn-warning"
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$registry_details->registry->count_notes }}');">Español</button>
+                                                <button class="btn btn-danger"
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$registry_details->registry->count_notes }}')">Ingles</button>
+                                            </td>
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}
                                         </td>
-
 
                                         <td>
                                             @if ($registry_details->average < 13.5)
@@ -117,12 +125,7 @@
                                             {{-- {{$registry_details->state_certification}} --}}
                                         </td>
 
-                                        <td>
-                                            <button class="btn btn-warning"
-                                                onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}')">Español</button>
-                                            <button class="btn btn-primary"
-                                                onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}')">Ingles</button>
-                                        </td>
+                                       
                                         <td>
                                             <?php
                                             $student = $registry_details->model_has_role->student->firstname . ' ' . $registry_details->model_has_role->student->lastname . ' ' . $registry_details->model_has_role->student->names;

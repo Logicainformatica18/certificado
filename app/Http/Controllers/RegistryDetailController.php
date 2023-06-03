@@ -41,10 +41,11 @@ class RegistryDetailController extends Controller
     public function create()
     {
         $registry_id = Session::get('registry_id');
-
+   $registry = Registry::find($registry_id);
+        $registry_detail = RegistryDetail::where("registry_id","=",$registry_id)->get();
         $registry_detail = RegistryDetail::where("registry_id","=",$registry_id)->get();
 
-        return view('registry_detailtable',compact('registry_detail'));
+        return view('registry_detailtable',compact('registry_detail','registry'));
     }
 
     /**
