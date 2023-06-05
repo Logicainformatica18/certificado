@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use App\Http\Requests\StoreQuestionRequest;
-use App\Http\Requests\UpdateQuestionRequest;
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 class QuestionController extends Controller
 {
     /**
@@ -13,7 +12,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+           $exam_id = Session::get('exam_id');
+            $question= Question::where('exam_id','=',$exam_id)->get();
+        return view("question", compact('question'));
     }
 
     /**
@@ -21,15 +22,26 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+          $exam_id = Session::get('exam_id');
+            $question= Question::where('exam_id','=',$exam_id)->get();
+        return view("questiontable", compact('question'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreQuestionRequest $request)
+    public function store(Request $request)
     {
-        //
+            $question = new Question;
+             $question->exam_id = Session::get('exam_id');
+             $question->ask = $request->ask;
+             $question->alternative1 = $request->alternative1;
+             $question->alternative2 = $request->alternative2;
+             $question->alternative3 = $request->alternative3;
+             $question->alternative4 = $request->alternative4;
+              $question->answer = $request->answer;
+        $question->save();
+        return $this->create();
     }
 
     /**
@@ -43,17 +55,27 @@ class QuestionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Question $question)
+    public function edit(Request $request)
     {
-        //
+        
+          $question = Question::find($request->id);
+        return $question;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateQuestionRequest $request, Question $question)
+    public function update(Request $request)
     {
-        //
+          $question = Question::find($request->id);
+            $question->ask = $request->ask;
+                 $question->ask = Session::get('exam_id');
+             $question->alternative1 = $request->alternative1;
+             $question->alternative2 = $request->alternative2;
+             $question->alternative3 = $request->alternative3;
+             $question->alternative4 = $request->alternative4;
+        $question->save();
+        return $this->create();
     }
 
     /**

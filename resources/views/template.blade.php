@@ -46,6 +46,7 @@
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
         <script src="{{ asset('exam.js') }}"></script>
+                <script src="{{ asset('question.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- jQuery -->

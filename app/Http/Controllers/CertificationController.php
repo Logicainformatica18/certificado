@@ -18,7 +18,7 @@ class CertificationController extends Controller
     public function index()
     {
            $course_id = Session::get('course_id');
-            $certification= Certification::where('course_id','=',$course_id)->orderBy('course','DESC')->get();
+            $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
   $course = Course::orderBy('id','ASC')->get();
         return view("certification_maintenance", compact('certification','course'));
 

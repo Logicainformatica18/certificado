@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\Session;
 return new class extends Migration
 {
     /**
@@ -16,6 +16,10 @@ return new class extends Migration
               $table->bigInteger('exam_id')->unsigned();
             $table->foreign('exam_id')->references('id')->on('exams');
                  $table->string('ask');
+                 $table->string('alternative1');
+                 $table->string('alternative2');
+                 $table->string('alternative3');
+                 $table->string('alternative4');
                   $table->string('answer');
             $table->string('detail')->nullable();
             $table->timestamps();
