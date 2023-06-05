@@ -52,7 +52,14 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
    Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
    
+   Route::resource("cursos", App\Http\Controllers\CourseController::class);
+   Route::post('courseStore',[App\Http\Controllers\CourseController::class, 'store']);
+   Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
+   Route::post('courseUpdate',[App\Http\Controllers\CourseController::class, 'update']);
+   Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
+   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'show']);
 
+  Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'course_detail']);
 
    Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
    Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
@@ -63,6 +70,24 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
   Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
+   Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
+
+
+     Route::resource("examenes", App\Http\Controllers\ExamController::class);
+   Route::post('examStore',[App\Http\Controllers\ExamController::class, 'store']);
+   Route::post('examEdit',[App\Http\Controllers\ExamController::class, 'edit']);
+   Route::post('examUpdate',[App\Http\Controllers\ExamController::class, 'update']);
+   Route::post('examDestroy',[App\Http\Controllers\ExamController::class, 'destroy']);
+   Route::post('examShow',[App\Http\Controllers\ExamController::class, 'show']);
+
+   Route::post('exam_detail',[App\Http\Controllers\ExamController::class, 'exam_detail']);
+
+        Route::resource("preguntas", App\Http\Controllers\QuestionController::class);
+   Route::post('questionStore',[App\Http\Controllers\QuestionController::class, 'store']);
+   Route::post('questionEdit',[App\Http\Controllers\QuestionController::class, 'edit']);
+   Route::post('questionUpdate',[App\Http\Controllers\QuestionController::class, 'update']);
+   Route::post('questionDestroy',[App\Http\Controllers\QuestionController::class, 'destroy']);
+   Route::post('questionShow',[App\Http\Controllers\QuestionController::class, 'show']);
 });
 
 
@@ -119,12 +144,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('typeDestroy',[App\Http\Controllers\TypeController::class, 'destroy']);
    Route::post('typeShow',[App\Http\Controllers\TypeController::class, 'show']);
 
-   Route::resource("cursos", App\Http\Controllers\CourseController::class);
-   Route::post('courseStore',[App\Http\Controllers\CourseController::class, 'store']);
-   Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
-   Route::post('courseUpdate',[App\Http\Controllers\CourseController::class, 'update']);
-   Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
-   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'show']);
+
 
    Route::resource("horarios", App\Http\Controllers\ScheduleController::class);
    Route::post('scheduleStore',[App\Http\Controllers\ScheduleController::class, 'store']);
@@ -166,7 +186,7 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
 
     //obtener registry_detail_id para poder generar el certificado despuees
-         Route::resource("certificados-mantenimiento", App\Http\Controllers\CertificationController::class);
+         Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
 

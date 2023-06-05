@@ -45,6 +45,7 @@
     <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
+        <script src="{{ asset('exam.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- jQuery -->
@@ -455,7 +456,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('certificados-mantenimiento.index') }}" class="nav-link">
+                                        <a href="{{ route('certificados_mantenimiento.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Certificados</p>
                                         </a>
@@ -484,7 +485,14 @@
                                         </a>
                                     </li>
                                 @endrole
-
+            @role('Docente')
+                                        <li class="nav-item">
+                                        <a href="{{ route('cursos.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Cursos</p>
+                                        </a>
+                                    </li>
+                                @endrole
 
 
 

@@ -1,3 +1,50 @@
+function certificationDetail(id) {
+  var formData = new FormData(document.getElementById("certification"));
+  formData.append("id", id);
+  axios({
+    method: "post",
+    url: "certification_detail",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
+    .then(function(response) {
+      //handle success
+      window.location.href = "examenes";
+      // var contentdiv = document.getElementById("mycontent");
+      // contentdiv.innerHTML = response.data;
+      //  alert("hola");
+    })
+    .catch(function(response) {
+      //handle error
+      console.log(response);
+    });
+}
+function certificationStore() {
+    var formData = new FormData(document.getElementById("certification"));
+    axios({
+            method: 'post',
+            url: 'certificationStore',
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        .then(function(response) {
+            //handle success
+            var contentdiv = document.getElementById("mycontent");
+            contentdiv.innerHTML = response.data;
+  //carga pdf- csv - excel
+  datatable_load();
+  alert('Registrado Correctamente');
+        })
+        .catch(function(response) {
+            //handle error
+            console.log(response);
+        });
+
+}
 
 
 function certificationEdit(id) {
@@ -17,16 +64,8 @@ function certificationEdit(id) {
            // contentdiv.innerHTML = response.data["description"];
             certification.id.value=          response.data["id"];
             certification.description.value= response.data["description"];
-          certification.detail.value=    response.data["detail"];
-           certification.schedule.value=    response.data["schedule_id"];
-           certification.course.value=    response.data["course_id"];
-           certification.fec_start.value=    response.data["fec_start"];
-           certification.fec_end.value=    response.data["fec_end"];
-           certification.hour_start.value=    response.data["hour_start"];
-
-           certification.teacher.value=    response.data["teacher_m"]+ "-"+ response.data["teacher_t"]+ "-"+response.data["teacher_r"] ;
-           certification.assistance.value=    response.data["assistance_id"];
-
+            certification.detail.value = response.data["detail"];
+           certification.course_id.value=    response.data["course_id"];
 
         })
         .catch(function(response) {
@@ -72,7 +111,7 @@ function certificationOpen(id) {
 
 
 
-function certificationGenerate(id, language, code_certification, cert) {
+function certificationGenerate(id, language1,language2, code_certification, cert) {
     
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
@@ -87,9 +126,11 @@ function certificationGenerate(id, language, code_certification, cert) {
         .then(function(response) {
             //handle success
             //abrin nueva pestaña el cerficado generato
-            let url = "certificaciones/registry_detail_id=" + id + "/language=" + language +"/id="+code_certification +"/cert="+cert;
+             let url2 = "certificaciones/registry_detail_id=" + id + "/language=" + language2 +"/id="+code_certification +"/cert="+cert;
+             let url = "certificaciones/registry_detail_id=" + id + "/language=" + language1 +"/id="+code_certification +"/cert="+cert;
+             window.open(url2, "_blank");
             window.open(url, "_blank");
-
+            
         })
         .catch(function (response) {
 

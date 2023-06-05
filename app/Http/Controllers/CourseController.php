@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\Type;
-
+use Illuminate\Support\Facades\Session;
 class CourseController extends Controller
 {
     /**
@@ -83,5 +83,10 @@ class CourseController extends Controller
 
        Course::find($request->id)->delete();
       return $this->create();
+    }
+      public function course_detail(Request $request)
+    {
+       return Session::put('course_id',$request->id );
+        //return redirect()->route('registros_mantenimiento');
     }
 }

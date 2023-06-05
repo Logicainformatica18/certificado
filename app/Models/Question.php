@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Certification extends Model
+class Question extends Model
 {
     use HasFactory;
-     public function course()
-    {
-
-        return $this->hasOne('App\Models\Course', 'id','course_id');
-    }
 }

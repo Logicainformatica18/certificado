@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Certification;
+use App\Models\Course;
 use App\Models\RegistryDetail;
 use App\Http\Requests\StoreCertificationRequest;
 use App\Http\Requests\UpdateCertificationRequest;
@@ -16,9 +17,10 @@ class CertificationController extends Controller
      */
     public function index()
     {
-           $registry_detail_id = Session::get('registry_detail_id');
-            $certification= Certification::where('registry_detail_id','=',$registry_detail_id)->orderBy('id','DESC')->get();
-        return view("certification_maintenance", compact('certification'));
+           $course_id = Session::get('course_id');
+            $certification= Certification::where('course_id','=',$course_id)->orderBy('course','DESC')->get();
+  $course = Course::orderBy('id','ASC')->get();
+        return view("certification_maintenance", compact('certification','course'));
 
 
     }
@@ -72,15 +74,24 @@ file_put_contents($filename, $imageData);
      */
     public function create()
     {
-        //
+               $course_id = Session::get('course_id');
+            $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+  $course = Course::orderBy('id','ASC')->get();
+        return view("certification_maintenancetable", compact('certification','course'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCertificationRequest $request)
+    public function store(Request $request)
     {
-        //
+        $certification = new Certification;
+             $certification->description = $request->description;
+             $certification->detail = $request->detail;
+                  $certification->course_id = $request->course_id;
+        $certification->save();
+        return $this->create();
     }
 
     /**
@@ -94,29 +105,42 @@ file_put_contents($filename, $imageData);
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Certification $certification)
+    public function edit(Request $request)
     {
-        //
+             $certification = Certification::find($request->id);
+       return $certification;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCertificationRequest $request, Certification $certification)
+    public function update(Request $request)
     {
-        //
+          $certification = Certification::find($request->id);
+               $certification->description = $request->description;
+             $certification->detail = $request->detail;
+                  $certification->course_id = $request->course_id;
+        $certification->save();
+        return $this->create();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Certification $certification)
+    public function destroy(Request $request)
     {
-        //
+              Certification::find($request->id)->delete();
+        return $this->create();
     }
         public function studentCertification()
     {
         //
         return "hola";
+    }
+    
+    public function certification_detail(Request $request)
+    {
+       return Session::put('certification_id',$request->id );
+  
     }
 }

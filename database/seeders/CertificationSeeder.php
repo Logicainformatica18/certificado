@@ -13,7 +13,7 @@ class CertificationSeeder extends Seeder
     public function run(): void
     {
        Certification::create([
-                'registry_detail_id' => '1',
+                'course_id' => '1',
            'description' => 'a',
             'code' => 'code',
             'url_image' => 'certificate/python_datscience/',

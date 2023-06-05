@@ -1,9 +1,9 @@
-function courseDetail(id) {
-  var formData = new FormData(document.getElementById("course"));
+function examDetail(id) {
+  var formData = new FormData(document.getElementById("exam"));
   formData.append("id", id);
   axios({
     method: "post",
-    url: "course_detail",
+    url: "exam_detail",
     data: formData,
     headers: {
       "Content-Type": "multipart/form-data"
@@ -11,7 +11,7 @@ function courseDetail(id) {
   })
     .then(function(response) {
       //handle success
-      window.location.href = "certificados_mantenimiento";
+      window.location.href = "preguntas";
       // var contentdiv = document.getElementById("mycontent");
       // contentdiv.innerHTML = response.data;
       //  alert("hola");
@@ -21,12 +21,11 @@ function courseDetail(id) {
       console.log(response);
     });
 }
-
-function courseStore() {
-    var formData = new FormData(document.getElementById("course"));
+function examStore() {
+    var formData = new FormData(document.getElementById("exam"));
     axios({
             method: 'post',
-            url: 'courseStore',
+            url: 'examStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -47,12 +46,12 @@ function courseStore() {
 
 }
 
-function courseEdit(id) {
-    var formData = new FormData(document.getElementById("course"));
+function examEdit(id) {
+    var formData = new FormData(document.getElementById("exam"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'courseEdit',
+            url: 'examEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -62,11 +61,10 @@ function courseEdit(id) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data["description"];
-            course.id.value=response.data["id"];
-            course.description.value=response.data["description"];
-          course.detail.value=response.data["detail"];
-            course.type.value = response.data["type_id"];
-               course.folder_certification.value=    response.data["folder_certification"];
+            exam.id.value=response.data["id"];
+            exam.description.value=response.data["description"];
+          exam.detail.value=response.data["detail"];
+          
         })
         .catch(function(response) {
             //handle error
@@ -75,11 +73,11 @@ function courseEdit(id) {
 
 }
 
-function courseUpdate() {
-    var formData = new FormData(document.getElementById("course"));
+function examUpdate() {
+    var formData = new FormData(document.getElementById("exam"));
     axios({
             method: 'post',
-            url: 'courseUpdate',
+            url: 'examUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -101,14 +99,14 @@ function courseUpdate() {
 
 }
 
-function courseDestroy(id) {
+function examDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("course"));
+  var formData = new FormData(document.getElementById("exam"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'courseDestroy',
+            url: 'examDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -130,11 +128,11 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function courseShow() {
+function examShow() {
     var formData = new FormData(document.getElementById("show"));
     axios({
             method: 'post',
-            url: 'courseShow',
+            url: 'examShow',
             data: formData,
         })
         .then(function(response) {

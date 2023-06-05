@@ -83,9 +83,9 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
-                                                <button class="btn btn-danger"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{ $i }}')">Ingles</button>
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $code_certification }}','{{$i}}');">Generar</button>
+                                                {{-- <button class="btn btn-danger"
+                                                    onclick="">Ingles</button> --}}
                                             </td>
 
                                             
@@ -93,10 +93,8 @@
 
                                         
                                             <td>
-                                                 <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$registry_details->registry->count_notes }}');">Español</button>
-                                                <button class="btn btn-danger"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$registry_details->registry->count_notes }}')">Ingles</button>
+                                                    <button class="btn btn-warning"
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $code_certification }}','{{$i}}');">Generar</button>
                                             </td>
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}
