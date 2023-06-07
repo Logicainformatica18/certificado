@@ -72,9 +72,9 @@
                                                 <td>
                                                     @if ($registry_details->$notes > 13.5)
                                                         <button class="btn btn-warning"
-                                                            onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
-                                                        <button class="btn btn-danger"
-                                                            onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">Ingles</button>
+                                                            onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $registry_details->code_certification }}','{{ $i }}')">Descargar</button>
+                                                        {{-- <button class="btn btn-danger"
+                                                            onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">Ingles</button> --}}
                                                     @else
                                                         <button class="btn btn-warning" onclick=""
                                                             disabled>Español</button>

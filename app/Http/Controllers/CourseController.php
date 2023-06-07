@@ -86,7 +86,8 @@ class CourseController extends Controller
     }
       public function course_detail(Request $request)
     {
-       return Session::put('course_id',$request->id );
-        //return redirect()->route('registros_mantenimiento');
+        Session::put('course_id',$request->id );
+       return Session::put('registry_detail_id',$request->registry_detail_id );
+        
     }
 }

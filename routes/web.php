@@ -27,6 +27,42 @@ Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
+Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'course_detail']);
+   Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
+
+
+Route::group(['middleware' => ['role:Estudiante|Docente|Coordinación']], function () {
+
+
+
+Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::class);
+
+
+   Route::post('qualificationStore',[App\Http\Controllers\QualificationController::class, 'store']);
+   Route::post('qualificationEdit',[App\Http\Controllers\QualificationController::class, 'edit']);
+   Route::post('qualificationUpdate',[App\Http\Controllers\QualificationController::class, 'update']);
+   Route::post('qualificationDestroy',[App\Http\Controllers\QualificationController::class, 'destroy']);
+   Route::post('qualificationShow',[App\Http\Controllers\QualificationController::class, 'show']);
+   
+   Route::resource("evaluaciones", App\Http\Controllers\EvaluationController::class);
+   Route::post('evaluationStore',[App\Http\Controllers\EvaluationController::class, 'store']);
+   Route::post('evaluationEdit',[App\Http\Controllers\EvaluationController::class, 'edit']);
+   Route::post('evaluationUpdate',[App\Http\Controllers\EvaluationController::class, 'update']);
+   Route::post('evaluationDestroy',[App\Http\Controllers\EvaluationController::class, 'destroy']);
+   Route::post('evaluationShow',[App\Http\Controllers\EvaluationController::class, 'show']);
+
+       Route::resource("examenes", App\Http\Controllers\ExamController::class);
+   Route::post('examStore',[App\Http\Controllers\ExamController::class, 'store']);
+   Route::post('examEdit',[App\Http\Controllers\ExamController::class, 'edit']);
+   Route::post('examUpdate',[App\Http\Controllers\ExamController::class, 'update']);
+   Route::post('examDestroy',[App\Http\Controllers\ExamController::class, 'destroy']);
+   Route::post('examShow',[App\Http\Controllers\ExamController::class, 'show']);
+});
+
+
+
+
+
 
 
 
@@ -35,6 +71,15 @@ Route::get('/Coordinación', [App\Http\Controllers\HomeController::class, 'siste
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 /////////////////////////////////////////
 Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
+
+
+
+   Route::post('exam_detail',[App\Http\Controllers\ExamController::class, 'exam_detail']);
+
+        //Route::resource("preguntas", App\Http\Controllers\QuestionController::class);
+
+
+
    Route::resource("registros", App\Http\Controllers\RegistryController::class);
    Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
    Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
@@ -59,7 +104,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
    Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
    Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'show']);
 
-  Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'course_detail']);
+
 
    Route::post('certificationStore',[App\Http\Controllers\CertificationController::class, 'store']);
    Route::post('certificationEdit',[App\Http\Controllers\CertificationController::class, 'edit']);
@@ -70,24 +115,9 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
   Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
-   Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
 
 
-     Route::resource("examenes", App\Http\Controllers\ExamController::class);
-   Route::post('examStore',[App\Http\Controllers\ExamController::class, 'store']);
-   Route::post('examEdit',[App\Http\Controllers\ExamController::class, 'edit']);
-   Route::post('examUpdate',[App\Http\Controllers\ExamController::class, 'update']);
-   Route::post('examDestroy',[App\Http\Controllers\ExamController::class, 'destroy']);
-   Route::post('examShow',[App\Http\Controllers\ExamController::class, 'show']);
-
-   Route::post('exam_detail',[App\Http\Controllers\ExamController::class, 'exam_detail']);
-
-        Route::resource("preguntas", App\Http\Controllers\QuestionController::class);
-   Route::post('questionStore',[App\Http\Controllers\QuestionController::class, 'store']);
-   Route::post('questionEdit',[App\Http\Controllers\QuestionController::class, 'edit']);
-   Route::post('questionUpdate',[App\Http\Controllers\QuestionController::class, 'update']);
-   Route::post('questionDestroy',[App\Http\Controllers\QuestionController::class, 'destroy']);
-   Route::post('questionShow',[App\Http\Controllers\QuestionController::class, 'show']);
+ 
 });
 
 

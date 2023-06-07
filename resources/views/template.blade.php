@@ -46,7 +46,7 @@
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
         <script src="{{ asset('exam.js') }}"></script>
-                <script src="{{ asset('question.js') }}"></script>
+                 <script src="{{ asset('qualification.js') }}"></script> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- jQuery -->
@@ -477,7 +477,14 @@
                                         </a>
                                     </li>
                                 @endrole
-
+ @role('Estudiante')
+                                    <li class="nav-item">
+                                        <a href="{{ route('Mis-cursos.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Mis Cursos</p>
+                                        </a>
+                                    </li>
+                                @endrole
                                 @role('Docente')
                                         <li class="nav-item">
                                         <a href="{{ route('registros.index') }}" class="nav-link">

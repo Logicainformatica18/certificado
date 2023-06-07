@@ -48,8 +48,7 @@
                                                     <!-- <button class="note-icon-pencil" ></button> -->
                                                     <button class="btn btn-danger note-icon-trash"
                                                         onclick="questionDestroy('{{ $questions->id }}'); return false"></button>
-                                                @endrole
-                                               
+                                                @endrole                                           
                                             </td>
 
                                         </tr>

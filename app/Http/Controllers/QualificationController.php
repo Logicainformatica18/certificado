@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Qualification;
+use App\Models\RegistryDetail;
+use App\Models\Question;
 use App\Http\Requests\StoreQualificationRequest;
 use App\Http\Requests\UpdateQualificationRequest;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 class QualificationController extends Controller
 {
     /**
@@ -27,9 +30,16 @@ class QualificationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreQualificationRequest $request)
+    public function store(Request $request)
     {
-        //
+             $qualification = new Qualification;
+             $qualification->exam_id = $request->exam_id;
+             $qualification->registry_detail_id = Session::get('registry_detail_id');
+             $qualification->option = $request->option;
+           $qualification->state = '';
+              
+        $qualification->save();
+      //  return $this->create();
     }
 
     /**

@@ -7,6 +7,7 @@
                 <div class="col-sm-6">
                     <h1>Certificados</h1>
                     {{ session('success') }}
+                    efefe {{Session::get('registry_detail_id')}}
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -17,16 +18,16 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <!-- Button trigger modal -->
+    @role('Coordinación|Administrador')
+          <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
         onclick="New();$('#certification')[0].reset();">
         Agregar
     </button>
+    @endrole
+
     <p></p>
-    Buscar
-    <form name="for"id="show">
-        <input type="text"name="show" class="form-control" style="width: 50%" onkeydown="certificationShow();">
-    </form>
+
 
     <p></p>
     <!-- /.content -->
@@ -54,13 +55,13 @@
                         Descripción : <input type="text" name="description" id="description" class="form-control">
 
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">
-                    Cursos :
-                            <select name="course_id" id="course_id" class="form-control">
-                                @foreach ($course as $item)
-                                    <option value="{{ $item->id }}">{{ $item->description }}
-                                        -{{ $item->type->description }} </option>
-                                @endforeach
-                            </select>
+                        Cursos :
+                        <select name="course_id" id="course_id" class="form-control">
+                            @foreach ($course as $item)
+                                <option value="{{ $item->id }}">{{ $item->description }}
+                                    -{{ $item->type->description }} </option>
+                            @endforeach
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <input type="button" value="Nuevo" class="btn btn-warning"

@@ -31,13 +31,16 @@
                                             <td>{{ $certifications->detail }}</td>
                                              <td>{{ $certifications->course->description }}</td>
                                             <td>
-                                                <!-- Button trigger modal -->
+                                                @role('Coordinación|Administrador')
+                <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal"
                                                     onclick="certificationEdit('{{ $certifications->id }}'); Up();  return false"></button>
 
-                                                <!-- <button class="note-icon-pencil" ></button> -->
+                                              <!-- <button class="note-icon-pencil" ></button> -->
                                                 <button class="btn btn-danger note-icon-trash" onclick="certificationDestroy('{{ $certifications->id }}'); return false"></button>
+                                                @endrole
+                                  
                                               <a class="btn btn-warning note-icon-pencil"
                                                         onclick="certificationDetail('{{ $certifications->id }}')"> Exámen</a>
                                             </td>

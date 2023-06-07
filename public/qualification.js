@@ -1,9 +1,9 @@
-function questionDetail(id) {
-  var formData = new FormData(document.getElementById("question"));
+function qualificationDetail(id) {
+  var formData = new FormData(document.getElementById("qualification"));
   formData.append("id", id);
   axios({
     method: "post",
-    url: "question_detail",
+    url: "qualification_detail",
     data: formData,
     headers: {
       "Content-Type": "multipart/form-data"
@@ -21,11 +21,12 @@ function questionDetail(id) {
       console.log(response);
     });
 }
-function questionStore() {
-    var formData = new FormData(document.getElementById("question"));
+function qualificationStore(id) {
+  
+    var formData = new FormData(document.getElementById("qualification"+id));
     axios({
             method: 'post',
-            url: 'questionStore',
+            url: 'qualificationStore',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -34,10 +35,13 @@ function questionStore() {
         .then(function(response) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
-            contentdiv.innerHTML = response.data;
+          //  contentdiv.innerHTML = response.data;
+          
   //carga pdf- csv - excel
-  datatable_load();
-  alert('Registrado Correctamente');
+ 
+          
+ //         datatable_load();
+//  alert('Registrado Correctamente');
         })
         .catch(function(response) {
             //handle error
@@ -46,12 +50,12 @@ function questionStore() {
 
 }
 
-function questionEdit(id) {
-    var formData = new FormData(document.getElementById("question"));
+function qualificationEdit(id) {
+    var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
     axios({
             method: 'post',
-            url: 'questionEdit',
+            url: 'qualificationEdit',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -61,14 +65,9 @@ function questionEdit(id) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data["description"];
-          question.id.value = response.data["id"];
-               question.ask.value = response.data["ask"];
-          question.answer.value = response.data["answer"];
-          question.alternative1.value = response.data["alternative1"];
-          question.alternative2.value = response.data["alternative2"];
-          question.alternative3.value = response.data["alternative3"];
-          question.alternative4.value=response.data["alternative4"];
-        
+            qualification.id.value=response.data["id"];
+            qualification.description.value=response.data["description"];
+          qualification.detail.value=response.data["detail"];
           
         })
         .catch(function(response) {
@@ -78,11 +77,11 @@ function questionEdit(id) {
 
 }
 
-function questionUpdate() {
-    var formData = new FormData(document.getElementById("question"));
+function qualificationUpdate() {
+    var formData = new FormData(document.getElementById("qualification"));
     axios({
             method: 'post',
-            url: 'questionUpdate',
+            url: 'qualificationUpdate',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -104,14 +103,14 @@ function questionUpdate() {
 
 }
 
-function questionDestroy(id) {
+function qualificationDestroy(id) {
 
 if(confirm("¿Quieres eliminar este registro?")){
-  var formData = new FormData(document.getElementById("question"));
+  var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id)
     axios({
             method: 'post',
-            url: 'questionDestroy',
+            url: 'qualificationDestroy',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -133,11 +132,11 @@ if(confirm("¿Quieres eliminar este registro?")){
 }
 }
 
-function questionShow() {
+function qualificationShow() {
     var formData = new FormData(document.getElementById("show"));
     axios({
             method: 'post',
-            url: 'questionShow',
+            url: 'qualificationShow',
             data: formData,
         })
         .then(function(response) {

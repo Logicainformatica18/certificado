@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
       $this->call(RegistrySeeder::class);
          $this->call(RegistryDetailSeeder::class);
             $this->call(CertificationSeeder::class);
+                   $this->call(ExamSeeder::class);
     }
 }

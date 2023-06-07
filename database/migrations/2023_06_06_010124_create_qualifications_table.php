@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('registry_detail_id')->unsigned();
+            $table->bigInteger('exam_id')->unsigned();
+            $table->foreign('exam_id')->references('id')->on('exams');
+               $table->bigInteger('registry_detail_id')->unsigned();
             $table->foreign('registry_detail_id')->references('id')->on('registry_details');
-            $table->bigInteger('n1')->default('0');
-            $table->bigInteger('n2')->default('0');
-            $table->bigInteger('n3')->default('0');
-            $table->string('description');
-            $table->string('detail')->nullable();
-            $table->string('state')->nullable();
+                $table->string('option');
+                $table->string('state');
+          
             $table->timestamps();
         });
     }

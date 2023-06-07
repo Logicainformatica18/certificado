@@ -1,6 +1,7 @@
-function courseDetail(id) {
+function courseDetail(id,registry_detail_id) {
   var formData = new FormData(document.getElementById("course"));
   formData.append("id", id);
+  formData.append("registry_detail_id", registry_detail_id);
   axios({
     method: "post",
     url: "course_detail",
