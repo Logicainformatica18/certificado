@@ -32,7 +32,7 @@
                                                             value="1"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative1 }}">
+                                                    value="{{ $exams->alternative1 }}" disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -43,7 +43,7 @@
                                                             value="2"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative2 }}">
+                                                    value="{{ $exams->alternative2 }}"disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -54,7 +54,7 @@
                                                             value="3"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative3 }}">
+                                                    value="{{ $exams->alternative3 }}"disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -66,7 +66,7 @@
                                                             value="4"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative4 }}">
+                                                    value="{{ $exams->alternative4 }}"disabled>
                                             </div>
                                         </div>
                                         <p></p>
@@ -83,7 +83,7 @@
                                             </div>
                                         @endif
                                         @if ($loop->last)
-                                             <button id="next" class="btn btn-success btn-lg"
+                                             <button id="complete" class="btn btn-success btn-lg"
                                                     onclick="qualificationUpdate({{ $exams->id }});qualificationCertification();return false">Enviar y Finalizar</button>
                                         @endif
 

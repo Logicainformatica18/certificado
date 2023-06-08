@@ -119,6 +119,7 @@
                 
                 ?>
 
+
                 <div class="form-layout-footer align-content-center">
                     <span>Credencial URL </span> <br>
                     <div class="row center">
@@ -128,30 +129,30 @@
                         <div class="col-lg-8">
                             <input type="text" id="texto" class="form-control" id=""
                                 value="{{ $url }}">
-                            <button class="btn btn-success btn-sm"onclick="copiarAlPortapapeles() ;"><i
+                                <button class="btn btn-success btn-sm"onclick="copiarAlPortapapeles() ;"><i
                                     class="fa fa-send mg-r-10"></i> Copiar</button>
-                        </div>
-                        <div class="col-lg-2">
-
-                        </div>
-                    </div>
-
-                    <p></p>
-                    <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
-                    <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i>
-                        PDF</button>
-                    <button class="btn linkedin"
-                        onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                    </button>
-
-
-                    @role('Coordinación')
-                        <form id="certification" method="post" action="" enctype="multipart/form-data"
+                                </div>
+                                <div class="col-lg-2">
+                                    
+                                </div>
+                            </div>
+                            
+                            <p></p>
+                            <button class="btn btn-outline-info" id="btnpng"><i class="fa fa-send mg-r-10"></i> PNG</button>
+                            <button class="btn btn-outline-success" id="btnpdf"><i class="fa fa-send mg-r-10"></i>
+                                PDF</button>
+                                <button class="btn linkedin"
+                                onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
+                            </button>
+                            
+                            
+                            @role('Coordinación')
+                            <form id="certification" method="post" action="" enctype="multipart/form-data"
                             name="certification">
                             {{-- <button class="btn btn-danger"   onclick="certificationSavePhoto();" >Guardar </button>
-  <input type='hidden' id="img_source" name="photo" > --}}
+                            <input type='hidden' id="img_source" name="photo" > --}}
                         </form>
-                    @endrole
+                        @endrole
 
 
                     <script src="https://platform.linkedin.com/in.js" type="text/javascript">
@@ -183,10 +184,9 @@
         </div>
     </div>
     <p></p>
-
     <script>
         generateCertication("{{ $route_certification }}", "{{ $name }}", "canvas1", "{{ $route_qr }}",
-            "{{ $registry_detail->code_certification }}", '{{ $cert }}');
+            "{{ $registry_detail->code_certification }}", '{{ $cert }}','{{$registry_detail->registry->course->certification->description}}');
 
                 
 

@@ -186,7 +186,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
 
 
 
-function generateCertication(image_src, student, canvas_id, qr_url, id, cert) {
+function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text) {
 
 
 
@@ -215,11 +215,16 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert) {
         let x = canvas1.width / 2  ;
 
             ctx.fillText(student, x, 300);
-
+ ctx.font = "bold 55px Open Sans";
+     ctx.fillStyle ="#001238";
+        ctx.fillText(text, x, 388);
+     
+     
         ctx.font = "bold 20px Open Sans";
        ctx.fillStyle ="#01233A";
             ctx.textAlign = "center";
 
+     
 
 var fechaActual = new Date();
 fechaActual.setMonth(fechaActual.getMonth());

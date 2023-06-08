@@ -20,4 +20,9 @@ class Course extends Model
 
         return $this->hasMany('App\Models\RegistryDetail', 'course_id','id');
     }
+      public function certification()
+    {
+
+        return $this->belongsTo('App\Models\Certification', 'id','course_id');
+    }
 }
