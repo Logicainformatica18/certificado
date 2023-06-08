@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Qualification;
 use App\Models\RegistryDetail;
-use App\Models\Question;
+use App\Models\Exam;
 use App\Http\Requests\StoreQualificationRequest;
 use App\Http\Requests\UpdateQualificationRequest;
 use Illuminate\Http\Request;
@@ -16,7 +16,10 @@ class QualificationController extends Controller
      */
     public function index()
     {
-        //
+              $certification_id = Session::get('certification_id');
+            $exam= Exam::where('certification_id','=',$certification_id)->get();
+        
+        return view("student/student_exam", compact('exam'));
     }
 
     /**
@@ -27,18 +30,46 @@ class QualificationController extends Controller
         //
     }
 
+        public function qualification_certification(Request $request)
+    {
+             $exam = Exam::where('certification_id','=',Session::get('certification_id'))->count();
+            $qualification = Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))
+            ->where('state','=','v')->count();
+            $average= $qualification / $exam;
+            if ($average >0.60) {
+
+                 $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
+       $registry_detail->n1 = 20;
+       $registry_detail->save();
+            return 'Aprobado';
+            }
+            else{
+                return 'Puedes volver a dar la prueba';
+            }
+
+    
+                 
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-             $qualification = new Qualification;
-             $qualification->exam_id = $request->exam_id;
+           Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->delete();
+   
+        
+          $exam = Exam::where('certification_id','=',Session::get('certification_id'))->count();
+ $exam_id = Exam::select('id')->where('certification_id','=',Session::get('certification_id'))->get();
+          for ($i=0; $i < $exam; $i++) { 
+            $qualification = new Qualification;
+            $qualification->exam_id = $exam_id[$i]->id;
              $qualification->registry_detail_id = Session::get('registry_detail_id');
-             $qualification->option = $request->option;
-           $qualification->state = '';
-              
-        $qualification->save();
+             $qualification->option = '';
+             $qualification->state = 'f';
+             $qualification->save();
+          }
+    
+ 
       //  return $this->create();
     }
 
@@ -61,16 +92,29 @@ class QualificationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateQualificationRequest $request, Qualification $qualification)
+    public function update(Request $request)
     {
-        //
+           $qualification = Qualification::find($request->id);
+             $qualification->exam_id = $request->exam_id;
+             $qualification->registry_detail_id = Session::get('registry_detail_id');
+             $qualification->option = $request->option;
+             if ($request->answer==$request->option) {
+            $qualification->state = 'v';
+             }
+             else {
+                 $qualification->state = 'f';
+             }
+           
+              
+        $qualification->save();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Qualification $qualification)
+    public function destroy($exam_id)
     {
-        //
+          Qualification::find($exam_id)->delete();
+      //  return $this->create();
     }
 }

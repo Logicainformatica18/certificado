@@ -13,4 +13,9 @@ class Exam extends Model
 
         return $this->hasOne('App\Models\Certification', 'id','certification_id');
     }
+    public function qualification()
+    {
+
+        return $this->belongsTo('App\Models\Qualification', 'id','exam_id');
+    }
 }

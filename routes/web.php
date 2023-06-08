@@ -34,7 +34,7 @@ Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'cour
 Route::group(['middleware' => ['role:Estudiante|Docente|Coordinación']], function () {
 
 
-
+Route::resource('Mi-examen', App\Http\Controllers\QualificationController::class);
 Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::class);
 
 
@@ -44,6 +44,8 @@ Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::clas
    Route::post('qualificationDestroy',[App\Http\Controllers\QualificationController::class, 'destroy']);
    Route::post('qualificationShow',[App\Http\Controllers\QualificationController::class, 'show']);
    
+  Route::post('qualification_certification',[App\Http\Controllers\QualificationController::class, 'qualification_certification']);
+
    Route::resource("evaluaciones", App\Http\Controllers\EvaluationController::class);
    Route::post('evaluationStore',[App\Http\Controllers\EvaluationController::class, 'store']);
    Route::post('evaluationEdit',[App\Http\Controllers\EvaluationController::class, 'edit']);

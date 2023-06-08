@@ -7,7 +7,6 @@
                 <div class="col-sm-6">
                     <h1>Certificados</h1>
                     {{ session('success') }}
-                    efefe {{Session::get('registry_detail_id')}}
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

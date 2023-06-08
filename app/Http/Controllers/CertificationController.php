@@ -140,6 +140,7 @@ file_put_contents($filename, $imageData);
     
     public function certification_detail(Request $request)
     {
+        
        return Session::put('certification_id',$request->id );
   
     }

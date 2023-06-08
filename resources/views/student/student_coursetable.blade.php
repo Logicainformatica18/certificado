@@ -36,7 +36,7 @@
                                             <td>
                                                 @role('Estudiante')
                                                    <a class="btn btn-warning note-icon-pencil"
-                                                        onclick="courseDetail('{{ $registry_details->registry->course->id }}','{{$registry_details->id}}')"> Certificados</a>
+                                                        onclick="courseDetail('{{ $registry_details->registry->course->id }}','{{$registry_details->id}}')"> Ver Certificados</a>
                                                 @endrole
 
                                             </td>
