@@ -19,7 +19,15 @@
                                     <form action="" method="post" role="form"
                                         id="qualification{{ $exams->id }}" name="qualification">
                                         <input type="hidden" name=""value="{{ $exams->id }}">
+
                                         <input type="hidden" name="id"value="{{ $exams->qualification->id }}">
+
+                                        <?php
+if (is_null($exams->id)) {
+    echo '<script>window.location.href = "Mi-examen";</script>';
+    exit;
+}
+                                        ?>
                                         <input type="hidden" name="exam_id"value="{{ $exams->id }}">
                                         <input type="hidden" name="answer"value="{{ $exams->answer }}">
                                         

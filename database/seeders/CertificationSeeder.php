@@ -15,6 +15,7 @@ class CertificationSeeder extends Seeder
        Certification::create([
                 'course_id' => '1',
            'description' => 'Modelamiento de bases de datos',
+            'note' => 'n1',
             'code' => 'code',
             'url_image' => 'certificate/python_datscience/',
             'detail' => 'detalle'
@@ -24,6 +25,7 @@ class CertificationSeeder extends Seeder
                 'course_id' => '5',
            'description' => 'Azure fundamentals',
             'code' => 'code',
+                'note' => 'n1',
             'url_image' => 'certificate/azure_datscience/',
             'detail' => 'detalle'
 

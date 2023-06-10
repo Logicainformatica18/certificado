@@ -52,13 +52,24 @@ class RegistryDetailController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+
     {
+        $registry = Registry::find(Session::get('registry_id'));
+        $count = RegistryDetail::where('registry_id',Session::get('registry_id'))->count();
+        $count = $count + 1;
         $registry_detail = new RegistryDetail;
         $student =explode("-", $request->student) ;
 
         $registry_detail->student_m = $student[0];
       $registry_detail->student_t = $student[1];
         $registry_detail->student_r = $student[2];
+           if ($count > 9 && $count < 100) {
+                                            $count = '0' . $count;
+                                        } elseif ($count < 10) {
+                                            $count = '00' . $count;
+                                        }
+                                        
+        $registry_detail->code_certification = $registry->description.'-'.$count;
 
       $registry_id = Session::get('registry_id');
 

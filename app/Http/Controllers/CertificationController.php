@@ -90,6 +90,7 @@ file_put_contents($filename, $imageData);
              $certification->description = $request->description;
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
+                       $certification->note = $request->note;
         $certification->save();
         return $this->create();
     }
@@ -120,6 +121,7 @@ file_put_contents($filename, $imageData);
                $certification->description = $request->description;
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
+                      $certification->note = $request->note;
         $certification->save();
         return $this->create();
     }

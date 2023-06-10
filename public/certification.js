@@ -65,7 +65,8 @@ function certificationEdit(id) {
             certification.id.value=          response.data["id"];
             certification.description.value= response.data["description"];
             certification.detail.value = response.data["detail"];
-           certification.course_id.value=    response.data["course_id"];
+            certification.course_id.value = response.data["course_id"];
+            certification.note.value=    response.data["note"];
 
         })
         .catch(function(response) {

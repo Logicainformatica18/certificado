@@ -21,6 +21,7 @@ return new class extends Migration
                  $table->string('alternative3');
                  $table->string('alternative4');
                   $table->string('answer');
+                
             $table->string('detail')->nullable();
             $table->timestamps();
         });

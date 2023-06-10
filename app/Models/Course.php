@@ -20,6 +20,11 @@ class Course extends Model
 
         return $this->hasMany('App\Models\RegistryDetail', 'course_id','id');
     }
+        public function registry()
+    {
+
+        return $this->hasMany('App\Models\Registry', 'id','course_id');
+    }
       public function certification()
     {
 

@@ -18,6 +18,10 @@
                                     <th ></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
+                                    @role('Coordinación|Administrador')
+                                    
+                                    <th class="sorting">Nota</th>
+                                   @endrole
                                     <th class="sorting">Detalle</th>
                                     <th class="sorting">Descripción</th>
                                     <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
@@ -29,6 +33,10 @@
                                             <td>{{ $certifications->id }}</td>
                                             <td>{{ $certifications->description }}</td>
                                             <td>{{ $certifications->detail }}</td>
+                                              @role('Coordinación|Administrador')
+                                    
+                                    <td>{{$certifications->note}} </td>
+                                   @endrole
                                              <td>{{ $certifications->course->description }}</td>
                                             <td>
                                                 @role('Coordinación|Administrador')

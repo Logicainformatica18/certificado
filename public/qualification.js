@@ -13,12 +13,13 @@ function qualificationCertification() {
    //   alert("Haz sido calificado, revisa por favor tu certificado")
    //var contentdiv = document.getElementById("mycontent");
    //contentdiv.innerHTML = response.data;
-   alert(response.data);
+ 
       if (response.data="Aprobado") {
-        
+        alert('Revisa tu certificado');       
         window.location.href = "Mis-certificados";
       }
       else {
+        alert('Puedes volver a dar la prueba');
         window.location.href = "Mis-cursos";
       }
       
@@ -44,6 +45,8 @@ function qualificationIndex(id) {
     .then(function(response) {
       //handle success
       window.location.href = "Mi-examen";
+    
+    
       // var contentdiv = document.getElementById("mycontent");
       // contentdiv.innerHTML = response.data;
       //  alert("hola");
@@ -93,7 +96,8 @@ function qualificationStore() {
       //carga pdf- csv - excel
       //alert(response.data);
       //         datatable_load();
-      //  alert('Registrado Correctamente');
+        alert('Empezó tu prueba');
+      
     })
     .catch(function(response) {
       //handle error

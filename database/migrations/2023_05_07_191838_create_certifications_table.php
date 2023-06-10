@@ -16,6 +16,8 @@ return new class extends Migration
             $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
   $table->string('description');
+  $table->string('note');
+  
             $table->string('code')->nullable();
             $table->string('url')->nullable();
               $table->string('url_image')->nullable();

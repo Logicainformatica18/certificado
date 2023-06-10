@@ -61,6 +61,26 @@
                                     -{{ $item->type->description }} </option>
                             @endforeach
                         </select>
+                        Cursos :
+                      Nota :
+                        <select name="note" id="note" class="form-control">
+                           
+                                <option value="n1" >Nota 1 </option>
+                                <option value="n2" >Nota 2 </option>
+                                <option value="n3" >Nota 3 </option>
+                                <option value="n4" >Nota 4 </option>
+                                <option value="n5" >Nota 5 </option>
+                                <option value="n6" >Nota 6 </option>
+                                <option value="n7" >Nota 7 </option>
+                                <option value="n8" >Nota 8 </option>
+                           
+                        </select>
+                        {{-- <select name="course_id" id="course_id" class="form-control">
+                            @foreach ($course->registry as $item)
+                                <option value="{{ $item->id }}">{{ $item->description }}
+                                    -{{ $item->type->description }} </option>
+                            @endforeach
+                        </select> --}}
                 </div>
                 <div class="modal-footer">
                     <input type="button" value="Nuevo" class="btn btn-warning"

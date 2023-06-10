@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certification;
 use App\Models\Qualification;
 use App\Models\RegistryDetail;
 use App\Models\Exam;
@@ -35,16 +36,20 @@ class QualificationController extends Controller
              $exam = Exam::where('certification_id','=',Session::get('certification_id'))->count();
             $qualification = Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))
             ->where('state','=','v')->count();
+$certification = Certification::where('id','=',Session::get('certification_id'))->get();
+            
             $average= $qualification / $exam;
-            if ($average >0.60) {
 
-                 $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
-       $registry_detail->n1 = 20;
+            if ($average >0.60) {
+            $property = $certification[0]->note;
+        $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
+       $registry_detail->$property = 20;       
        $registry_detail->save();
             return 'Aprobado';
+
             }
             else{
-                return 'Puedes volver a dar la prueba';
+                return 'Desaprobado';
             }
 
     
