@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('description');
             $table->string('hours');
             $table->string('detail')->nullable();
+            $table->string('code_certificate')->nullable();
+            
             $table->string('folder_certification')->nullable();
+
 
             $table->timestamps();
         });

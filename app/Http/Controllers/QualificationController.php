@@ -33,6 +33,7 @@ class QualificationController extends Controller
 
         public function qualification_certification(Request $request)
     {
+
              $exam = Exam::where('certification_id','=',Session::get('certification_id'))->count();
             $qualification = Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))
             ->where('state','=','v')->count();
@@ -59,12 +60,12 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
            Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->delete();
    
         
-          $exam = Exam::where('certification_id','=',Session::get('certification_id'))->count();
- $exam_id = Exam::select('id')->where('certification_id','=',Session::get('certification_id'))->get();
+          $exam = Exam::where('certification_id','=',$request->id)->count();
+ $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
           for ($i=0; $i < $exam; $i++) { 
             $qualification = new Qualification;
             $qualification->exam_id = $exam_id[$i]->id;
@@ -74,7 +75,7 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
              $qualification->save();
           }
     
- 
+  return Session::put('certification_id',$request->id );
       //  return $this->create();
     }
 

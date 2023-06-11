@@ -79,8 +79,9 @@ function qualificationDetail(id) {
       console.log(response);
     });
 }
-function qualificationStore() {
+function qualificationStore(id) {
   var formData = new FormData(document.getElementById("certification"));
+    formData.append("id", id);
   axios({
     method: "post",
     url: "qualificationStore",
@@ -96,7 +97,7 @@ function qualificationStore() {
       //carga pdf- csv - excel
       //alert(response.data);
       //         datatable_load();
-        alert('Empezó tu prueba');
+      window.location.href = "Mi-examen";
       
     })
     .catch(function(response) {

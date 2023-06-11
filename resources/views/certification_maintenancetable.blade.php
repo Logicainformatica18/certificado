@@ -53,7 +53,7 @@
                                   @role('Estudiante')
 
     <a class="btn btn-warning note-icon-pencil"
-                                                        onclick="qualificationIndex('{{ $certifications->id }}');qualificationStore('{{$certifications->id}}');"> Dar Exámen</a>
+                                                        onclick="qualificationStore('{{$certifications->id}}');"> Dar Exámen</a>
                                   @endrole
                                           
                                             </td>

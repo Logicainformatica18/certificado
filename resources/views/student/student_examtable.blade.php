@@ -16,21 +16,32 @@
 
                             @foreach ($exam as $exams)
                                 <div class="row page" style="display: none;">
-                                    <form action="" method="post" role="form"
-                                        id="qualification{{ $exams->id }}" name="qualification">
+                            
+
+                                    @if (empty($exams->qualification))
+                                        <script>
+                                            alert('Por favor actualize la pagina')
+                                            window.location.href = 'Mi-examen';
+                                        </script>
+                                    @endif
+                                     @if (empty($exams->qualification->id))
+                                        <script>
+                                            alert('Por favor actualize la pagina')
+                                            window.location.href = 'Mi-examen';
+                                        </script>
+                                    @endif
+
+
+                                    <form action="" method="post"
+                                        role="form"id="qualification{{ $exams->id }}" name="qualification">
                                         <input type="hidden" name=""value="{{ $exams->id }}">
+
 
                                         <input type="hidden" name="id"value="{{ $exams->qualification->id }}">
 
-                                        <?php
-if (is_null($exams->id)) {
-    echo '<script>window.location.href = "Mi-examen";</script>';
-    exit;
-}
-                                        ?>
                                         <input type="hidden" name="exam_id"value="{{ $exams->id }}">
                                         <input type="hidden" name="answer"value="{{ $exams->answer }}">
-                                        
+
                                         {{ csrf_field() }}
                                         <h1><b>{{ $exams->ask }}</b> </h1>
                                         <div class="col col-lg-12 ">
@@ -91,12 +102,13 @@ if (is_null($exams->id)) {
                                             </div>
                                         @endif
                                         @if ($loop->last)
-                                             <button id="complete" class="btn btn-success btn-lg"
-                                                    onclick="qualificationUpdate({{ $exams->id }});qualificationCertification();return false">Enviar y Finalizar</button>
+                                            <button id="complete" class="btn btn-success btn-lg"
+                                                onclick="qualificationUpdate({{ $exams->id }});qualificationCertification();return false">Enviar
+                                                y Finalizar</button>
                                         @endif
 
                                 </div>
-                          
+
 
 
                                 </form>
@@ -105,7 +117,7 @@ if (is_null($exams->id)) {
 
                             <p></p>
 
-<form action=""id="prueba" method="post"></form>
+                            <form action=""id="prueba" method="post"></form>
 
                             {{-- <div class="page" style="display: none;">Contenido de la página 1</div>
 <div class="page" style="display: none;">Contenido de la página 2</div>
@@ -141,7 +153,6 @@ if (is_null($exams->id)) {
                                 // document.getElementById('prev').addEventListener('click', function() {
                                 //     showPage(pageIndex - 1);
                                 // });
-                             
                             </script>
 
                         </div>
