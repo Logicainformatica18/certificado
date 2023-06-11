@@ -223,7 +223,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      
      ctx.fillText("4", x-8, 434);
      
- ctx.font = "bold 55px Open Sans";
+ ctx.font = "bold 46px Open Sans";
      ctx.fillStyle = "#001238";
      
 
