@@ -373,7 +373,7 @@ function certificationSavePhoto(id,code_certification,cert) {
            contentdiv.innerHTML = response.data;
   //carga pdf- csv - excel
 
-            alert('Guardado en disco correctamente');
+            alert('Actualiza una vez más la página para compartir');
           
         })
         .catch(function(response) {
