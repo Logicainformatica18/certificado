@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string("dni",9)->nullable();
+            $table->string("dni",100)->nullable();
             $table->string("firstname");
             $table->string("lastname");
             $table->string("names");

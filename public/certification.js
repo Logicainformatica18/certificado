@@ -215,9 +215,18 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
            // student = student.toUpperCase();
         let x = canvas1.width / 2  ;
 
-            ctx.fillText(student, x, 300);
+     ctx.fillText(student, x, 300);
+     
+ ctx.font = "bold 18px Open Sans";
+     ctx.fillStyle = "#001238";
+     
+     
+     ctx.fillText("4", x-8, 434);
+     
  ctx.font = "bold 55px Open Sans";
-     ctx.fillStyle ="#001238";
+     ctx.fillStyle = "#001238";
+     
+
         ctx.fillText(text, x, 388);
      
      
