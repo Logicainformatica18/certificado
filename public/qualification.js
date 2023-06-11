@@ -14,12 +14,12 @@ function qualificationCertification() {
    //var contentdiv = document.getElementById("mycontent");
    //contentdiv.innerHTML = response.data;
  
-      if (response.data="Aprobado") {
+      if (response.data=="Aprobado") {
         alert('Revisa tu certificado');       
         window.location.href = "Mis-certificados";
       }
-      else {
-        alert('Puedes volver a dar la prueba');
+      else if(response.data=="Desaprobado") {
+        alert('Desaprobado');
         window.location.href = "Mis-cursos";
       }
       

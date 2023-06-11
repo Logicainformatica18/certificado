@@ -374,6 +374,7 @@ function certificationSavePhoto(id,code_certification,cert) {
   //carga pdf- csv - excel
 
             alert('Guardado en disco correctamente');
+          
         })
         .catch(function(response) {
             //handle error
