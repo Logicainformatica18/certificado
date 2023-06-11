@@ -72,7 +72,7 @@
         $url=$host.'/certificaciones/registry_detail_id='.$registry_detail->id.'/language='.$language.'/id='.$registry_detail->code_certification;
 
 $folder = $registry_detail->registry->course->folder_certification;
-$name = $registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname." ".$registry_detail->model_has_role->student->names;
+$name = $registry_detail->model_has_role->student->names." ".$registry_detail->model_has_role->student->firstname." ".$registry_detail->model_has_role->student->lastname;
 $img = "1";
 $route_certification = asset("certification/$folder/$language/$img.png");
 //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
