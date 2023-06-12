@@ -41,7 +41,7 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
             
             $average= $qualification / $exam;
 
-            if ($average >0.60) {
+            if ($average >0.20) {
             $property = $certification[0]->note;
         $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
        $registry_detail->$property = 20;       
