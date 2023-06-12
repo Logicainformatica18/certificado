@@ -83,7 +83,9 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $code_certification }}','{{$i}}');">Generar</button>
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
+                                                     <button class="btn btn-warning"
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
                                                 {{-- <button class="btn btn-danger"
                                                     onclick="">Ingles</button> --}}
                                             </td>
