@@ -112,7 +112,7 @@ function certificationOpen(id) {
 
 
 
-function certificationGenerate(id, language1,language2, code_certification, cert) {
+function certificationGenerate(id, language1, code_certification, cert) {
     
     var formData = new FormData(document.getElementById("qualification"));
     formData.append("id",id);
@@ -127,9 +127,9 @@ function certificationGenerate(id, language1,language2, code_certification, cert
         .then(function(response) {
             //handle success
             //abrin nueva pestaña el cerficado generato
-             let url2 = "certificaciones/registry_detail_id=" + id + "/language=" + language2 +"/id="+code_certification +"/cert="+cert;
+          //   let url2 = "certificaciones/registry_detail_id=" + id + "/language=" + language2 +"/id="+code_certification +"/cert="+cert;
              let url = "certificaciones/registry_detail_id=" + id + "/language=" + language1 +"/id="+code_certification +"/cert="+cert;
-             window.open(url2, "_blank");
+         //    window.open(url2, "_blank");
             window.open(url, "_blank");
             
         })
