@@ -143,11 +143,12 @@ function qualificationUpdate(id) {
   })
     .then(function(response) {
       //handle success
-      // var contentdiv = document.getElementById("mycontent");
-      // contentdiv.innerHTML = response.data;
+     // var contentdiv = document.getElementById("mycontent");
+ //      contentdiv.innerHTML = response.data;
       //   //carga pdf- csv - excel
       //   datatable_load();
       //   alert('Modificado Correctamente');
+
 showPage(pageIndex + 1);
     
     })

@@ -18,9 +18,9 @@ class QualificationController extends Controller
     public function index()
     {
               $certification_id = Session::get('certification_id');
-            $exam= Exam::where('certification_id','=',$certification_id)->get();
+            $qualification= Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->get();
         
-        return view("student/student_exam", compact('exam'));
+        return view("student/student_exam", compact('qualification'));
     }
 
     /**
@@ -41,7 +41,7 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
             
             $average= $qualification / $exam;
 
-            if ($average >0.20) {
+            if ($average >= 0.20) {
             $property = $certification[0]->note;
         $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
        $registry_detail->$property = 20;       
@@ -63,7 +63,8 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
     {   
            Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->delete();
    
-        
+     //   $qualifications = Qualification::where('registry_detail_id', '=', Session::get('registry_detail_id'))->get();
+
           $exam = Exam::where('certification_id','=',$request->id)->count();
  $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
           for ($i=0; $i < $exam; $i++) { 
@@ -75,7 +76,7 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
              $qualification->save();
           }
     
-  return Session::put('certification_id',$request->id );
+   return Session::put('certification_id',$request->id );
       //  return $this->create();
     }
 
@@ -101,8 +102,8 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
     public function update(Request $request)
     {
            $qualification = Qualification::find($request->id);
-             $qualification->exam_id = $request->exam_id;
-             $qualification->registry_detail_id = Session::get('registry_detail_id');
+         //    $qualification->exam_id = $request->exam_id;
+          //   $qualification->registry_detail_id = Session::get('registry_detail_id');
              $qualification->option = $request->option;
              if ($request->answer==$request->option) {
             $qualification->state = 'v';
@@ -113,6 +114,8 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
            
               
         $qualification->save();
+
+
     }
 
     /**

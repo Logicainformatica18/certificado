@@ -14,36 +14,36 @@
 
 
 
-                            @foreach ($exam as $exams)
+                            @foreach ($qualification as $qualifications)
                                 <div class="row page" style="display: none;">
                             
 
-                                    @if (empty($exams->qualification))
+                                    {{-- @if (empty($qualifications->qualification))
                                         <script>
                                             alert('Por favor actualize la pagina')
-                                            window.location.href = 'Mi-examen';
+                                            window.location.href = 'Mi-qualificationen';
                                         </script>
-                                    @endif
-                                     @if (empty($exams->qualification->id))
+                                    @endif --}}
+                                     {{-- @if (empty($qualifications->qualification->id))
                                         <script>
                                             alert('Por favor actualize la pagina')
-                                            window.location.href = 'Mi-examen';
+                                            window.location.href = 'Mi-qualificationen';
                                         </script>
-                                    @endif
+                                    @endif --}}
 
 
                                     <form action="" method="post"
-                                        role="form"id="qualification{{ $exams->id }}" name="qualification">
-                                        <input type="hidden" name=""value="{{ $exams->id }}">
+                                        role="form"id="qualification{{ $qualifications->id }}" name="qualification">
+                                        <input type="hidden" name=""value="{{ $qualifications->id }}">
 
 
-                                        <input type="hidden" name="id"value="{{ $exams->qualification->id }}">
+                                        <input type="hidden" name="id"value="{{ $qualifications->id }}">
 
-                                        <input type="hidden" name="exam_id"value="{{ $exams->id }}">
-                                        <input type="hidden" name="answer"value="{{ $exams->answer }}">
+                                        <input type="hidden" name="qualification_id"value="{{ $qualifications->id }}">
+                                        <input type="hidden" name="answer"value="{{ $qualifications->exam->answer }}">
 
                                         {{ csrf_field() }}
-                                        <h1><b>{{ $exams->ask }}</b> </h1>
+                                        <h1><b>{{ $qualifications->exam->ask }}</b> </h1>
                                         <div class="col col-lg-12 ">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -51,7 +51,7 @@
                                                             value="1"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative1 }}" disabled>
+                                                    value="{{ $qualifications->exam->alternative1 }}" disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -62,7 +62,7 @@
                                                             value="2"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative2 }}"disabled>
+                                                    value="{{ $qualifications->exam->alternative2 }}"disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -73,7 +73,7 @@
                                                             value="3"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative3 }}"disabled>
+                                                    value="{{ $qualifications->exam->alternative3 }}"disabled>
                                             </div>
                                             <p></p>
                                         </div>
@@ -85,7 +85,7 @@
                                                             value="4"></span>
                                                 </div>
                                                 <input type="text" class="form-control"
-                                                    value="{{ $exams->alternative4 }}"disabled>
+                                                    value="{{ $qualifications->exam->alternative4 }}"disabled>
                                             </div>
                                         </div>
                                         <p></p>
@@ -95,7 +95,7 @@
                                                 &nbsp;&nbsp;&nbsp; --}}
 
                                                 <button id="next" class="btn btn-success btn-lg"
-                                                    onclick="qualificationUpdate({{ $exams->id }}); return false">Siguiente</button>
+                                                    onclick="qualificationUpdate({{ $qualifications->id }}); return false">Siguiente</button>
 
 
 
@@ -103,7 +103,7 @@
                                         @endif
                                         @if ($loop->last)
                                             <button id="complete" class="btn btn-success btn-lg"
-                                                onclick="qualificationUpdate({{ $exams->id }});qualificationCertification();return false">Enviar
+                                                onclick="qualificationUpdate({{ $qualifications->id }});qualificationCertification();return false">Enviar
                                                 y Finalizar</button>
                                         @endif
 

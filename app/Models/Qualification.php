@@ -9,7 +9,7 @@ class Qualification extends Model
 {
     use HasFactory;
     
-    public function qualification()
+    public function exam()
     {
 
         return $this->hasOne('App\Models\Exam', 'id','exam_id');
