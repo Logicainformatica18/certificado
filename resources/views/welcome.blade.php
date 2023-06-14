@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados SDC</title>
+    <title>Tecciline</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/jpg" href="{{asset('dist/img/favicon.png')}}"/>
@@ -22,7 +22,7 @@
 <style type="text/css">
  .welcome {
    margin:0px;
-   background-image: url("{{asset('dist/img/portada.png')}}");
+   background-image: url("https://blog.talenthackers.net/wp-content/uploads/2022/03/programmers-working-at-the-office-2021-09-17-18-22-53-utc-scaled.jpg");
    width:100%;
    background-repeat:no-repeat
  }
@@ -34,7 +34,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                   <div class="login-logo">
-            <b class="text-blue" style="font-family: Arial 50px">CERTIFICADOS SDC</b>
+            <b class="text-blue" style="font-family: Arial 50px">CERTIFICADOS TECCILINE</b>
         </div>
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">
