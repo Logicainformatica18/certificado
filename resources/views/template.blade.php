@@ -146,7 +146,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4"">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-                <img src="https://sdc-learning.pe/wp-content/uploads/2022/11/logo-largo_v2.png.webp" alt="AdminLTE Logo"
+                <img src="{{asset('tecciline.png')}}" alt="AdminLTE Logo"
                     class="" width="100%" style="opacity: .8">
                 <p></p>
                 <span class="brand-text font-weight-light center">Certificaciones</span>
