@@ -12,6 +12,11 @@
     <meta name="image" id="oimage"property="og:image"
         content="{{ url('storage/certificados/' . $registry_detail->code_certification . '_' . $cert . '.png') }}">
 
+<meta property="og:image:width" content="828" />
+<meta property="og:image:height" content="450" />
+
+
+
     <title>Certificados SDC</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
