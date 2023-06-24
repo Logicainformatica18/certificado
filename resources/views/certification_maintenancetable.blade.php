@@ -34,7 +34,7 @@
                                     @foreach ($certification as $certifications)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $enumeracion=$enumeracion+1; }}</td>
+                                            <td>{{ $enumeracion=$enumeracion+1 }}</td>
                                             <td>{{ $certifications->description }}</td>
                                            
                                               @role('Coordinación|Administrador')
