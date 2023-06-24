@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Exam;
+use App\Models\Qualification;
 use App\Models\RegistryDetail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -71,7 +72,7 @@ class ExamController extends Controller
     public function update(Request $request)
     {
        $exam = Exam::find($request->id);
-            $exam->exam_id = Session::get('certification_id');
+            $exam->certification_id = Session::get('certification_id');
              $exam->ask = $request->ask;
              $exam->alternative1 = $request->alternative1;
              $exam->alternative2 = $request->alternative2;
@@ -87,6 +88,7 @@ class ExamController extends Controller
      */
     public function destroy(Request $request)
     {
+    Qualification::where("exam_id","=",$request->id)->delete();
         Exam::find($request->id)->delete();
         return $this->create();
     }

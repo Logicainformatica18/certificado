@@ -62,9 +62,12 @@ function examEdit(id) {
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data["description"];
             exam.id.value=response.data["id"];
-            exam.description.value=response.data["description"];
-          exam.detail.value=response.data["detail"];
-          
+            exam.ask.value=response.data["ask"];
+          exam.alternative1.value = response.data["alternative1"];
+          exam.alternative2.value = response.data["alternative2"];
+          exam.alternative3.value = response.data["alternative3"];
+            exam.alternative4.value=response.data["alternative4"];
+            exam.answer.value=response.data["answer"];
         })
         .catch(function(response) {
             //handle error
