@@ -26,13 +26,16 @@
                                             alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $enumeracion=0;
+                                    @endphp
                                     @foreach ($registry_detail as $registry_details)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $registry_details->id }}</td>
+                                            <td>{{ $enumeracion=$enumeracion+1 }}</td>
                                             <td>{{ $registry_details->registry->course->description }}</td>
                                             <td>{{ $registry_details->registry->edition }}</td>
-                                              <td>{{ $registry_details->registry->fec_start }}</td>
+                                              <td>{{substr($registry_details->registry->fec_start,0,11) }}</td>
                                             <td>
                                                 @role('Estudiante')
                                                    <a class="btn btn-warning note-icon-pencil"

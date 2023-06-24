@@ -12,7 +12,9 @@
                         <!-- /.card-header -->
                         <div class="card-body">
 
-
+@php
+    $enumeracion=0;
+@endphp
 
                             @foreach ($qualification as $qualifications)
                                 <div class="row page" style="display: none;">
@@ -43,7 +45,7 @@
                                         <input type="hidden" name="answer"value="{{ $qualifications->exam->answer }}">
 
                                         {{ csrf_field() }}
-                                        <h1><b>{{ $qualifications->exam->ask }}</b> </h1>
+                                        <h1><b>{{$enumeracion=$enumeracion+1}}. {{ $qualifications->exam->ask }}</b> </h1>
                                         <div class="col col-lg-12 ">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
