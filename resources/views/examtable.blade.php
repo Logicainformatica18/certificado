@@ -52,10 +52,13 @@
                                                 alt="" srcset=""></th>
                                     </thead>
                                     <tbody>
+                                    @php
+                                        $enumeracion =0;
+                                    @endphp
                                         @foreach ($exam as $exams)
                                             <tr>
                                                 <td></td>
-                                                <td>{{ $exams->id }}</td>
+                                                <td>{{ $enumeracion = $enumeracion +1 }}</td>
                                                 <td>{{ $exams->ask }}</td>
                                                 <td>{{ $exams->alternative1 }}</td>
                                                 <td>{{ $exams->alternative2 }}</td>
