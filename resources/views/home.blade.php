@@ -1,29 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div >
+    <div class="container">
+        <div>
 
-        @foreach ($users->roles as $item )
-
-<a href="{{url($item->name)}}">
-<div class="card badge-primary">
-  <div class="card-header">
-    <h3 class="card-title"> {{$item->name}}</h3>
-    <div class="card-tools">
-      <!-- Buttons, labels, and many other things can be placed here! -->
-      <!-- Here is a label for example -->
-      <span class="badge"> Cargo </span>
+            @foreach ($users->roles as $item)
+                <a href="{{ url($item->name) }}">
+                    <div class="card badge-primary" style="background-color:#00cc99">
+                        <div class="row">
+                            <div class="col-lg-1" style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">
+                                <img src="{{ asset('ESTUDIANTE.png') }}" width="100%" alt="" srcset="" ">
     </div>
-    <!-- /.card-tools -->
-  </div>
-  <!-- /.card-header -->
 
-</div>
-</a>
-<p></p>
+                                <div class="col-lg-11"style="color:black">
+                                  <p></p>
+                                    <style>
+                                        .custom-container {
+                                            position: relative;
+                                            top: -7px;
+                                            /* Ajusta este valor para mover el contenedor hacia arriba */
+                                        }
 
-@endforeach
-    </div>
-</div>
-@endsection
+                                        .custom-container h2,
+                                        .custom-container .bad {
+                                            position: relative;
+                                            top: -7px;
+                                            /* Ajusta este valor para mover los elementos hacia arriba */
+                                        }
+                                    </style>
+                                    <h2  ><b>{{ $item->name }}</b> </h2>
+                                    <div class="custom-container">
+
+                                        <span class="bad">&nbsp;Cargo</span>
+                                    </div>
+
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- /.card-header -->
+
+                        </div>
+                    </a>
+                    <p></p>
+     @endforeach
+                            </div>
+                        </div>
+                    @endsection

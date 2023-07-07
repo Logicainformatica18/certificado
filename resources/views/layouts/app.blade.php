@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="icon" type="image/jpg" href="{{asset('dist/img/favicon.png')}}"/>
+    <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -15,29 +16,31 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('style.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', '') }}
-                </a>
-                          <a class="text-blue" href="{{ route('logout') }}">
-                    Cerrar Sesión
-                </a>
+        <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
+            <div class="row container">
+                <div class="col col-lg-4">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
+                    </a>
 
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-
-                    </ul>
                 </div>
+                <div class="col col-lg-6">
+                    &nbsp;
+                </div>
+                <div class="col col-lg-2" style="align-items: right">
+                    <img src="{{asset('CERRAR-SESION-BLANCO.png')}}" alt="" width="20%">
+                    <a class="text-blue" href="{{ route('logout') }}" style="color:white">
+                        Cerrar Sesión
+                    </a>
+                </div>
+
             </div>
         </nav>
 
@@ -46,4 +49,5 @@
         </main>
     </div>
 </body>
+
 </html>
