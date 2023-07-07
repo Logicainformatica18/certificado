@@ -24,22 +24,21 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
-            <div class="row container">
+            <div class="row">
                 <div class="col col-lg-4">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
                     </a>
-
+                    
                 </div>
-                <div class="col col-lg-6">
-                    &nbsp;
+                   <div class="col col-lg-4">
+                  
                 </div>
-                <div class="col col-lg-2" style="align-items: right">
-                    <img src="{{asset('CERRAR-SESION-BLANCO.png')}}" alt="" width="20%">
-                    <a class="text-blue" href="{{ route('logout') }}" style="color:white">
-                        Cerrar Sesión
-                    </a>
-                </div>
+             
+              <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+  <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+  <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+</div>
 
             </div>
         </nav>

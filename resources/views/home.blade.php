@@ -1,51 +1,91 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div>
-
-            @foreach ($users->roles as $item)
-                <a href="{{ url($item->name) }}">
+    @foreach ($users->roles as $item)
+        <div class="container">
+            <a href="{{ url($item->name) }}">
+                @if ($item->name == 'Estudiante')
                     <div class="card badge-primary" style="background-color:#00cc99">
                         <div class="row">
-                            <div class="col-lg-1" style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">
+                            <div class="col-lg-1"
+                                style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">
                                 <img src="{{ asset('ESTUDIANTE.png') }}" width="100%" alt="" srcset="" ">
-    </div>
+                                        </div>
 
-                                <div class="col-lg-11"style="color:black">
-                                  <p></p>
-                                    <style>
-                                        .custom-container {
-                                            position: relative;
-                                            top: -7px;
-                                            /* Ajusta este valor para mover el contenedor hacia arriba */
-                                        }
+                                                            <div class="col-lg-11"style="color:black">
+                                                              <p></p>
+                                                                <style>
+                                                                    .custom-container {
+                                                                        position: relative;
+                                                                        top: -7px;
+                                                                        /* Ajusta este valor para mover el contenedor hacia arriba */
+                                                                    }
 
-                                        .custom-container h2,
-                                        .custom-container .bad {
-                                            position: relative;
-                                            top: -7px;
-                                            /* Ajusta este valor para mover los elementos hacia arriba */
-                                        }
-                                    </style>
-                                    <h2  ><b>{{ $item->name }}</b> </h2>
-                                    <div class="custom-container">
+                                                                    .custom-container h2,
+                                                                    .custom-container .bad {
+                                                                        position: relative;
+                                                                        top: -7px;
+                                                                        /* Ajusta este valor para mover los elementos hacia arriba */
+                                                                    }
+                                                                </style>
+                                                                <h2  ><b>{{ $item->name }}</b> </h2>
+                                                                <div class="custom-container">
 
-                                        <span class="bad">&nbsp;Cargo</span>
-                                    </div>
-
-
-                                </div>
+                                                                    <span class="bad">&nbsp;Cargo</span>
+                                                                </div>
 
 
+                                                            </div>
 
-                            </div>
-                            <!-- /.card-header -->
 
-                        </div>
-                    </a>
-                    <p></p>
-     @endforeach
-                            </div>
-                        </div>
-                    @endsection
+
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                    </div>
+                                                    @else
+                                                           <div class="card badge-primary" style="background-color:#003399">
+                        <div class="row">
+                            <div class="col-lg-1"
+                                style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">
+                                <img src="{{ asset('COORDINACION.png') }}" width="100%" alt="" srcset="" ">
+                                        </div>
+
+                                                            <div class="col-lg-11"style="color:white">
+                                                              <p></p>
+                                                                <style>
+                                                                    .custom-container {
+                                                                        position: relative;
+                                                                        top: -7px;
+                                                                        /* Ajusta este valor para mover el contenedor hacia arriba */
+                                                                    }
+
+                                                                    .custom-container h2,
+                                                                    .custom-container .bad {
+                                                                        position: relative;
+                                                                        top: -7px;
+                                                                        /* Ajusta este valor para mover los elementos hacia arriba */
+                                                                    }
+                                                                </style>
+                                                                <h2  ><b>{{ $item->name }}</b> </h2>
+                                                                <div class="custom-container">
+
+                                                                    <span class="bad">&nbsp;Cargo</span>
+                                                                </div>
+
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <!-- /.card-header -->
+
+                                                    </div>            
+     @endif
+
+            </a>
+            <p></p>
+        </div>
+    @endforeach
+@endsection
