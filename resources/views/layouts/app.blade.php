@@ -29,16 +29,16 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="100%">
                     </a>
-                    
+
                 </div>
-                   <div class="col col-lg-4">
-                  
+                <div class="col col-lg-4">
+
                 </div>
-             
-              <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
-  <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
-  <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
-</div>
+
+                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+                    <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+                </div>
 
             </div>
         </nav>

@@ -45,9 +45,13 @@
     <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
-        <script src="{{ asset('exam.js') }}"></script>
-                 <script src="{{ asset('qualification.js') }}"></script> 
+    <script src="{{ asset('exam.js') }}"></script>
+    <script src="{{ asset('qualification.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+
+
 
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -99,57 +103,47 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
+        <nav class="main-header navbar navbar-expand"style="background-color: #00cc99">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('/home') }}" class="nav-link">Perfil</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesión') }}
-                    </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
+
             </ul>
 
-            <!-- SEARCH FORM -->
-            {{-- <form class="form-inline ml-3">
-                <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+            <div class="row">
+                <div class="col col-lg-4">
+
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="60%">
+                    </a>
+
                 </div>
-            </form> --}}
+                <div class="col col-lg-4">
 
-            <!-- Right navbar links -->
+                </div>
 
+                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+                    <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+                </div>
+
+            </div>
         </nav>
-        <!-- /.navbar -->
+
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4"">
+        <aside
+            class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;                                                                  ">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-                <img src="https://sdc-learning.pe/wp-content/uploads/2022/11/logo-largo_v2.png.webp" alt="AdminLTE Logo"
-                    class="" width="100%" style="opacity: .8">
-                <p></p>
-                <span class="brand-text font-weight-light center">Certificaciones</span>
+                <h3 style="color:white"><b>
+                    <img src="{{ asset('barras-SDC-BLANCO.png') }}" alt="AdminLTE Logo"class="" width="40px"
+                        style="">
+                    Certificate</b>
+                </h3>
                 <p></p>
             </a>
 
@@ -159,16 +153,16 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         @if (Auth::user()->photo == '' && Auth::user()->sex == 'M')
-                            <img src="{{ asset('male.png') }}" class="img-circle elevation-2" alt="User Image">
+                            <img src="{{ asset('user.png') }}" class="img-circle elevation-2" alt="User Image">
                         @elseif (Auth::user()->photo == '' && Auth::user()->sex == 'F')
-                            <img src="{{ asset('female.png') }}" class="img-circle elevation-2" alt="User Image">
+                            <img src="{{ asset('user.png') }}" class="img-circle elevation-2" alt="User Image">
                         @else
                             <img src="{{ asset('imageusers/' . Auth::user()->photo) }}" class="img-circle elevation-2"
                                 alt="User Image">
                         @endif
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->names }}</a><br>
+                        <h5 style="color:white">{{ Auth::user()->names }}</h5>
                     </div>
                     <br>
 
@@ -396,9 +390,11 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
+                                {{-- <i class="nav-icon fas fa-table"></i> --}}
+                                <img src="{{ asset('MODULOS-VERDE.png') }}" alt="" srcset=""
+                                    width="30px">
                                 <p>
                                     Módulos
                                     <i class="fas fa-angle-left right"></i>
@@ -407,7 +403,9 @@
                             <ul class="nav nav-treeview">
                                 @role('Administrador|Coordinación')
                                     <li class="nav-item">
+
                                         <a href="{{ route('usuarios.index') }}" class="nav-link">
+
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Usuarios</p>
                                         </a>
@@ -432,19 +430,25 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('registros.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('REGISTROS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
                                             <p>Registros</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('estudiantes.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('ESTUDIANTES-VERDE.png') }}" alt=""
+                                                srcset="" width="30px">
                                             <p>Estudiantes</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('roles.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('ROLES-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
                                             <p>Roles</p>
                                         </a>
                                     </li>
@@ -452,19 +456,25 @@
 
                                     <li class="nav-item">
                                         <a href="{{ route('tipos.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('TIPOS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
                                             <p>Tipos</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('certificados_mantenimiento.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('MIS-CERTIFICADOS-VERDE.png') }}" alt=""
+                                                srcset="" width="30px">
                                             <p>Certificados</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('Mis-certificados.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('MIS-CERTIFICADOS-VERDE.png') }}" alt=""
+                                                srcset="" width="30px">
                                             <p>Mis Certificados</p>
                                         </a>
                                     </li>
@@ -472,31 +482,39 @@
                                 @role('Estudiante')
                                     <li class="nav-item">
                                         <a href="{{ route('Mis-certificados.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <img src="{{ asset('MIS-CERTIFICADOS-VERDE.png') }}" alt=""
+                                                srcset="" width="30px">
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <p>Mis Certificados</p>
                                         </a>
                                     </li>
                                 @endrole
- @role('Estudiante')
+                                @role('Estudiante')
                                     <li class="nav-item">
                                         <a href="{{ route('Mis-cursos.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <img src="{{ asset('CURSOS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <p>Mis Cursos</p>
                                         </a>
                                     </li>
                                 @endrole
                                 @role('Docente')
-                                        <li class="nav-item">
+                                    <li class="nav-item">
                                         <a href="{{ route('registros.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('REGISTROS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
                                             <p>Mis Registros</p>
                                         </a>
                                     </li>
                                 @endrole
-            @role('Docente')
-                                        <li class="nav-item">
+                                @role('Docente')
+                                    <li class="nav-item">
                                         <a href="{{ route('cursos.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <img src="{{ asset('CURSOS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
                                             <p>Cursos</p>
                                         </a>
                                     </li>
@@ -810,12 +828,9 @@
                 <div class="user-panel pl-5 mt-3 pb-3 mb-3 d-flex">
 
 
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
+                    <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
 
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                        {{ __('Cerrar Sesión') }}
-                    </a>
 
                 </div>
             </div>
@@ -841,11 +856,18 @@
                 </div>
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                <strong>Copyright &copy; 2014-2019 <a target="_blank"
-                        href="https://www.facebook.com/anthony.cardenas.5602728">Cardenas Aquino Anthony -
-                        997852483</a>.</strong>
-                Todos los derechos reservados.
+            <footer class="main-footer" style="background-color: black">
+
+                <span
+                    style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">Copyright
+                    © 2023 Dev. Anthony-</span><span
+                    style="background-image: linear-gradient(45deg, rgb(1, 11, 155), rgb(255, 0, 234)); -webkit-background-clip: text; color: transparent;">+51
+                    997852483.</span>
+
+                {{-- <strong>Copyright &copy; 2023 <a target="_blank"
+                        href="https://www.facebook.com/anthony.cardenas.5602728">Dev. Anthony-+51
+                        997852483</a>.</strong> --}}
+
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.0
                 </div>

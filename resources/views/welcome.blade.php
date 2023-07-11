@@ -72,9 +72,10 @@
         font-style: normal;
     }
 
-    body {
-        font-family: 'Kohinoor Bangla', sans-serif;
-    }
+  body {
+    font-family: 'Kohinoor Bangla', sans-serif;
+    font-weight: 300; /* Utiliza la variante "Light" por defecto */
+}
 
 
 
