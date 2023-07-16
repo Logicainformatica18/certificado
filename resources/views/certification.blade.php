@@ -146,9 +146,10 @@
                 <b>Compártelo</b> &nbsp;
 
 
-<a href="https://www.linkedin.com/sharing/share-offsite/?url={}" target="_blank">
-  <img src="{{asset('linkedin.png')}}" alt="Compartir en LinkedIn"width="8%">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
+  <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="8%">
 </a>
+
 
 {{-- <script src="https://platform.linkedin.com/in.js" type="text/javascript">
                                     lang: en_US
