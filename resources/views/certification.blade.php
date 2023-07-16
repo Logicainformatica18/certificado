@@ -128,17 +128,17 @@
             <div class="col-lg-5">
 
                 <div style="width: 100%;">
-                    <h1 style="color:#003399; font-size:460%"><b>¡Felicidades!</b></h1>
+                    <h1 style="color:#003399; font-size:500%"><b>¡Felicidades!</b></h1>
                 </div>
                 <p>
                     &nbsp;
                 </p>
                 <h2 style="font-size:350%"><b>Tu Certificado está listo.</b></h2>
-                <h4> Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h4>
+                <h3> Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
                 <div class="line" style="width: 100%;height: 2px;background-color: #b4b5b5"></div>
                 <p></p>
-                <h5 style="color:#b4b5b5">Comparte tu certificado a cualquier red social y da a
-                    conocer tus habilidades al mundo. ¡Celebra tus logros!</h5>
+                <h3 style="color:#b4b5b5;">Comparte tu certificado a cualquier red social y da a
+                    conocer tus habilidades al mundo. ¡Celebra tus logros!</h3>
 
                 <p></p>
                 <div class="input-group mb-3"style="width: 70%">
@@ -166,11 +166,16 @@
 
 
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="5%">
+                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="50px">
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="5%">
+  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="50px">
 </a>
+
+<a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
+  <img src="{{ asset('twitter.png') }}" alt="Compartir en Twitter" width="50px">
+</a>
+<p></p>
                 <button class="btn linkedin"
                     onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
                 </button>
