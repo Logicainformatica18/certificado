@@ -104,6 +104,25 @@
                 ->generate($url),
         );
     ?>
+    <?php
+    $name_course = $registry_detail->registry->course->description;
+    $organizationId = '38714525';
+    $date = strtotime($registry_detail->registry->date_certification);
+    $issueYear = date('Y', $date);
+    
+    $issueMonth = date('m', $date);
+    $expirationYear = date('Y', $date);
+    
+    $expirationMonth = date('m', $date);
+    // $url =   str_replace(":", "%3A", $url);
+    //    $url =   str_replace("/", "%2F", $url);
+    
+    // modelo url pagina
+    //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
+    $certId = $registry_detail->registry->description;
+    
+    ?>
+
     <div class="mt-2 mb-2 mr-5 ml-5">
         <div class="row">
             <div class="col-lg-5">
@@ -146,18 +165,41 @@
                 <b>Compártelo</b> &nbsp;
 
 
-<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="8%">
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
+                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="5%">
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
+  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="5%">
 </a>
+                <button class="btn linkedin"
+                    onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
+                </button>
 
 
-{{-- <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+
+                {{-- <div id="fb-root"></div>
+                <script>
+                    (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+
+                <!-- Your share button code -->
+                <div class="fb-share-button" data-href="" data-layout="button_count">
+                </div> --}}
+
+                {{-- <script src="https://platform.linkedin.com/in.js" type="text/javascript">
                                     lang: en_US
                                 </script>
                                 
                                 <script type="IN/Share"  data-url="{{''}}">
                                 </script> --}}
-           
+
 
             </div>
             <div class="col-lg-1">
@@ -191,24 +233,6 @@
                             </style>
 
 
-                            <?php
-                            $name_course = $registry_detail->registry->course->description;
-                            $organizationId = '38714525';
-                            $date = strtotime($registry_detail->registry->date_certification);
-                            $issueYear = date('Y', $date);
-                            
-                            $issueMonth = date('m', $date);
-                            $expirationYear = date('Y', $date);
-                            
-                            $expirationMonth = date('m', $date);
-                            // $url =   str_replace(":", "%3A", $url);
-                            //    $url =   str_replace("/", "%2F", $url);
-                            
-                            // modelo url pagina
-                            //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
-                            $certId = $registry_detail->registry->description;
-                            
-                            ?>
 
 
                             <div class="form-layout-footer align-content-center">
@@ -219,9 +243,6 @@
                                 {{-- <button class="btn btn-outline-success" id="btnpdf"><i
                                         class="fa fa-send mg-r-10"></i>
                                     PDF</button> --}}
-                                <button class="btn linkedin"
-                                    onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                                </button>
 
 
                                 @role('Coordinación')
@@ -233,25 +254,11 @@
                                 @endrole
 
 
-                                
+
                             </div>
 
 
-                            <div id="fb-root"></div>
-                            <script>
-                                (function(d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0];
-                                    if (d.getElementById(id)) return;
-                                    js = d.createElement(s);
-                                    js.id = id;
-                                    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                }(document, 'script', 'facebook-jssdk'));
-                            </script>
 
-                            <!-- Your share button code -->
-                            <div class="fb-share-button" data-href="" data-layout="button_count">
-                            </div>
 
 
                         </center>
@@ -266,21 +273,21 @@
 
     <p></p>
 
-   <style>
-  .gray-image {
-    filter: grayscale(100%) brightness(99%);
-    position: absolute;
-    top: -200px;
-    left: 0;
-    z-index: -1;
-  }
-</style>
+    <style>
+        .gray-image {
+            filter: grayscale(100%) brightness(99%);
+            position: absolute;
+            top: -200px;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
 
-<div style="position: relative;">
-  <!-- Aquí van los elementos que están arriba -->
-  
-  <img src="{{ asset('lineas.png') }}" alt="Lineas" class="gray-image" style="width:100%">
-</div>
+    <div style="position: relative;">
+        <!-- Aquí van los elementos que están arriba -->
+
+        <img src="{{ asset('lineas.png') }}" alt="Lineas" class="gray-image" style="width:100%">
+    </div>
 
 
 
