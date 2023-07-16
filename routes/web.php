@@ -124,7 +124,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-Route::group(['middleware' => ['role:Coordinación']], function () {
+Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], function () {
     //
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);

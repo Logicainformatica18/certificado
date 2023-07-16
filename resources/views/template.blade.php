@@ -109,7 +109,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
-
+               
 
             </ul>
 
@@ -140,9 +140,9 @@
             <!-- Brand Logo -->
             <a href="" class="brand-link">
                 <h3 style="color:white"><b>
-                    <img src="{{ asset('barras-SDC-BLANCO.png') }}" alt="AdminLTE Logo"class="" width="40px"
-                        style="">
-                    Certificate</b>
+                        <img src="{{ asset('barras-SDC-BLANCO.png') }}" alt="AdminLTE Logo"class=""
+                            width="40px" style="">
+                        Certificate</b>
                 </h3>
                 <p></p>
             </a>
@@ -162,7 +162,10 @@
                         @endif
                     </div>
                     <div class="info">
-                        <h5 style="color:white">{{ Auth::user()->names }}</h5>
+                    
+                    <a href="{{route('home')}}">
+              
+                        <h5 style="color:white">{{ Auth::user()->names }}</h5></a>
                     </div>
                     <br>
 

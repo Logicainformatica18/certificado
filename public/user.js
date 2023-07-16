@@ -176,6 +176,7 @@ function userShow() {
 
 
 function userUpdateProfile() {
+   
     var formData = new FormData(document.getElementById("user"));
     axios({
             method: 'post',
@@ -185,7 +186,7 @@ function userUpdateProfile() {
         .then(function(response) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
-            contentdiv.innerHTML = response.data;
+           // contentdiv.innerHTML = response.data;
          alert('Modificado correctamente');
          window.location.href='/sistema';
         })

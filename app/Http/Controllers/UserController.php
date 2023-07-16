@@ -169,23 +169,24 @@ class UserController extends Controller
     }
     public function updateProfile(Request $request)
     {
-        $request->datebirth = datebirth($request->day, $request->month, $request->year);
-        if ($request->photo == "") {
-            $users = User::find($request->id);
-            $users->datebirth = $request->datebirth;
-            $users->cellphone = $request->cellphone;
+        return "hola";
+        // $request->datebirth = datebirth($request->day, $request->month, $request->year);
+        // if ($request->photo == "") {
+        //     $users = User::find($request->id);
+        //     $users->datebirth = $request->datebirth;
+        //     $users->cellphone = $request->cellphone;
 
-            $users->save();
-        } else {
-            $table = User::find($request["id"]);
-            photoDestroy($table->photo, "imageusers");
-            $request->photo = photoStore($request->file('photo'), "imageusers");
-            $users = User::find($request->id);
-            $users->datebirth = $request->datebirth;
-            $users->cellphone = $request->cellphone;
-            $users->photo = $request->photo;
-            $users->save();
-        }
+        //     $users->save();
+        // } else {
+        //     $table = User::find($request->id);
+        //     photoDestroy($table->photo, "imageusers");
+        //     $request->photo = photoStore($request->file('photo'), "imageusers");
+        //     $users = User::find($request->id);
+        //     $users->datebirth = $request->datebirth;
+        //     $users->cellphone = $request->cellphone;
+        //     $users->photo = $request->photo;
+        //     $users->save();
+        // }
     }
 
     public function userRoleEdit(Request $request)
