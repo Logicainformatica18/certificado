@@ -1,58 +1,55 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+
+            @php
+                $enumeracion = 0;
+                
+            @endphp
             <div class="row">
-                <div class="col-12">
-                    <div class="card">
 
 
-                        <div class="card-header">
-                            <h3 class="card-title">Tabla de mantenimiento</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
 
-                            <!-- DataTables -->
-                            <table id="example1" class="table table-bordered table-striped table-responsive">
-                                <thead>
-                                    <th></th>
-                                    <th class="sorting">ID</th>
-                                    <th class="sorting">Curso - Programa</th>
+                @foreach ($registry_detail as $registry_details)
+                    <div class="col col-lg-3">
 
-                                    <th class="sorting">Edición</th>
-                                      <th class="sorting">Fecha</th>
-                                    <th><img width="20"
-                                            src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
-                                            alt="" srcset=""></th>
-                                </thead>
-                                <tbody>
-                                    @php
-                                        $enumeracion=0;
-                                    @endphp
-                                    @foreach ($registry_detail as $registry_details)
-                                        <tr>
-                                            <td></td>
-                                            <td>{{ $enumeracion=$enumeracion+1 }}</td>
-                                            <td>{{ $registry_details->registry->course->description }}</td>
-                                            <td>{{ $registry_details->registry->edition }}</td>
-                                              <td>{{substr($registry_details->registry->fec_start,0,11) }}</td>
-                                            <td>
-                                                @role('Estudiante')
-                                                   <a class="btn btn-warning note-icon-pencil"
-                                                        onclick="courseDetail('{{ $registry_details->registry->course->id }}','{{$registry_details->id}}')"> Ver Certificados</a>
-                                                @endrole
 
-                                            </td>
+                        @php
+                            $img = $registry_details->registry->course->detail;
+                        @endphp
+                        <div class="card" style="width: 15rem;">
+                            <img src="{{ asset('dist/img/cursos/' . $img) }}" class="card-img-top" alt="...">
+                            <div class="card-body" style="background-color: #003399;color:white">
+                                <h5 class="card-title">{{ $registry_details->registry->course->description }} </h5>
+                                <div class="ribbon-wrapper">
+                                    <div class="ribbon" style="background-color: #00cc99">
+                                        {{ $registry_details->registry->edition }}
+                                    </div>
+                                </div>
+                                   <p>
+                                    &nbsp;
+                                </p>
+                                <p class="card-text"style="font-size:13px">
+                                    {{ substr($registry_details->registry->fec_start, 0, 11) }}
+                                </p>
+                             
+                                @role('Estudiante')
+                                    <a class="btn btn-sm" style="color:white;background-color: #00cc99"
+                                        onclick="courseDetail('{{ $registry_details->registry->course->id }}','{{ $registry_details->id }}')">
+                                        CERTIFICATE</a>
+                                @endrole
 
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
+
+
+
+
+
+
         </div>
     </section>

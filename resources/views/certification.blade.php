@@ -128,52 +128,51 @@
             <div class="col-lg-5">
 
                 <div style="width: 100%;">
-                    <h1 style="color:#003399; font-size:500%"><b>¡Felicidades!</b></h1>
+                    <h1 style="color:#003399; font-size:400%"><b>¡Felicidades!</b></h1>
                 </div>
                 <p>
                     &nbsp;
                 </p>
-                <h2 style="font-size:350%"><b>Tu Certificado está listo.</b></h2>
-                <h3> Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
+                <h2 style="font-size:200%"><b>Tu Certificado está listo.</b></h2>
+                <h3 style="text-align: justify;">SDC Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
                 <div class="line" style="width: 100%;height: 2px;background-color: #b4b5b5"></div>
                 <p></p>
-                <h3 style="color:#b4b5b5;">Comparte tu certificado a cualquier red social y da a
-                    conocer tus habilidades al mundo. ¡Celebra tus logros!</h3>
+                <h4 style="color:#b4b5b5; text-align: justify;">Comparte tu certificado en cualquier red social y da a
+                    conocer tus habilidades al mundo. <b>¡Celebra tus logros!</b></h4>
 
                 <p></p>
-                <div class="input-group mb-3"style="width: 70%">
+                <div class="input-group mb-3"style="width: 80%"style="background-color: #dbdbdb">
                     {{-- <input type="text" class="form-control"> --}}
-                    <input type="text" id="texto" class="form-control"
-                        id=""value="{{ $url }}">
-                    <div class="input-group-append">
+                    <input type="text" id="texto" class="form-control"style="background-color: #dbdbdb"        id=""value="{{ $url }}">
+                    <div class="input-group-append"style="background-color: #dbdbdb" >
 
 
                         {{--                                         
                         <span class="input-group-text">
                                </span> --}}
-                        <button class="fa fa-send mg-r-10 input-group-text" onclick="copiarAlPortapapeles() ;">
-                            Copiar</button>
+                        <button class="input-group-text"style="color:#003399;background-color: #dbdbdb"   onclick="copiarAlPortapapeles() ;">
+                           <b >Copiar</b> </button>
                         {{-- <i class="fa fa-send mg-r-10"></i> --}}
 
 
                     </div>
                 </div>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="background-color: #003399;color:white;width:50%">
-                    <h4 style="font-size:150%">Descargar certificado </h4>
+                    style="background-color: #003399;color:white;width:55%">
+                    <h5 style="font-size:150%">Descargar certificado </h5>
                 </button>
                 <b>Compártelo</b> &nbsp;
 
 
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="50px">
+                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="7%">
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="50px">
+  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="7%">
 </a>
 
 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('twitter.png') }}" alt="Compartir en Twitter" width="50px">
+  <img src="{{ asset('twitter.png') }}" alt="Compartir en Twitter" width="7%">
 </a>
 <p></p>
                 <button class="btn linkedin"
