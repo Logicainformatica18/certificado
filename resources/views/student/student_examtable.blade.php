@@ -69,7 +69,7 @@
                                                 class="input-group-prepend"style="background-color: #003399;border-radius:8px">
                                                 <span
                                                     class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="1"></span>
+                                                        type="radio" name="option" value="2"></span>
                                             </div>
 
                                             {{ $qualifications->exam->alternative2 }}
@@ -84,7 +84,7 @@
                                                 class="input-group-prepend"style="background-color: #003399;border-radius:8px">
                                                 <span
                                                     class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="1"></span>
+                                                        type="radio" name="option" value="3"></span>
                                             </div>
 
                                             {{ $qualifications->exam->alternative3 }}
@@ -100,7 +100,7 @@
                                                 class="input-group-prepend"style="background-color: #003399;border-radius:8px">
                                                 <span
                                                     class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="1"></span>
+                                                        type="radio" name="option" value="4"></span>
                                             </div>
 
                                             {{ $qualifications->exam->alternative4 }}
