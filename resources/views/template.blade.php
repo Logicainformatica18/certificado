@@ -135,8 +135,7 @@
 
 
         <!-- Main Sidebar Container -->
-        <aside
-            class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">                                                                   ">
+        <aside   class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
                 <h3 style="color:white"><b>
@@ -841,16 +840,16 @@
         </aside>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" style="background-color: white">
             <div class="container-fluid">
 
 
 
                 <!-- Main content -->
-                <div class="content-wrapper">
+                <div class="content-wrapper" style="background-color: white">
                     <!-- Main content -->
                     <section class="content">
-                        <div class="container-fluid">
+                        <div class="container-fluid" >
                             @yield('content')
 
                         </div>
@@ -858,21 +857,42 @@
                     <!-- /.content -->
                 </div>
             </div>
+
+
+
+<style>
+    .gray-image {
+        filter: grayscale(100%) brightness(99%);
+        position: absolute;
+        top: 0;
+        bottom: 200px;
+        left: 0;
+        z-index: -1;
+    }
+</style>
+
+<div>
+    <!-- Aquí van los elementos que están arriba -->
+</div>
+
+<img src="{{ asset('lineas.png') }}" alt="Lineas" class="gray-image" style="width:100%">
+
+
+
+
             <!-- /.content-wrapper -->
             <footer class="main-footer" style="background-color: black">
 
                 <span
                     style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">Copyright
-                    © 2023 Dev. Anthony-</span><span
-                    style="background-image: linear-gradient(45deg, rgb(1, 11, 155), rgb(255, 0, 234)); -webkit-background-clip: text; color: transparent;">+51
-                    997852483.</span>
+                    © 2023 Dev. Anthony</span>
 
                 {{-- <strong>Copyright &copy; 2023 <a target="_blank"
                         href="https://www.facebook.com/anthony.cardenas.5602728">Dev. Anthony-+51
                         997852483</a>.</strong> --}}
 
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0
+                   
                 </div>
             </footer>
 
@@ -885,6 +905,8 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+
     <!--  USO DE DATATABLE PARA GENERAR PDF - CSV  -->
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-colvis-1.6.4/b-html5-1.6.4/b-print-1.6.4/sl-1.3.1/datatables.min.css" />

@@ -19,8 +19,9 @@ class QualificationController extends Controller
     {
               $certification_id = Session::get('certification_id');
             $qualification= Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->get();
+              $qualification_count= Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->count();
         
-        return view("student/student_exam", compact('qualification'));
+        return view("student/student_exam", compact('qualification','qualification_count'));
     }
 
     /**
