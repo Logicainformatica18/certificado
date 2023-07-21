@@ -29,10 +29,7 @@
                                    
                                  
                                     <th class="sorting">Descripción</th>
-                                    @role('Coordinación|Administrador')
-                                        <th class="sorting">Nota</th>
-                                        <th class="sorting">Detalle</th>
-                                    @endrole
+                                  
 
                                     <th class="sorting">Cantidad Preguntas</th>
                                     <th><img width="20"
@@ -49,24 +46,10 @@
                                            
                                             <td>{{ $certifications->description }}</td>
 
-                                            @role('Coordinación|Administrador')
-                                                <td>{{ $certifications->note }} </td>
-                                                <td>{{ $certifications->detail }}</td>
-                                            @endrole
+                                           
                                             <td>{{ $certifications->cantidad_preguntas }}</td>
                                             <td>
-                                                @role('Coordinación|Administrador')
-                                                    <!-- Button trigger modal -->
-                                                    <button type="button" class="btn btn-success note-icon-pencil"
-                                                        data-toggle="modal" data-target="#exampleModal"
-                                                        onclick="certificationEdit('{{ $certifications->id }}'); Up();  return false"></button>
-
-                                                    <!-- <button class="note-icon-pencil" ></button> -->
-                                                    <button class="btn btn-danger note-icon-trash"
-                                                        onclick="certificationDestroy('{{ $certifications->id }}'); return false"></button>
-                                                    <a class="btn btn-warning note-icon-pencil"
-                                                        onclick="certificationDetail('{{ $certifications->id }}')">Exámen</a>
-                                                @endrole
+                                               
                                                 @role('Estudiante')
                                                     <a class="btn  note-icon-pencil" style="background-color:  #003399;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
