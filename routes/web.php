@@ -115,6 +115,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
    Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
 
 
+
   Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
@@ -219,6 +220,9 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
 
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
+          Route::get('estudiante-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
+     
+    
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
 

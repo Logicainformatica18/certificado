@@ -35,7 +35,7 @@
                              
                                 @role('Estudiante')
                                     <a class="btn btn-sm" style="color:white;background-color: #00cc99"
-                                        onclick="courseDetail('{{ $registry_details->registry->course->id }}','{{ $registry_details->id }}')">
+                                        onclick="courseDetailStudent('{{ $registry_details->registry->course->id }}','{{ $registry_details->id }}')">
                                         CERTIFICATE</a>
                                 @endrole
 

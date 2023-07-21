@@ -36,7 +36,27 @@ $certification = Certification::join('exams', 'certifications.id', '=', 'exams.c
 
 
     }
+  public function student()
+    {
+           $course_id = Session::get('course_id');
+          //  $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+  $course = Course::where("id","=",$course_id)->get();
 
+
+
+
+$certification = Certification::join('exams', 'certifications.id', '=', 'exams.certification_id')
+    ->selectRaw('certifications.id, certifications.description, COUNT(exams.id) as cantidad_preguntas')
+    ->where('certifications.course_id', '=', $course_id)
+    ->groupBy('certifications.id', 'certifications.description')
+    ->get();
+
+
+
+        return view("student.student_certificate", compact('certification','course'));
+
+
+    }
     public function report(Request $request,$registry_detail_id,$language,$code_certification,$cert)
     {
        // return $id." ".$id1;
