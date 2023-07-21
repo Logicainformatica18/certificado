@@ -17,7 +17,8 @@
             <div class="progress" style="background-color: #7cfddd; border: 2px">
                 @php
                     $enumeracion = 0;
-                    $porcentaje = 100 * 0.7;
+                    $porcentaje =  1 / $qualification_count  *100
+             
                 @endphp
 
                 <div class="progress-bar" style="background-color: #00cc99;width: {{ $porcentaje }}%"></div>

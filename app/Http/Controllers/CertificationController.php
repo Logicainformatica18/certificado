@@ -18,8 +18,20 @@ class CertificationController extends Controller
     public function index()
     {
            $course_id = Session::get('course_id');
-            $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
-  $course = Course::orderBy('id','ASC')->get();
+          //  $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+  $course = Course::where("id","=",$course_id)->get();
+
+
+
+
+$certification = Certification::join('exams', 'certifications.id', '=', 'exams.certification_id')
+    ->selectRaw('certifications.id, certifications.description, COUNT(exams.id) as cantidad_preguntas')
+    ->where('certifications.course_id', '=', $course_id)
+    ->groupBy('certifications.id', 'certifications.description')
+    ->get();
+
+
+
         return view("certification_maintenance", compact('certification','course'));
 
 

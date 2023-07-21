@@ -65,12 +65,37 @@ class CourseController extends Controller
      */
     public function update(Request $request)
     {
-        $course = Course::find($request->id);
+
+
+ if ($request->presentation == "") {
+       $course = Course::find($request->id);
         $course->description = $request->description;
         $course->detail = $request->detail;
            $course->folder_certification = $request->folder_certification;
+              $course->review = $request->review;
         $course->save();
-        return $this->create();
+
+        } else {
+            $table = Course::find($request["id"]);
+            photoDestroy($table->presentation, "imageusers");
+            $request->presentation = photoStore($request->file('presentation'), "imageusers");
+                     
+
+              $course = Course::find($request->id);
+        $course->description = $request->description;
+        $course->detail = $request->detail;
+           $course->folder_certification = $request->folder_certification;
+            $course->presentation = $request->presentation;
+               $course->review = $request->review;
+        $course->save();
+        }
+
+
+
+
+
+      
+       return $this->create();
     }
 
     /**

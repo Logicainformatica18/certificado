@@ -67,7 +67,8 @@ function courseEdit(id) {
             course.description.value=response.data["description"];
           course.detail.value=response.data["detail"];
             course.type.value = response.data["type_id"];
-               course.folder_certification.value=    response.data["folder_certification"];
+          course.folder_certification.value = response.data["folder_certification"];
+           course.review.value=    response.data["review"];
         })
         .catch(function(response) {
             //handle error
