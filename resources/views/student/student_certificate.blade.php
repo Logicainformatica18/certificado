@@ -5,7 +5,7 @@
         <div class="row container-fluid">
             <div class="col col-lg-6 col-md-12">
   
-                <img src="{{asset('imageusers/'.$course[0]->presentation)}}" alt="" srcset="" width="100%">
+                <img src="{{asset('imageusers/'.$course[0]->presentation)}}" alt="" srcset="" width="100%" style="border-radius: 5px">
             </div>
             <div class="col col-lg-6 col-md-12">
                 <div id="mycontent">
