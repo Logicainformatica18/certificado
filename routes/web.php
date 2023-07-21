@@ -63,7 +63,12 @@ Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::clas
 
 
 
-
+   Route::resource("registros", App\Http\Controllers\RegistryController::class);
+   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
+   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
+   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
+   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
+   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
 
 
 
@@ -82,12 +87,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-   Route::resource("registros", App\Http\Controllers\RegistryController::class);
-   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
-   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
-   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
-   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
-   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
+
 
    Route::post('registry_detail',[App\Http\Controllers\RegistryDetailController::class, 'registry_detail']);
 

@@ -38,8 +38,8 @@ function registryEdit(id) {
         .then(function(response) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
-           // contentdiv.innerHTML = response.data["description"];
-            registry.id.value=          response.data["id"];
+            //contentdiv.innerHTML = response.data["description"];
+          //  registry.id.value=          response.data["id"];
             registry.description.value= response.data["description"];
           registry.detail.value=    response.data["detail"];
            registry.schedule.value=    response.data["schedule_id"];

@@ -37,15 +37,14 @@
     <div id="mycontent">
 
 
-
         @include('registrytable')
 
     </div>
-    @role('Docente')
-        <form action=""id="registry"></form>
-    @endrole
+ 
+    
 
-    @role('Coordinación|Administrador')
+
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -58,7 +57,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="post" role="form" id="registry" name="form">
+                        <form method="post" id="registry" name="registry">
                             <input type="hidden" name="id" id="id">
                             {{ csrf_field() }}
                             Código : <input type="text" name="description" id="description" class="form-control">
@@ -106,11 +105,11 @@
                                     <option value="{{ $item->id }}">{{ $item->description }} </option>
                                 @endforeach
                             </select>
-  Cantidad de Certificados :
+                            Cantidad de Certificados :
                             <input type="number" name="count_notes" id="count_notes" class="form-control"value="8">
                             Detalles :
                             <textarea type="text" name="detail" id="detail" class="form-control"></textarea>
-
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <input type="button" value="Nuevo" class="btn btn-warning"
@@ -120,10 +119,10 @@
                         <input type="button" value="Modificar" class="btn btn-danger"id="update"
                             onclick="registryUpdate();" name="update">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
-    @endrole
+
 @endsection
