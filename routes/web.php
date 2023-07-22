@@ -217,7 +217,6 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
-
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
           Route::get('estudiante-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
