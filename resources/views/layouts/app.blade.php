@@ -47,6 +47,13 @@
             @yield('content')
         </main>
     </div>
+    
+<div class="position-absolute w-100 h-100 d-flex align-items-end" style="top: 0; left: 0; z-index: -1;">
+  <p class="align-items-end"></p>
+  <img src="{{asset('lineas.png')}}" alt="" class="img-fluid" style="width: 100%; height: 50%;">
+</div>
+
+
 </body>
 
 </html>

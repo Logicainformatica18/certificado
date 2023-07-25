@@ -85,7 +85,9 @@
      @endif
 
             </a>
-            <p></p>
+          
         </div>
+
+        
     @endforeach
 @endsection

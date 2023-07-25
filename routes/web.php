@@ -13,12 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-      return view('welcome');
-});
+//       return view('welcome');
+// });
 Auth::routes();
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
