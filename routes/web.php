@@ -266,7 +266,7 @@ Route::get('/auth/callback', function () {
                 $newUser->save();
                 //login as the new user
                 Auth::login($newUser);
-                $newUser->assignRole('Encuestador');
+                $newUser->assignRole('Estudiante');
                 // go to the dashboard
                 return redirect('/home');
             }
