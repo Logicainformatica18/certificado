@@ -15,6 +15,8 @@ use Illuminate\Notifications\Notifiable;
 use App\Exports\ExportUsers;
 use App\Imports\ImportUsers;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 class UserController extends Controller
 {
     use Notifiable;

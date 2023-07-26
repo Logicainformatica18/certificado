@@ -43,6 +43,7 @@
                                                         <!-- /.card-header -->
 
                                                     </div>
+
                                                     @else
                                                            <div class="card badge-primary" style="background-color:#003399">
                         <div class="row">
@@ -87,7 +88,6 @@
             </a>
           
         </div>
-
-        
+<p></p>
     @endforeach
 @endsection

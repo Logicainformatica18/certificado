@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -228,6 +229,28 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
 
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+use App\Models\User;
+Route::get('/auth/callback', function () {
+    $googleUser = Socialite::driver('google')->user();
+ 
+    $user = User::updateOrCreate([
+        'google_id' => $googleUser->id,
+    ], [
+        'names' => $googleUser->name,
+        'email' => $googleUser->email,
+        'google_id' => $googleUser->token
+    ]);
+ $user->assignRole('Estudiante');
+ 
+    Auth::login($user);
+ 
+    return redirect('/home');
+});
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
     Route::get('users', 'index');
