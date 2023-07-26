@@ -236,20 +236,45 @@ Route::get('/auth/google', function () {
  
 use App\Models\User;
 Route::get('/auth/callback', function () {
-    $googleUser = Socialite::driver('google')->user();
- 
-    $user = User::updateOrCreate([
-        'email' => $googleUser->email,
-    ], [
-        'names' => $googleUser->name,
-        'email' => $googleUser->email,
-        'google_id' => $googleUser->id
-    ]);
- $user->assignRole('Estudiante');
- 
-    Auth::login($user);
- 
-    return redirect('/home');
+   try {
+            //create a user using socialite driver google
+            $user = Socialite::driver('google')->user();
+            // if the user exits, use that user and login
+            $finduser = User::where('email', $user->email)->first();
+            if($finduser){
+                //if the user exists, login and show dashboard
+                Auth::login($finduser);
+                return redirect('/home');
+            }else{
+                //user is not yet created, so create first
+                $newUser = User::create([
+                    'names' => $user->name,
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password' => encrypt('sdccertificados')
+                ]);
+                //every user needs a team for dashboard/jetstream to work.
+                // //create a personal team for the user
+                // $newTeam = Team::forceCreate([
+                //     'user_id' => $newUser->id,
+                //     'names' => explode(' ', $user->name, 2)[0]."'s Team",
+                //     'personal_team' => true,
+                // ]);
+                // save the team and add the team to the user.
+                // $newTeam->save();
+                // $newUser->current_team_id = $newTeam->id;
+                $newUser->save();
+                //login as the new user
+                Auth::login($newUser);
+                $newUser->assignRole('Encuestador');
+                // go to the dashboard
+                return redirect('/home');
+            }
+            //catch exceptions
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+
 });
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
