@@ -239,11 +239,11 @@ Route::get('/auth/callback', function () {
     $googleUser = Socialite::driver('google')->user();
  
     $user = User::updateOrCreate([
-        'google_id' => $googleUser->id,
+        'email' => $googleUser->email,
     ], [
         'names' => $googleUser->name,
         'email' => $googleUser->email,
-        'google_id' => $googleUser->token
+        'google_id' => $googleUser->id
     ]);
  $user->assignRole('Estudiante');
  
