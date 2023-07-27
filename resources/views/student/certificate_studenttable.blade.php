@@ -72,6 +72,7 @@
                                                 </td>
                                                 <td>
                                                     @if ($registry_details->$notes > 13.5)
+                                                 
                                                         <button class="btn " style="background-color:  #003399;color:white"
                                                             onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
 

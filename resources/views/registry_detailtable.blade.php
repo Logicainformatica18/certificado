@@ -20,7 +20,7 @@
                                     <th class="sorting">Paterno</th>
                                     <th class="sorting">Materno</th>
                                     <th class="sorting">Nombres</th>
-                                    <th class="sorting">Dni</th>
+                                    <th class="sorting">Celular</th>
                                     <th class="sorting">Email</th>
 
                                   
@@ -50,17 +50,18 @@
                                         <td></td>
                                         {{-- <td>{{ $registry_details->id }}</td> --}}
                                         <td>{{ $enumeracion = $enumeracion + 1 }}</td>
-                                        <td>
-                                            {{ $registry_details->model_has_role->student->names }}
-                                        </td>
+                                   
                                         <td>
                                             {{ $registry_details->model_has_role->student->firstname }}
                                         </td>
                                         <td>
                                             {{ $registry_details->model_has_role->student->lastname }}
                                         </td>
+                                             <td>
+                                            {{ $registry_details->model_has_role->student->names }}
+                                        </td>
                                         <td>
-                                            {{ $registry_details->model_has_role->student->dni }}
+                                            {{ $registry_details->model_has_role->student->cellphone }}
                                         </td>
                                         <td>
                                             {{ $registry_details->model_has_role->student->email }}

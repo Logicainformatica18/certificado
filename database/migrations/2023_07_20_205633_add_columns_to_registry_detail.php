@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('registry_details', function (Blueprint $table) {
         
-            //$table->longText("google_id")->nullable();
+            $table->string("type")->default("0")->nullable();
                     
 
         });
@@ -24,6 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+             Schema::table('registry_details', function (Blueprint $table) {
         
+             $table->dropColumn('type');
+                    
+
+        });
     }
 };

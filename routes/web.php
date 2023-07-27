@@ -117,7 +117,6 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
 
@@ -212,6 +211,7 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
 //
 
 
+  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
     Route::get('certificaciones/{registry_detail_id}/{language}/{id}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);

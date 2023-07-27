@@ -34,11 +34,15 @@ function registry_detailStore() {
   })
     .then(function(response) {
       //handle success
-      var contentdiv = document.getElementById("mycontent");
-      contentdiv.innerHTML = response.data;
-      //carga pdf- csv - excel
-      datatable_load();
-      alert("Registrado Correctamente");
+      if ((response.data = "Error")) {
+        alert("Ya Registrado");
+      } else {
+        var contentdiv = document.getElementById("mycontent");
+        contentdiv.innerHTML = response.data;
+        //carga pdf- csv - excel
+        datatable_load();
+        alert("Registrado Correctamente");
+      }
     })
     .catch(function(response) {
       //handle error

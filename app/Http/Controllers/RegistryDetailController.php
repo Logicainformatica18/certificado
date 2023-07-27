@@ -60,7 +60,12 @@ class RegistryDetailController extends Controller
         $registry_detail = new RegistryDetail;
         $student =explode("-", $request->student) ;
 
-        $registry_detail->student_m = $student[0];
+ $count_registry_detail= RegistryDetail::find($student[0])->count();
+if ($count_registry_detail>0) {
+            return "Error";
+}
+else{
+   $registry_detail->student_m = $student[0];
       $registry_detail->student_t = $student[1];
         $registry_detail->student_r = $student[2];
            if ($count > 9 && $count < 100) {
@@ -69,7 +74,7 @@ class RegistryDetailController extends Controller
                                             $count = '00' . $count;
                                         }
                                         
-        $registry_detail->code_certification = $registry->description.'-'.$count;
+    $registry_detail->code_certification = $registry->description.'-'.$count;
 
       $registry_id = Session::get('registry_id');
 
@@ -79,6 +84,9 @@ class RegistryDetailController extends Controller
       $registry_detail->save();
 
     return $this->create();
+}
+
+     
     // return   "rrfr" ;
     }
 
