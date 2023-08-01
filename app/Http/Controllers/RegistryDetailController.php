@@ -60,11 +60,11 @@ class RegistryDetailController extends Controller
         $registry_detail = new RegistryDetail;
         $student =explode("-", $request->student) ;
 
- $count_registry_detail= RegistryDetail::find($student[0])->count();
+ $count_registry_detail= RegistryDetail::where("student_m","=",$student[0])->where("registry_id","=",Session::get('registry_id'))->count();
 if ($count_registry_detail>0) {
             return "Error";
 }
-else{
+else if ($count_registry_detail==0){
    $registry_detail->student_m = $student[0];
       $registry_detail->student_t = $student[1];
         $registry_detail->student_r = $student[2];
@@ -86,8 +86,8 @@ else{
     return $this->create();
 }
 
-     
-    // return   "rrfr" ;
+
+       // return $count_registry_detail;
     }
 
     /**

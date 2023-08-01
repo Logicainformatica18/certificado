@@ -34,7 +34,7 @@ function registry_detailStore() {
   })
     .then(function(response) {
       //handle success
-      if ((response.data = "Error")) {
+      if ((response.data == "Error")) {
         alert("Ya Registrado");
       } else {
         var contentdiv = document.getElementById("mycontent");
