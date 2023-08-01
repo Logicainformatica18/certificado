@@ -249,6 +249,8 @@ Route::get('/auth/callback', function () {
                 //user is not yet created, so create first
                 $newUser = User::create([
                     'names' => $user->name,
+                     'firstname' => '',
+                      'lastname' => '',
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => encrypt('sdccertificados')
