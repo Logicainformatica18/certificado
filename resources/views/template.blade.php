@@ -47,6 +47,7 @@
     <script src="{{ asset('course.js') }}"></script>
     <script src="{{ asset('exam.js') }}"></script>
     <script src="{{ asset('qualification.js') }}"></script>
+        <script src="{{ asset('inscription.js') }}"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="{{ asset('style.css') }}">
@@ -501,6 +502,14 @@
                                             <p>Mis Cursos</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('inscripcion.index') }}" class="nav-link">
+                                            <img src="{{ asset('CURSOS-VERDE.png') }}" alt="" srcset=""
+                                                width="30px">
+                                            {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                            <p>Cursos</p>
+                                        </a>
+                                    </li>
                                 @endrole
                                 @role('Docente')
                                     <li class="nav-item">
@@ -842,7 +851,7 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid" >
+            <div class="container-fluid">
                 <!-- Main content -->
                 <div class="content-wrapper"style="background-color: white">
                     <!-- Main content -->
@@ -859,7 +868,7 @@
             <footer class="main-footer">
                 <span
                     style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
-                  <a href="https://anthonycode.com"target="_blank">Copyright © 2023 Dev. AnthonyCode</a></span>
+                    <a href="https://anthonycode.com"target="_blank">Copyright © 2023 Dev. AnthonyCode</a></span>
                 <div class="float-right d-none d-sm-inline-block">
                 </div>
             </footer>

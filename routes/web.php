@@ -140,7 +140,8 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
    Route::post('category_productEdit',"ProductController@category_productEdit");
 
 
-
+ Route::resource("inscripcion", App\Http\Controllers\InscriptionController::class);
+Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::class, 'store']);
 
 
    Route::resource('usuarios', App\Http\Controllers\UserController::class);
