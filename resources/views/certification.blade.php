@@ -17,7 +17,7 @@
 
 
 
-    <title>Mi Certificación en : {{ $registry_detail->registry->course->description }} en SDC Learning</title>
+    <title>Mi Certificación en : {{  $certification[0]->description  }} en SDC Learning</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
