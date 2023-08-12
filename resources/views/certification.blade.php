@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title"
-        content="Mi Certificación en : {{ $registry_detail->registry->course->description }} en SDC Learning" />
+        content="Mi Certificación en : {{ $certification[0]->description }} en SDC Learning" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $registry_detail->registry->course->description }}" />
     <meta name="image" id="oimage"property="og:image"
