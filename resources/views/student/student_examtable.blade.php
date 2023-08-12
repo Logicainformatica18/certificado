@@ -159,6 +159,9 @@
                                       
                                         </div>
                                      @elseif ($qualifications->exam->image3!="")
+                                         <div class="col col-lg-12">
+                                        <b> d) </b>
+                                    </div>
                                         &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative3 }}
                                         <div class="col col-md-10">
                                             <div
@@ -200,6 +203,9 @@
                                             <p></p>
                                         </div>
                                     @elseif ($qualifications->exam->image!="")
+                                        <div class="col col-lg-12">
+                                        <b> d) </b>
+                                    </div>
                                          &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative4 }}
                                         <div class="col col-md-10">
                                             <div
