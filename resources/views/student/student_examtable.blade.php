@@ -138,10 +138,11 @@
                                <p>
                                         &nbsp;
                                     </p>
-                                    <div class="col col-lg-12">
+                               
+                                    @if ($qualifications->exam->image3 == '' && $qualifications->exam->alternative3!="")
+                                         <div class="col col-lg-12">
                                         <b> c) </b>
                                     </div>
-                                    @if ($qualifications->exam->image3 == '')
                                         <div class="col col-lg-12">
                                             <div
                                                 class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
@@ -157,7 +158,7 @@
                                             </div>
                                       
                                         </div>
-                                    @else
+                                     @elseif ($qualifications->exam->alternative3!="")
                                         &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative3 }}
                                         <div class="col col-md-10">
                                             <div
@@ -178,10 +179,11 @@
                              <p>
                                         &nbsp;
                                     </p>
-                                    <div class="col col-lg-12">
+                                  
+                                    @if ($qualifications->exam->image4 == '' && $qualifications->exam->alternative4!="")
+                                      <div class="col col-lg-12">
                                         <b> d) </b>
                                     </div>
-                                    @if ($qualifications->exam->image4 == '')
                                         <div class="col col-lg-12">
                                             <div
                                                 class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
@@ -197,7 +199,7 @@
                                             </div>
                                             <p></p>
                                         </div>
-                                    @else
+                                    @elseif ($qualifications->exam->alternative4!="")
                                          &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative4 }}
                                         <div class="col col-md-10">
                                             <div
