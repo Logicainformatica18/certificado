@@ -158,7 +158,7 @@
                                             </div>
                                       
                                         </div>
-                                     @elseif ($qualifications->exam->alternative3!="")
+                                     @elseif ($qualifications->exam->image3!="")
                                         &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative3 }}
                                         <div class="col col-md-10">
                                             <div
@@ -199,7 +199,7 @@
                                             </div>
                                             <p></p>
                                         </div>
-                                    @elseif ($qualifications->exam->alternative4!="")
+                                    @elseif ($qualifications->exam->image!="")
                                          &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative4 }}
                                         <div class="col col-md-10">
                                             <div
