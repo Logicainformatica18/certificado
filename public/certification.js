@@ -187,7 +187,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
 
 
 
-function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text) {
+function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text,hour) {
 
 
 
@@ -221,7 +221,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      ctx.fillStyle = "#001238";
      
      
-     ctx.fillText("4", x-8, 434);
+     ctx.fillText(hour, x-8, 434);
      
  ctx.font = "bold 46px Open Sans";
      ctx.fillStyle = "#001238";

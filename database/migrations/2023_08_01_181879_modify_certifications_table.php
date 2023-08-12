@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('exams', function (Blueprint $table) {
-            $table->longText("file")->nullable();
+        Schema::table('certifications', function (Blueprint $table) {
+            $table->string("hours")->default("4");
         });
     }
 

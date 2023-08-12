@@ -302,11 +302,10 @@
 
 
 
-
     <script>
         generateCertication("{{ $route_certification }}", "{{ $name }}", "canvas1", "{{ $route_qr }}",
             "{{ $registry_detail->code_certification }}", '{{ $cert }}',
-            '{{ $registry_detail->registry->course->certification->description }}');
+            '{{$certification[0]->description}}','{{$certification[0]->hours}}');
 
 
 
