@@ -176,7 +176,7 @@
 </a>
 <p></p>
                 <button class="btn linkedin"
-                    onclick="linkedinCertificationGenerate('{{ $name_course }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
+                    onclick="linkedinCertificationGenerate('{{$certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
                 </button>
 
 
