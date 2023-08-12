@@ -160,7 +160,7 @@
                                         </div>
                                      @elseif ($qualifications->exam->image3!="")
                                          <div class="col col-lg-12">
-                                        <b> d) </b>
+                                        <b> c) </b>
                                     </div>
                                         &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative3 }}
                                         <div class="col col-md-10">
