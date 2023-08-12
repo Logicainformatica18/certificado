@@ -68,7 +68,7 @@
                         <div class="col-lg-9">
                             <p></p>
                             <span><b>Intentos</b></span><br>
-                            <span>Ilimitados</span>
+                            <span>limitados : 2 </span>
                         </div>
                     </div>
 

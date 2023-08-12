@@ -46,67 +46,177 @@
                                     {{ csrf_field() }}
                                     <h3><b>{{ $enumeracion = $enumeracion + 1 }}.
                                             {{ $qualifications->exam->ask }}</b> </h3>
-                                    <div class="col col-lg-12 ">
-                                        <div
-                                            class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:20px;height:50px;border-radius:8px">
-                                            
-                                            <div
-                                                class="input-group-prepend"style="background-color: #003399;border-radius:8px">
-                                                <span
-                                                    class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="1"></span>
-                                            </div>
+                                    @if ($qualifications->exam->question_image != '')
+                                        <div class="col col-lg-12 ">
+                                            &nbsp;&nbsp; <img
+                                                src="{{ asset('imageusers/' . $qualifications->exam->question_image) }}"
+                                                alt="" width="50%">
 
-                                            {{ $qualifications->exam->alternative1 }}
                                         </div>
-                                        <p></p>
+                                    @endif
+
+                                    <p>
+                                        &nbsp;
+                                    </p>
+                                    <div class="col col-lg-12">
+                                        <b> a) </b>
                                     </div>
-                                    <div class="col col-lg-12 ">
-                                        <div
-                                            class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:20px;height:50px;border-radius:8px">
-                                            
+                                    @if ($qualifications->exam->image1 == '')
+                                        <div class="col col-lg-12">
                                             <div
-                                                class="input-group-prepend"style="background-color: #003399;border-radius:8px">
-                                                <span
-                                                    class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="2"></span>
-                                            </div>
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
 
-                                            {{ $qualifications->exam->alternative2 }}
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="1"></span>
+                                                </div>
+
+                                                {{ $qualifications->exam->alternative1 }}
+                                            </div>
+                                            <p></p>
                                         </div>
-                                        <p></p>
-                                    </div>
-                                    <div class="col col-lg-12 ">
-                                        <div
-                                            class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:20px;height:50px;border-radius:8px">
-                                            
+                                    @else
+                                     &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative1 }}
+                                        <div class="col col-md-10">
                                             <div
-                                                class="input-group-prepend"style="background-color: #003399;border-radius:8px">
-                                                <span
-                                                    class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="3"></span>
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:230px;width:350px; border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="1"></span>
+                                                </div>
+                                                   <img src="{{ asset('imageusers/' . $qualifications->exam->image1) }}"
+                                                alt="" width="310px" height="230px">
                                             </div>
-
-                                            {{ $qualifications->exam->alternative3 }}
+                                            <p></p>
                                         </div>
-                                        <p></p>
+                                    @endif
+  <p>
+                                        &nbsp;
+                                    </p>
+                                    <div class="col col-lg-12">
+                                        <b> b) </b>
                                     </div>
-
-                                    <div class="col col-lg-12 ">
-                                        <div
-                                            class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:20px;height:50px;border-radius:8px">
-                                            
+                                    @if ($qualifications->exam->image2 == '')
+                                        <div class="col col-lg-12">
                                             <div
-                                                class="input-group-prepend"style="background-color: #003399;border-radius:8px">
-                                                <span
-                                                    class="input-group-text"style="background-color: #003399;border:0px;"><input
-                                                        type="radio" name="option" value="4"></span>
-                                            </div>
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
 
-                                            {{ $qualifications->exam->alternative4 }}
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="2"></span>
+                                                </div>
+
+                                                {{ $qualifications->exam->alternative2 }}
+                                            </div>
+                                       
                                         </div>
-                                        <p></p>
+                                    @else
+                                       &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative2 }}
+                                        <div class="col col-md-10">
+                                            <div
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:230px;width:350px; border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="2"></span>
+                                                </div>
+                                                   <img src="{{ asset('imageusers/' . $qualifications->exam->image2) }}"
+                                                alt="" width="310px" height="230px">
+                                            </div>
+                                            <p></p>
+                                        </div>
+                                    @endif
+                               <p>
+                                        &nbsp;
+                                    </p>
+                                    <div class="col col-lg-12">
+                                        <b> c) </b>
                                     </div>
+                                    @if ($qualifications->exam->image3 == '')
+                                        <div class="col col-lg-12">
+                                            <div
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="3"></span>
+                                                </div>
+
+                                                {{ $qualifications->exam->alternative3 }}
+                                            </div>
+                                      
+                                        </div>
+                                    @else
+                                        &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative3 }}
+                                        <div class="col col-md-10">
+                                            <div
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:230px;width:350px; border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="3"></span>
+                                                </div>
+                                                   <img src="{{ asset('imageusers/' . $qualifications->exam->image3) }}"
+                                                alt="" width="310px" height="230px">
+                                            </div>
+                                            <p></p>
+                                        </div>
+                                    @endif
+                             <p>
+                                        &nbsp;
+                                    </p>
+                                    <div class="col col-lg-12">
+                                        <b> d) </b>
+                                    </div>
+                                    @if ($qualifications->exam->image4 == '')
+                                        <div class="col col-lg-12">
+                                            <div
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:50px;border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="4"></span>
+                                                </div>
+
+                                                {{ $qualifications->exam->alternative4 }}
+                                            </div>
+                                            <p></p>
+                                        </div>
+                                    @else
+                                         &nbsp;&nbsp;&nbsp; {{ $qualifications->exam->alternative4 }}
+                                        <div class="col col-md-10">
+                                            <div
+                                                class="input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:19px;height:230px;width:350px; border-radius:8px">
+
+                                                <div
+                                                    class="input-group-prepend"style="background-color: #003399;border-radius:8px">
+                                                    <span
+                                                        class="input-group-text"style="background-color: #003399;border:0px;"><input
+                                                            type="radio" name="option" value="4"></span>
+                                                </div>
+                                                   <img src="{{ asset('imageusers/' . $qualifications->exam->image4) }}"
+                                                alt="" width="310px" height="230px">
+                                            </div>
+                                            <p></p>
+                                        </div>
+                                    @endif
+
+                                  
                                     <p>
                                         &nbsp;
                                     </p>

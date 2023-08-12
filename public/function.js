@@ -5,11 +5,11 @@ function whatsapp(numero){
     window.open(url);
 }
 
-function readImage(input) {
+function readImage(input,idimage) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function(e) {
-        $('#blah').attr('src', e.target.result); // Renderizamos la imagen
+        $(idimage).attr('src', e.target.result); // Renderizamos la imagen
       }
       reader.readAsDataURL(input.files[0]);
     }
