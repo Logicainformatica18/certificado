@@ -130,6 +130,7 @@ class UserController extends Controller
             $users->cellphone = $request->cellphone;
             $users->email = $request->email;
             $users->sex = $request->sex;
+             $users->password =  Hash::make($request->password);
             // try {
             //     $users->assignRole($request->role);
             // } catch (\Exception $e) {
@@ -151,6 +152,7 @@ class UserController extends Controller
             $users->email = $request->email;
             $users->sex = $request->sex;
             $users->photo = $request->photo;
+               $users->password =  Hash::make($request->password);
             $users->save();
         }
         return   $this->create();

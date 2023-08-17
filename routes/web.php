@@ -254,7 +254,7 @@ Route::get('/auth/callback', function () {
                       'lastname' => '',
                     'email' => $user->email,
                     'google_id'=> $user->id,
-                    'password' => encrypt('sdccertificados')
+                    'password' => Hash::make('sdccertificados')
                 ]);
                 //every user needs a team for dashboard/jetstream to work.
                 // //create a personal team for the user
