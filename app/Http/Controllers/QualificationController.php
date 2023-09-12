@@ -42,10 +42,29 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
             
             $average= $qualification / $exam;
 
-            if ($average >= 0.20) {
+            if ($average >= 0.60) {
             $property = $certification[0]->note;
         $registry_detail = RegistryDetail::find(Session::get('registry_detail_id'));
-       $registry_detail->$property = 20;       
+        //evaluar calificación
+        if ($average >=0.60 && $average <=0.65) {
+            $registry_detail->$property = 14;  
+        }
+        elseif ($average >=0.66 && $average <=0.70) {
+            $registry_detail->$property = 16;  
+        }
+   elseif ($average >=0.71 && $average <= 0.75) {
+            $registry_detail->$property = 17;  
+        }
+              elseif ($average >=0.76 && $average <= 0.80) {
+            $registry_detail->$property = 18;  
+        } 
+           elseif ($average >=0.81 && $average <= 90) {
+            $registry_detail->$property = 19;  
+        }
+           elseif ($average >=0.90 ) {
+            $registry_detail->$property = 20;  
+        }
+
        $registry_detail->save();
             return 'Aprobado';
 
