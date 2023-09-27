@@ -50,6 +50,10 @@
             </div>
 
         </div>
+          <!-- Botón para abrir la modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#miModal">
+        Editar Datos
+    </button>
     </div>
 
 
@@ -178,10 +182,42 @@
 
 
 
+    <!-- Ventana Modal -->
+    <div class="modal fade" id="miModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Título de la Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Contenido de la modal...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
              
-                    {{-- <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <form accept-charset="utf-8" id="user" method="POST" action=""
                                 enctype="multipart/form-data" name="user">
@@ -277,7 +313,7 @@
                             </form>
                         </div>
                      
-                    </div> --}}
+                    </div>
 
                     <!-- /.col -->
                 </div>

@@ -97,7 +97,14 @@ function qualificationStore(id) {
       //carga pdf- csv - excel
       //alert(response.data);
       //         datatable_load();
-      window.location.href = "Mi-examen";
+      if (response.data["error"]=="error") {
+        alert("Haz llegaod al limite de intentos");
+        window.location.href = "Mi-cursos";
+      }
+      else {
+        
+        window.location.href = "Mi-examen";
+      }
       
     })
     .catch(function(response) {

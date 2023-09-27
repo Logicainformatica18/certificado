@@ -83,8 +83,20 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
     {   
            Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->delete();
    
-     //   $qualifications = Qualification::where('registry_detail_id', '=', Session::get('registry_detail_id'))->get();
+ 
+   $certification = Certification::find($request->id);
+    $registry_details = RegistryDetail::find(Session::get('registry_detail_id'));
 
+
+   if ($registry_details->limit > $certification->limit  ) {
+            return "error";
+   }
+   else{
+    //agregamos los limites
+       $registry_details->limit = $registry_details->limit + 1;
+       $registry_details->save();
+       
+       //   $qualifications = Qualification::where('registry_detail_id', '=', Session::get('registry_detail_id'))->get();
           $exam = Exam::where('certification_id','=',$request->id)->count();
  $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
           for ($i=0; $i < $exam; $i++) { 
@@ -98,6 +110,9 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
     
    return Session::put('certification_id',$request->id );
       //  return $this->create();
+   }
+
+    
     }
 
     /**
