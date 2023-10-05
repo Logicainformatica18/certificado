@@ -20,8 +20,13 @@ class QualificationController extends Controller
               $certification_id = Session::get('certification_id');
             $qualification= Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->get();
               $qualification_count= Qualification::where('registry_detail_id','=',Session::get('registry_detail_id'))->count();
+        if ($qualification_count!=0) {
+            return view("student/student_exam", compact('qualification','qualification_count'));
         
-        return view("student/student_exam", compact('qualification','qualification_count'));
+        }
+        else{
+   return redirect()->route('Mis-cursos.index');
+        }
     }
 
     /**
@@ -86,9 +91,9 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
  
    $certification = Certification::find($request->id);
     $registry_details = RegistryDetail::find(Session::get('registry_detail_id'));
+     
 
-
-   if ($registry_details->limit > $certification->limit  ) {
+   if ($registry_details->limit >= $certification->limit  ) {
             return "error";
    }
    else{
