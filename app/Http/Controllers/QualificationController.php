@@ -25,7 +25,7 @@ class QualificationController extends Controller
         
         }
         else{
-   return redirect()->route('Mis-cursos.index');
+                      return redirect()->route('Mis-cursos.index');
         }
     }
 

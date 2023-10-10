@@ -221,7 +221,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      ctx.fillStyle = "#001238";
      
      
-     ctx.fillText(hour, x-8, 434);
+     ctx.fillText(hour, x+7, 434);
      
  ctx.font = "bold 46px Open Sans";
      ctx.fillStyle = "#001238";
