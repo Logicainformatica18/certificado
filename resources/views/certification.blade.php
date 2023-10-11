@@ -94,7 +94,7 @@
     
     $folder = $registry_detail->registry->course->folder_certification;
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset("certification2/$folder/$language/$cert.png");
+    $route_certification = asset("certification3/$folder/$language/$cert.png");
     //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
     $route_qr =
         'data:image/png;base64,' .
