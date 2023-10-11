@@ -187,17 +187,32 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Título de la Modal</h4>
+                    <h4 class="modal-title">Editar Datos</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Contenido de la modal...
+                    <form action="post" id="user"name="user">
+                        <input type="hidden" value="{{ $users->id }}">
+                        @csrf
+
+                 
+                    Nombres :
+                  <input type="text"value="{{ $users->names }}" name="names"id="names" class="form-control">
+                    Paterno :
+                    <input type="text"value="{{ $users->firtsname }}" class="form-control" name="firstname"id="firstname">
+                    Materno :
+                    <input type="text"value="{{ $users->lastname }}" class="form-control"name="lastname"id="lastname">
+                    Celular :
+                    <input type="text"value="{{ $users->cellphone }}" class="form-control"name="cellphone"id="cellphone">
+                    Dni :
+                    <input type="text"value="{{ $users->dni }}" class="form-control"name="dni"id="dni">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-primary" onclick="userUpdateProfile()">Guardar Cambios</button>
+                       </form>
                 </div>
             </div>
         </div>

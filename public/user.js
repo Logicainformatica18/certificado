@@ -188,7 +188,7 @@ function userUpdateProfile() {
             var contentdiv = document.getElementById("mycontent");
            // contentdiv.innerHTML = response.data;
          alert('Modificado correctamente');
-         window.location.href='/sistema';
+         window.location.reload();
         })
         .catch(function(response) {
             //handle error
