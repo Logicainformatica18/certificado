@@ -43,7 +43,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="{{ asset('linkedin.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('certification.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('certification2.js') }}"></script>
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
 
