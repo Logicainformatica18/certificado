@@ -209,6 +209,37 @@
                     <input type="text"value="{{ $users->cellphone }}" class="form-control"name="cellphone"id="cellphone">
                     Dni :
                     <input type="text"value="{{ $users->dni }}" class="form-control"name="dni"id="dni">
+                    Sexo:
+                    <p></p>
+               
+                  @if ($users->sex=="M")
+                  <div class="row">
+                    <div class="col col-lg-6">
+                          Masculino     
+                  <input type="radio"name="sex" id="sex"value="M" checked>
+                    </div>
+                      <div class="col col-lg-6">
+                         Femenino
+                        <input type="radio"name="sex" id="sex"value="F" >
+                    </div>
+                  </div>
+                
+                 
+                @else
+                        <div class="row">
+                    <div class="col col-lg-6">
+                          Masculino     
+                  <input type="radio"name="sex" id="sex"value="M" >
+                    </div>
+                      <div class="col col-lg-6">
+                         Femenino
+                        <input type="radio"name="sex" id="sex"value="F"checked >
+                    </div>
+                  </div>
+                
+                
+                 @endif
+                
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

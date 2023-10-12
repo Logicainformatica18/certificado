@@ -181,6 +181,9 @@ class UserController extends Controller
                          $users->names = $request->names;
       $users->firstname = $request->firstname;
       $users->lastname = $request->lastname;
+
+        $users->sex=   $request->sex;
+  
      //      $users->datebirth = $request->datebirth;
      //      $users->cellphone = $request->cellphone;
 
