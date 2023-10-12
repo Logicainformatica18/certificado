@@ -193,15 +193,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="post" id="user"name="user">
-                        <input type="hidden" value="{{ $users->id }}">
+               <form accept-charset="utf-8" id="user" method="POST" action=""
+                                enctype="multipart/form-data" name="user">
+                        <input type="hidden"name="id" id="id" value="{{ $users->id }}">
                         @csrf
 
                  
                     Nombres :
                   <input type="text"value="{{ $users->names }}" name="names"id="names" class="form-control">
                     Paterno :
-                    <input type="text"value="{{ $users->firtsname }}" class="form-control" name="firstname"id="firstname">
+                    <input type="text"value="{{ $users->firstname }}" class="form-control" name="firstname"id="firstname">
                     Materno :
                     <input type="text"value="{{ $users->lastname }}" class="form-control"name="lastname"id="lastname">
                     Celular :
@@ -234,8 +235,8 @@
              
                     <div class="col-md-12">
                         <div class="card">
-                            <form accept-charset="utf-8" id="user" method="POST" action=""
-                                enctype="multipart/form-data" name="user">
+                            <form accept-charset="utf-8" id="user2" method="POST" action=""
+                                enctype="multipart/form-data" name="user2">
                                 <input type="hidden" name="id"value="{{ $users->id }}">
                 
                                 <div class="card-body">
