@@ -39,7 +39,7 @@ function registryEdit(id) {
             //handle success
             var contentdiv = document.getElementById("mycontent");
             //contentdiv.innerHTML = response.data["description"];
-          //  registry.id.value=          response.data["id"];
+           registry.id.value=          response.data["id"];
             registry.description.value= response.data["description"];
           registry.detail.value=    response.data["detail"];
            registry.schedule.value=    response.data["schedule_id"];
@@ -53,7 +53,8 @@ registry.date_certification.value = response.data["date_certification"].substr(0
            registry.assistance.value=    response.data["assistance_id"];
             registry.edition.value = response.data["edition"];
             registry.type.value = response.data["type"];
-               registry.count_notes.value=    response.data["count_notes"];
+            registry.count_notes.value = response.data["count_notes"];
+                registry.state.value=    response.data["state"];
 
         })
         .catch(function(response) {

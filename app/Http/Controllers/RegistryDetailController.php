@@ -79,7 +79,7 @@ else if ($count_registry_detail==0){
       $registry_id = Session::get('registry_id');
 
         $registry_detail->registry_id   =   $registry_id;
-
+            $registry_detail->pay = $request->pay;
 
       $registry_detail->save();
 
@@ -121,6 +121,8 @@ else if ($count_registry_detail==0){
         $registry_detail->n2 = $request->n2;
         $registry_detail->n3 = $request->n3;
 
+
+                $registry_detail->pay = $request->pay;
      $registry_detail->save();
         return $this->create();
     }

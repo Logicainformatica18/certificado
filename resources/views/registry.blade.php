@@ -105,6 +105,12 @@
                                     <option value="{{ $item->id }}">{{ $item->description }} </option>
                                 @endforeach
                             </select>
+                            Disponible
+                             <select name="state" id="state" class="form-control">
+                               
+                                <option value="disabled">No</option>
+                                <option value="enabled">Si</option>
+                            </select>
                             Cantidad de Certificados :
                             <input type="number" name="count_notes" id="count_notes" class="form-control"value="8">
                             Detalles :

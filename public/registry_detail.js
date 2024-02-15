@@ -74,6 +74,7 @@ function registry_detailEdit(id, student) {
       qualification.n6.value = response.data["n6"];
       qualification.n7.value = response.data["n7"];
       qualification.n8.value = response.data["n8"];
+            qualification.pay.value = response.data["pay"];
     })
     .catch(function(response) {
       //handle error

@@ -137,7 +137,13 @@
                             
                         
                         @endfor
-                       
+
+                        ESTUDIANTE MATRICULADO
+                            <select name="pay" id="pay" class="form-control">
+                            
+                                <option value="not">No</option>
+                                <option value="yes">Si</option>
+                            </select>
                 </div>
                 <div class="modal-footer">
 
