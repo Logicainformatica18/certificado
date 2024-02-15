@@ -36,6 +36,7 @@ class CourseController extends Controller
         $course->description = $request->description;
         $course->detail = $request->detail;
         $course->type_id = $request->type;
+          $course->hours = $request->hours;
          $course->folder_certification = $request->folder_certification;
         $course->save();
         return $this->create();
@@ -71,6 +72,7 @@ class CourseController extends Controller
        $course = Course::find($request->id);
         $course->description = $request->description;
         $course->detail = $request->detail;
+          $course->hours = $request->hours;
            $course->folder_certification = $request->folder_certification;
               $course->review = $request->review;
         $course->save();
@@ -84,6 +86,7 @@ class CourseController extends Controller
               $course = Course::find($request->id);
         $course->description = $request->description;
         $course->detail = $request->detail;
+          $course->hours = $request->hours;
            $course->folder_certification = $request->folder_certification;
             $course->presentation = $request->presentation;
                $course->review = $request->review;

@@ -60,6 +60,7 @@
                                 <option value="{{ $item->id }}">{{ $item->description }}</option>
                             @endforeach
                         </select>
+                         Horas : <input type="text" name="hours" id="hours" class="form-control">
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">
                         Nombre de Carpeta de Certificados : <input type="text" name="folder_certification"
                             id="folder_certification" class="form-control">

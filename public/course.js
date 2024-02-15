@@ -88,7 +88,8 @@ function courseEdit(id) {
            // contentdiv.innerHTML = response.data["description"];
             course.id.value=response.data["id"];
             course.description.value=response.data["description"];
-          course.detail.value=response.data["detail"];
+          course.detail.value = response.data["detail"];
+           course.hours.value=response.data["hours"];
             course.type.value = response.data["type_id"];
           course.folder_certification.value = response.data["folder_certification"];
            course.review.value=    response.data["review"];
