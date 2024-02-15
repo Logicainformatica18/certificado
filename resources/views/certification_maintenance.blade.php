@@ -5,7 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1><b>{{$course[0]->description}}</b></h1>
+                  
+       @foreach ($certification as $certificate)
+    <h1><b>{{ $certificate->course->description }}</b></h1>
+    @break
+@endforeach
                     {{ session('success') }}
                 </div>
                 <div class="col-sm-6">
@@ -17,6 +21,8 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+
+    
     @role('Coordinación|Administrador')
           <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
@@ -75,6 +81,9 @@
                                 <option value="n8" >Nota 8 </option>
                            
                         </select>
+                       
+                         Horas : <input type="number" name="hours" id="hours" value="4"
+                         " class="form-control">
                         {{-- <select name="course_id" id="course_id" class="form-control">
                             @foreach ($course->registry as $item)
                                 <option value="{{ $item->id }}">{{ $item->description }}

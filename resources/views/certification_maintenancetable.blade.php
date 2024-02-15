@@ -22,8 +22,8 @@
                                         <th class="sorting">Nota</th>
                                         <th class="sorting">Detalle</th>
                                     @endrole
-
-                                    <th class="sorting">Cantidad Preguntas</th>
+   <th class="sorting">Horas</th>
+                        
                                     <th><img width="20"
                                             src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
                                             alt="" srcset=""></th>
@@ -42,7 +42,8 @@
                                                 <td>{{ $certifications->note }} </td>
                                                 <td>{{ $certifications->detail }}</td>
                                             @endrole
-                                            <td>{{ $certifications->cantidad_preguntas }}</td>
+                                            <td>{{ $certifications->hours }}</td>
+                                        
                                             <td>
                                                 @role('Coordinación|Administrador')
                                                     <!-- Button trigger modal -->
@@ -56,11 +57,11 @@
                                                     <a class="btn btn-warning note-icon-pencil"
                                                         onclick="certificationDetail('{{ $certifications->id }}')">Exámen</a>
                                                 @endrole
-                                                @role('Estudiante')
+                                                {{-- @role('Estudiante')
                                                     <a class="btn  note-icon-pencil" style="background-color:  #003399;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole
-                                                
+                                                 --}}
                                             </td>
 
                                         </tr>

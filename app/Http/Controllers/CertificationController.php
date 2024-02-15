@@ -30,6 +30,7 @@ class CertificationController extends Controller
 
                $course_id = Session::get('course_id');
             $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+   
   $course = Course::orderBy('id','ASC')->get();
 
 
@@ -124,6 +125,8 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                        $certification->note = $request->note;
+                    
+                        $certification->hours = $request->hours;
         $certification->save();
         return $this->create();
     }
@@ -155,6 +158,9 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                       $certification->note = $request->note;
+           
+                       $certification->hours = $request->hours;
+                 
         $certification->save();
         return $this->create();
     }
