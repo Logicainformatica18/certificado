@@ -93,17 +93,50 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
     $registry_details = RegistryDetail::find(Session::get('registry_detail_id'));
      
 
+
    if ($registry_details->limit >= $certification->limit  ) {
             return "error";
    }
-   else{
+
+
+   if ($certification->note=="n1") {
+        //agregamos los limites
+       $registry_details->limit = $registry_details->limit + 1;
+       $registry_details->save();
+       
+       //   $qualifications = Qualification::where('registry_detail_id', '=', Session::get('registry_detail_id'))->get();
+          $exam = Exam::where('certification_id','=',$request->id)->count();
+            $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
+          for ($i=0; $i < $exam; $i++) { 
+            $qualification = new Qualification;
+            $qualification->exam_id = $exam_id[$i]->id;
+             $qualification->registry_detail_id = Session::get('registry_detail_id');
+             $qualification->option = '';
+             $qualification->state = 'f';
+             $qualification->save();
+
+
+
+          }
+    
+                $registry_details->limit = 0;
+             $registry_details->save();
+             
+   return Session::put('certification_id',$request->id );
+  
+   }
+   elseif($registry_details->pay =="yes" && $certification->note !="n1")
+      {
+         
+
+
     //agregamos los limites
        $registry_details->limit = $registry_details->limit + 1;
        $registry_details->save();
        
        //   $qualifications = Qualification::where('registry_detail_id', '=', Session::get('registry_detail_id'))->get();
           $exam = Exam::where('certification_id','=',$request->id)->count();
- $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
+            $exam_id = Exam::select('id')->where('certification_id','=',$request->id)->get();
           for ($i=0; $i < $exam; $i++) { 
             $qualification = new Qualification;
             $qualification->exam_id = $exam_id[$i]->id;
@@ -113,11 +146,19 @@ $certification = Certification::where('id','=',Session::get('certification_id'))
              $qualification->save();
           }
     
-   return Session::put('certification_id',$request->id );
-      //  return $this->create();
-   }
 
-    
+   $registry_details->limit = 0;
+             $registry_details->save();
+
+
+   return Session::put('certification_id',$request->id );
+  
+   }
+    elseif($registry_details->pay =="not" && $certification->note !="n1"){
+            return "no matriculado";
+    }
+        
+
     }
 
     /**

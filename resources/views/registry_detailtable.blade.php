@@ -22,7 +22,7 @@
                                     <th class="sorting">Nombres</th>
                                     <th class="sorting">Celular</th>
                                     <th class="sorting">Email</th>
-
+   <th class="sorting">Matriculado</th>
                                   
                                         @for ($i = 1; $i <= $registry->count_notes -1; $i++)
                                             <th class="sorting">Nota {{ $i }} </th>
@@ -65,6 +65,9 @@
                                         </td>
                                         <td>
                                             {{ $registry_details->model_has_role->student->email }}
+                                        </td>
+                                            <td>
+                                            {{ $registry_details->pay }}
                                         </td>
                                         <?php
                                         if ($enumeracion > 9 && $enumeracion < 100) {
