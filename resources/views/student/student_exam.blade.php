@@ -139,7 +139,7 @@
             // Si no hay un tiempo de finalización guardado, o si estamos después del tiempo de finalización
             if (!end || end < new Date().getTime()) {
                 // Establece la hora de finalización para dentro de 1 hora y la guarda en LocalStorage
-                end = new Date().getTime() + (30 * 60 * 1000); // 60 minutos * 60 segundos * 1000 milisegundos
+                end = new Date().getTime() + (60 * 60 * 1000); // 60 minutos * 60 segundos * 1000 milisegundos
                 localStorage.setItem('end', end);
             }
 
