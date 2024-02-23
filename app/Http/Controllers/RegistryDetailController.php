@@ -118,11 +118,11 @@ else if ($count_registry_detail==0){
     {
         $registry_detail =  RegistryDetail::find($request->id);
         $registry_detail->n1 = $request->n1;
-        $registry_detail->n2 = $request->n2;
-        $registry_detail->n3 = $request->n3;
+        // $registry_detail->n2 = $request->n2;
+        // $registry_detail->n3 = $request->n3;
+$registry_detail->pay = $request->pay;
 
 
-                $registry_detail->pay = $request->pay;
      $registry_detail->save();
         return $this->create();
     }
