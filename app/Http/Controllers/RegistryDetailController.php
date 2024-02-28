@@ -26,7 +26,7 @@ class RegistryDetailController extends Controller
 
         //$student = Student::all();
 
-        $student =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
+        $student =DB::select("select  u.email,u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=5");
 
       
