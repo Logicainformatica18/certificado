@@ -318,9 +318,9 @@ let = orientacion_anio=x;
 
     ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 492);
     ctx.font = "bold 15px Open Sans";
-            ctx.fillText(text_th  , orientacion_th +3, 490);
+            ctx.fillText(text_th  , orientacion_th +9, 490);
             ctx.font = "bold 20px Open Sans";
-     ctx.fillText(", " + anio, orientacion_anio + 48, 492);
+     ctx.fillText(", " + anio, orientacion_anio + 55, 492);
 
  ctx.font = "14px Open Sans";
  ctx.fillStyle ="#01233A";

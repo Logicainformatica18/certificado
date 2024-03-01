@@ -100,7 +100,9 @@
                                         
                                             <td>
                                                     <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $code_certification }}','{{$i}}');">Generar</button>
+                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
+                                                     <button class="btn btn-warning"
+                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
                                             </td>
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}
