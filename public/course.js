@@ -22,7 +22,30 @@ function courseDetail(id,registry_detail_id) {
       console.log(response);
     });
 }
-
+function courseDetailStudent(id,registry_detail_id) {
+  var formData = new FormData(document.getElementById("course"));
+  formData.append("id", id);
+  formData.append("registry_detail_id", registry_detail_id);
+  axios({
+    method: "post",
+    url: "course_detail",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
+    .then(function(response) {
+      //handle success
+      window.location.href = "estudiante-certificados";
+      // var contentdiv = document.getElementById("mycontent");
+      // contentdiv.innerHTML = response.data;
+      //  alert("hola");
+    })
+    .catch(function(response) {
+      //handle error
+      console.log(response);
+    });
+}
 function courseStore() {
     var formData = new FormData(document.getElementById("course"));
     axios({
@@ -65,9 +88,11 @@ function courseEdit(id) {
            // contentdiv.innerHTML = response.data["description"];
             course.id.value=response.data["id"];
             course.description.value=response.data["description"];
-          course.detail.value=response.data["detail"];
+          course.detail.value = response.data["detail"];
+           course.hours.value=response.data["hours"];
             course.type.value = response.data["type_id"];
-               course.folder_certification.value=    response.data["folder_certification"];
+          course.folder_certification.value = response.data["folder_certification"];
+           course.review.value=    response.data["review"];
         })
         .catch(function(response) {
             //handle error

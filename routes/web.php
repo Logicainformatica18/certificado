@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +14,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-      return view('welcome');
-});
+//       return view('welcome');
+// });
 Auth::routes();
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
@@ -63,7 +64,12 @@ Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::clas
 
 
 
-
+   Route::resource("registros", App\Http\Controllers\RegistryController::class);
+   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
+   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
+   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
+   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
+   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
 
 
 
@@ -82,12 +88,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-   Route::resource("registros", App\Http\Controllers\RegistryController::class);
-   Route::post('registryStore',[App\Http\Controllers\RegistryController::class, 'store']);
-   Route::post('registryEdit',[App\Http\Controllers\RegistryController::class, 'edit']);
-   Route::post('registryUpdate',[App\Http\Controllers\RegistryController::class, 'update']);
-   Route::post('registryDestroy',[App\Http\Controllers\RegistryController::class, 'destroy']);
-   Route::post('registryShow',[App\Http\Controllers\RegistryController::class, 'show']);
+
 
    Route::post('registry_detail',[App\Http\Controllers\RegistryDetailController::class, 'registry_detail']);
 
@@ -115,7 +116,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
    Route::post('certificationShow',[App\Http\Controllers\CertificationController::class, 'show']);
 
 
-  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
+
 
 
 
@@ -124,7 +125,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-Route::group(['middleware' => ['role:Coordinación']], function () {
+Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], function () {
     //
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);
@@ -139,7 +140,8 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
    Route::post('category_productEdit',"ProductController@category_productEdit");
 
 
-
+ Route::resource("inscripcion", App\Http\Controllers\InscriptionController::class);
+Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::class, 'store']);
 
 
    Route::resource('usuarios', App\Http\Controllers\UserController::class);
@@ -210,15 +212,18 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
 //
 
 
+  Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
     Route::get('certificaciones/{registry_detail_id}/{language}/{id}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
-
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
+          Route::get('estudiante-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
+     
+    
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
 
@@ -226,8 +231,59 @@ Route::group(['middleware' => ['role:Coordinación']], function () {
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+use App\Models\User;
+Route::get('/auth/callback', function () {
+   try {
+            //create a user using socialite driver google
+            $user = Socialite::driver('google')->user();
+            // if the user exits, use that user and login
+            $finduser = User::where('email', $user->email)->first();
+            if($finduser){
+                //if the user exists, login and show dashboard
+                Auth::login($finduser);
+                return redirect('/home');
+            }else{
+                //user is not yet created, so create first
+                $newUser = User::create([
+                    'names' => $user->name,
+                     'firstname' => '',
+                      'lastname' => '',
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password' => Hash::make('sdccertificados')
+                ]);
+                //every user needs a team for dashboard/jetstream to work.
+                // //create a personal team for the user
+                // $newTeam = Team::forceCreate([
+                //     'user_id' => $newUser->id,
+                //     'names' => explode(' ', $user->name, 2)[0]."'s Team",
+                //     'personal_team' => true,
+                // ]);
+                // save the team and add the team to the user.
+                // $newTeam->save();
+                // $newUser->current_team_id = $newTeam->id;
+                $newUser->save();
+                //login as the new user
+                Auth::login($newUser);
+                $newUser->assignRole('Estudiante');
+                // go to the dashboard
+                return redirect('/home');
+            }
+            //catch exceptions
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+
+});
+
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
     Route::get('users', 'index');
     Route::get('users-export', 'export')->name('users.export');
     Route::post('users-import', 'import')->name('users.import');
 });
+
+//925680958 936158747

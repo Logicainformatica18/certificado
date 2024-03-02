@@ -97,7 +97,19 @@ function qualificationStore(id) {
       //carga pdf- csv - excel
       //alert(response.data);
       //         datatable_load();
-      window.location.href = "Mi-examen";
+      if (response.data=="error") {
+        alert("Haz superado el límite de intentos");
+        window.location.href = "Mis-cursos";
+      }
+      else if(response.data=="no matriculado"){
+          alert("Debes Matricularte para acceder a las demas certificaciones");
+        window.location.href = "Mis-cursos";
+          }
+        else {
+          
+          window.location.href = "Mi-examen";
+        }
+    
       
     })
     .catch(function(response) {

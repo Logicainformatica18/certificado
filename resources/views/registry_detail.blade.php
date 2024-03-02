@@ -73,13 +73,14 @@
                         {{ csrf_field() }}
 
                         Estudiantes
-
+                        
                         <select name="student" id="student" class="form-control">
                             @foreach ($student as $item)
                                 <option value="{{ $item->model_id }}-{{ $item->model_type }}-{{ $item->role_id }}">
-                                    {{ $item->firstname }} {{ $item->lastname }} {{ $item->names }} </option>
+                              {{ $item->email}} -- {{ $item->firstname }} {{ $item->lastname }} {{ $item->names }} </option>
                             @endforeach
                         </select>
+
 
                 </div>
                 <div class="modal-footer">
@@ -137,7 +138,13 @@
                             
                         
                         @endfor
-                       
+
+                        ESTUDIANTE MATRICULADO
+                            <select name="pay" id="pay" class="form-control">
+                            
+                                <option value="not">No</option>
+                                <option value="yes">Si</option>
+                            </select>
                 </div>
                 <div class="modal-footer">
 

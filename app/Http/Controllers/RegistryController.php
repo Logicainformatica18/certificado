@@ -98,6 +98,8 @@ class RegistryController extends Controller{
         $registry->edition = $request->edition;
        $registry->type = $request->type;
       $registry->count_notes = $request->count_notes;
+   $registry->state = $request->state;
+
       $registry->date_certification = $request->date_certification;
         $registry->save();
       //return print_r($registry);
@@ -140,6 +142,8 @@ class RegistryController extends Controller{
              $registry->count_notes = $request->count_notes;
            $registry->date_certification = $request->date_certification;
    $registry->type = $request->type;
+    $registry->edition = $request->edition;
+    $registry->state = $request->state;
         $registry->save();
         return $this->create();
     }

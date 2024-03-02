@@ -157,8 +157,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" value="Nuevo" class="btn btn-warning"
-                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"
-                        name="new">
+                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"  name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"
                         id="update">

@@ -66,7 +66,9 @@ function certificationEdit(id) {
             certification.description.value= response.data["description"];
             certification.detail.value = response.data["detail"];
             certification.course_id.value = response.data["course_id"];
-            certification.note.value=    response.data["note"];
+            certification.note.value = response.data["note"];
+               certification.hours.value = response.data["hours"];
+           
 
         })
         .catch(function(response) {
@@ -187,7 +189,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
 
 
 
-function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text) {
+function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text,hour) {
 
 
 
@@ -221,7 +223,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      ctx.fillStyle = "#001238";
      
      
-     ctx.fillText("4", x-8, 434);
+     ctx.fillText(hour, x+7, 434);
      
  ctx.font = "bold 46px Open Sans";
      ctx.fillStyle = "#001238";

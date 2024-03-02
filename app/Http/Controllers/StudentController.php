@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
                $users= Auth::user();
-     return view('student/student',compact("users"));
+     return view('../sistema',compact("users"));
 
     }
 

@@ -15,6 +15,8 @@ use Illuminate\Notifications\Notifiable;
 use App\Exports\ExportUsers;
 use App\Imports\ImportUsers;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 class UserController extends Controller
 {
     use Notifiable;
@@ -128,6 +130,7 @@ class UserController extends Controller
             $users->cellphone = $request->cellphone;
             $users->email = $request->email;
             $users->sex = $request->sex;
+             $users->password =  Hash::make($request->password);
             // try {
             //     $users->assignRole($request->role);
             // } catch (\Exception $e) {
@@ -149,6 +152,7 @@ class UserController extends Controller
             $users->email = $request->email;
             $users->sex = $request->sex;
             $users->photo = $request->photo;
+               $users->password =  Hash::make($request->password);
             $users->save();
         }
         return   $this->create();
@@ -169,23 +173,31 @@ class UserController extends Controller
     }
     public function updateProfile(Request $request)
     {
-        $request->datebirth = datebirth($request->day, $request->month, $request->year);
-        if ($request->photo == "") {
-            $users = User::find($request->id);
-            $users->datebirth = $request->datebirth;
-            $users->cellphone = $request->cellphone;
+        
+     //  $request->datebirth = datebirth($request->day, $request->month, $request->year);
+     //  if ($request->photo == "") {
+           $users = User::find($request->id);
+                     $users->cellphone = $request->cellphone;
+                         $users->names = $request->names;
+      $users->firstname = $request->firstname;
+      $users->lastname = $request->lastname;
 
-            $users->save();
-        } else {
-            $table = User::find($request["id"]);
-            photoDestroy($table->photo, "imageusers");
-            $request->photo = photoStore($request->file('photo'), "imageusers");
-            $users = User::find($request->id);
-            $users->datebirth = $request->datebirth;
-            $users->cellphone = $request->cellphone;
-            $users->photo = $request->photo;
-            $users->save();
-        }
+        $users->sex=   $request->sex;
+  
+     //      $users->datebirth = $request->datebirth;
+     //      $users->cellphone = $request->cellphone;
+
+           $users->save();
+     //  } else {
+      //      $table = User::find($request->id);
+      //      photoDestroy($table->photo, "imageusers");
+       //     $request->photo = photoStore($request->file('photo'), "imageusers");
+      //      $users = User::find($request->id);
+       //     $users->datebirth = $request->datebirth;
+       //     $users->cellphone = $request->cellphone;
+       //     $users->photo = $request->photo;
+       //     $users->save();
+      // }
     }
 
     public function userRoleEdit(Request $request)

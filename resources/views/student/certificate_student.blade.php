@@ -7,7 +7,10 @@
                                 <div class="container-fluid">
                                     <div class="row mb-2">
                                         <div class="col-sm-6">
-                                            <h1>Mis Certificados</h1>
+                                            <p>
+                                                &nbsp;&nbsp;
+                                            </p>
+                                            <h1><b>Mis Certificados</b></h1>
                                             {{ session('success') }}
                                         </div>
                                         <div class="col-sm-6">

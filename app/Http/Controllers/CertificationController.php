@@ -17,14 +17,48 @@ class CertificationController extends Controller
      */
     public function index()
     {
-           $course_id = Session::get('course_id');
+//            $course_id = Session::get('course_id');
+//           //  $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+//   $course = Course::where("id","=",$course_id)->get();
+
+
+// $certification = Certification::join('exams', 'certifications.id', '=', 'exams.certification_id')
+//     ->selectRaw('certifications.id, certifications.description, COUNT(exams.id) as cantidad_preguntas')
+//     ->where('certifications.course_id', '=', $course_id)
+//     ->groupBy('certifications.id', 'certifications.description')
+//     ->get();
+
+               $course_id = Session::get('course_id');
             $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+   
   $course = Course::orderBy('id','ASC')->get();
+
+
         return view("certification_maintenance", compact('certification','course'));
 
 
     }
+  public function student()
+    {
+           $course_id = Session::get('course_id');
+          //  $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
+  $course = Course::where("id","=",$course_id)->get();
 
+
+
+
+$certification = Certification::join('exams', 'certifications.id', '=', 'exams.certification_id')
+    ->selectRaw('certifications.id, certifications.description, COUNT(exams.id) as cantidad_preguntas')
+    ->where('certifications.course_id', '=', $course_id)
+    ->groupBy('certifications.id', 'certifications.description')
+    ->get();
+
+
+
+        return view("student.student_certificate", compact('certification','course'));
+
+
+    }
     public function report(Request $request,$registry_detail_id,$language,$code_certification,$cert)
     {
        // return $id." ".$id1;
@@ -46,10 +80,10 @@ class CertificationController extends Controller
     $registry_detail->code_certification = $code_certification;
 $registry_detail->save();
 
+    $certification = Certification::where("course_id", "=", $registry_detail->registry->course_id)->where("note", "=", "n" . $cert)->get();
 
-
-
-      return view("certification",compact("registry_detail","language","cert"));
+  //  return $registry_detail->registry->course_id;
+      return view("certification",compact("registry_detail","language","cert","certification"));
 
 
 
@@ -91,6 +125,8 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                        $certification->note = $request->note;
+                    
+                        $certification->hours = $request->hours;
         $certification->save();
         return $this->create();
     }
@@ -122,6 +158,9 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                       $certification->note = $request->note;
+           
+                       $certification->hours = $request->hours;
+                 
         $certification->save();
         return $this->create();
     }

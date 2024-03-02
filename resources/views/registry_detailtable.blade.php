@@ -20,9 +20,9 @@
                                     <th class="sorting">Paterno</th>
                                     <th class="sorting">Materno</th>
                                     <th class="sorting">Nombres</th>
-                                    <th class="sorting">Dni</th>
+                                    <th class="sorting">Celular</th>
                                     <th class="sorting">Email</th>
-
+   <th class="sorting">Matriculado</th>
                                   
                                         @for ($i = 1; $i <= $registry->count_notes -1; $i++)
                                             <th class="sorting">Nota {{ $i }} </th>
@@ -50,20 +50,24 @@
                                         <td></td>
                                         {{-- <td>{{ $registry_details->id }}</td> --}}
                                         <td>{{ $enumeracion = $enumeracion + 1 }}</td>
-                                        <td>
-                                            {{ $registry_details->model_has_role->student->names }}
-                                        </td>
+                                   
                                         <td>
                                             {{ $registry_details->model_has_role->student->firstname }}
                                         </td>
                                         <td>
                                             {{ $registry_details->model_has_role->student->lastname }}
                                         </td>
+                                             <td>
+                                            {{ $registry_details->model_has_role->student->names }}
+                                        </td>
                                         <td>
-                                            {{ $registry_details->model_has_role->student->dni }}
+                                            {{ $registry_details->model_has_role->student->cellphone }}
                                         </td>
                                         <td>
                                             {{ $registry_details->model_has_role->student->email }}
+                                        </td>
+                                            <td>
+                                            {{ $registry_details->pay }}
                                         </td>
                                         <?php
                                         if ($enumeracion > 9 && $enumeracion < 100) {
@@ -96,7 +100,9 @@
                                         
                                             <td>
                                                     <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','english','{{ $code_certification }}','{{$i}}');">Generar</button>
+                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
+                                                     <button class="btn btn-warning"
+                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
                                             </td>
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}

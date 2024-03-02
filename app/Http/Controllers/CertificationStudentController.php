@@ -21,8 +21,15 @@ class CertificationStudentController extends Controller
 
      $user = Auth::user();
      $user = $user->model_has_roles;
+    
      $registry_detail=  RegistryDetail::where('student_m',"=",$user[0]->model_id)->get();
+
+     
+
      $registry = Registry::find($registry_detail[0]->registry_id);
+
+
+
      return view('student/certificate_student',compact('certificate','registry_detail','registry'));
     }
 

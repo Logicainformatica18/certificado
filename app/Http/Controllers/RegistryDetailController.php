@@ -26,7 +26,7 @@ class RegistryDetailController extends Controller
 
         //$student = Student::all();
 
-        $student =DB::select("select u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
+        $student =DB::select("select  u.email,u.firstname,u.lastname,u.names,m.model_id,m.model_type,m.role_id from users u
         inner join model_has_roles m on u.id = m.model_id where role_id=5");
 
       
@@ -60,7 +60,12 @@ class RegistryDetailController extends Controller
         $registry_detail = new RegistryDetail;
         $student =explode("-", $request->student) ;
 
-        $registry_detail->student_m = $student[0];
+ $count_registry_detail= RegistryDetail::where("student_m","=",$student[0])->where("registry_id","=",Session::get('registry_id'))->count();
+if ($count_registry_detail>0) {
+            return "Error";
+}
+else if ($count_registry_detail==0){
+   $registry_detail->student_m = $student[0];
       $registry_detail->student_t = $student[1];
         $registry_detail->student_r = $student[2];
            if ($count > 9 && $count < 100) {
@@ -69,17 +74,21 @@ class RegistryDetailController extends Controller
                                             $count = '00' . $count;
                                         }
                                         
-        $registry_detail->code_certification = $registry->description.'-'.$count;
+    $registry_detail->code_certification = $registry->description.'-'.$count;
 
       $registry_id = Session::get('registry_id');
 
         $registry_detail->registry_id   =   $registry_id;
 
+           // $registry_detail->pay = $request->pay;
 
       $registry_detail->save();
 
     return $this->create();
-    // return   "rrfr" ;
+}
+
+
+       // return $count_registry_detail;
     }
 
     /**
@@ -110,8 +119,10 @@ class RegistryDetailController extends Controller
     {
         $registry_detail =  RegistryDetail::find($request->id);
         $registry_detail->n1 = $request->n1;
-        $registry_detail->n2 = $request->n2;
-        $registry_detail->n3 = $request->n3;
+        // $registry_detail->n2 = $request->n2;
+        // $registry_detail->n3 = $request->n3;
+$registry_detail->pay = $request->pay;
+
 
      $registry_detail->save();
         return $this->create();

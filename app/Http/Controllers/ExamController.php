@@ -37,16 +37,32 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        $exam = new Exam;
+     
+            $request->question_image = photoStore($request->file('question_image'), "imageusers");
+                 $request->image1 = photoStore($request->file('image1'), "imageusers");
+                   $request->image2 = photoStore($request->file('image2'), "imageusers");
+                     $request->image3 = photoStore($request->file('image3'), "imageusers");
+                       $request->image4= photoStore($request->file('image4'), "imageusers");
+                     
+              $exam = new Exam;
              $exam->certification_id = Session::get('certification_id');
              $exam->ask = $request->ask;
+            $exam->question_image = $request->question_image;
+             $exam->image1 = $request->image1;
+              $exam->image2 = $request->image2;
+               $exam->image3 = $request->image3;
+                $exam->image4 = $request->image4;
              $exam->alternative1 = $request->alternative1;
              $exam->alternative2 = $request->alternative2;
              $exam->alternative3 = $request->alternative3;
              $exam->alternative4 = $request->alternative4;
               $exam->answer = $request->answer;
         $exam->save();
-        return $this->create();
+    
+
+
+     return $this->create();
+
     }
 
     /**
