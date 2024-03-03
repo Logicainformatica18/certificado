@@ -227,7 +227,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      ctx.fillStyle = "#001238";
      
 
-        ctx.fillText(text, x, 500);
+        ctx.fillText(text, x, 510);
      
      
         ctx.font = "bold 20px Open Sans";
@@ -261,10 +261,12 @@ let = orientacion_anio=x;
         orientacion_anio = orientacion_anio +13;
     }
 
-    if(mesCorto== "Marzo") {
+    if(mesCorto== "March") {
         x=x+3;
         orientacion_th= orientacion_th +8;
         orientacion_anio = orientacion_anio;
+
+        mesCorto = "Marzo";
     }
     if(mesCorto== "Abril") {
         orientacion_th= orientacion_th ;
