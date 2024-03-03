@@ -100,7 +100,7 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #003399;"><b>CERTIFICADOS SDC</b>
+                                <h1 style="font-weight: bold;font-size:57px; color: #003399;"><b>CERTIFICADOS TECCILINE</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>

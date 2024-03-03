@@ -205,7 +205,7 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 40px Open Sans";
+ ctx.font = "bold 46px Open Sans";
 
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle';
@@ -215,19 +215,19 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
            // student = student.toUpperCase();
         let x = canvas1.width / 2  ;
 
-     ctx.fillText(student, x, 300);
+     ctx.fillText(student, x, 390);
      
  ctx.font = "bold 18px Open Sans";
      ctx.fillStyle = "#001238";
      
      
-     ctx.fillText(hour, x+7, 434);
+    // ctx.fillText(hour, x+7, 434); HORASSSSS
      
- ctx.font = "bold 46px Open Sans";
+ ctx.font = "bold 40px Open Sans";
      ctx.fillStyle = "#001238";
      
 
-        ctx.fillText(text, x, 388);
+        ctx.fillText(text, x, 500);
      
      
         ctx.font = "bold 20px Open Sans";
@@ -249,60 +249,60 @@ let text_th ="th";
 
 let orientacion_th = x ;
 let = orientacion_anio=x;
-   if(mesCorto== "January") {
+   if(mesCorto== "Enero") {
       x= x+5;
         orientacion_th= orientacion_th +17;
         orientacion_anio = orientacion_anio +5;
 
     }
-    if(mesCorto== "February") {
+    if(mesCorto== "Febrero") {
         x= x+5;
         orientacion_th= orientacion_th +22;
         orientacion_anio = orientacion_anio +13;
     }
 
-    if(mesCorto== "March") {
+    if(mesCorto== "Marzo") {
         x=x+3;
         orientacion_th= orientacion_th +8;
         orientacion_anio = orientacion_anio;
     }
-    if(mesCorto== "April") {
+    if(mesCorto== "Abril") {
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
-    if(mesCorto== "May") {
+    if(mesCorto== "Mayo") {
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
-    if(mesCorto== "June") {
+    if(mesCorto== "Junio") {
         orientacion_th= orientacion_th +1 ;
         orientacion_anio = orientacion_anio -9;
     }
-    if(mesCorto== "July") {
+    if(mesCorto== "Julio") {
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
-    if(mesCorto== "August") {
+    if(mesCorto== "Agosto") {
 
         orientacion_th= orientacion_th +15;
         orientacion_anio = orientacion_anio +10;
     }
-    if(mesCorto== "September") {
+    if(mesCorto== "Septiembre") {
         x= x+3;
         orientacion_th= orientacion_th +36
         orientacion_anio = orientacion_anio  +27;
     }
-    if(mesCorto== "October") {
+    if(mesCorto== "Octubre") {
         x= x+2;
         orientacion_th= orientacion_th +21;
         orientacion_anio = orientacion_anio  +12;
     }
-    if(mesCorto== "November") {
+    if(mesCorto== "Noviembre") {
         x= x+1;
         orientacion_th= orientacion_th +33;
         orientacion_anio = orientacion_anio  +24;
     }
-    if(mesCorto== "December") {
+    if(mesCorto== "Diciembre") {
         x= x+1;
         orientacion_th= orientacion_th +29;
         orientacion_anio = orientacion_anio  +20;
@@ -316,11 +316,11 @@ let = orientacion_anio=x;
 
 
 
-    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 492);
+    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 152);
     ctx.font = "bold 15px Open Sans";
-            ctx.fillText(text_th  , orientacion_th +9, 490);
+            ctx.fillText(text_th  , orientacion_th +14, 152);
             ctx.font = "bold 20px Open Sans";
-     ctx.fillText(", " + anio, orientacion_anio + 55, 492);
+     ctx.fillText(", " + anio, orientacion_anio + 57, 152);
 
  ctx.font = "14px Open Sans";
  ctx.fillStyle ="#01233A";
