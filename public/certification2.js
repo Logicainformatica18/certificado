@@ -327,7 +327,7 @@ let = orientacion_anio=x;
  ctx.font = "14px Open Sans";
  ctx.fillStyle ="#01233A";
  ctx.textAlign = "center";
- ctx.fillText("ID: SDC "+id, 875, 205);
+ ctx.fillText("ID: TECCI "+id, 875, 205);
 
  //agregar qr encima de certificado
      let image1 = new Image();
