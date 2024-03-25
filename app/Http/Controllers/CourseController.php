@@ -75,6 +75,7 @@ class CourseController extends Controller
           $course->hours = $request->hours;
            $course->folder_certification = $request->folder_certification;
               $course->review = $request->review;
+              $course->type_id = $request->type;
         $course->save();
 
         } else {
@@ -90,6 +91,7 @@ class CourseController extends Controller
            $course->folder_certification = $request->folder_certification;
             $course->presentation = $request->presentation;
                $course->review = $request->review;
+               $course->type_id = $request->type;
         $course->save();
         }
 
