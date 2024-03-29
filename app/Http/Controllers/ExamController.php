@@ -8,6 +8,10 @@ use App\Models\RegistryDetail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Imports\ExamsImport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 class ExamController extends Controller
 {
     /**
@@ -113,4 +117,16 @@ class ExamController extends Controller
     //    return Session::put('exam_id',$request->id );
   
     // }
+    public function import() 
+    {
+       
+$certification_id= Session::get('certification_id');
+//return "edfedfd";
+       Excel::import(new ExamsImport($certification_id), request()->file('file'));
+            
+        return back();
+    }
+
+
+
 }

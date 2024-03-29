@@ -11,10 +11,23 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Preguntas</li>
+                        <li class="breadcrumb-item active">Preguntas  {{ session('certification_id') }} </li>
                     </ol>
+                    
+                </div>
+                <div class="col col-lg-2">
+                    <form action="{{ route('exams.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file" class="form-control">
+                        <br>
+        
+                </div>
+                <div class="col col-lg-2">
+                    <button type="submit" class="btn btn-success">Importar Datos</button>
+                    </form>
                 </div>
             </div>
+ 
         </div><!-- /.container-fluid -->
     </section>
     @role('Coordinación|Administrador')

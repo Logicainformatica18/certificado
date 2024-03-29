@@ -143,7 +143,7 @@
                     </p>
                     <span
                         style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
-                        <a href="https://anthonycode.com"target="_blank">Copyright © 2023 Dev. AnthonyCode</a></span>
+                        <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev. AnthonyCode</a></span>
                 </div>
                 <div class="col-lg-4 text-center">
                     <p>

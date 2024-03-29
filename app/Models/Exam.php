@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     use HasFactory;
+    protected $fillable = [
+       'certification_id', 'ask','alternative1','alternative2','alternative3','alternative4','answer'
+    ];
+
+
         public function certification()
     {
 

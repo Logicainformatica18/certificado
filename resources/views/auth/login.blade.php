@@ -232,15 +232,18 @@
 
 
 
-                            {{-- <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-primary">
+                            <div class="social-auth-links text-center mb-3">
+                    {{-- <p>- OR -</p> --}}
+                    <span
+                    style="background-image: linear-gradient(45deg, rgb(15, 1, 9), rgb(255, 20, 184)); -webkit-background-clip: text; color: transparent;">
+                    <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev. AnthonyCode</a></span>
+                    {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
+                    </a> --}}
+                    {{-- <a href="#" class="btn btn-block btn-danger">
                         <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a>
-                </div> --}}
+                    </a> --}}
+                </div>
                             <!-- /.social-auth-links -->
 
                             {{-- <p class="mb-1">

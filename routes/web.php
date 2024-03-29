@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -282,8 +283,20 @@ Route::get('/auth/callback', function () {
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
     Route::get('users', 'index');
+
+
+    
     Route::get('users-export', 'export')->name('users.export');
     Route::post('users-import', 'import')->name('users.import');
+
+    
+    
+});
+
+Route::controller(ExamController::class)->group(function(){
+   
+    Route::post('exams-import', 'import')->name('exams.import');
+
 });
 
 //925680958 936158747
