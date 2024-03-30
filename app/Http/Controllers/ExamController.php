@@ -121,7 +121,7 @@ class ExamController extends Controller
     {
        
 $certification_id= Session::get('certification_id');
-//return "edfedfd";
+
        Excel::import(new ExamsImport($certification_id), request()->file('file'));
             
         return back();

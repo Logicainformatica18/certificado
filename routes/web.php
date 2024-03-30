@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExamController;
+use App\Http\Controllers\RegistryDetailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
@@ -298,5 +299,18 @@ Route::controller(ExamController::class)->group(function(){
     Route::post('exams-import', 'import')->name('exams.import');
 
 });
+Route::controller(RegistryDetailController::class)->group(function(){
+   
+    Route::post('registry_detail-import', 'import')->name('registry_detail.import');
+
+});
+
+
+
+
+
+
+
+
 
 //925680958 936158747

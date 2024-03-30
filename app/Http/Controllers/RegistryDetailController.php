@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\RegistryDetailImport;
 use App\Models\RegistryDetail;
 use App\Http\Requests\StoreRegistryDetailRequest;
 use App\Http\Requests\UpdateRegistryDetailRequest;
@@ -11,9 +12,11 @@ use App\Models\Student;
 use Illuminate\Support\Facades\DB;
 use App\Helpers;
 use Illuminate\Support\Facades\Session;
+use App\Imports\ImportUsers;
+use Maatwebsite\Excel\Facades\Excel;
 class RegistryDetailController extends Controller
 {
-
+    private $studentId;
     /**
      * Display a listing of the resource.
      */
@@ -145,4 +148,16 @@ $registry_detail->pay = $request->pay;
 
       //return view("certification");
     }
+    public function import() 
+    {
+        $registry_id= Session::get('registry_id');
+
+        Excel::import(new RegistryDetailImport($registry_id), request()->file('file'));
+      
+      //  return $this->studentId;      
+      return back();
+    }
+
+
+
 }

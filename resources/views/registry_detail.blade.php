@@ -5,6 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+                  
                     <h1>Registro : <b>{{ $registry_id }}</b> - Curso <b> {{ $registry->course->description }}</b>
                         - Edición <b>{{ $registry->edition }} </b>
                     </h1>
@@ -37,8 +38,18 @@
             Agregar Estudiante
         </button>
     @endrole
-
     <p></p>
+    <div class="col col-lg-2">
+        <form action="{{ route('registry_detail.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" class="form-control">
+            <br>
+
+    </div>
+    <div class="col col-lg-2">
+        <button class="btn btn-success">Importar Datos</button>
+        </form>
+    </div>
     {{-- Buscar
                             <form  name="for"id="show">
                                 <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="registryShow();">

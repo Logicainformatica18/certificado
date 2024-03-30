@@ -26,6 +26,7 @@ final class AuthController extends Controller
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
+        $user->tokens()->delete();
 
         return response()->json([
             'token' => $user->createToken(request()->device_name)->plainTextToken
