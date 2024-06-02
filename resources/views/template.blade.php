@@ -136,7 +136,7 @@
 
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #5a86ea;">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
                 <h3 style="color:white"><b>

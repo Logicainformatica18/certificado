@@ -19,7 +19,7 @@
                         @endphp
                         <div class="card" style="width: 15rem;">
                             <img src="{{ asset('dist/img/cursos/' . $img) }}" class="card-img-top" alt="...">
-                            <div class="card-body" style="background-color: #003399;color:white">
+                            <div class="card-body" style="background-color: #5a86ea;color:white">
                                 <h5 class="card-title">{{ $registry_details->registry->course->description }} </h5>
                                 <div class="ribbon-wrapper">
                                     <div class="ribbon" style="background-color: #00cc99">

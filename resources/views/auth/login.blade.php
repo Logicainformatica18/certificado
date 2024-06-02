@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados SDC</title>
+    <title>One Digital - Certificados</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
@@ -33,7 +33,7 @@
     }
 
     .bg-image {
-        background: url("{{ asset('banner_lateral.png') }}") no-repeat left center;
+        background: url("{{ asset('banner_lateral_2.png') }}") no-repeat left center;
         background-size: cover;
     }
 
@@ -60,25 +60,43 @@
 
     @font-face {
         font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Regular.otf') }}");
-        font-weight: 500;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
         src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Semibold.otf') }}");
         font-weight: 600;
         font-style: normal;
     }
 
+    @font-face {
+        font-family: "Montalban";
+        src: url("{{ asset('fuente_one/Montalban.otf') }}");
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Montserrat-Bold";
+        src: url("{{ asset('fuente_one/Montserrat-Bold.ttf') }}");
+        font-weight: 600;
+        font-style: bold;
+    }
+
+    @font-face {
+    font-family: 'Montserrat-Regular';
+    src: url("{{ asset('fuente_one/Montserrat-Regular.ttf') }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
     body {
-        font-family: 'Kohinoor Bangla', sans-serif;
+        font-family: 'Montserrat-Regular';
         font-weight: 300;
         /* Utiliza la variante "Light" por defecto */
     }
 
-
+b {
+    font-family: 'Montalban';
+        font-weight: 300;
+}
 
     h2 {
         font-weight: 600;
@@ -100,19 +118,21 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #003399;"><b>CERTIFICADOS SDC</b>
+                                <h1 style="font-weight: bold;font-size:60px; color: #5a86ea;"><b>CERTIFICADO</b>
+                                   <br>  <b>DIGITAL</b>
                                 </h1>
                             </div>
-                            <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>
+                     
+
+                            <p class="login-box-msg" style="color:#0a2262;font-size:20px"> Ingrese sus datos para iniciar sesión</p>
                             <p></p>
                             <form method="POST" action="{{ route('login') }}">
 
                                 {{ csrf_field() }}
                                 <div class="input-group mb-3 container">
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                    <input id="email" type="email" style=" width: 100%; border: 1px solid #0a2262;border-radius:10px;"      class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Email">
+                                        placeholder="E-mail">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -125,9 +145,10 @@
                                     </div> --}}
                                 </div>
                                 <div class="input-group mb-3 container">
-                                    <input id="password" type="password"
+                                    <input id="password" type="password" style=" width: 100%; border: 1px solid #0a2262;border-radius:10px" 
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password" placeholder="Contraseña">
+                                     
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -141,19 +162,20 @@
                                 </div>
 
 
-
+                                
 
                                 <div class="row container">
 
                                     <div
                                         class="col-12 text-center md d-flex  justify-content-center align-items-center">
-                                        <p></p>
+                                  
 
                                         <button type="submit"
-                                            class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #003399;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
-                                            <span style="color:white; font-size: 1.5em;">INICIAR SESIÓN</span>
-                                        </button>
+                                        class="btn btn-primary md d-flex align-items-center justify-content-center"
+                                        style="background: linear-gradient(45deg, #0a2262, #0038ab); font-weight: 100; height: 45px; width: 70%; border-radius: 50px;">
+                                    <span style="font-family: Montserrat-bold; color: #ffffff; font-size: 21px;">INICIAR SESIÓN</span>
+                                </button>
+                                
 
                                     </div>
                                 </div>
@@ -181,24 +203,23 @@
 
                                     <!-- /.col -->
                                 </div>
-                                <p></p>
+                            <p></p>
                                 <div class="d-flex justify-content-center">
                                     @if (Route::has('password.request'))
-                                        <a class="login-box-msg"
-                                            href="{{ route('password.request') }}"style="color:#003399">
-                                            ¿Olvidaste tu Contraseña?
+                                        <a class="login-box-msg" style="font-family: Montserrat-Regular; font-size:13px"
+                                            href="{{ route('password.request') }}"style="color:#0a2262">
+                                         <p></p>  ¿Olvidaste tu Contraseña? 
                                         </a>
                                     @endif
                                 </div>
 
-
-
                                 <div class="social-auth-links text-center mb-3">
-                                    <p>- O -</p>
+                                    
+                                   <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
                                     {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> --}}
-                                    <a href="{{ url('auth/google') }}" class="btn btn-block shadow-sm p-2 mb-5  rounded" style="background-color:#00cc99;color:white">
+                                    <a href="{{ url('auth/google') }}" class="btn btn-block shadow-sm p-2 mb-5  rounded" style="background-color:#5a86ea;color:white; border-radius: 20px; border: 15px">
 
 
                                         <div class="google-auth__GoogleAuthStyled-sc-7d7ymg-0 ewxrDx">
@@ -223,7 +244,7 @@
                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
 	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                                                 </path>
-                                            </svg><span> Continuar con Google</span>
+                                            </svg><span style="font-family: Montserrat-bold"> Continua con Google</span>
 
                                         </div>
                                     </a>

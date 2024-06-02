@@ -58,7 +58,7 @@
                                                         onclick="certificationDetail('{{ $certifications->id }}')">Exámen</a>
                                                 @endrole
                                                 {{-- @role('Estudiante')
-                                                    <a class="btn  note-icon-pencil" style="background-color:  #003399;color:white"
+                                                    <a class="btn  note-icon-pencil" style="background-color:  #5a86ea;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole
                                                  --}}

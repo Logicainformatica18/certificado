@@ -33,10 +33,10 @@
     }
 
     .bg-image {
-        background: url("{{ asset('banner_lateral.png') }}") no-repeat left center;
+        background: url("{{ asset('banner_lateral_2.png') }}") no-repeat left center;
         background-size: cover;
     }
-
+/* 
     @font-face {
         font-family: "Kohinoor Bangla";
         src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Bold.otf') }}");
@@ -70,7 +70,7 @@
         src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Semibold.otf') }}");
         font-weight: 600;
         font-style: normal;
-    }
+    } */
 
   body {
     font-family: 'Kohinoor Bangla', sans-serif;
@@ -99,7 +99,7 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #003399;"><b>CERTIFICADOS SDC</b>
+                                <h1 style="font-weight: bold;font-size:57px; color: #5a86ea;"><b>CERTIFICADOS SDC</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>
@@ -150,7 +150,7 @@
 
                                         <button type="submit"
                                             class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #003399;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
+                                            style="background-color: #5a86ea;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
                                             <span style="color:white; font-size: 1.5em;">INICIAR SESIÓN</span>
                                         </button>
 
@@ -184,7 +184,7 @@
                                 <div class="d-flex justify-content-center">
                                     @if (Route::has('password.request'))
                                         <a class="login-box-msg"
-                                            href="{{ route('password.request') }}"style="color:#003399">
+                                            href="{{ route('password.request') }}"style="color:#5a86ea">
                                             ¿Olvidaste tu Contraseña?
                                         </a>
                                     @endif

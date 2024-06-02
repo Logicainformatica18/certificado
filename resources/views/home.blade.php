@@ -45,7 +45,7 @@
                                                     </div>
 
                                                     @else
-                                                           <div class="card badge-primary" style="background-color:#003399">
+                                                           <div class="card badge-primary" style="background-color:#5a86ea">
                         <div class="row">
                             <div class="col-lg-1"
                                 style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">

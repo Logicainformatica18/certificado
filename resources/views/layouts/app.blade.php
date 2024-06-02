@@ -23,7 +23,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
+        <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
             <div class="row">
                 <div class="col col-lg-4">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -112,7 +112,7 @@
 
     <br>
 
-    <footer class="main-footer" style="background-color:#003399;color:white">
+    <footer class="main-footer" style="background-color:#5a86ea;color:white">
 
 
 

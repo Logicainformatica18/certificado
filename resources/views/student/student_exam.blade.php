@@ -82,7 +82,7 @@
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
                             <div
-                                class="row input-group d-flex align-items-center"style="background-color: #003399;color:white;font-size:15px;height:60px;border-radius:8px">
+                                class="row input-group d-flex align-items-center"style="background-color: #5a86ea;color:white;font-size:15px;height:60px;border-radius:8px">
                                 <div class="col-lg-3">
                                     <img src="{{ asset('REGISTROS-BLANCO.png') }}" alt=""width="100%">
                                 </div>

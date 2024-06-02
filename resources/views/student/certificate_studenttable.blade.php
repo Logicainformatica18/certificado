@@ -73,15 +73,15 @@
                                                 <td>
                                                     @if ($registry_details->$notes > 13.5)
                                                  
-                                                        <button class="btn " style="background-color:  #003399;color:white"
+                                                        <button class="btn " style="background-color:  #5a86ea;color:white"
                                                             onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
 
-                                                        <button class="btn "style="background-color:  #003399;color:white"
+                                                        <button class="btn "style="background-color:  #5a86ea;color:white"
                                                             onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">&nbsp;Ingles&nbsp;</button>
                                                     @else
-                                                        <button class="btn " onclick=""style="background-color:  #003399;color:white"
+                                                        <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
                                                             disabled>Español</button>
-                                                        <button class="btn " onclick=""style="background-color:  #003399;color:white"
+                                                        <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
                                                             disabled>&nbsp;Ingles&nbsp;</button>
                                                     @endif
                                                 </td>
