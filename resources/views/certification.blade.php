@@ -61,7 +61,29 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
 </head>
+<style type="text/css">
 
+    @font-face {
+        font-family: "Montalban";
+        src: url("{{ asset('fuente_one/Montalban.otf') }}");
+        font-weight: 600;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Montserrat-Bold";
+        src: url("{{ asset('fuente_one/Montserrat-Bold.ttf') }}");
+        font-weight: 600;
+        font-style: bold;
+    }
+
+    @font-face {
+    font-family: 'Montserrat-Regular';
+    src: url("{{ asset('fuente_one/Montserrat-Regular.ttf') }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <body class="pos-relative">
 
     <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #00cc99">
@@ -89,12 +111,14 @@
     </p>
     <p></p>
     <?php
+
     $host = $_SERVER['HTTP_HOST'];
     $url = $host . '/certificaciones/registry_detail_id=' . $registry_detail->id . '/language=' . $language . '/id=' . $registry_detail->code_certification . '/cert=' . $cert;
     
     $folder = $registry_detail->registry->course->folder_certification;
+    $type = $registry_detail->registry->course->type->description;
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset("certification3/$language.png");
+    $route_certification = asset("certification3/plantilla_one_participacion.png");
     //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
     $route_qr =
         'data:image/png;base64,' .
@@ -106,7 +130,7 @@
     ?>
     <?php
     $name_course = $registry_detail->registry->course->description;
-    $organizationId = '38714525';
+    $organizationId = '77579829';
     $date = strtotime($registry_detail->registry->date_certification);
     $issueYear = date('Y', $date);
     
@@ -305,7 +329,7 @@
     <script>
         generateCertication("{{ $route_certification }}", "{{ $name }}", "canvas1", "{{ $route_qr }}",
             "{{ $registry_detail->code_certification }}", '{{ $cert }}',
-            '{{$certification[0]->description}}','{{$certification[0]->hours}}');
+            '{{$certification[0]->description}}','{{$certification[0]->hours}}','{{$type}}');
 
 
 

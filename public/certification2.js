@@ -187,7 +187,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
 
 
 
-function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text,hour) {
+function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text,hour,type) {
 
 
 
@@ -205,11 +205,11 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 40px Open Sans";
+ ctx.font = "italic 34px Montserrat-bold";
 
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle';
-        ctx.fillStyle ="#01298a";
+        ctx.fillStyle ="#0a2262";
        // ctx.
 
            // student = student.toUpperCase();
@@ -218,20 +218,28 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
      ctx.fillText(student, x, 300);
      
  ctx.font = "bold 18px Open Sans";
-     ctx.fillStyle = "#001238";
+     ctx.fillStyle = "#0a2262";
      
      
-     ctx.fillText(hour, x+7, 434);
+     ctx.fillText(hour, x+209, 365);
      
- ctx.font = "bold 46px Open Sans";
-     ctx.fillStyle = "#001238";
+ ctx.font = "bold 25px Montserrat-bold";
+     ctx.fillStyle = "#0a2262";
      
 
-        ctx.fillText(text, x, 388);
-     
+        ctx.fillText('"'+text+'"', x, 400);
+     /////////type /////////
+
+     ctx.font = "bold 16px Montserrat-regular";
+     ctx.fillStyle = "#001238";
+ 
+
+        ctx.fillText(type, x-39, 365);
+
+     /////////////////
      
         ctx.font = "bold 20px Open Sans";
-       ctx.fillStyle ="#01233A";
+       ctx.fillStyle ="#0a2262";
             ctx.textAlign = "center";
 
      
@@ -250,59 +258,70 @@ let text_th ="th";
 let orientacion_th = x ;
 let = orientacion_anio=x;
    if(mesCorto== "January") {
+    mesCorto="Enero";
       x= x+5;
         orientacion_th= orientacion_th +17;
         orientacion_anio = orientacion_anio +5;
 
     }
     if(mesCorto== "February") {
+        mesCorto="Febrero";
         x= x+5;
         orientacion_th= orientacion_th +22;
         orientacion_anio = orientacion_anio +13;
     }
 
     if(mesCorto== "March") {
+        mesCorto="Marzo";
         x=x+3;
         orientacion_th= orientacion_th +8;
         orientacion_anio = orientacion_anio;
     }
     if(mesCorto== "April") {
+        mesCorto="Abril";
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
     if(mesCorto== "May") {
+        mesCorto="Mayo";
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
     if(mesCorto== "June") {
+        mesCorto="Junio";
         orientacion_th= orientacion_th +1 ;
         orientacion_anio = orientacion_anio -9;
     }
     if(mesCorto== "July") {
+        mesCorto="Julio";
         orientacion_th= orientacion_th ;
         orientacion_anio = orientacion_anio -10;
     }
     if(mesCorto== "August") {
-
+        mesCorto="Agosto";
         orientacion_th= orientacion_th +15;
         orientacion_anio = orientacion_anio +10;
     }
     if(mesCorto== "September") {
+        mesCorto="Septiembre";
         x= x+3;
         orientacion_th= orientacion_th +36
         orientacion_anio = orientacion_anio  +27;
     }
     if(mesCorto== "October") {
+        mesCorto="Obtubre";
         x= x+2;
         orientacion_th= orientacion_th +21;
         orientacion_anio = orientacion_anio  +12;
     }
     if(mesCorto== "November") {
+        mesCorto="Noviembre";
         x= x+1;
         orientacion_th= orientacion_th +33;
         orientacion_anio = orientacion_anio  +24;
     }
     if(mesCorto== "December") {
+        mesCorto="Diciembre";
         x= x+1;
         orientacion_th= orientacion_th +29;
         orientacion_anio = orientacion_anio  +20;
@@ -316,23 +335,30 @@ let = orientacion_anio=x;
 
 
 
-    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 492);
+    ctx.fillText("Lima, "+ dia + " "+mesCorto + " de "  , x +240,  672);
     ctx.font = "bold 15px Open Sans";
-            ctx.fillText(text_th  , orientacion_th +9, 490);
+          //  ctx.fillText(text_th  , orientacion_th +9, 490);
             ctx.font = "bold 20px Open Sans";
-     ctx.fillText(", " + anio, orientacion_anio + 55, 492);
+     ctx.fillText(anio, orientacion_anio + 355, 672);
 
- ctx.font = "14px Open Sans";
- ctx.fillStyle ="#01233A";
+ ctx.font = "bold 17px Montserrat-bold";
+ ctx.fillStyle ="#0a2262";
  ctx.textAlign = "center";
- ctx.fillText("ID: SDC "+id, 875, 205);
+ ctx.fillText("ID: "+id, 240, 680);
+
+
+
+
+
 
  //agregar qr encima de certificado
      let image1 = new Image();
        image1.src =qr_url;
   image1.onload = function() {
-      ctx.drawImage(image1, 800, 40, 150, 150);
+      ctx.drawImage(image1, 55, 610, 80, 80);
   }
+
+
 
      image1.addEventListener("load", function() {
   // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
@@ -373,7 +399,7 @@ function certificationSavePhoto(id,code_certification,cert) {
            contentdiv.innerHTML = response.data;
   //carga pdf- csv - excel
 
-            alert('Actualiza una vez más la página para compartir');
+         //   alert('Actualiza una vez más la página para compartir');
           
         })
         .catch(function(response) {
