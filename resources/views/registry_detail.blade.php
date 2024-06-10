@@ -139,7 +139,7 @@
                         Nota 7 : <input type="number" name="n7" id="n7" class="form-control"disabled>
                         Nota 8 : <input type="number" name="n8" id="n8" class="form-control"disabled>
 
-                        @for ($i = 1; $i <= $registry->count_notes - 1; $i++)
+                        @for ($i = 1; $i <= $registry->count_notes ; $i++)
                         
                            <script>
                              document.getElementById('n{{$i}}').disabled=false;

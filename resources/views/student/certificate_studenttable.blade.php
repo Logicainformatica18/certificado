@@ -27,7 +27,7 @@
                                     <th class="sorting">Docente</th>
 
 
-                                    @for ($i = 1; $i <= $registry->count_notes - 1; $i++)
+                                    @for ($i = 1; $i <= $registry->count_notes ; $i++)
                                         <th class="sorting"> {{ $i }} </th>
                                         <th class="sorting">Certificado
                                             {{ $i }} </th>
@@ -61,7 +61,7 @@
 
 
 
-                                            @for ($i = 1; $i <= $registry_details->registry->count_notes - 1; $i++)
+                                            @for ($i = 1; $i <= $registry_details->registry->count_notes ; $i++)
                                                 <?php
                                                 $notes = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
                                                 ?>

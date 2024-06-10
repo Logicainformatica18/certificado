@@ -5,19 +5,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:title"
-        content="Mi Certificación en : {{ $certification[0]->description }} en SDC Learning" />
+    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en SDC Learning" />
     <meta property="og:description"
-        content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description  }}" />
+        content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
-        content="{{ url('storage/certificados/' . $registry_detail->code_certification . '_' . $cert . '.png') }}">
+        content="{{ url('certificados/' . $registry_detail->code_certification . '_' . $cert . '.png') }}">
 
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
 
 
 
-    <title>Mi Certificación en : {{  $certification[0]->description  }} en SDC Learning</title>
+    <title>Mi Certificación en : {{ $certification[0]->description }} en SDC Learning</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -43,7 +42,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="{{ asset('linkedin.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('certification2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('certification.js') }}"></script>
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
 
@@ -62,7 +61,6 @@
     {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
 </head>
 <style type="text/css">
-
     @font-face {
         font-family: "Montalban";
         src: url("{{ asset('fuente_one/Montalban.otf') }}");
@@ -78,19 +76,34 @@
     }
 
     @font-face {
-    font-family: 'Montserrat-Regular';
-    src: url("{{ asset('fuente_one/Montserrat-Regular.ttf') }}") format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+        font-family: 'Montserrat-Regular';
+        src: url("{{ asset('fuente_one/Montserrat-Regular.ttf') }}") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat-BoldItalic';
+        src: url("{{ asset('fuente_one/Montserrat-BoldItalic.ttf') }}") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Montserrat-Medium';
+        src: url("{{ asset('fuente_one/Montserrat-Medium.ttf') }}") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
 </style>
+
 <body class="pos-relative">
 
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #00cc99">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
         <div class="row">
             <div class="col col-lg-4">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="70%">
+                    {{-- <img src="{{ asset('logo.png') }}" alt="" width="50%"> --}}
                 </a>
 
             </div>
@@ -98,35 +111,37 @@
 
             </div>
 
-            <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
-                {{-- <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
-                <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a> --}}
-            </div>
+
 
         </div>
     </nav>
 
-    <p>
-        &nbsp;
-    </p>
+
     <p></p>
     <?php
-
+    
     $host = $_SERVER['HTTP_HOST'];
-    $url = $host . '/certificaciones/registry_detail_id=' . $registry_detail->id . '/language=' . $language . '/id=' . $registry_detail->code_certification . '/cert=' . $cert;
+    $url = $host . '/certificaciones/registry_detail_id=' . $registry_detail->id . '/type=' . $type . '/id=' . $registry_detail->code_certification . '/cert=' . $cert;
     
     $folder = $registry_detail->registry->course->folder_certification;
     $type = $registry_detail->registry->course->type->description;
+    
+    use Carbon\Carbon;
+    
+    $fecha = $registry_detail->registry->fec_end;
+    // Crear una instancia de Carbon con la fecha dada
+    $carbonDate = Carbon::parse($fecha);
+    
+    // Obtener el año, mes y día por separado
+    $year = $carbonDate->year;
+    $month = $carbonDate->month;
+    $day = $carbonDate->day;
+    
+    /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset("certification3/plantilla_one_participacion.png");
-    //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
-    $route_qr =
-        'data:image/png;base64,' .
-        base64_encode(
-            QrCode::format('png')
-                ->size(150)
-                ->generate($url),
-        );
+    $route_certification = asset('certification3/plantilla_one_participacion.png');
+    
+    $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(150)->generate($url));
     ?>
     <?php
     $name_course = $registry_detail->registry->course->description;
@@ -147,92 +162,23 @@
     
     ?>
 
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 style="color:#5a86ea; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
+        </div>
+    </div>
+
+
+
+
+
     <div class="mt-2 mb-2 mr-5 ml-5">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-4"></div>
 
-                <div style="width: 100%;">
-                    <h1 style="color:#003399; font-size:400%"><b>¡Felicidades!</b></h1>
-                </div>
-                <p>
-                    &nbsp;
-                </p>
-                <h2 style="font-size:200%"><b>Tu Certificado está listo.</b></h2>
-                <h3 style="text-align: justify;">SDC Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
-                <div class="line" style="width: 100%;height: 2px;background-color: #b4b5b5"></div>
-                <p></p>
-                <h4 style="color:#b4b5b5; text-align: justify;">Comparte tu certificado en cualquier red social y da a
-                    conocer tus habilidades al mundo. <b>¡Celebra tus logros!</b></h4>
-
-                <p></p>
-                <div class="input-group mb-3"style="width: 80%"style="background-color: #dbdbdb">
-                    {{-- <input type="text" class="form-control"> --}}
-                    <input type="text" id="texto" class="form-control"style="background-color: #dbdbdb"        id=""value="{{ $url }}">
-                    <div class="input-group-append"style="background-color: #dbdbdb" >
-
-
-                        {{--                                         
-                        <span class="input-group-text">
-                               </span> --}}
-                        <button class="input-group-text"style="color:#003399;background-color: #dbdbdb"   onclick="copiarAlPortapapeles() ;">
-                           <b >Copiar</b> </button>
-                        {{-- <i class="fa fa-send mg-r-10"></i> --}}
-
-
-                    </div>
-                </div>
-                <button class="btn btn-outline-info" id="btnpng"
-                    style="background-color: #003399;color:white;width:55%">
-                    <h5 style="font-size:150%">Descargar certificado </h5>
-                </button>
-                <b>Compártelo</b> &nbsp;
-
-
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('linkedin.png') }}" alt="Compartir en LinkedIn" width="7%">
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('facebook.png') }}" alt="Compartir en Facebook" width="7%">
-</a>
-
-<a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
-  <img src="{{ asset('twitter.png') }}" alt="Compartir en Twitter" width="7%">
-</a>
-<p></p>
-                <button class="btn linkedin"
-                    onclick="linkedinCertificationGenerate('{{$certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                </button>
-
-
-
-                {{-- <div id="fb-root"></div>
-                <script>
-                    (function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
-
-                <!-- Your share button code -->
-                <div class="fb-share-button" data-href="" data-layout="button_count">
-                </div> --}}
-
-                {{-- <script src="https://platform.linkedin.com/in.js" type="text/javascript">
-                                    lang: en_US
-                                </script>
-                                
-                                <script type="IN/Share"  data-url="{{''}}">
-                                </script> --}}
-
-
-            </div>
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4 text-center">
                 <div class="ht-100v d-flex align-items-center justify-content-center">
                     <div class="wd-lg-70p wd-xl-50p tx-center pd-x-40">
                         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
@@ -253,10 +199,10 @@
                             <style>
                                 .linkedin {
 
-                                    background-image: url("{{ asset('dist/img/es_ES.png') }}");
-                                    height: 40px;
+                                    background-image: url("{{ asset('dist/img/page_certification/Recurso 5.png') }}");
+                                    height: 33px;
                                     width: 160px;
-                                    background-repeat: no-repeat
+                                   background-repeat: no-repeat
                                 }
                             </style>
 
@@ -266,7 +212,7 @@
                             <div class="form-layout-footer align-content-center">
 
 
-                                <p></p>
+
 
                                 {{-- <button class="btn btn-outline-success" id="btnpdf"><i
                                         class="fa fa-send mg-r-10"></i>
@@ -294,10 +240,101 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-12 text-center">
+
+                <h2 style="color:#5a86ea;font-size:130%;font-family: Montserrat-BoldItalic">
+                    One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
+                </h2>
+                <button class="btn btn-outline-info" id="btnpng"
+                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:18%;height:30px;">
+
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar certificado</h4>
+                </button>
+                <p></p>
+                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
+                <p></p>
+                <p style="font-size:110;font-family:Montserrat-Medium;color:#828282"><b
+                        style="font-family: Montserrat-Bold">Tus logros merecen ser vistos.</b>
+                    <br>
+                    Comparte tu certificado y deja que todos conozcan tus habilidades
+                </p>
+
+
+            </div>
+
+            <div class="col-lg-4">
+
+            </div>
+            <div class="col-lg-4">
+                <div class="input-group mb-3"style="width: 100%" style="background-color: #09246">
+                    <button
+                        class="input-group-text"style="height:30px;border-radius:30px;border-color:#092469; color:#ffffff;background-color:#092469;width: 100%"
+                        onclick="copiarAlPortapapeles() ;">
+                        <input type="text" id="texto"
+                            class="form-control"style="font-family:Montserrat-Bold;font-size:10px; background-color: #092469;color:#ffffff;border:none;height:30px"
+                            id=""value="{{ $url }}">
+
+                        <b>Copiar</b> </button>
+
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+            <div class="col-lg-12 text-center">
+                
+        <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="2%">
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="2%">
+                </a>
+        
+                <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="2%">
+                </a>
+             
+                <a href="#" class=""
+                    onclick="linkedinCertificationGenerate('{{ $certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en Linkedin" width="2%">
+            </a>
+    
+            </div>
+
+          
+
         </div>
     </div>
+    <div class="row">
+
+    </div>
+
+    <div class="col-lg-5">
 
 
+
+
+
+        <p>
+            &nbsp;
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
 
     <p></p>
 
@@ -311,25 +348,14 @@
         }
     </style>
 
-    <div style="position: relative;">
-        <!-- Aquí van los elementos que están arriba -->
-
-        <img src="{{ asset('lineas.png') }}" alt="Lineas" class="gray-image" style="width:100%">
-    </div>
-
-
-
-
-
-
-
 
 
 
     <script>
         generateCertication("{{ $route_certification }}", "{{ $name }}", "canvas1", "{{ $route_qr }}",
             "{{ $registry_detail->code_certification }}", '{{ $cert }}',
-            '{{$certification[0]->description}}','{{$certification[0]->hours}}','{{$type}}');
+            '{{ $certification[0]->description }}', '{{ $certification[0]->hours }}', '{{ $type }}',
+            '{{ $day }}', '{{ $month }}', '{{ $year }}');
 
 
 

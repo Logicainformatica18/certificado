@@ -59,15 +59,13 @@ $certification = Certification::join('exams', 'certifications.id', '=', 'exams.c
 
 
     }
-    public function report(Request $request,$registry_detail_id,$language,$code_certification,$cert)
+    public function report(Request $request,$registry_detail_id,$type,$code_certification,$cert)
     {
-       // return $id." ".$id1;
-        //
-          //$registry_detail_id = Session::get('registry_detail_id');
+
 
          $id =explode("=",$registry_detail_id);
-         $language = explode("=",$language);
-        $language = $language[1];
+         $type = explode("=",$type);
+        $type = $type[1];
 
           $cert = explode("=",$cert);
         $cert = $cert[1];
@@ -76,14 +74,23 @@ $certification = Certification::join('exams', 'certifications.id', '=', 'exams.c
         $code_certification = $code_certification[1];
           //$registry_detail = RegistryDetail::find($id[1]);
 //actualizar campo code_certification
-  $registry_detail =  RegistryDetail::find($id[1]);
-    $registry_detail->code_certification = $code_certification;
-$registry_detail->save();
 
-    $certification = Certification::where("course_id", "=", $registry_detail->registry->course_id)->where("note", "=", "n" . $cert)->get();
+  $registry_detail =  RegistryDetail::where("id","=",$id[1])->where("code_certification","=",$code_certification)->first();
 
-  //  return $registry_detail->registry->course_id;
-      return view("certification",compact("registry_detail","language","cert","certification"));
+  if ($registry_detail=="") {
+    return "Código de certificación incorrecto";
+}
+
+
+$certification = Certification::where("course_id", "=", $registry_detail->registry->course_id)->where("note", "=", "n" . $cert)->get();
+
+if ($type=="participacion") {
+    return view("certification",compact("registry_detail","type","cert","certification"));
+}
+   elseif ($type=="aprobacion") {
+    return view("certification_2",compact("registry_detail","type","cert","certification"));
+   }
+    
 
 
 
@@ -96,7 +103,7 @@ $registry_detail->save();
 $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->id));
 
 // Nombre del archivo de salida
-$filename = 'storage/certificados/'.$request->code_certification."_".$request->cert.".png";
+$filename = 'certificados/'.$request->code_certification."_".$request->cert.".png";
 // Guardar la imagen en un archivo
 file_put_contents($filename, $imageData);
 

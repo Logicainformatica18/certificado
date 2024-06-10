@@ -9,7 +9,7 @@ class RegistryDetail extends Model
 {
     use HasFactory;
     protected $table = "registry_details";// <-- El nombre personalizado
-    protected $fillable = ['student_t','student_r','id','student_m','registry_id','url_certification','state_certification'];
+    protected $fillable = ['student_t','student_r','id','student_m','registry_id','url_certification','state_certification','pay'];
     // public function student()
     // {
 

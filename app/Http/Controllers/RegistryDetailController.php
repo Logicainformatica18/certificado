@@ -14,6 +14,8 @@ use App\Helpers;
 use Illuminate\Support\Facades\Session;
 use App\Imports\ImportUsers;
 use Maatwebsite\Excel\Facades\Excel;
+
+use Carbon\Carbon;
 class RegistryDetailController extends Controller
 {
     private $studentId;
@@ -76,14 +78,31 @@ else if ($count_registry_detail==0){
                                         } elseif ($count < 10) {
                                             $count = '00' . $count;
                                         }
+                              
                                         
-    $registry_detail->code_certification = $registry->description.'-'.$count;
+                                  
+        
+                                        $fecha = $registry->fec_end;
+                                        // Crear una instancia de Carbon con la fecha dada
+                                        $carbonDate = Carbon::parse($fecha);
+                                
+                                        // Obtener el año, mes y día por separado
+                                        $year = $carbonDate->year;
+                                        $month = $carbonDate->month;
+                                        $day = $carbonDate->day;
+ if ($day <= 9) {
+    $day = "0". $day;
+ }
+ if ($month <= 9) {
+    $month = "0". $month;
+ }
+    $registry_detail->code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
 
       $registry_id = Session::get('registry_id');
 
         $registry_detail->registry_id   =   $registry_id;
 
-           // $registry_detail->pay = $request->pay;
+            $registry_detail->pay = "not";
 
       $registry_detail->save();
 
@@ -120,10 +139,33 @@ else if ($count_registry_detail==0){
      */
     public function update(Request $request)
     {
-        $registry_detail =  RegistryDetail::find($request->id);
-        $registry_detail->n1 = $request->n1;
-        // $registry_detail->n2 = $request->n2;
-        // $registry_detail->n3 = $request->n3;
+        $registry_detail = RegistryDetail::find($request->id);
+
+        if (isset($request->n1)) {
+            $registry_detail->n1 = $request->n1;
+        }
+        if (isset($request->n2)) {
+            $registry_detail->n2 = $request->n2;
+        }
+        if (isset($request->n3)) {
+            $registry_detail->n3 = $request->n3;
+        }
+        if (isset($request->n4)) {
+            $registry_detail->n4 = $request->n4;
+        }
+        if (isset($request->n5)) {
+            $registry_detail->n5 = $request->n5;
+        }
+        if (isset($request->n6)) {
+            $registry_detail->n6 = $request->n6;
+        }
+        if (isset($request->n7)) {
+            $registry_detail->n7 = $request->n7;
+        }
+        if (isset($request->n8)) {
+            $registry_detail->n8 = $request->n8;
+        }
+        
 $registry_detail->pay = $request->pay;
 
 

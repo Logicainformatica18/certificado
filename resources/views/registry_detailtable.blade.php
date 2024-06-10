@@ -24,20 +24,18 @@
                                     <th class="sorting">Email</th>
    <th class="sorting">Matriculado</th>
                                   
-                                        @for ($i = 1; $i <= $registry->count_notes -1; $i++)
+                                        @for ($i = 1; $i <= $registry->count_notes ; $i++)
                                             <th class="sorting">Nota {{ $i }} </th>
                                             <th class="sorting" style="background-color: rgb(3, 206, 3)">Certificado {{ $i }} </th>
                                         @endfor
-                                           <th class="sorting">Certificado Final</th>
+                                           {{-- <th class="sorting">Certificado Final</th> --}}
                                         <th class="sorting">Promedio</th>
                                         <th class="sorting">Estado</th>
                                         <th class="sorting">Código Certificado previo</th>
                                         <th class="sorting">Código Certificado Guardado</th>
                                         <th class="sorting">Estado</th>
 
-                                        <th><img width="20"
-                                                src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
-                                                alt="" srcset=""></th>
+                                        <th>Opciones</th>
                                 </thead>
                                 <tbody>
                                       <?php
@@ -75,9 +73,9 @@
                                         } elseif ($enumeracion < 10) {
                                             $enumeracion = '00' . $enumeracion;
                                         }
-                                        $code_certification = $registry_details->registry->description . '-' . $enumeracion;
+                                        $code_certification = $registry_details->code_certification;
                                         ?>
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes -1; $i++)
+                                        @for ($i = 1; $i <= $registry_details->registry->count_notes ; $i++)
                                             <?php
                                             $property = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
                                             ?>
@@ -87,9 +85,9 @@
                                             </td>
                                             <td>
                                                 <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','participacion','{{ $code_certification }}','{{$i}}');">Participación</button>
                                                      <button class="btn btn-warning"
-                                                    onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
+                                                    onclick="certificationGenerate('{{ $registry_details->id }}','aprobacion','{{ $code_certification }}','{{$i}}');">Aprobación</button>
                                                 {{-- <button class="btn btn-danger"
                                                     onclick="">Ingles</button> --}}
                                             </td>
@@ -98,12 +96,12 @@
                                         @endfor
 
                                         
-                                            <td>
+                                            {{-- <td>
                                                     <button class="btn btn-warning"
                                                     onclick="certificationGenerateEnd('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
                                                      <button class="btn btn-warning"
                                                     onclick="certificationGenerateEnd('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
-                                            </td>
+                                            </td> --}}
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}
                                         </td>

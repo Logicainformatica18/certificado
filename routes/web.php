@@ -217,7 +217,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
   Route::post('certificaciones/certificationSavePhoto',[App\Http\Controllers\CertificationController::class, 'savePhoto']);
 
 
-    Route::get('certificaciones/{registry_detail_id}/{language}/{id}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);
+    Route::get('certificaciones/{id}/{type}/{cid}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);
 
    Route::post('certificationGenerate',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
@@ -256,7 +256,7 @@ Route::get('/auth/callback', function () {
                       'lastname' => '',
                     'email' => $user->email,
                     'google_id'=> $user->id,
-                    'password' => Hash::make('sdccertificados')
+                    'password' => Hash::make('onedigital')
                 ]);
                 //every user needs a team for dashboard/jetstream to work.
                 // //create a personal team for the user
