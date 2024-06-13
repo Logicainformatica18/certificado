@@ -380,34 +380,5 @@
     <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=859285638195545&autoLogAppEvents=1"
         nonce="dd5Wfr6m"></script>
-        <style>
-            /* Estilos para el botón flotante de WhatsApp */
-            .whatsapp-btn {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              background-color: #25d366; /* Color de fondo del botón */
-              border-radius: 50%; /* Hace que el botón tenga forma circular */
-              width: 60px;
-              height: 60px;
-              text-align: center;
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            }
-          
-            .whatsapp-btn a {
-              display: block;
-              width: 100%;
-              height: 100%;
-              line-height: 60px;
-              color: #fff; /* Color del ícono */
-              font-size: 40px;
-            }
-          </style>
-           
-          <!-- Botón flotante de WhatsApp -->
-          <div class="whatsapp-btn">
-            <a href="https://api.whatsapp.com/send?phone=+51981557469&text=Hola%20One%20Digitall%0D%0A%0D%0ARequiero%20recibir%20información%20del%20curso..." target="_blank" title="Enviar mensaje por WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-          </div>
+
 </body>

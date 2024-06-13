@@ -31,7 +31,7 @@
                                                                 <h2  ><b>{{ $item->name }}</b> </h2>
                                                                 <div class="custom-container">
 
-                                                                    <span class="bad">&nbsp;Cargo</span>
+                                                               
                                                                 </div>
 
 
@@ -71,7 +71,7 @@
                                                                 <h2  ><b>{{ $item->name }}</b> </h2>
                                                                 <div class="custom-container">
 
-                                                                    <span class="bad">&nbsp;Cargo</span>
+                                                               
                                                                 </div>
 
 
