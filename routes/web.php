@@ -238,7 +238,7 @@ Route::get('/auth/google', function () {
 });
  
 use App\Models\User;
-Route::get('certificado.onedigitallconsulting.com/auth/callback', function () {
+Route::get('auth/callback', function () {
    try {
             //create a user using socialite driver google
             $user = Socialite::driver('google')->user();
