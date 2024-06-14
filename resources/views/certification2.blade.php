@@ -42,7 +42,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="{{ asset('linkedin.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('certification.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('certification2.js') }}"></script>
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
 
@@ -139,7 +139,7 @@
     
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset('certification3/plantilla_one_participacion.png');
+    $route_certification = asset('certification3/plantilla_one_aprobado.png');
     
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(150)->generate($url));
     ?>
@@ -159,7 +159,9 @@
     // modelo url pagina
     //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
     $certId = $registry_detail->registry->description;
-    
+    //obtener nota de certificado
+    $property_note= $registry_detail->registry->course->certification->note;
+   
     ?>
 
 
@@ -243,13 +245,13 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#5a86ea;font-size:130%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#5a86ea;font-size:120%;font-family: Montserrat-BoldItalic">
                     One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:18%;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
 
-                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar certificado</h4>
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar</h4>
                 </button>
                 <p></p>
                 <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
@@ -289,19 +291,19 @@
                 
         <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="40px">
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="40px">
                 </a>
         
                 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="40px">
                 </a>
              
                 <a href="#" class=""
                     onclick="linkedinCertificationGenerate('{{ $certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en Linkedin" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 7.png') }}" alt="Compartir en Linkedin" width="180px">
             </a>
     
             </div>
@@ -355,7 +357,7 @@
         generateCertication("{{ $route_certification }}", "{{ $name }}", "canvas1", "{{ $route_qr }}",
             "{{ $registry_detail->code_certification }}", '{{ $cert }}',
             '{{ $certification[0]->description }}', '{{ $certification[0]->hours }}', '{{ $type }}',
-            '{{ $day }}', '{{ $month }}', '{{ $year }}');
+            '{{ $day }}', '{{ $month }}', '{{ $year }}','{{$registry_detail->$property_note}}');
 
 
 

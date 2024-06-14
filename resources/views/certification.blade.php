@@ -243,13 +243,13 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#5a86ea;font-size:130%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#5a86ea;font-size:120%;font-family: Montserrat-BoldItalic">
                     One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:18%;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
 
-                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar certificado</h4>
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar</h4>
                 </button>
                 <p></p>
                 <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
@@ -289,19 +289,19 @@
                 
         <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="40px">
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="40px">
                 </a>
         
                 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="40px">
                 </a>
              
                 <a href="#" class=""
                     onclick="linkedinCertificationGenerate('{{ $certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en Linkedin" width="2%">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 7.png') }}" alt="Compartir en Linkedin" width="180px">
             </a>
     
             </div>
@@ -380,34 +380,5 @@
     <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=859285638195545&autoLogAppEvents=1"
         nonce="dd5Wfr6m"></script>
-        <style>
-            /* Estilos para el botón flotante de WhatsApp */
-            .whatsapp-btn {
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              background-color: #25d366; /* Color de fondo del botón */
-              border-radius: 50%; /* Hace que el botón tenga forma circular */
-              width: 60px;
-              height: 60px;
-              text-align: center;
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            }
-          
-            .whatsapp-btn a {
-              display: block;
-              width: 100%;
-              height: 100%;
-              line-height: 60px;
-              color: #fff; /* Color del ícono */
-              font-size: 40px;
-            }
-          </style>
-           
-          <!-- Botón flotante de WhatsApp -->
-          <div class="whatsapp-btn">
-            <a href="https://api.whatsapp.com/send?phone=+51981557469&text=Hola%20One%20Digitall%0D%0A%0D%0ARequiero%20recibir%20información%20del%20curso..." target="_blank" title="Enviar mensaje por WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-          </div>
+
 </body>

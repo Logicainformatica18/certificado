@@ -88,7 +88,7 @@ if ($type=="participacion") {
     return view("certification",compact("registry_detail","type","cert","certification"));
 }
    elseif ($type=="aprobacion") {
-    return view("certification_2",compact("registry_detail","type","cert","certification"));
+    return view("certification2",compact("registry_detail","type","cert","certification"));
    }
     
 
