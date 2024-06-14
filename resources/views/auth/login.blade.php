@@ -219,7 +219,7 @@ b {
                                     {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> --}}
-                                    <a href="{{ url('auth/google') }}" class="btn btn-block shadow-sm p-2 mb-5  rounded" style="background-color:#5a86ea;color:white; border-radius: 20px; border: 15px">
+                                    <a href="{{ url('https://www.certificado.onedigitallconsulting.com/auth/google/callback') }}" class="btn btn-block shadow-sm p-2 mb-5  rounded" style="background-color:#5a86ea;color:white; border-radius: 20px; border: 15px">
 
 
                                         <div class="google-auth__GoogleAuthStyled-sc-7d7ymg-0 ewxrDx">
