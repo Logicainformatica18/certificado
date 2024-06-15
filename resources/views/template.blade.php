@@ -104,35 +104,31 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-        <nav class="main-header navbar navbar-expand"style="background-color: #00cc99">
+        <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #08090a, #6a9dea);">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-
-
             </ul>
-
-            <div class="row">
-                <div class="col col-lg-4">
-
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="60%">
-                    </a>
-
+        
+            <div class="container-fluid">
+                <div class="row w-100">
+                    <div class="col col-lg-4">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ asset('logo_certificaciones.png') }}" alt="" width="60%">
+                        </a>
+                    </div>
+                    <div class="col col-lg-4">
+        
+                    </div>
+                    <div class="col col-lg-4 d-flex justify-content-end align-items-center">
+                        <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%" class="mr-2">
+                        <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+                    </div>
                 </div>
-                <div class="col col-lg-4">
-
-                </div>
-
-                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
-                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
-                    <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
-                </div>
-
             </div>
         </nav>
+        
 
 
         <!-- Main Sidebar Container -->
