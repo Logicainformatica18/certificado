@@ -7,7 +7,7 @@
 
 
                         <div class="card-header">
-                            <h3 class="card-title">Tabla de mantenimiento</h3>
+                            <h3 class="card-title"style="font-family:Montserrat-Bold">Tabla de mantenimiento</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -16,18 +16,15 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th ></th>
+                                    <th ><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt="" srcset=""></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Detalle</th>
-                                    <th ><img width="20" src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
                                     @foreach ($category as $categorys)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $categorys->id }}</td>
-                                            <td>{{ $categorys->description }}</td>
-                                            <td>{{ $categorys->detail }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
@@ -37,6 +34,10 @@
                                                 <!-- <button class="note-icon-pencil" ></button> -->
                                                 <button class="btn btn-danger note-icon-trash" onclick="categoryDestroy('{{ $categorys->id }}'); return false"></button>
                                             </td>
+                                            <td>{{ $categorys->id }}</td>
+                                            <td>{{ $categorys->description }}</td>
+                                            <td>{{ $categorys->detail }}</td>
+                                        
 
                                         </tr>
                                     @endforeach

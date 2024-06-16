@@ -1,17 +1,17 @@
 @extends('template')
 @section('content')
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
+    <section class="content-header" style="font-family:Montserrat-Regular">
+        <p></p><div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Usuarios</h1>
+                    <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Usuarios</h1>
                     {{ session('success') }}
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Usuarios</li>
+                        <li class="breadcrumb-item active" style="color:#1b3d6d">Usuarios</li>
                     </ol>
                 </div>
             </div>
@@ -22,21 +22,26 @@
     <p></p>
 
     <div class="row">
-        <div class="col col-lg-1">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                onclick="New();$('#user')[0].reset();user.fotografia.src='https://via.placeholder.com/150';">
-                Agregar
+        <div class="col col-lg-2">
+            <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal" data-target="#exampleModal"
+                onclick="New();$('#user')[0].reset();user.fotografia.src="https://via.placeholder.com/150;'>
+               <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
             </button>
         </div>
         <div class="col col-lg-2">
             <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="file" class="form-control">
+                <div class="btn btn-default btn-file col-9"style="border-radius:20px">
+                    <i class="fas fa-paperclip"></i> Subir
+                    <input type="file" name="file" class="form-control">
+                </div>
+
+             
                 <br>
 
         </div>
-        <div class="col col-lg-2">
-            <button class="btn btn-success">Importar Datos</button>
+        <div class="col col-lg-2"style="margin-left:-45px" >
+            <button class="btn btn-success"style="border-radius:20px">Importar</button>
             </form>
         </div>
 
@@ -58,7 +63,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Mantenimiento</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold"style="font-color:#1b3d6d;font-family:Montserrat-Bold">Mantenimiento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -68,13 +73,13 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
 
-                        Dni<input name="dni" type="number" class="form-control">
+                        Dni<input name="dni" type="number" class="form-control"value="99999999">
                         Paterno<input name="firstname" type="text" class="form-control">
                         Materno<input name="lastname" type="text" class="form-control">
                         Nombres<input name="names" type="text" class="form-control">
-                        Celular<input type="number" name="cellphone" class="form-control">
+                        Celular<input type="number" name="cellphone" class="form-control"value="99999999">
                         Email<input type="text" name="email" class="form-control">
-                        Contraseña<input type="password" name="password" class="form-control">
+                        Contraseña<input type="password" name="password" class="form-control"value="12345678">
                         Sexo
                         <div class="container">
                             <div class="row ">
@@ -82,7 +87,7 @@
                                 </div>
                                 <div class="col">
                                     <input class="form-check-input" type="radio" name="sex" id="M"
-                                        value="M">
+                                        value="M" checked>
                                     <label class="form-check-label" for="exampleRadios1">
                                         Masculino
                                     </label>
@@ -155,8 +160,8 @@
 
 
                 </div>
-                <div class="modal-footer">
-                    <input type="button" value="Nuevo" class="btn btn-warning"
+                <div class="modal-footer"style="font-family:Montserrat-Bold">
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
                         onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"  name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"
@@ -174,7 +179,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Gestionar Permisos</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold">Gestionar Permisos</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -189,7 +194,10 @@
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
-                        <input type="button" value="Agregar" class="btn btn-success" onclick="userRoleStore()"
+                       <br>
+                        <input type="button"
+                        style="color:#ffffff;background-color:#5a86ea;font-family:Montserrat-Bold"
+                        value="Agregar" class="btn" onclick="userRoleStore()"
                             name="create">
 
 
@@ -204,8 +212,8 @@
 
 
                 </div>
-                <div class="modal-footer">
-                    <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#role')[0].reset();"
+                <div class="modal-footer"style="font-family:Montserrat-Bold">
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#role')[0].reset();"
                         name="new">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

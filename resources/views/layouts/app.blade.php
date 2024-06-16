@@ -166,7 +166,7 @@
 
     <!-- Botón flotante de WhatsApp -->
     <div class="whatsapp-btn">
-        <a href="https://api.whatsapp.com/send/?phone=51939929383&text=Buen+día+SDC+me+gustaria+recibir+información+sobre+los+Cursos+y+Certificaciones+que+disponga.+Gracias"
+        <a href="https://wa.pe/onedigital"
             target="_blank" title="Enviar mensaje por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>

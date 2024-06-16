@@ -2,31 +2,30 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="container-fluid">
+        <p></p><div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Cursos</h1>
+                    <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Cursos</h1>
                     {{ session('success') }}
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Cursos</li>
+                        <li class="breadcrumb-item active" style="color:#1b3d6d">Cursos</li>
                     </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        onclick="New();$('#course')[0].reset();">
-        Agregar
-    </button>
+    <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
+    data-target="#exampleModal"
+    onclick="New();$('#course')[0].reset();>
+    <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
+</button>
+
     <p></p>
-    Buscar
-    <form name="for"id="show">
-        <input type="text"name="show" class="form-control" style="width: 50%" onkeydown="courseShow();">
-    </form>
+  
 
     <p></p>
     <!-- /.content -->
@@ -86,8 +85,8 @@
                          Review : <textarea name="review" id="" cols="30" rows="10" class="form-control"></textarea>
 
                 </div>
-                <div class="modal-footer">
-                    <input type="button" value="Nuevo" class="btn btn-warning" onclick="New();$('#course')[0].reset();"
+                <div class="modal-footer"style="font-family:Montserrat-Bold">
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#course')[0].reset();"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="courseStore()"
                         name="create">

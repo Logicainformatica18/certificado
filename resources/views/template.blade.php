@@ -147,6 +147,18 @@
             font-style: normal;
         }
     </style>
+      <style>
+        .dt-buttons button {
+            border-radius: 10px !important;
+            font-family: Montserrat-Bold;
+
+        }
+
+        .dt-buttons button span {
+
+            font-color: #ffffff !important;
+        }
+    </style>
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand"
             style="background: linear-gradient(to right,#5a86ea,#6a9dea);color:white">
@@ -511,7 +523,10 @@
                                             <p style="margin-left:5px;">Tipos</p>
                                         </a>
                                     </li>
-                                @endrole
+                                </ul>
+                            </li>
+    
+                            @endrole
 
 
                                 {{-- <li class="nav-item">
@@ -526,9 +541,7 @@
                                         <p>jsGrid</p>
                                     </a>
                                 </li> --}}
-                            </ul>
-                        </li>
-
+                  
                         @role('Estudiante')
                             <li class="nav-item has-treeview menu-open">
 
@@ -961,10 +974,10 @@
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",
                     "zeroRecords": "No se encontró nada, lo siento",
-                    "info": "Mostrando página _PAGE_ de _PAGES_",
+                    "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "No records available",
                     "infoFiltered": "(filtered from _MAX_ total records)",
-                    "search": "Busqueda avanzada : ",
+                    "search": "Buscar : ",
                     "paginate": {
                         "first": "Primero",
                         "last": "Último",
@@ -1014,7 +1027,7 @@
                     },
                     {
                         extend: 'copyHtml5',
-                        text: 'Copiar Datos',
+                        text: 'Copiar',
                         exportOptions: {
                             modifier: {
                                 page: 'current'
@@ -1023,7 +1036,7 @@
                     },
                     {
                         extend: 'collection',
-                        text: 'Mostrar Campos',
+                        text: 'Mostrar',
                         buttons: ['columnsVisibility'],
                         visibility: true
                     }

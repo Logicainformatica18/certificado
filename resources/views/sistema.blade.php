@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         {{-- <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Perfil</li> --}}
+                        <li class="breadcrumb-item active" style="color:#1b3d6d">Perfil</li> --}}
                     </ol>
                 </div>
             </div>
@@ -259,7 +259,7 @@
                                         @endif
 
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer"style="font-family:Montserrat-Bold">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     <button type="button" class="btn btn-primary" onclick="userUpdateProfile()">Guardar
                                         Cambios</button>
@@ -309,15 +309,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label for="inputcellphone"
-                                                    class="col-sm-2
-                                            col-form-label">Celular</label>
-                                                <div class="col-sm-10">
-                                                    <input type="number" name="cellphone" class="form-control"
-                                                        placeholder="cellphone" value="{{ $users->cellphone }}">
-                                                </div>
-                                            </div>
+                                           
                                             <div class="form-group row">
                                                 <label for="inputdatebirth"
                                                     class="col-sm-2

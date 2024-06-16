@@ -10,13 +10,13 @@
                                             <p>
                                                 &nbsp;&nbsp;
                                             </p>
-                                            <h1><b>Mis Certificados</b></h1>
+                                            <h1 style="font-family:Montserrat-Bold"><b>Mis Certificados</b></h1>
                                             {{ session('success') }}
                                         </div>
                                         <div class="col-sm-6">
                                             <ol class="breadcrumb float-sm-right">
                                                 <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                                <li class="breadcrumb-item active">Mis Certificados</li>
+                                                <li class="breadcrumb-item active" style="color:#1b3d6d">Mis Certificados</li>
                                             </ol>
                                         </div>
                                     </div>

@@ -48,7 +48,7 @@
                                         @endrole
 
                                         <th><img width="20"
-                                                src="https://img1.freepng.es/20180622/aac/kisspng-computer-icons-download-share-icon-nut-vector-5b2d36055f5105.9823437615296896053904.jpg"
+                                                src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png"
                                                 alt="" srcset=""></th>
                                     </thead>
                                     <tbody>
