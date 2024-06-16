@@ -20,15 +20,13 @@
                                 </div><!-- /.container-fluid -->
                             </section>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#exampleModal" onclick="New();$('#type')[0].reset();">
-                                Agregar
-                            </button>
+                            <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
+                            data-target="#exampleModal"
+                            onclick="New();$('#type')[0].reset();">
+                            <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
+                        </button>
                             <p></p>
-                            Buscar
-                            <form  name="for"id="show">
-                                <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="typeShow();">
-                            </form>
+                     
 
                             <p></p>
                              <!-- /.content -->

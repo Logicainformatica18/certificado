@@ -20,7 +20,7 @@
     <!-- Button trigger modal -->
     <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
         data-target="#exampleModal"
-        onclick="New();$('#category')[0].reset();>
+        onclick="New();$('#category')[0].reset();">
         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
     </button>
 

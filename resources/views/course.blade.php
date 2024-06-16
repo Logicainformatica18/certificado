@@ -20,7 +20,7 @@
     <!-- Button trigger modal -->
     <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
     data-target="#exampleModal"
-    onclick="New();$('#course')[0].reset();>
+    onclick="New();$('#course')[0].reset();">
     <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
 </button>
 
@@ -41,7 +41,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Mantenimiento</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold"
+                    style="font-color:#1b3d6d;font-family:Montserrat-Bold">Mantenimiento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
