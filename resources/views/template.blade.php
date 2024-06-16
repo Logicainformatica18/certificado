@@ -439,55 +439,57 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link">
-                                {{-- <i class="nav-icon fas fa-table"></i> --}}
-                                <img src="{{ asset('Recurso 22.png') }}" alt="" srcset="" width="25px">
-                                <p style="font-family:Montserrat-Bold">
-                                    Coordinador
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview" style="margin-left:30px;font-size:15px">
-                                @role('Administrador|Coordinación')
+
+                        @role('Coordinación')
+                            <li class="nav-item has-treeview menu-open">
+                                <a href="#" class="nav-link">
+                                    {{-- <i class="nav-icon fas fa-table"></i> --}}
+                                    <img src="{{ asset('Recurso 22.png') }}" alt="" srcset="" width="25px">
+                                    <p style="font-family:Montserrat-Bold">
+                                        Coordinador
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+
+                                <ul class="nav nav-treeview" style="font-size:15px">
                                     <li class="nav-item">
 
                                         <a href="{{ route('usuarios.index') }}" class="nav-link">
 
                                             <img src="{{ asset('Recurso 23.png') }}" alt="" srcset=""
-                                            width="25px">
-                                            <p>Usuarios</p>
+                                                width="25px">
+                                            <p style="margin-left:5px;">Usuarios</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('categorias.index') }}" class="nav-link">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('Recurso 21.png') }}" alt="" srcset=""
-                                            width="25px">
-                                            <p>Categorías</p>
+                                                width="25px">
+                                            <p style="margin-left:5px;">Categorías</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('cursos.index') }}" class="nav-link">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('Recurso 15.png') }}" alt="" srcset=""
-                                            width="25px">
-                                            <p style="margin-left: 5px">Cursos</p>
+                                                width="25px">
+                                            <p style="margin-left:5px;">Cursos</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('horarios.index') }}" class="nav-link">
                                             <img src="{{ asset('Recurso 21.png') }}" alt="" srcset=""
-                                            width="25px">
-                                            <p>Horarios</p>
+                                                width="25px">
+                                            <p style="margin-left:5px;">Horarios</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('registros.index') }}" class="nav-link">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('Recurso 21.png') }}" alt="" srcset=""
-                                            width="25px">
-                                            <p>Registros</p>
+                                                width="25px">
+                                            <p style="margin-left:5px;">Registros</p>
                                         </a>
                                     </li>
 
@@ -496,7 +498,7 @@
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('roles.png') }}" alt="" srcset=""
                                                 width="25px">
-                                            <p>Roles</p>
+                                            <p style="margin-left:5px;">Roles</p>
                                         </a>
                                     </li>
 
@@ -506,7 +508,7 @@
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('tipos.png') }}" alt="" srcset=""
                                                 width="25px">
-                                            <p>Tipos</p>
+                                            <p style="margin-left:5px;">Tipos</p>
                                         </a>
                                     </li>
                                 @endrole
@@ -532,21 +534,22 @@
 
                                 <a href="#" class="nav-link">
                                     {{-- <i class="nav-icon fas fa-table"></i> --}}
-                                    <img src="{{ asset('Recurso 22.png') }}" alt="" srcset="" width="25px">
+                                    <img src="{{ asset('Recurso 22.png') }}" alt="" srcset=""
+                                        width="25px">
                                     <p style="font-family:Montserrat-Bold">
                                         Estudiante
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview" style="margin-left:30px;font-size:15px">
+                                <ul class="nav nav-treeview" style="font-size:15px">
 
 
                                     <li class="nav-item">
                                         <a href="{{ route('Mis-certificados.index') }}" class="nav-link">
-                                            <img src="{{ asset('certificados.png') }}" alt=""
-                                                srcset="" width="25px">
+                                            <img src="{{ asset('certificados.png') }}" alt="" srcset=""
+                                                width="25px">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
-                                            <p>Mis Certificados</p>
+                                            <p style="margin-left:5px;">Mis Certificados</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -554,7 +557,7 @@
                                             <img src="{{ asset('miscursos.png') }}" alt="" srcset=""
                                                 width="25px">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
-                                            <p>Mis Cursos</p>
+                                            <p style="margin-left:5px;">Mis Cursos</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
@@ -562,7 +565,7 @@
                                             <img src="{{ asset('Recurso 15.png') }}" alt="" srcset=""
                                                 width="25px">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
-                                            <p>Cursos en Emisión</p>
+                                            <p style="margin-left:5px;">Cursos en Emisión</p>
                                         </a>
                                     </li>
 
@@ -574,35 +577,34 @@
 
                                 <a href="#" class="nav-link">
                                     {{-- <i class="nav-icon fas fa-table"></i> --}}
-                                    <img src="{{ asset('Recurso 22.png') }}" alt="" srcset="" width="25px">
+                                    <img src="{{ asset('Recurso 22.png') }}" alt="" srcset=""
+                                        width="25px">
                                     <p style="font-family:Montserrat-Bold">
                                         Docente
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview" style="margin-left:30px;font-size:15px">
-                       
+                                <ul class="nav nav-treeview" style="font-size:15px">
+
                                     <li class="nav-item">
                                         <a href="{{ route('registros.index') }}" class="nav-link">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
                                             <img src="{{ asset('certificados.png') }}" alt="" srcset=""
                                                 width="25px">
-                                            <p>Mis Registros</p>
+                                            <p style="margin-left:5px;">Mis Registros</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ route('cursos.index') }}" class="nav-link">
                                             {{-- <i class="far fa-circle nav-icon"></i> --}}
-                                            <img src="{{ asset('Recurso 15.png') }}" alt="" srcset=""
+                                            <img  src="{{ asset('Recurso 15.png') }}" alt="" srcset=""
                                                 width="25px">
-                                            <p>Cursos</p>
+                                                
+                                            <p style="margin-left:5px;">Cursos</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                      
-                      
-             
                         @endrole
                         {{-- <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item">
