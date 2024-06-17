@@ -68,17 +68,9 @@ class CourseController extends Controller
     {
 
 
- if ($request->presentation == "") {
-       $course = Course::find($request->id);
-        $course->description = $request->description;
-        $course->detail = $request->detail;
-          $course->hours = $request->hours;
-           $course->folder_certification = $request->folder_certification;
-              $course->review = $request->review;
-              $course->type_id = $request->type;
-        $course->save();
 
-        } else {
+      
+        if ($request->presentation != "" && $request->emision==""){
             $table = Course::find($request["id"]);
             photoDestroy($table->presentation, "imageusers");
             $request->presentation = photoStore($request->file('presentation'), "imageusers");
@@ -88,14 +80,41 @@ class CourseController extends Controller
         $course->description = $request->description;
         $course->detail = $request->detail;
           $course->hours = $request->hours;
-           $course->folder_certification = $request->folder_certification;
+      //     $course->folder_certification = $request->folder_certification;
             $course->presentation = $request->presentation;
                $course->review = $request->review;
                $course->type_id = $request->type;
         $course->save();
         }
+        
+ elseif ($request->presentation == "" && $request->emision!="") {
 
+       $table = Course::find($request["id"]);
+       photoDestroy($table->emision, "imageusers");
+       $request->emision = photoStore($request->file('emision'), "imageusers");
+                
 
+         $course = Course::find($request->id);
+   $course->description = $request->description;
+   $course->detail = $request->detail;
+     $course->hours = $request->hours;
+     // $course->folder_certification = $request->folder_certification;
+       $course->emision = $request->emision;
+          $course->review = $request->review;
+          $course->type_id = $request->type;
+   $course->save();
+   }
+   elseif ($request->presentation == "" && $request->emision==""){
+    $course = Course::find($request->id);
+    $course->description = $request->description;
+    $course->detail = $request->detail;
+      $course->hours = $request->hours;
+  //     $course->folder_certification = $request->folder_certification;
+          $course->review = $request->review;
+          $course->type_id = $request->type;
+    $course->save();
+  
+   }
 
 
 

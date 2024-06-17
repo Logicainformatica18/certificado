@@ -87,9 +87,9 @@
                         <input type="date" name="fec_start" id="fec_start" class="form-control">
                         Fecha Fin :
                         <input type="date" name="fec_end" id="fec_end" class="form-control">
-                        Fecha Fecha de Certificación :
+                        {{-- Fecha Fecha de Certificación :
 
-                        <input type="date" name="date_certification" id="date_certification" class="form-control">
+                        <input type="date" name="date_certification" id="date_certification" class="form-control"> --}}
                         Hora Inicio :
                         <input type="time" name="hour_start" id="hour_start" class="form-control" value="19:00:00">
                         Hora Fin :
@@ -113,7 +113,7 @@
                             <option value="enabled">Si</option>
                         </select>
                         Cantidad de Certificados :
-                        <input type="number" name="count_notes" id="count_notes" class="form-control"value="8">
+                        <input type="number" name="count_notes" id="count_notes" class="form-control"value="1">
                         Detalles :
                         <textarea type="text" name="detail" id="detail" class="form-control"></textarea>
                     </form>

@@ -2,30 +2,38 @@
 @section('content')
     <script></script>
     <p></p>
-    <h1><b>Exámen de conocimiento</b> </h1>
+    <h2 style="font-family:Montserrat-Bold;color:#1b3d6d"><b>Exámen de conocimiento</b> </h2>
 
     <div class="row">
-        <div class="col-lg-12"style="font-size:20px">
-            <b>Cronómetro: </b> <span id="countdown">Cargando...</span>
-            <p> </p>
+        <div class="col-lg-3 text-center"style="font-size:15px;background-color:#5a86ea;
+            border-radius:20px;text-align:center;color:#ffffff;display: flex;
+        align-items: center;height:30px;
+            ">
+            &nbsp;&nbsp;&nbsp; <b>Cronómetro: &nbsp;&nbsp;&nbsp;</b> <span id="countdown">&nbsp; Cargando...</span>
         </div>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </p>
         <div class="col-lg-12 border border-secondary" style="border-width: 2px;"></div>
 
         <div class="col-lg-9">
 
             <p></p>
-            <div class="progress" style="background-color: #7cfddd; border: 2px">
+            <div class="progress" style="background-color: #5a86ea; border: 2px;height:10px">
                 @php
                     $enumeracion = 0;
-                    $porcentaje =  1 / $qualification_count  *100
-             
+                    $porcentaje = (1 / $qualification_count) * 100;
+
                 @endphp
 
-                <div class="progress-bar" style="background-color: #00cc99;width: {{ $porcentaje }}%"></div>
+                <div class="progress-bar"
+                    style="background: linear-gradient(to right,#5558ff,#00c0ff);color:white;width: {{ $porcentaje }}%">
+                </div>
 
 
             </div>
-            <div class="text-right">1 DE {{ $qualification_count }} PREGUNTAS RESPONDIDAS</div>
+            <div class="text-right" style="font-size:10px;color:#5a86ea">1 DE {{ $qualification_count }} PREGUNTAS
+                RESPONDIDAS</div>
 
         </div>
         <div class="col-lg-3">
@@ -36,7 +44,7 @@
 
         <!-- /.content -->
 
-        <div id="mycontent"class="col-lg-9">
+        <div id="mycontent"class="col-lg-9"style="margin-top:-40px">
             @include('student/student_examtable')
         </div>
 
@@ -55,20 +63,20 @@
 
                     <div class="row">
                         <div class="col-lg-3">
-                            <img src="{{ asset('fecha-de-vencimiento.png') }}" alt="" width="100%">
+                            <img src="{{ asset('Recurso 6.png') }}" alt="" width="30px">
                         </div>
                         <div class="col-lg-9">
-                            <p></p>
-                            <span><b>Fecha de Vencimiento de Evaluación</b></span>
+                           
+                            <span><b style="font-family:Montserrat-Bold">Fecha de Vencimiento de Evaluación</b></span>
                             <p></p>
                         </div>
                         <div class="col-lg-3">
-                            <img src="{{ asset('intentos.png') }}" alt="" width="100%">
+                            <img src="{{ asset('Recurso 5.png') }}" alt="" width="30px">
                         </div>
                         <div class="col-lg-9">
-                            <p></p>
-                            <span><b>Intentos</b></span><br>
-                            <span>limitados : 2 </span>
+                           
+                            <span><b style="font-family:Montserrat-Bold">Intentos</b></span><br>
+                            <span >limitados : 2 </span>
                         </div>
                     </div>
 
@@ -82,12 +90,14 @@
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
                             <div
-                                class="row input-group d-flex align-items-center"style="background-color: #5a86ea;color:white;font-size:15px;height:60px;border-radius:8px">
+                                class="row text-left input-group d-flex align-items-center"style="
+                                background: linear-gradient(to right,#0a2262,#0038ab);
+                                ;color:white;font-size:10px;height:60px;border-radius:8px">
                                 <div class="col-lg-3">
-                                    <img src="{{ asset('REGISTROS-BLANCO.png') }}" alt=""width="100%">
+                                    <img src="{{ asset('Recurso 4.png') }}" alt=""width="30px">
                                 </div>
                                 <div class="col-lg-4">
-                                    Máximo de :
+                                    Máximo Nota :
                                 </div>
                                 <div class="col-lg-5">
                                     20 Puntos
@@ -118,8 +128,8 @@
                         </p>
                         <br>
                         <li class="list-group-item center">
-                            <button id="complete" class="btn  btn-lg"style="background-color:#00cc99;color:white"
-                                onclick="qualificationCertification();return false">Finalizar</button>
+                            <button id="complete" class="btn  btn-lg"style="background-color:#5a86ea;color:white"
+                                onclick="qualificationCertification();return false">Terminar</button>
                         </li>
 
                     </ul>

@@ -15,15 +15,17 @@
                             <!-- DataTables -->
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
-                                    <th ></th>
+                                    <th></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
-                                       <th class="sorting">Carpeta Certificado</th>
-                                         <th class="sorting">Horas</th>
+                                    <th class="sorting">Imágen Emisión</th>
+                                    <th class="sorting">Horas</th>
                                     <th class="sorting">Detalle</th>
                                     <th class="sorting">Presentación</th>
-                                    <th ><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt="" srcset=""></th>
+                                    <th><img width="20"
+                                            src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
+                                            srcset=""></th>
                                 </thead>
                                 <tbody>
                                     @foreach ($course as $courses)
@@ -32,26 +34,29 @@
                                             <td>{{ $courses->id }}</td>
                                             <td>{{ $courses->description }}</td>
                                             <td>{{ $courses->type->description }}</td>
-                                            <td>{{ $courses->folder_certification }}</td>
-                                         <td>{{ $courses->hours }}</td>
-                                            <td>{{ $courses->detail }}</td>
-                                             <td><img src="{{ asset('imageusers/' . $courses->presentation) }}" alt="" srcset=""
-                                                    width="100"></td>
-                                         
-                                            <td>
-                                                         @role('Coordinación|Administrador')
-                                               
-                                        
-                                                <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-success note-icon-pencil"
-                                                    data-toggle="modal" data-target="#exampleModal"
-                                                    onclick="courseEdit('{{ $courses->id }}'); Up();  return false"></button>
 
-                                                <!-- <button class="note-icon-pencil" ></button> -->
-                                                <button class="btn btn-danger note-icon-trash" onclick="courseDestroy('{{ $courses->id }}'); return false"></button>
-                                              @endrole
-                                                 @role('Docente|Coordinación')
-                                                 <a class="btn btn-warning note-icon-pencil"
+                                            <td><img src="{{ asset('imageusers/' . $courses->emision) }}"
+                                                    alt="" srcset="" width="100"></td>
+
+                                           
+                                            <td>{{ $courses->hours }}</td>
+                                            <td>{{ $courses->detail }}</td>
+                                            <td><img src="{{ asset('imageusers/' . $courses->presentation) }}"
+                                                    alt="" srcset="" width="100"></td>
+
+                                            <td>
+                                                @role('Coordinación|Administrador')
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-success note-icon-pencil"
+                                                        data-toggle="modal" data-target="#exampleModal"
+                                                        onclick="courseEdit('{{ $courses->id }}'); Up();  return false"></button>
+
+                                                    <!-- <button class="note-icon-pencil" ></button> -->
+                                                    <button class="btn btn-danger note-icon-trash"
+                                                        onclick="courseDestroy('{{ $courses->id }}'); return false"></button>
+                                                @endrole
+                                                @role('Docente|Coordinación')
+                                                    <a class="btn btn-warning note-icon-pencil"
                                                         onclick="courseDetail('{{ $courses->id }}')"> Certificado</a>
                                                 @endrole
                                             </td>
@@ -68,4 +73,3 @@
             </div>
         </div>
     </section>
-

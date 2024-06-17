@@ -28,7 +28,7 @@
 
 
                                     @for ($i = 1; $i <= $registry->count_notes ; $i++)
-                                        <th class="sorting"> {{ $i }} </th>
+                                        <th class="sorting">Nota {{ $i }} </th>
                                         <th class="sorting">Certificado
                                             {{ $i }} </th>
                                     @endfor
@@ -71,19 +71,27 @@
 
                                                 </td>
                                                 <td>
-                                                    @if ($registry_details->$notes > 13.5)
+                                                    @if ($registry_details->$notes >= 5)
                                                  
                                                         <button class="btn " style="background-color:  #5a86ea;color:white"
-                                                            onclick="certificationGenerate('{{ $registry_details->id }}','spanish','{{ $registry_details->code_certification }}','{{ $i }}')">Español</button>
+                                                            onclick="certificationGenerate('{{ $registry_details->id }}','participacion','{{ $registry_details->code_certification }}','{{ $i }}')">Participación</button>
 
-                                                        <button class="btn "style="background-color:  #5a86ea;color:white"
-                                                            onclick="certificationGenerate('{{ $registry_details->id }}','english','{{ $registry_details->code_certification }}','{{ $i }}')">&nbsp;Ingles&nbsp;</button>
+                                                     
                                                     @else
                                                         <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
-                                                            disabled>Español</button>
-                                                        <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
-                                                            disabled>&nbsp;Ingles&nbsp;</button>
+                                                            disabled>Participáción</button>
                                                     @endif
+                                                    @if ($registry_details->$notes > 13.5)
+                                                 
+                                                   
+
+                                                    <button class="btn "style="background-color:  #5a86ea;color:white"
+                                                        onclick="certificationGenerate('{{ $registry_details->id }}','aprobacion','{{ $registry_details->code_certification }}','{{ $i }}')">&nbsp;Aprobación&nbsp;</button>
+                                                @else
+                                                  
+                                                    <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
+                                                        disabled>Aprobación</button>
+                                                @endif
                                                 </td>
                                             @endfor
 

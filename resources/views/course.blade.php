@@ -72,7 +72,7 @@
                                 <div class="col-sm-1"></div>
                                 <div class="btn btn-default btn-file col-9">
                                     <i class="fas fa-paperclip"></i> Subir
-                                    <input type='file' id="imgInp" name="presentation" onchange="readImage(this);">
+                                    <input type='file' id="imgInp" name="presentation" onchange="readImage(this,'#blah');">
                                 </div>
 
 
@@ -84,7 +84,25 @@
                             </div>
                         </div>
                          Review : <textarea name="review" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <br>
+                        <div class="container align-content-center">
+                            <div class="form-group row">
+                                Curso en Emisión
+                                <div class="col-sm-1"></div>
+                                <div class="btn btn-default btn-file col-9">
+                                    <i class="fas fa-paperclip"></i> Subir
+                                    <input type='file' id="imgInp2" name="emision" onchange="readImage(this,'#blah2');">
+                                </div>
 
+
+                            </div>
+                            <div class="size-100">
+                                <br>
+                                <img id="blah2" name="fotografia2" src="https://via.placeholder.com/150" alt="Tu imagen"
+                                    class="img-bordered" width="100%">
+                            </div>
+                        </div>
+                        
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#course')[0].reset();"

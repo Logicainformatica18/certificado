@@ -1061,7 +1061,65 @@
         datatable_load();
     </script>
 
+<style>
+    /* Estilos para el botón flotante de WhatsApp */
+    .whatsapp-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+    }
 
+    .whatsapp-btn {
+        background-color: #25d366;
+        /* Color de fondo del botón */
+        border-radius: 50%;
+        /* Hace que el botón tenga forma circular */
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        margin-right: 10px; /* Espacio entre el botón y el mensaje */
+    }
+
+    .whatsapp-btn a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        color: #fff;
+        /* Color del ícono */
+        font-size: 40px;
+    }
+
+    .whatsapp-message {
+        background-color: #5a86ea;
+        color: #fff;
+        padding: 10px;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-size: 10px;
+        white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    }
+</style>
+
+    <!-- Contenedor para el botón de WhatsApp y el mensaje -->
+    <div class="whatsapp-container">
+        <div class="whatsapp-message">
+            ¿Necesitas ayuda?
+        </div>
+        <div class="whatsapp-btn">
+            <a href="https://wa.pe/onedigital" target="_blank" title="Enviar mensaje por WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+  
+    </div>
+
+    <!-- Font Awesome para el ícono de WhatsApp -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

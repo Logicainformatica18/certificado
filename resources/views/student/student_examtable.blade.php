@@ -235,15 +235,15 @@
                                         <div class="d-flex justify-content-end">
                                             {{-- <button class="btn btn-warning btn-lg" id="prev">Anterior</button> --}}
                                             <button id="next" class="btn btn-lg"
-                                                style="background-color:#00cc99;color:white"
+                                                style="background-color:#5a86ea;color:white"
                                                 onclick="qualificationUpdate({{ $qualifications->id }}); return false">Siguiente</button>
                                         </div>
                                     @endif
                                     @if ($loop->last)
                                         <button id="complete"
-                                            class="btn  btn-lg"style="background-color:#00cc99;color:white"
+                                            class="btn  btn-lg"style="background-color:#5a86ea;color:white"
                                             onclick="qualificationUpdate({{ $qualifications->id }});qualificationCertification();return false">Enviar
-                                            y Finalizar</button>
+                                            y Terminar</button>
                                     @endif
 
                             </div>

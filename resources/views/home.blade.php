@@ -96,7 +96,7 @@
 
                         <div class="row">
                             <div class="col-lg-1"
-                                style="margin-left: 10px;margin-right: -25px;   align-items: center;display: flex;">
+                                style="margin-left: 50px;margin-right: -25px;   align-items: center;display: flex;">
                                 <img src="{{ asset('PROFESOR.png') }}" width="30px" alt="" srcset="" ">
                                                 </div>
 

@@ -27,12 +27,7 @@
                     </button>
 
                             <p></p>
-                            Buscar
-                            <form  name="for"id="show">
-                                <input type="text"name="show" class="form-control" style="width: 50%"  onkeydown="scheduleShow();">
-                            </form>
-
-                            <p></p>
+                          
                              <!-- /.content -->
                              {{-- {{ $type->onEachSide(5)->links() }} --}}
                             <div id="mycontent">

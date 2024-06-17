@@ -1,8 +1,6 @@
 <div class="container">
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-    </p>
- <h1 style="font-size: 50px"><b>{{$course[0]->description}}</b></h1>           
+<br>
+ <h1 style="font-size: 30px;font-family:Montserrat-Bold;color:#1b3d6d"><b>{{$course[0]->description}}</b></h1>           
     <h6><b>{{$course[0]->hours}}</b></h6>
            
            <p class="text-justify">
@@ -25,13 +23,13 @@
 
                             <!-- DataTables -->
                             <table id="" class="table table-bordered table-striped">
-                                <thead>
+                                <thead style="font-family:Montserrat-Bold">
                                    
                                  
                                     <th class="sorting">Descripción</th>
                                   
 
-                                    <th class="sorting">Cantidad Preguntas</th>
+                                    <th class="sorting">Preguntas</th>
                                     <th><img width="20"
                                             src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png"
                                             alt="" srcset=""></th>
@@ -51,7 +49,7 @@
                                             <td>
                                                
                                                 @role('Estudiante')
-                                                    <a class="btn  note-icon-pencil" style="background-color:  #5a86ea;color:white"
+                                                    <a class="btn  note-icon-pencil" style="font-size:12px;background-color:  #5a86ea;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole
                                                 

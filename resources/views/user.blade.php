@@ -145,7 +145,7 @@
                                 <div class="col-sm-1"></div>
                                 <div class="btn btn-default btn-file col-9">
                                     <i class="fas fa-paperclip"></i> Subir
-                                    <input type='file' id="imgInp" name="photo" onchange="readImage(this);">
+                                    <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
                                 </div>
 
 

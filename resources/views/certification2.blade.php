@@ -100,19 +100,21 @@
 <body class="pos-relative">
 
     <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
-        <div class="row">
-            <div class="col col-lg-4">
+        <div class="row w-100">
+            <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{-- <img src="{{ asset('logo.png') }}" alt="" width="50%"> --}}
+                    <img src="{{ asset('logo_certificaciones.png') }}" alt="" width="100px">
+                </a> | Certificaciones
+            </div>
+            <div class="col col-lg-2">
+
+            </div>
+            <div class="col col-lg-4 d-flex justify-content-end align-items-center">
+                <a href="{{ route('logout') }}">
+                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="30px"
+                        class="mr-2">
                 </a>
-
             </div>
-            <div class="col col-lg-4">
-
-            </div>
-
-
-
         </div>
     </nav>
 
