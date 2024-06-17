@@ -41,7 +41,9 @@
 
     </div>
 
-
+    @php
+    $validate;
+@endphp
 
 
 

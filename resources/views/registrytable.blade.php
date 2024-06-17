@@ -37,13 +37,12 @@
                                    
                                 </thead>
                                 <tbody>
+                              
                                     @foreach ($registry as $registrys)
                                         <tr>
                                             <td></td>
                                             <td>
-                                                @php
-                                                $validate;
-                                            @endphp
+                                          
                                                 @role('Coordinación')
                                                 @php
                                                     $validate="1";
@@ -59,7 +58,8 @@
                                                         onclick="registryDestroy('{{ $registrys->id }}'); return false"></button>
                                                 @endrole
                                                 @role('Docente')
-                                                @if ($validate!="1")
+
+                                                @if (isset($validate)!="1")
                                                 <a class="btn btn-warning note-icon-pencil"
                                                 onclick="registryDetail('{{ $registrys->id }}')"></a>
                                                 @endif
