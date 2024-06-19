@@ -233,12 +233,12 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 
- Route::get('/auth/google/callback', [\App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
+ Route::get('/auth/google', [\App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
  
  use App\Models\User;
  
 
- Route::get('/auth/google', function () {
+ Route::get('/auth/google/callback', function () {
     try {
              //create a user using socialite driver google
              $user = Socialite::driver('google')->user();
