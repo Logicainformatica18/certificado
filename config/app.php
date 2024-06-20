@@ -172,6 +172,8 @@ return [
 //////// qr
 SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
+App\Providers\SocialiteServiceProvider::class,
+
 Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 

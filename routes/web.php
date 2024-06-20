@@ -298,7 +298,29 @@ Route::controller(RegistryDetailController::class)->group(function(){
 
 });
 
+//////////////////////////////////////////////////
 
+
+
+Route::get('login/microsoft', function () {
+    return Socialite::driver('microsoft')->redirect();
+});
+
+Route::get('login/microsoft/callback', function () {
+    $user = Socialite::driver('microsoft')->user();
+    
+    // Aquí puedes manejar la autenticación del usuario con los datos obtenidos
+    $authUser = User::firstOrCreate([
+        'email' => $user->getEmail(),
+    ], [
+        'name' => $user->getName(),
+        'password' => Hash::make(Str::random(24)), // O cualquier otra lógica de manejo de contraseña
+    ]);
+
+    Auth::login($authUser, true);
+
+    return redirect('/home'); // Redirige a la página deseada
+});
 
 
 

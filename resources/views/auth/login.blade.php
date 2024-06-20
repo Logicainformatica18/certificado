@@ -215,7 +215,7 @@ b {
 
                                 <div class="social-auth-links text-center mb-3">
                                     
-                                   <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
+                                
                                     {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> --}}
@@ -248,9 +248,16 @@ b {
 
                                         </div>
                                     </a>
+                                    <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
+                                    <div class="social-auth-links text-center mt-2 mb-3">
+                        
+                                        <a href="{{ url('/login/microsoft') }}" class="btn btn-block" style="background-color: black;color:white">
+                                            <i class="fab fa-microsoft mr-2"></i>Continúa con Microsoft
+                                        </a>
+                                    </div>
                                 </div>
                             </form>
-
+                         
 
 
                             <div class="social-auth-links text-center mb-3">
@@ -292,6 +299,9 @@ b {
 
         </div>
     </div>
+
+
+
 
 
     <!-- /.login-box -->
