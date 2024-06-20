@@ -307,19 +307,39 @@ Route::get('login/microsoft', function () {
 });
 
 Route::get('login/microsoft/callback', function () {
-    $user = Socialite::driver('microsoft')->user();
-    
-    // Aquí puedes manejar la autenticación del usuario con los datos obtenidos
-    $authUser = User::firstOrCreate([
-        'email' => $user->getEmail(),
-    ], [
-        'name' => $user->getName(),
-        'password' => Hash::make(Str::random(24)), // O cualquier otra lógica de manejo de contraseña
-    ]);
-
-    Auth::login($authUser, true);
-
-    return redirect('/home'); // Redirige a la página deseada
+    try {
+        //create a user using socialite driver google
+        $user = Socialite::driver('google')->user();
+        // if the user exits, use that user and login
+        $finduser = User::where('email', $user->email)->first();
+        if($finduser){
+            //if the user exists, login and show dashboard
+            Auth::login($finduser);
+            return redirect('/home');
+        }else{
+            //user is not yet created, so create first
+            $newUser = User::create([
+                'names' => $user->name,
+                 'firstname' => '',
+                  'lastname' => '',
+                'email' => $user->email,
+                'google_id'=> $user->id,
+                'password' => Hash::make('onedigital123')
+            ]);
+          
+            $newUser->save();
+            //login as the new user
+            Auth::login($newUser);
+            $newUser->assignRole('Estudiante');
+            //
+          //  $newUser->createToken(request()->device_name)->plainTextToken ;
+            // go to the dashboard
+            return redirect('/home');
+        }
+        //catch exceptions
+    } catch (Exception $e) {
+        dd($e->getMessage());
+    }
 });
 
 
