@@ -2,39 +2,30 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use SocialiteProviders\Microsoft\MicrosoftExtendSocialite;
 
-class SocialiteServiceProvider extends ServiceProvider
+class EventServiceProvider extends ServiceProvider
 {
     /**
-     * Register services.
+     * The event listener mappings for the application.
      *
-     * @return void
+     * @var array
      */
-    public function register()
-    {
-        $this->app->extend('Laravel\Socialite\Contracts\Factory', function ($service) {
-            $service->extend('microsoft', function ($app) {
-                $config = $app['config']['services.microsoft'];
-                return $service->buildProvider(MicrosoftExtendSocialite::class, $config);
-            });
-
-            return $service;
-        });
-    }
+    protected $listen = [
+        SocialiteWasCalled::class => [
+            MicrosoftExtendSocialite::class,
+        ],
+    ];
 
     /**
-     * Bootstrap services.
+     * Register any events for your application.
      *
      * @return void
      */
     public function boot()
     {
-        $this->app['events']->listen(
-            SocialiteWasCalled::class,
-            MicrosoftExtendSocialite::class
-        );
+        parent::boot();
     }
 }
