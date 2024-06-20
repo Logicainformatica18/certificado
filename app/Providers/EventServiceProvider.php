@@ -7,6 +7,8 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use SocialiteProviders\Microsoft\MicrosoftExtendSocialite;
+use SocialiteProviders\Manager\SocialiteWasCalled;
 class EventServiceProvider extends ServiceProvider
 {
     /**
