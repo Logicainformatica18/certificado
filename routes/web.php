@@ -309,7 +309,7 @@ Route::get('login/microsoft', function () {
 Route::get('login/microsoft/callback', function () {
     try {
         //create a user using socialite driver google
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('microsoft')->user();
         // if the user exits, use that user and login
         $finduser = User::where('email', $user->email)->first();
         if($finduser){
