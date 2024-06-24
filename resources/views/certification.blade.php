@@ -51,8 +51,9 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    
     {{ session('success') }}
 
     <!-- jQuery -->
@@ -146,7 +147,7 @@
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
     $route_certification = asset('certification3/plantilla_one_participacion.png');
     
-    $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(150)->generate($url));
+    $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(500)->generate($url));
     ?>
     <?php
     $name_course = $registry_detail->registry->course->description;
@@ -189,9 +190,7 @@
                         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
 
                             {{-- <canvas id="canvas" height="3672px" width="4752px" class="img-fluid" alt="Responsive image">  </canvas> --}}
-                            <canvas id="canvas1" height="750px" width="1000px" class="img-fluid padre"
-                                alt="Responsive image">
-
+                            <canvas id="canvas1" height="1500" width="2000"  alt="Responsive image" style="width: 100%; height: 100%;"></canvas>
 
                             </canvas>
 
@@ -254,8 +253,16 @@
                 <button class="btn btn-outline-info" id="btnpng"
                     style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
 
-                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar</h4>
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
+                <script>
+                  
+                </script>
+                <button class="btn btn-outline-info" id="btnpdf"
+                style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
+
+                <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
+            </button>
                 <p></p>
                 <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
                 <p></p>
@@ -364,7 +371,7 @@
 
 
 
-        buttons_pdf("canvas")
+     //   buttons_pdf("canvas")
 
         //buttons_png();
 
@@ -376,6 +383,38 @@
             lblpng.click();
 
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("#btnpdf").addEventListener("click", function() {
+            let canvas = document.querySelector("#canvas1");
+            let imgData = canvas.toDataURL('image/png');
+
+            const { jsPDF } = window.jspdf;
+            let pdf = new jsPDF('landscape', 'mm', 'letter');
+            
+            // Dimensiones del PDF en mm (210 x 297 para A4 en landscape)
+            let pdfWidth = pdf.internal.pageSize.getWidth();
+            let pdfHeight = pdf.internal.pageSize.getHeight();
+
+            // Dimensiones del canvas en píxeles
+            let canvasWidth = canvas.width;
+            let canvasHeight = canvas.height;
+
+            // Calcular la escala para que la imagen quepa en el PDF
+            let scaleX = pdfWidth / canvasWidth;
+            let scaleY = pdfHeight / canvasHeight;
+            let scale = Math.min(scaleX, scaleY);
+
+            // Calcular la posición de la imagen en el PDF para centrarla
+            let imgWidth = canvasWidth * scale;
+            let imgHeight = canvasHeight * scale;
+            let x = (pdfWidth - imgWidth) / 1;
+            let y = (pdfHeight - imgHeight) / 1;
+
+            pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+            pdf.save("Certificado.pdf");
+        });
+    });
     </script>
     <input type="hidden" id="imagen" value="">
 

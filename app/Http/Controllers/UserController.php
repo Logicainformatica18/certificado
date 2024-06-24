@@ -17,6 +17,7 @@ use App\Imports\ImportUsers;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Services\GoogleSheetService;
 class UserController extends Controller
 {
     use Notifiable;
@@ -155,6 +156,7 @@ class UserController extends Controller
                $users->password =  Hash::make($request->password);
             $users->save();
         }
+        
         return   $this->create();
     }
 
@@ -236,5 +238,46 @@ class UserController extends Controller
         Excel::import(new ImportUsers, request()->file('file'));
             
         return back();
+    }
+    public function importGoogle(Request $request){
+     //   $request->id_sheet = '1ShgVLdsBMDAW2v0Xzk3JL8xls0KlKUEUMzY5mlTvwds'; 
+     //   $request->range = 'hoja!A1:H10'; // Ajusta el rango según tu hoja de cálculo
+
+   
+            $google = New GoogleSheetService();
+            $data =   $google->getSheetDataWithHeaders($request->id_sheet, $request->range);
+     
+            $object = json_decode(json_encode($data));
+           // return $object;
+            // return var_dump($data);
+
+            foreach ($object as $row) {
+                $existingStudent = User::where('email', $row->email)->first();
+
+                if ($existingStudent) {
+                    continue;
+                }
+                else{
+                    $user1 = new User([
+                        'dni'       => $row->dni,
+                        'names'     => $row->nombres,
+                        'firstname' => $row->paterno,
+                        'lastname'  => $row->materno,
+                        'email'     => $row->email,
+                        'password'  => Hash::make($row->password),
+                        'sex'       => substr($row->sexo, 0, 1),
+                        'cellphone' => $row->celular,
+                    ]);
+                    $user1->save();
+                    $user1->assignRole('Estudiante');
+                }
+                
+              
+            }
+          
+          
+
+
+     
     }
 }

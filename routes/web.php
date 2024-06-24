@@ -154,6 +154,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
    Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update']);
    Route::post('userShow', [App\Http\Controllers\UserController::class, 'show']);
    Route::post('userUpdateProfile', [App\Http\Controllers\UserController::class, 'updateProfile']);
+  // Route::post('userImportGoogle', [App\Http\Controllers\UserController::class, 'importGoogle'])->name("userImportGoogle");
 
    Route::post('userRoleStore',[App\Http\Controllers\UserController::class, 'userRoleStore']);
    Route::post('userRoleEdit',[App\Http\Controllers\UserController::class, 'userRoleEdit']);
@@ -276,13 +277,10 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
  });
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
-    Route::get('users', 'index');
-
-
-    
     Route::get('users-export', 'export')->name('users.export');
     Route::post('users-import', 'import')->name('users.import');
 
+   Route::post('userImportGoogle', 'importGoogle');
     
     
 });
@@ -292,6 +290,8 @@ Route::controller(ExamController::class)->group(function(){
     Route::post('exams-import', 'import')->name('exams.import');
 
 });
+
+
 Route::controller(RegistryDetailController::class)->group(function(){
    
     Route::post('registry_detail-import', 'import')->name('registry_detail.import');
@@ -343,6 +343,7 @@ Route::get('login/microsoft/callback', function () {
 });
 
 
+Route::get('google_sheet',[\App\Http\Controllers\GoogleSheetController::class, 'index']);
 
 
 
