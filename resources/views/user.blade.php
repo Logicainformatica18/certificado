@@ -32,7 +32,7 @@
             <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="btn btn-default btn-file col-9"style="border-radius:20px">
-                    <i class="fas fa-paperclip"></i> Subir
+                    <i class="fas fa-paperclip"></i> Subir Archivo Excel
                     <input type="file" name="file" class="form-control">
                 </div>
         </div>
