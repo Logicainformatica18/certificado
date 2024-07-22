@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital" />
+    <meta property="og:title"
+        content="Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
@@ -53,7 +54,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
-    
+
     {{ session('success') }}
 
     <!-- jQuery -->
@@ -190,7 +191,8 @@
                         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
 
                             {{-- <canvas id="canvas" height="3672px" width="4752px" class="img-fluid" alt="Responsive image">  </canvas> --}}
-                            <canvas id="canvas1" height="1500" width="2000"  alt="Responsive image" style="width: 100%; height: 100%;"></canvas>
+                            <canvas id="canvas1" height="1500" width="2000" alt="Responsive image"
+                                style="width: 100%; height: 100%;"></canvas>
 
                             </canvas>
 
@@ -206,7 +208,7 @@
                                     background-image: url("{{ asset('dist/img/page_certification/Recurso 5.png') }}");
                                     height: 33px;
                                     width: 160px;
-                                   background-repeat: no-repeat
+                                    background-repeat: no-repeat
                                 }
                             </style>
 
@@ -255,14 +257,12 @@
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
-                <script>
-                  
-                </script>
+                <script></script>
                 <button class="btn btn-outline-info" id="btnpdf"
-                style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
 
-                <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
-            </button>
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
+                </button>
                 <p></p>
                 <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
                 <p></p>
@@ -298,27 +298,31 @@
 
             </div>
             <div class="col-lg-12 text-center">
-                
-        <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
+
+                <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="40px">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn"
+                        width="40px">
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="40px">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook"
+                        width="40px">
                 </a>
-        
+
                 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="40px">
+                    <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter"
+                        width="40px">
                 </a>
-             
+
                 <a href="#" class=""
                     onclick="linkedinCertificationGenerate('{{ $certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
-                    <img src="{{ asset('dist/img/page_certification/Recurso 7.png') }}" alt="Compartir en Linkedin" width="180px">
-            </a>
-    
+                    <img src="{{ asset('dist/img/page_certification/Recurso 7.png') }}" alt="Compartir en Linkedin"
+                        width="180px">
+                </a>
+
             </div>
 
-          
+
 
         </div>
     </div>
@@ -371,7 +375,7 @@
 
 
 
-     //   buttons_pdf("canvas")
+        //   buttons_pdf("canvas")
 
         //buttons_png();
 
@@ -385,36 +389,38 @@
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector("#btnpdf").addEventListener("click", function() {
-            let canvas = document.querySelector("#canvas1");
-            let imgData = canvas.toDataURL('image/png');
+            document.querySelector("#btnpdf").addEventListener("click", function() {
+                let canvas = document.querySelector("#canvas1");
+                let imgData = canvas.toDataURL('image/png');
 
-            const { jsPDF } = window.jspdf;
-            let pdf = new jsPDF('landscape', 'mm', 'letter');
-            
-            // Dimensiones del PDF en mm (210 x 297 para A4 en landscape)
-            let pdfWidth = pdf.internal.pageSize.getWidth();
-            let pdfHeight = pdf.internal.pageSize.getHeight();
+                const {
+                    jsPDF
+                } = window.jspdf;
+                let pdf = new jsPDF('landscape', 'mm', 'letter');
 
-            // Dimensiones del canvas en píxeles
-            let canvasWidth = canvas.width;
-            let canvasHeight = canvas.height;
+                // Dimensiones del PDF en mm (210 x 297 para A4 en landscape)
+                let pdfWidth = pdf.internal.pageSize.getWidth();
+                let pdfHeight = pdf.internal.pageSize.getHeight();
 
-            // Calcular la escala para que la imagen quepa en el PDF
-            let scaleX = pdfWidth / canvasWidth;
-            let scaleY = pdfHeight / canvasHeight;
-            let scale = Math.min(scaleX, scaleY);
+                // Dimensiones del canvas en píxeles
+                let canvasWidth = canvas.width;
+                let canvasHeight = canvas.height;
 
-            // Calcular la posición de la imagen en el PDF para centrarla
-            let imgWidth = canvasWidth * scale;
-            let imgHeight = canvasHeight * scale;
-            let x = (pdfWidth - imgWidth) / 1;
-            let y = (pdfHeight - imgHeight) / 1;
+                // Calcular la escala para que la imagen quepa en el PDF
+                let scaleX = pdfWidth / canvasWidth;
+                let scaleY = pdfHeight / canvasHeight;
+                let scale = Math.min(scaleX, scaleY);
 
-            pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-            pdf.save("Certificado.pdf");
+                // Calcular la posición de la imagen en el PDF para centrarla
+                let imgWidth = canvasWidth * scale;
+                let imgHeight = canvasHeight * scale;
+                let x = (pdfWidth - imgWidth) / 1;
+                let y = (pdfHeight - imgHeight) / 1;
+
+                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+                pdf.save("Certificado.pdf");
+            });
         });
-    });
     </script>
     <input type="hidden" id="imagen" value="">
 
