@@ -139,18 +139,10 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-<<<<<<< HEAD
                 <img src="{{asset('tecciline.png')}}" alt="AdminLTE Logo"
                     class="" width="100%" style="opacity: .8">
                 <p></p>
                 <span class="brand-text font-weight-light center">Certificaciones</span>
-=======
-                <h3 style="color:white"><b>
-                        <img src="{{ asset('barras-SDC-BLANCO.png') }}" alt="AdminLTE Logo"class=""
-                            width="40px" style="">
-                        Certificate</b>
-                </h3>
->>>>>>> master
                 <p></p>
             </a>
 
