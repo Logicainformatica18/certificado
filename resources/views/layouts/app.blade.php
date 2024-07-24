@@ -175,30 +175,33 @@
     <br>
 
     <footer class="main-footer" style="height:310px; background-color:#bdbbbb;color:white">
-
+       
         <p>
             &nbsp;
             &nbsp;
         </p>
 
         <div class="container-fluid">
+         
             <div class="row">
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-1">
-                    <p></p>
-                    <img src="{{ asset('logo_one.png') }}" alt="">
+                <div class="col-lg-2">
+            
+                    <img src="{{ asset('logo_one.png') }}" alt="" width="200px">
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 flex">
                     <p></p>
                     <!-- Descripción a la izquierda -->
+                
+                    
                     <p class="text-justify" style="color:#0a2262;font-family:Montserrat-Semibold;font-size:13px">
                         Somos una empresa de capacitaciones y consultoría en herramientas digitales, inteligencia de
                         negocio y analítica de datos, <b style="font-family: Montserrat-Bold">Asesoramos, capacitamos y
                             formamos</b>
                         profesionales mediante el uso de los softwares más requeridos del mercado.
                     </p>
-
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FONEDIGITAL.Latam&tabs=timeline&width=500&height=100&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=859285638195545" width="500" height="100" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                     {{-- <span
                             style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
                             <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev.
@@ -208,6 +211,12 @@
                 </div>
                 <div class="col-lg-3" style="font-family: Montserrat-Regular;color:#5a86ea">
                     <p></p>
+                    <p>
+                        &nbsp;
+                    </p>
+                    <p>
+                        &nbsp;
+                    </p>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="https://www.facebook.com/ONEDIGITAL.Latam/"target="_blank"> <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}"
                             alt="" width="30px"></a>
