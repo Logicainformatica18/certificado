@@ -304,9 +304,16 @@
                     <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn"
                         width="40px">
                 </a>
-                {{$registry_detail->registry->model_has_role->teacher->firstname}}
-                <a href="https://www.linkedin.com/feed/?shareActive=true&text=%0A%C2%A1He%20completado%20el%20Programa%20de%20{{ $certification[0]->description }}
-                    %20for%20Data%20Analytics%20con%20%40ONEDIGITALL%20!%0A%0ADicho%20Programa%20fue%20impartido%20por%20el%20%20Ing.%20Jos%C3%A9%20Luis%20Mal%C3%B3n.%0A%0AEste%20programa%20me%20ha%20brindado%20las%20herramientas%20y%20conocimientos%20necesarios%20para%20convertirme%20en%20un%20experto%20en%20{{$certification[0]->course->description}}%2C%20permiti%C3%A9ndome%20dominar%20el%20an%C3%A1lisis%20de%20datos%20y%20la%20visualizaci%C3%B3n%20de%20informaci%C3%B3n.%20%23EscueladeBIOneDigitall%0A%0ASi%20a%20ti%20tambi%C3%A9n%20te%20interesa%2C%20puedes%20hacerlo%20aqu%C3%AD%3A%20https%3A%2F%2Fwa.pe%2FONE_POWEBI" target="_blank">Compartir en LinkedIn</a>
+                @php
+                $teacher =$registry_detail->registry->model_has_role->teacher->firstname." ".$registry_detail->registry->model_has_role->teacher->lastname." ".$registry_detail->registry->model_has_role->teacher->names;
+                    
+                @endphp
+        <a href="https://www.linkedin.com/feed/?shareActive=true&text=%0A%C2%A1He%20completado%20el%20Programa%20de%20{{ $certification[0]->description }}%20con%20%23ONEDIGITALL%20!%0A%0ADicho%20Programa%20fue%20impartido%20por%20el%20Ing.%20{{$teacher}}.%0A%0AEste%20programa%20me%20ha%20brindado%20las%20herramientas%20y%20conocimientos%20necesarios%20para%20convertirme%20en%20un%20experto%20en%20{{$certification[0]->course->description}}.%20%23{{$certification[0]->course->detail}}%0A%0ASi%20a%20ti%20tambi%C3%A9n%20te%20interesa%2C%20puedes%20hacerlo%20aqu%C3%AD%3A%20https%3A%2F%2Fwa.pe%2Fp%2F7839473569464309%2F51981557469" target="_blank">Compartir en LinkedIn</a>
+
+   
+     
+                
+      
 
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook"
