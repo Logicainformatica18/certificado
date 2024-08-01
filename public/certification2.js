@@ -319,7 +319,7 @@ function certificationDetail(id) {
    ctx.font = "bold 40px Montserrat-bold";
    ctx.fillStyle ="#0a2262";
    ctx.textAlign = "center";
-   ctx.fillText(note, 1150,975);
+   ctx.fillText(note, 1145,936);
   
   
   
