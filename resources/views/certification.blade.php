@@ -194,7 +194,7 @@
                             <canvas id="canvas1" height="1500" width="2000" alt="Responsive image"
                                 style="width: 100%; height: 100%;"></canvas>
 
-                            </canvas>
+                        
 
                             <form action="" method="post" id="certification"></form>
                         </h1>
