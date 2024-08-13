@@ -139,10 +139,10 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-                <img src="{{asset('Cicec.png')}}" alt="AdminLTE Logo"
+                <img src="{{asset('logo.png')}}" alt="AdminLTE Logo"
                     class="" width="100%" style="opacity: .8">
                 <p></p>
-                <span class="brand-text font-weight-light center">Certificaciones</span>
+                {{-- <span class="brand-text font-weight-light center">Certificaciones</span> --}}
                 <p></p>
             </a>
 

@@ -25,19 +25,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #003399">
             <div class="row">
-                <div class="col col-lg-4">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="80%">
+              
+                <div class="col-lg-4">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="color:white">
+                        Certificaciones Cicec
+                        {{-- <img src="{{ asset('LOGO-CERTIFICACIONES.png') }}" alt="" width="80%"> --}}
                     </a>
+                </div>
+                <div class="col-lg-4">
+
 
                 </div>
                 <div class="col col-lg-4">
-
-                </div>
-
-                <div class="col col-lg-4" style="justify-content: center; align-items: center; display: flex;">
-                    <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="10%">
-                    <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
+                    {{-- <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="20px">
+                    <a class="text-blue" href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a> --}}
                 </div>
 
             </div>
@@ -77,38 +78,42 @@
         &nbsp;
     </p>
     <!-- Coloca este script donde quieras que aparezca el botón -->
-<!-- Asegúrate de tener cargada la hoja de estilos de Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-  /* Estilos para el botón flotante de WhatsApp */
-  .whatsapp-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366; /* Color de fondo del botón */
-    border-radius: 50%; /* Hace que el botón tenga forma circular */
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  }
+    <!-- Asegúrate de tener cargada la hoja de estilos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos para el botón flotante de WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            /* Color de fondo del botón */
+            border-radius: 50%;
+            /* Hace que el botón tenga forma circular */
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-  .whatsapp-btn a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    line-height: 60px;
-    color: #fff; /* Color del ícono */
-    font-size: 40px;
-  }
-</style>
- 
-<!-- Botón flotante de WhatsApp -->
-<div class="whatsapp-btn">
-  <a href="https://api.whatsapp.com/send/?phone=51939929383&text=Buen+día+SDC+me+gustaria+recibir+información+sobre+los+Cursos+y+Certificaciones+que+disponga.+Gracias" target="_blank" title="Enviar mensaje por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
+        .whatsapp-btn a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 60px;
+            color: #fff;
+            /* Color del ícono */
+            font-size: 40px;
+        }
+    </style>
+
+    <!-- Botón flotante de WhatsApp -->
+    {{-- <div class="whatsapp-btn">
+        <a href="https://api.whatsapp.com/send/?phone=51939929383&text=Buen+día+SDC+me+gustaria+recibir+información+sobre+los+Cursos+y+Certificaciones+que+disponga.+Gracias"
+            target="_blank" title="Enviar mensaje por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div> --}}
 
     <br>
 
@@ -124,7 +129,7 @@
                         &nbsp;
                         &nbsp;
                     </p>
-                    <h3><b>SDC Certificate</b> </h3>
+                    <h3><b>Certificados Cicec</b> </h3>
                     <p></p>
                     <p class="text-justify">
                         Cicec hace más de 6 años nuestra organización inicio sus actividades en respuesta a las
@@ -160,11 +165,7 @@
                         &nbsp;
                         &nbsp;
                     </p>
-                    <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsdc.learning.pe&tabs=timeline&width=340&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=859285638195545"
-                        width="340" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowfullscreen="true"
-                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                
                 </div>
             </div>
 
