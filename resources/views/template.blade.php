@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TecciLine</title>
+    <title>Cicec</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -139,7 +139,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4"style="background-color: #003399;">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
-                <img src="{{asset('tecciline.png')}}" alt="AdminLTE Logo"
+                <img src="{{asset('Cicec.png')}}" alt="AdminLTE Logo"
                     class="" width="100%" style="opacity: .8">
                 <p></p>
                 <span class="brand-text font-weight-light center">Certificaciones</span>

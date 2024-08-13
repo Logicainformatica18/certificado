@@ -165,7 +165,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 38px Open Sans";
+ ctx.font = "bold 38px Arial";
 
         ctx.textAlign = "center";
         ctx.textBaseline = 'middle';
@@ -176,7 +176,7 @@ function generateCerticationEnd(image_src, student,canvas_id,qr_url,id,promedio)
         let x = canvas1.width / 2  ;
 
      ctx.fillText(student, x, 322);
-      ctx.font = "20px Open Sans";
+      ctx.font = "20px Arial";
     ctx.fillText(promedio, x+63, 433);
 
 
@@ -205,33 +205,33 @@ function generateCertication(image_src, student, canvas_id, qr_url, id, cert,tex
                    /* Definimos tamaño de la fuente */
          //   ctx.font = '35px Relaway';
         //   ctx.font = "bold 10pt Courier";
- ctx.font = "bold 40px Open Sans";
+ ctx.font = "bold 35px Arial";
 
             ctx.textAlign = "center";
             ctx.textBaseline = 'middle';
-        ctx.fillStyle ="#01298a";
+        ctx.fillStyle ="black";
        // ctx.
 
            // student = student.toUpperCase();
         let x = canvas1.width / 2  ;
 
-     ctx.fillText(student, x, 300);
+     ctx.fillText(student, x-50, 215);
      
- ctx.font = "bold 18px Open Sans";
-     ctx.fillStyle = "#001238";
+ ctx.font = "bold 20px Arial";
+     ctx.fillStyle = "black";
      
      
-     ctx.fillText(hour, x+7, 434);
+     ctx.fillText(hour, x-35, 360);
      
- ctx.font = "bold 46px Open Sans";
-     ctx.fillStyle = "#001238";
+ ctx.font = "bold 30px Arial";
+     ctx.fillStyle = "black";
      
 
-        ctx.fillText(text, x, 388);
+        ctx.fillText(text, x, 295);
      
      
-        ctx.font = "bold 20px Open Sans";
-       ctx.fillStyle ="#01233A";
+        ctx.font = "bold 20px Arial";
+       ctx.fillStyle ="black";
             ctx.textAlign = "center";
 
      
@@ -316,22 +316,22 @@ let = orientacion_anio=x;
 
 
 
-    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 492);
-    ctx.font = "bold 15px Open Sans";
-            ctx.fillText(text_th  , orientacion_th +9, 490);
-            ctx.font = "bold 20px Open Sans";
-     ctx.fillText(", " + anio, orientacion_anio + 55, 492);
+    ctx.fillText( mesCorto+" "+dia + "  "  , x -30, 325);
+    ctx.font = "bold 15px Arial";
+            ctx.fillText(text_th  , orientacion_th +9, 325);
+            ctx.font = "bold 20px Arial";
+     ctx.fillText(", " + anio, orientacion_anio + 55, 325);
 
- ctx.font = "14px Open Sans";
- ctx.fillStyle ="#01233A";
+ ctx.font = "14px Arial";
+ ctx.fillStyle ="black";
  ctx.textAlign = "center";
- ctx.fillText("ID: SDC "+id, 875, 205);
+ ctx.fillText("ID: "+id, x-290, 730);
 
  //agregar qr encima de certificado
      let image1 = new Image();
        image1.src =qr_url;
   image1.onload = function() {
-      ctx.drawImage(image1, 800, 40, 150, 150);
+      ctx.drawImage(image1, x-60, 625, 120, 120);
   }
 
      image1.addEventListener("load", function() {

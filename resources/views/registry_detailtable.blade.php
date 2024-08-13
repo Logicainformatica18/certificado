@@ -24,7 +24,7 @@
                                     <th class="sorting">Email</th>
    <th class="sorting">Matriculado</th>
                                   
-                                        @for ($i = 1; $i <= $registry->count_notes -1; $i++)
+                                        @for ($i = 1; $i <= $registry->count_notes; $i++)
                                             <th class="sorting">Nota {{ $i }} </th>
                                             <th class="sorting" style="background-color: rgb(3, 206, 3)">Certificado {{ $i }} </th>
                                         @endfor
@@ -77,7 +77,7 @@
                                         }
                                         $code_certification = $registry_details->registry->description . '-' . $enumeracion;
                                         ?>
-                                        @for ($i = 1; $i <= $registry_details->registry->count_notes -1; $i++)
+                                        @for ($i = 1; $i <= $registry_details->registry->count_notes; $i++)
                                             <?php
                                             $property = 'n' . $i; // Construir la propiedad dinámicamente (n1, n2, ..., n8)
                                             ?>
@@ -98,12 +98,7 @@
                                         @endfor
 
                                         
-                                            <td>
-                                                    <button class="btn btn-warning"
-                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','spanish','{{ $code_certification }}','{{$i}}');">Español</button>
-                                                     <button class="btn btn-warning"
-                                                    onclick="certificationGenerateEnd('{{ $registry_details->id }}','english','{{ $code_certification }}','{{$i}}');">Ingles</button>
-                                            </td>
+                                          
                                         <td>
                                             {{ round($registry_details->average / $registry_details->registry->count_notes) }}
                                         </td>

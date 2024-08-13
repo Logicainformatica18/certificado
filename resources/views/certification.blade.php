@@ -6,23 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title"
-        content="Mi Certificación en : {{ $certification[0]->description }} en SDC Learning" />
+        content="Mi Certificación en : {{ $certification[0]->description }} en Cicec" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description  }}" />
     <meta name="image" id="oimage"property="og:image"
         content="{{ url('storage/certificados/' . $registry_detail->code_certification . '_' . $cert . '.png') }}">
 
-<<<<<<< HEAD
-    <title>Tecciline</title>
+    <title>Cicec</title>
 
-=======
-    <meta property="og:image:width" content="828" />
-    <meta property="og:image:height" content="450" />
-
-
-
-    <title>Mi Certificación en : {{  $certification[0]->description  }} en SDC Learning</title>
->>>>>>> master
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -99,7 +90,7 @@
     
     $folder = $registry_detail->registry->course->folder_certification;
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset("certification3/$folder/$language/$cert.png");
+    $route_certification = asset("certification3/spanish.png");
     //$route_qr = asset("certification_qr/r_datascience/41/codigo.png");
     $route_qr =
         'data:image/png;base64,' .
@@ -139,7 +130,7 @@
                     &nbsp;
                 </p>
                 <h2 style="font-size:200%"><b>Tu Certificado está listo.</b></h2>
-                <h3 style="text-align: justify;">SDC Learning te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
+                <h3 style="text-align: justify;">Cicec te felicita por tu esfuerzo. ¡Sigue aprendiendo todos los días!</h3>
                 <div class="line" style="width: 100%;height: 2px;background-color: #b4b5b5"></div>
                 <p></p>
                 <h4 style="color:#b4b5b5; text-align: justify;">Comparte tu certificado en cualquier red social y da a

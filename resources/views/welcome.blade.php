@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tecciline</title>
+    <title>Cicec</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
@@ -100,7 +100,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                   <div class="login-logo">
-            <b class="text-blue" style="font-family: Arial 50px">CERTIFICADOS TECCILINE</b>
+            <b class="text-blue" style="font-family: Arial 50px">CERTIFICADOS Cicec</b>
         </div>
                 <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
                 <form method="POST" action="{{ route('login') }}">

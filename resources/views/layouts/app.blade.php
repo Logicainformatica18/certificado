@@ -127,7 +127,7 @@
                     <h3><b>SDC Certificate</b> </h3>
                     <p></p>
                     <p class="text-justify">
-                        SDC Learning hace más de 6 años nuestra organización inicio sus actividades en respuesta a las
+                        Cicec hace más de 6 años nuestra organización inicio sus actividades en respuesta a las
                         necesidades de capacitación percibidas en áreas analíticas y ciencia de datos. Nuestros
                         programas, cursos y certificaciones de especialización se caracterizan por el método de
                         enseñanza orientado a la resolución de casos reales, que finalmente contribuyen a fortalecer el
