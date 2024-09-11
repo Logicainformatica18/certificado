@@ -60,6 +60,12 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDNWXGWF');</script>
 </head>
 <style type="text/css">
     @font-face {
@@ -99,7 +105,10 @@
 </style>
 
 <body class="pos-relative">
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
         <div class="row w-100">
             <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
