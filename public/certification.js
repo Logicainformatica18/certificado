@@ -166,7 +166,7 @@ function certificationDetail(id) {
                      /* Definimos tamaño de la fuente */
            //   ctx.font = '35px Relaway';
           //   ctx.font = "bold 10pt Courier";
-   ctx.font = "italic 74px Montserrat-bold";
+   ctx.font = "italic 54px Montserrat-bold";
   
               ctx.textAlign = "center";
               ctx.textBaseline = 'middle';
@@ -192,7 +192,7 @@ function certificationDetail(id) {
        
        ctx.fillText(hour, x+411, 730);
        
-   ctx.font = "bold 55px Montserrat-Bold";
+   ctx.font = "bold 45px Montserrat-Bold";
        ctx.fillStyle = "#0a2262";
        
   
