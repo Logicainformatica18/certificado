@@ -256,7 +256,7 @@ $month = "0". $month;
 $code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
 
     $registry_detail = new RegistryDetail([
-        'registry_id'       => '2', // Session::get('registry_id'),
+        'registry_id'       =>  Session::get('registry_id'),
          'n1' => $row->nota1,
          'pay' => $row->matriculado,
          'student_r' => '5',
