@@ -174,7 +174,7 @@ function registryDetailImportGoogle() {
                    //carga pdf- csv - excel
             datatable_load();
             alert('Importado Correctamente');
-          //  window.location.reload();
+            window.location.reload();
           })
           .catch(function(response) {
               //handle error
