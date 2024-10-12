@@ -295,6 +295,7 @@ Route::controller(ExamController::class)->group(function(){
 Route::controller(RegistryDetailController::class)->group(function(){
    
     Route::post('registry_detail-import', 'import')->name('registry_detail.import');
+    Route::post('registryDetailImportGoogle', 'importGoogle');
 
 });
 

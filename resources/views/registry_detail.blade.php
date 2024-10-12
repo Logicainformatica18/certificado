@@ -61,6 +61,34 @@
 
         </div><!-- /.container-fluid -->
     </section>
+
+<p>
+  Importar
+</p>
+<div class="row">
+    <div class="col col-lg-9 col-md-9 col-sm-12">
+        ID Google Sheet:
+      <input id="id_sheet" type="text"class="form-control" width="100%" placeholder="ejem: 1LFEjLa12oDtBnjbUPD2q_QnXJP_2kCWmH1oB-C5Y2B8"
+      value="1LFEjLa12oDtBnjbUPD2q_QnXJP_2kCWmH1oB-C5Y2B8">
+
+    </div>
+    <div class="col col-lg-3 col-md-3 col-sm-6">
+        Rango: 
+      <input id="range" type="text"class="form-control" width="100%" placeholder="ejem: Hoja1!A1:C200"
+      value="Hoja1!A1:C200">
+
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-6">
+        <br>
+        <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn"
+        onclick='registryDetailImportGoogle()'>
+        <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Importar Google
+    </button>
+
+    </div>
+  
+</div>
+<P></P>
     @role('Coordinación')
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"

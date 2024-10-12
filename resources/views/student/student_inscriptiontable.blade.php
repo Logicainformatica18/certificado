@@ -23,7 +23,7 @@
                             >
                             <div class="card-body" style="background: linear-gradient(to right, #0a2262, #0038ab);
                             border-bottom-left-radius:40px;border-bottom-right-radius:40px;
-                            color:white">
+                            wwcolor:white">
 
                                 <h5 class="card-title"style="font-family:Montserrat-Bold;
                                 font-size:20px;
