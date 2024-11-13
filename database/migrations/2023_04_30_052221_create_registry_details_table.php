@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('code_certification')->nullable();
             $table->string('url_certification')->nullable();
             $table->string('state_certification')->nullable();
+      
             $table->timestamps();
 
 

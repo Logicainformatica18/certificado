@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>One Digital - Certificados</title>
+    <title>AnthonyCode</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
@@ -18,18 +18,11 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
-
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WDNWXGWF');</script>
 </head>
 <style type="text/css">
     .welcome {
         margin: 0px;
-        background-image: url("{{ asset('dist/img/portada.png') }}");
+        background-image: url("{{ asset('imageusers/fondo.jpg') }}");
         width: 100%;
         background-repeat: no-repeat
     }
@@ -40,7 +33,7 @@
     }
 
     .bg-image {
-        background: url("{{ asset('banner_lateral_2.png') }}") no-repeat left center;
+        background: url("{{ asset('imageusers/fondo.jpg') }}") no-repeat left center;
         background-size: cover;
     }
 
@@ -67,43 +60,25 @@
 
     @font-face {
         font-family: "Kohinoor Bangla";
+        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Regular.otf') }}");
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: "Kohinoor Bangla";
         src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Semibold.otf') }}");
         font-weight: 600;
         font-style: normal;
     }
 
-    @font-face {
-        font-family: "Montalban";
-        src: url("{{ asset('fuente_one/Montalban.otf') }}");
-        font-weight: 600;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Montserrat-Bold";
-        src: url("{{ asset('fuente_one/Montserrat-Bold.ttf') }}");
-        font-weight: 600;
-        font-style: bold;
-    }
-
-    @font-face {
-    font-family: 'Montserrat-Regular';
-    src: url("{{ asset('fuente_one/Montserrat-Regular.ttf') }}") format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
     body {
-        font-family: 'Montserrat-Regular';
+        font-family: 'Kohinoor Bangla', sans-serif;
         font-weight: 300;
         /* Utiliza la variante "Light" por defecto */
     }
 
-b {
-    font-family: 'Montalban';
-        font-weight: 300;
-}
+
 
     h2 {
         font-weight: 600;
@@ -113,101 +88,104 @@ b {
 </style>
 
 <body class="">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 bg-image full-height d-none d-md-block">
-                <!-- contenido de la primera columna -->
-            </div>
-            <div class="col-md-8">
+    <div class="">
+        <div class="row container-fluid">
+   
+            <div class="col-md-4">
                 <div class="row h-100 justify-content-center align-items-center">
 
                     <!-- /.login-logo -->
                     <div class="">
                         <div class="card-body login-card-body">
+&nbsp;&nbsp;&nbsp;
+<img src="{{ asset('logosdcre-azul.png') }}" alt="" srcset=""width="50%">
+
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:60px; color: #5a86ea;"><b>CERTIFICADO</b>
-                                   <br>  <b>DIGITAL</b>
+                                <img src="{{asset('imageusers/logo_anthonycode.png')}}" alt="" width="150px">     
+
+                                <h1 style="font-weight: bold;font-size:55px; color: #042d89;"><b>AnthonyCode</b>
                                 </h1>
+                          
                             </div>
-                     
+                            <p class="login-box-msg" style="color:#042d89;">Ingrese sus datos para iniciar sesión</p>
 
-                            <p class="login-box-msg" style="color:#0a2262;font-size:20px"> Ingrese sus datos para iniciar sesión</p>
-                            <p></p>
                             <form method="POST" action="{{ route('login') }}">
-
+                                &nbsp;&nbsp;<span style="color: #042d89;font-size:13px">Email</span>
                                 {{ csrf_field() }}
                                 <div class="input-group mb-3 container">
-                                    <input id="email" type="email" style=" width: 100%; border: 1px solid #0a2262;border-radius:10px;"      class="form-control @error('email') is-invalid @enderror" name="email"
+
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="E-mail">
+                                        placeholder="Email">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    {{-- <div class="input-group-append">
+                                    <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-envelope"></span>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
+                                &nbsp;&nbsp;<span style="color: #042d89;font-size:13px">Contraseña</span>
                                 <div class="input-group mb-3 container">
-                                    <input id="password" type="password" style=" width: 100%; border: 1px solid #0a2262;border-radius:10px" 
+                                    <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password" placeholder="Contraseña">
-                                     
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    {{-- <div class="input-group-append">
+                                    <div class="input-group-append">
                                         <div class="input-group-text">
                                             <span class="fas fa-lock"></span>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
 
 
-                                
+
 
                                 <div class="row container">
 
                                     <div
                                         class="col-12 text-center md d-flex  justify-content-center align-items-center">
-                                  
+                                        <p></p>
 
                                         <button type="submit"
-                                        class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                        style="background: linear-gradient(45deg, #0a2262, #0038ab); font-weight: 100; height: 45px; width: 70%; border-radius: 50px;">
-                                    <span style="font-family: Montserrat-bold; color: #ffffff; font-size: 21px;">INICIAR SESIÓN</span>
-                                </button>
-                                
+                                            class="btn btn-primary md d-flex align-items-center justify-content-center"
+                                            style="background-color: #042d89;font-weight: 100%; height:40px;width:70%; border-radius: 20px;">
+                                            <span style="color:white; font-size: 1em;">INICIAR SESIÓN</span>
+                                        </button>
 
                                     </div>
                                 </div>
                                 <div class="row container">
                                     <div class="col-1"></div>
-                                    {{-- <div class="col-3">
+                                    <div class="col-1">
                                         <div class="icheck-primary">
                                             <p></p>
-                                            <div class="">
-                                                <input class="form-check-input" type="checkbox" name="remember"
-                                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label for="remember" style="color:black">
-                                                    {{ __('Recuérdame') }}
-                                                </label>
-                                            </div>
+
+                                            <input class="form-check-input" type="checkbox" name="remember"
+                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            <span style="color: #042d89;font-size:12px">Recordarme</span>
+
 
                                         </div>
-                                    </div> --}}
-                                    <div class="col-3 text-center">
-
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-9">
+                                        <p></p>
+                                        @if (Route::has('password.request'))
+                                            <a class="login-box-msg"
+                                                href="{{ route('password.request') }}"style="color:#042d89;font-size:13px">
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                &nbsp;¿Olvidaste tu Contraseña?
+                                            </a>
+                                        @endif
                                     </div>
                                     <!-- /.col -->
 
@@ -215,23 +193,16 @@ b {
 
                                     <!-- /.col -->
                                 </div>
-                            <p></p>
-                                <div class="d-flex justify-content-center">
-                                    @if (Route::has('password.request'))
-                                        <a class="login-box-msg" style="font-family: Montserrat-Regular; font-size:13px"
-                                            href="{{ route('password.request') }}"style="color:#0a2262">
-                                         <p></p>  ¿Olvidaste tu Contraseña? 
-                                        </a>
-                                    @endif
-                                </div>
+                                <p></p>
 
                                 <div class="social-auth-links text-center mb-3">
-                                    
-                                
+
                                     {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> --}}
-                                    <a href="{{ url('/auth/google') }}" class="btn btn-block shadow-sm p-2 mb-5  rounded" style="background-color:#5a86ea;color:white; border-radius: 20px; border: 15px">
+                                    <a href="{{ url('auth/google') }}"
+                                        class="btn btn-block shadow-sm p-2 mb-5  rounded"
+                                        style="background-color:#d43c16;color:white">
 
 
                                         <div class="google-auth__GoogleAuthStyled-sc-7d7ymg-0 ewxrDx">
@@ -256,64 +227,28 @@ b {
                                                     d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
 	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
                                                 </path>
-                                            </svg><span style="font-family: Montserrat-bold"> Continua con Google</span>
+                                            </svg><span> Continuar con Google</span>
 
                                         </div>
                                     </a>
-                                    <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
-                                    <div class="social-auth-links text-center mt-2 mb-3">
-                        
-                                        <a href="{{ url('/login/microsoft') }}" class="btn btn-block" style="background-color: black;color:white">
-                                            <i class="fab fa-microsoft mr-2"></i>Continúa con Microsoft
-                                        </a>
-                                    </div>
                                 </div>
                             </form>
-                         
+
+                            </form>
 
 
-                            <div class="social-auth-links text-center mb-3">
-                    {{-- <p>- OR -</p> --}}
-                    <span
-                    style="background-image: linear-gradient(45deg, rgb(15, 1, 9), rgb(255, 20, 184)); -webkit-background-clip: text; color: transparent;">
-                    <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev. AnthonyCode</a></span>
-                    {{-- <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a> --}}
-                    {{-- <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a> --}}
-                </div>
-                            <!-- /.social-auth-links -->
 
-                            {{-- <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
-                </p> --}}
                         </div>
                         <!-- /.login-card-body -->
                     </div>
-                    {{-- <style>
-                        .pie {
-                            margin: 0px;
-                            background-image: url("{{ asset('lineas.png') }}");
-                            width: 100%;
-                            background-repeat: no-repeat
-                        }
-                    </style>
-                    <div class="pie">
 
-                    </div> --}}
                 </div>
             </div>
-
+            <div class="col-md-8 bg-image full-height d-none d-md-block">
+                <!-- contenido de la primera columna -->
+            </div>
         </div>
     </div>
-
-
-
 
 
     <!-- /.login-box -->

@@ -164,14 +164,7 @@
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-acecb733-abe8-49cc-b4b3-4d7169390095" data-elfsight-app-lazy></div>
-<center>
-  
-    <iframe 
-    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FONEDIGITAL.Latam&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=859285638195545" 
-    width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-</center>
+
 
     <p></p>
     <br>

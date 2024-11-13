@@ -28,7 +28,8 @@ class RegistryDetailSeeder extends Seeder
                 'student_t' => 'App\Models\User',
                 'student_r' => '5',
                 'url_certification' => '',
-                'state_certification' => ''
+                'state_certification' => '',
+                'pay' => 'not',
 
             ]);
     }

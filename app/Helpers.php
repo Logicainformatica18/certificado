@@ -36,3 +36,20 @@ function photoDestroy($photo, $directory)
 function saludo(){
     return "hola";
 }
+function split_date($date){
+     
+     $carbonDate = Carbon::parse($date);
+
+  // Obtener el año, mes y día por separado
+     $year = $carbonDate->year;
+     $month = $carbonDate->month;
+      $day = $carbonDate->day;
+
+    //   if($day<10){
+    //     $day = "0". $day;
+    //   }
+    //   if($month<10){
+    //     $month = "0". $month;
+    //   }
+      return $day;
+}

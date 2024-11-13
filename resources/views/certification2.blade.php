@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital" />
+    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en Certificados AnthonyCode" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
@@ -16,7 +16,7 @@
 
 
 
-    <title>Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital</title>
+    <title>Mi Certificación en : {{ $certification[0]->description }} en Certificados AnthonyCode</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -257,7 +257,7 @@
             <div class="col-12 text-center">
 
                 <h2 style="color:#5a86ea;font-size:120%;font-family: Montserrat-BoldItalic">
-                    One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
+                    AnthonyCode reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
                     style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">

@@ -60,55 +60,75 @@ class RegistryDetailController extends Controller
     public function store(Request $request)
 
     {
+     
         $registry = Registry::find(Session::get('registry_id'));
         $count = RegistryDetail::where('registry_id',Session::get('registry_id'))->count();
         $count = $count + 1;
         $registry_detail = new RegistryDetail;
         $student =explode("-", $request->student) ;
 
- $count_registry_detail= RegistryDetail::where("student_m","=",$student[0])->where("registry_id","=",Session::get('registry_id'))->count();
+    
+  $count_registry_detail= RegistryDetail::where("student_m","=",$student[0])->where("registry_id","=",Session::get('registry_id'))->count();
 if ($count_registry_detail>0) {
             return "Error";
 }
-else if ($count_registry_detail==0){
-   $registry_detail->student_m = $student[0];
+else{
+ 
+     $registry_detail->student_m = $student[0];
       $registry_detail->student_t = $student[1];
-        $registry_detail->student_r = $student[2];
-           if ($count > 9 && $count < 100) {
-                                            $count = '0' . $count;
-                                        } elseif ($count < 10) {
-                                            $count = '00' . $count;
-                                        }
+      $registry_detail->student_r = 5;
+         $registry_detail->registry_id = $registry->id;
+         $registry_detail->limit = "1";
+         $registry_detail->pay = "not";
+         
+$registry_detail->code_certification = $registry->description.'-'.$registry->date_certification.'-'.$count;
+         //$registry_detail->code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
+         $registry_detail->save();
+
+}
+
+// else if ($count_registry_detail==0){
+   
+   
+//     $registry_detail->student_m = $student[0];
+//       $registry_detail->student_t = $student[1];
+//         $registry_detail->student_r = $student[2];
+//            if ($count > 9 && $count < 100) {
+//                                             $count = '0' . $count;
+//                                         } elseif ($count < 10) {
+//                                             $count = '00' . $count;
+//                                         }
                               
                                         
                                   
         
-                                        $fecha = $registry->fec_end;
-                                        // Crear una instancia de Carbon con la fecha dada
-                                        $carbonDate = Carbon::parse($fecha);
+//                                         $fecha = $registry->fec_end;
+//                                         // Crear una instancia de Carbon con la fecha dada
+//                                         $carbonDate = Carbon::parse($fecha);
                                 
-                                        // Obtener el año, mes y día por separado
-                                        $year = $carbonDate->year;
-                                        $month = $carbonDate->month;
-                                        $day = $carbonDate->day;
- if ($day <= 9) {
-    $day = "0". $day;
- }
- if ($month <= 9) {
-    $month = "0". $month;
- }
-    $registry_detail->code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
+//                                         // Obtener el año, mes y día por separado
+//                                         $year = $carbonDate->year;
+//                                         $month = $carbonDate->month;
+//                                         $day = $carbonDate->day;
+//  if ($day <= 9) {
+//     $day = "0". $day;
+//  }
+//  if ($month <= 9) {
+//     $month = "0". $month;
+//  }
+//     $registry_detail->code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
 
-      $registry_id = Session::get('registry_id');
+//       $registry_id = Session::get('registry_id');
 
-        $registry_detail->registry_id   =   $registry_id;
+//         $registry_detail->registry_id   =   $registry_id;
 
-            $registry_detail->pay = "not";
+//             $registry_detail->pay = "not";
 
-      $registry_detail->save();
+//       $registry_detail->save();
 
-    return $this->create();
-}
+
+//    return $this->create();
+// }
 
 
        // return $count_registry_detail;
