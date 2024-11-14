@@ -42,8 +42,8 @@
     </div>
 
     @php
-    $validate;
-@endphp
+        $validate;
+    @endphp
 
 
 
@@ -64,7 +64,7 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
                         Código : <input type="text" name="description" id="description" class="form-control">
-                        Edición: <input type="number" name="edition" id="edition" class="form-control">
+                        Edición: <input type="text" name="edition" id="edition" class="form-control">
                         Docente
                         <select name="teacher" id="teacher" class="form-control">
                             @foreach ($teacher_new as $item)
@@ -85,13 +85,13 @@
                             <option value="Clase">Clase</option>
                             <option value="Evento">Evento</option>
                         </select>
-                        Fecha Inicio :
+                        Fecha Inicio :date
                         <input type="date" name="fec_start" id="fec_start" class="form-control">
                         Fecha Fin :
                         <input type="date" name="fec_end" id="fec_end" class="form-control">
-                        {{-- Fecha Fecha de Certificación :
+                        Fecha Fecha de Certificación :
 
-                        <input type="date" name="date_certification" id="date_certification" class="form-control"> --}}
+                        <input type="date" name="date_certification" id="date_certification" class="form-control">
                         Hora Inicio :
                         <input type="time" name="hour_start" id="hour_start" class="form-control" value="19:00:00">
                         Hora Fin :

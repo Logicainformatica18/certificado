@@ -22,6 +22,13 @@ class UserController extends Controller
 {
     use Notifiable;
     use HasRoles;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+
+    }
     /**
      * Display a listing of the resource.
      *

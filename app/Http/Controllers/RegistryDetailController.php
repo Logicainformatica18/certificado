@@ -81,10 +81,10 @@ else{
          $registry_detail->limit = "1";
          $registry_detail->pay = "not";
          
-$registry_detail->code_certification = $registry->description.'-'.$registry->date_certification.'-'.$count;
-         //$registry_detail->code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
+$registry_detail->code_certification = $registry->description.'-'.$registry->edition."-".$registry->date_certification.'-'.$count;
+      
          $registry_detail->save();
-
+    return $this->create();
 }
 
 // else if ($count_registry_detail==0){
