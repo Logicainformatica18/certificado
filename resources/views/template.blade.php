@@ -48,9 +48,12 @@
     <script src="{{ asset('exam.js') }}"></script>
     <script src="{{ asset('qualification.js') }}"></script>
     <script src="{{ asset('inscription.js') }}"></script>
+    <script src="{{ asset('topic.js') }}"></script>
+    
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
 
 
 
