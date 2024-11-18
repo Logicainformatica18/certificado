@@ -25,7 +25,32 @@
 </button>
 
     <p></p>
+    <form action="" method="post" role="form" id="topic" name="form">
+        <input type="hidden" name="id" id="id">
+        {{ csrf_field() }}
+        Descripción : <input type="text" name="description" id="description" class="form-control">
+             
+        Contenido :
+        <textarea id="summernote"style="height:'900px'" name="post">
+           
+            <p></p>
+          </textarea>
+      
+        Detalle : <input type="text" name="detail" id="detail" class="form-control">
+        Instrucciones :
+        <textarea class="form-control" rows="4"name="instruction"id="instruction"> </textarea>
+        Puntos : 
+        <input type="number" name="point" id="point" class="form-control" value="0">
   
+<p></p>
+    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#topic')[0].reset();"
+        name="new">
+    <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()"
+        name="create">
+    <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();"
+        name="update">
+        
+    </form>
 
     <p></p>
     <!-- /.content -->
@@ -36,7 +61,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -82,7 +107,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script>
         $(function() {
