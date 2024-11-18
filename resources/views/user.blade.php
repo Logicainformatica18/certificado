@@ -2,7 +2,8 @@
 @section('content')
     <!-- Content Header (Page header) -->
     <section class="content-header" style="font-family:Montserrat-Regular">
-        <p></p><div class="container-fluid">
+        <p></p>
+        <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Usuarios</h1>
@@ -20,33 +21,51 @@
     <!-- Button trigger modal -->
 
     <p></p>
-
+    <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white;width:250px" class="btn"
+        data-toggle="modal" data-target="#exampleModal"
+        onclick="New();$('#user')[0].reset();user.fotografia.src="https://via.placeholder.com/150;'>
+        <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
+    </button>
+    <p></p>
     <div class="row">
-        <div class="col col-lg-2">
-            <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal" data-target="#exampleModal"
-                onclick="New();$('#user')[0].reset();user.fotografia.src="https://via.placeholder.com/150;'>
-               <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
-            </button>
-        </div>
-        <div class="col col-lg-2">
+        <div class="col col-lg-2 col-md-4 col-sm-5">
             <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="btn btn-default btn-file col-9"style="border-radius:20px">
-                    <i class="fas fa-paperclip"></i> Subir
+                    <i class="fas fa-paperclip"></i> Subir Archivo Excel
                     <input type="file" name="file" class="form-control">
                 </div>
-
-             
-                <br>
-
         </div>
-        <div class="col col-lg-2"style="margin-left:-45px" >
+        <div class="col col-lg-8 col-md-8  col-sm-6"style="margin-left:-45px">
             <button class="btn btn-success"style="border-radius:20px">Importar</button>
             </form>
         </div>
-
+ 
     </div>
+<p></p>
+    <div class="row">
+        <div class="col col-lg-9 col-md-9 col-sm-12">
+            ID Google Sheet:
+          <input id="id_sheet" type="text"class="form-control" width="100%" placeholder="ejem: 1ShgVLdsBMDAW2v4Xzk3JL8xls0KlKUEUMzY5mlTvwds"
+          value="1hoWjx5VabJ-zkqm0Q58KzguawIXE-RIZCRAd5Whajtk">
 
+        </div>
+        <div class="col col-lg-3 col-md-3 col-sm-6">
+            Rango: 
+          <input id="range" type="text"class="form-control" width="100%" placeholder="ejem: hoja1!A1:D10"
+          value="hoja!A1:H10">
+
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6">
+            <br>
+            <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn"
+            onclick='userImportGoogle()'>
+            <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Importar Google
+        </button>
+
+        </div>
+      
+    </div>
 
 
     <!-- /.content -->
@@ -63,7 +82,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold"style="font-color:#1b3d6d;font-family:Montserrat-Bold">Mantenimiento</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold"
+                        style="font-color:#1b3d6d;font-family:Montserrat-Bold">Mantenimiento</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -145,7 +165,8 @@
                                 <div class="col-sm-1"></div>
                                 <div class="btn btn-default btn-file col-9">
                                     <i class="fas fa-paperclip"></i> Subir
-                                    <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
+                                    <input type='file' id="imgInp" name="photo"
+                                        onchange="readImage(this,'#blah');">
                                 </div>
 
 
@@ -161,8 +182,10 @@
 
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
-                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"  name="new">
+                    <input type="button" value="Nuevo" class="btn"
+                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"
+                        name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"
                         id="update">
@@ -179,7 +202,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold">Gestionar Permisos</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold">
+                        Gestionar Permisos</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -194,11 +218,9 @@
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
-                       <br>
-                        <input type="button"
-                        style="color:#ffffff;background-color:#5a86ea;font-family:Montserrat-Bold"
-                        value="Agregar" class="btn" onclick="userRoleStore()"
-                            name="create">
+                        <br>
+                        <input type="button" style="color:#ffffff;background-color:#5a86ea;font-family:Montserrat-Bold"
+                            value="Agregar" class="btn" onclick="userRoleStore()" name="create">
 
 
                         <div id="mycontent_detail">
@@ -213,8 +235,9 @@
 
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#role')[0].reset();"
-                        name="new">
+                    <input type="button" value="Nuevo" class="btn"
+                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        onclick="New();$('#role')[0].reset();" name="new">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </form>

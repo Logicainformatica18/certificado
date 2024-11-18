@@ -154,6 +154,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
    Route::post('userUpdate', [App\Http\Controllers\UserController::class, 'update']);
    Route::post('userShow', [App\Http\Controllers\UserController::class, 'show']);
    Route::post('userUpdateProfile', [App\Http\Controllers\UserController::class, 'updateProfile']);
+  // Route::post('userImportGoogle', [App\Http\Controllers\UserController::class, 'importGoogle'])->name("userImportGoogle");
 
    Route::post('userRoleStore',[App\Http\Controllers\UserController::class, 'userRoleStore']);
    Route::post('userRoleEdit',[App\Http\Controllers\UserController::class, 'userRoleEdit']);
@@ -233,7 +234,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
  Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 
- Route::get('auth/google', [\App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
+ Route::get('/auth/google', [\App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
  
  use App\Models\User;
  
@@ -276,13 +277,10 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
  });
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
-    Route::get('users', 'index');
-
-
-    
     Route::get('users-export', 'export')->name('users.export');
     Route::post('users-import', 'import')->name('users.import');
 
+   Route::post('userImportGoogle', 'importGoogle');
     
     
 });
@@ -292,15 +290,61 @@ Route::controller(ExamController::class)->group(function(){
     Route::post('exams-import', 'import')->name('exams.import');
 
 });
+
+
 Route::controller(RegistryDetailController::class)->group(function(){
    
     Route::post('registry_detail-import', 'import')->name('registry_detail.import');
+    Route::post('registryDetailImportGoogle', 'importGoogle');
 
 });
 
+//////////////////////////////////////////////////
 
 
 
+Route::get('login/microsoft', function () {
+    return Socialite::driver('microsoft')->redirect();
+});
+
+Route::get('login/microsoft/callback', function () {
+    try {
+        //create a user using socialite driver google
+        $user = Socialite::driver('microsoft')->user();
+        // if the user exits, use that user and login
+        $finduser = User::where('email', $user->email)->first();
+        if($finduser){
+            //if the user exists, login and show dashboard
+            Auth::login($finduser);
+            return redirect('/home');
+        }else{
+            //user is not yet created, so create first
+            $newUser = User::create([
+                'names' => $user->name,
+                 'firstname' => '',
+                  'lastname' => '',
+                'email' => $user->email,
+                'google_id'=> $user->id,
+                'password' => Hash::make('onedigital123')
+            ]);
+          
+            $newUser->save();
+            //login as the new user
+            Auth::login($newUser);
+            $newUser->assignRole('Estudiante');
+            //
+          //  $newUser->createToken(request()->device_name)->plainTextToken ;
+            // go to the dashboard
+            return redirect('/home');
+        }
+        //catch exceptions
+    } catch (Exception $e) {
+        dd($e->getMessage());
+    }
+});
+
+
+Route::get('google_sheet',[\App\Http\Controllers\GoogleSheetController::class, 'index']);
 
 
 

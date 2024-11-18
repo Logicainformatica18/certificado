@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDNWXGWF');</script>
 </head>
 <style type="text/css">
     .welcome {
@@ -106,6 +113,11 @@ b {
 </style>
 
 <body class="">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 bg-image full-height d-none d-md-block">
@@ -215,7 +227,7 @@ b {
 
                                 <div class="social-auth-links text-center mb-3">
                                     
-                                   <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
+                                
                                     {{-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> --}}
@@ -248,9 +260,16 @@ b {
 
                                         </div>
                                     </a>
+                                    <p style="margin-top:-15px; color:#a8a7a7;font-family:Montserrat-bold;font-size:13px">- O -</p>
+                                    <div class="social-auth-links text-center mt-2 mb-3">
+                        
+                                        <a href="{{ url('/login/microsoft') }}" class="btn btn-block" style="background-color: black;color:white">
+                                            <i class="fab fa-microsoft mr-2"></i>Continúa con Microsoft
+                                        </a>
+                                    </div>
                                 </div>
                             </form>
-
+                         
 
 
                             <div class="social-auth-links text-center mb-3">
@@ -292,6 +311,9 @@ b {
 
         </div>
     </div>
+
+
+
 
 
     <!-- /.login-box -->

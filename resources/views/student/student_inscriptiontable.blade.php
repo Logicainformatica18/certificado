@@ -18,12 +18,12 @@
                             $img = $registrys->course->emision;
                         @endphp
                         <div style="width: 15rem;border-radius:40px" class="card" >
-                            <img src="{{ asset('../curso_promocion.jpg') }}" class="card-img-top" alt="..."
-                            style="border-top-left-radius:40px;border-top-right-radius:40px;"
+                            <img src="{{ asset('imageusers/'.$img) }}" class="card-img-top" alt="..."
+                            style="border-top-left-radius:40px;border-top-right-radius:40px;height:200px"
                             >
                             <div class="card-body" style="background: linear-gradient(to right, #0a2262, #0038ab);
                             border-bottom-left-radius:40px;border-bottom-right-radius:40px;
-                            color:white">
+                            wwcolor:white">
 
                                 <h5 class="card-title"style="font-family:Montserrat-Bold;
                                 font-size:20px;

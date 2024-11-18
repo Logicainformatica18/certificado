@@ -152,3 +152,34 @@ function registryShow() {
       console.log(response);
     });
 }
+
+
+function registryDetailImportGoogle() {
+
+  var formData = new FormData(document.getElementById("registry_detail"));
+      formData.append("id_sheet", document.getElementById("id_sheet").value);
+      formData.append("range", document.getElementById("range").value);
+      axios({
+              method: 'post',
+              url: "registryDetailImportGoogle",
+              data: formData,
+              headers: {
+                  'Content-Type': 'multipart/form-data'
+              }
+          })
+          .then(function(response) {
+              //handle success
+              var contentdiv = document.getElementById("mycontent");
+              contentdiv.innerHTML = response.data;
+                   //carga pdf- csv - excel
+            datatable_load();
+            alert('Importado Correctamente');
+            window.location.reload();
+          })
+          .catch(function(response) {
+              //handle error
+            //  console.log(response);
+            alert('Ocurrió un error al importar, verifíque los datos');
+          });
+
+}

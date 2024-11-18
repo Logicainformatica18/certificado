@@ -51,14 +51,21 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     {{ session('success') }}
 
     <!-- jQuery -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script> --}}
+        <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDNWXGWF');</script>
 </head>
 <style type="text/css">
     @font-face {
@@ -98,7 +105,10 @@
 </style>
 
 <body class="pos-relative">
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
         <div class="row w-100">
             <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
@@ -188,11 +198,10 @@
                         <h1 class="tx-100 tx-xs-140 tx-normal tx-inverse tx-roboto mg-b-0">
 
                             {{-- <canvas id="canvas" height="3672px" width="4752px" class="img-fluid" alt="Responsive image">  </canvas> --}}
-                            <canvas id="canvas1" height="750px" width="1000px" class="img-fluid padre"
-                                alt="Responsive image">
+                            <canvas id="canvas1" height="1500" width="2000" alt="Responsive image"
+                            style="width: 100%; height: 100%;"></canvas>
 
-
-                            </canvas>
+                        </canvas>
 
                             <form action="" method="post" id="certification"></form>
                         </h1>
@@ -253,8 +262,13 @@
                 <button class="btn btn-outline-info" id="btnpng"
                     style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
 
-                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">Descargar</h4>
+                    <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
+                <button class="btn btn-outline-info" id="btnpdf"
+                style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
+
+                <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
+            </button>
                 <p></p>
                 <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
                 <p></p>
@@ -363,7 +377,7 @@
 
 
 
-        buttons_pdf("canvas")
+      //  buttons_pdf("canvas")
 
         //buttons_png();
 
@@ -375,6 +389,39 @@
             lblpng.click();
 
         });
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector("#btnpdf").addEventListener("click", function() {
+                let canvas = document.querySelector("#canvas1");
+                let imgData = canvas.toDataURL('image/png');
+
+                const {
+                    jsPDF
+                } = window.jspdf;
+                let pdf = new jsPDF('landscape', 'mm', 'letter');
+
+                // Dimensiones del PDF en mm (210 x 297 para A4 en landscape)
+                let pdfWidth = pdf.internal.pageSize.getWidth();
+                let pdfHeight = pdf.internal.pageSize.getHeight();
+
+                // Dimensiones del canvas en píxeles
+                let canvasWidth = canvas.width;
+                let canvasHeight = canvas.height;
+
+                // Calcular la escala para que la imagen quepa en el PDF
+                let scaleX = pdfWidth / canvasWidth;
+                let scaleY = pdfHeight / canvasHeight;
+                let scale = Math.min(scaleX, scaleY);
+
+                // Calcular la posición de la imagen en el PDF para centrarla
+                let imgWidth = canvasWidth * scale;
+                let imgHeight = canvasHeight * scale;
+                let x = (pdfWidth - imgWidth) / 1;
+                let y = (pdfHeight - imgHeight) / 1;
+
+                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+                pdf.save("Certificado.pdf");
+            });
+        });
     </script>
     <input type="hidden" id="imagen" value="">
 
@@ -382,7 +429,7 @@
 
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=859285638195545&autoLogAppEvents=1"
-        nonce="dd5Wfr6m"></script>
+    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=859285638195545&autoLogAppEvents=1"
+    nonce="dd5Wfr6m"></script>
 
 </body>

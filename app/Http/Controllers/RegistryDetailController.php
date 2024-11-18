@@ -14,8 +14,9 @@ use App\Helpers;
 use Illuminate\Support\Facades\Session;
 use App\Imports\ImportUsers;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Services\GoogleSheetService;
 use Carbon\Carbon;
+use App\Models\User;
 class RegistryDetailController extends Controller
 {
     private $studentId;
@@ -200,6 +201,73 @@ $registry_detail->pay = $request->pay;
       return back();
     }
 
+    public function importGoogle(Request $request){
+      
+              $google = New GoogleSheetService();
+              $data =   $google->getSheetDataWithHeaders($request->id_sheet, $request->range);
+       
+              $object = json_decode(json_encode($data));
+          
+    
+               foreach ($object as $row) {
+              $user =User::where('email', $row->email)
+              ->join('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+              ->where('model_has_roles.role_id', 5)
+              ->first();
+        
+   
+                   if (!$user) {
+                       continue;
+                   }
+                   else{
+                    $count = RegistryDetail::where('registry_id',Session::get('registry_id'))->count();
+                    $count = $count + 1;
 
 
+                    
+ $count_registry_detail= RegistryDetail::where("student_m","=",$user->id)->where("registry_id","=",Session::get('registry_id'))->count();
+ if ($count_registry_detail>0) {
+            continue;
+ }
+ else if ($count_registry_detail==0){
+
+
+    if ($count > 9 && $count < 100) {
+        $count = '0' . $count;
+    } elseif ($count < 10) {
+        $count = '00' . $count;
+    }
+
+    $registry = Registry::find(Session::get('registry_id'));
+    $fecha = $registry->fec_end;
+    // Crear una instancia de Carbon con la fecha dada
+    $carbonDate = Carbon::parse($fecha);
+
+    // Obtener el año, mes y día por separado
+    $year = $carbonDate->year;
+    $month = $carbonDate->month;
+    $day = $carbonDate->day;
+if ($day <= 9) {
+$day = "0". $day;
+}
+if ($month <= 9) {
+$month = "0". $month;
+}
+$code_certification = $registry->description.'-'.$day.$month.$year.'-'.$count;
+
+    $registry_detail = new RegistryDetail([
+        'registry_id'       =>  Session::get('registry_id'),
+         'n1' => $row->nota1,
+         'pay' => $row->matriculado,
+         'student_r' => '5',
+         'student_m' => $user->id,
+         'student_t' => "App\Models\User",
+         'code_certification' => $code_certification,
+         
+    ]);
+    $registry_detail->save();
+    }
+   }                            
+  }      
+ }
 }
