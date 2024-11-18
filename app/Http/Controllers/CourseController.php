@@ -45,12 +45,13 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
-    {
-        $show="%".$request["show"]."%";
-        $course=Course::where('description',"like",$show)->all();
-        return view('coursetable',compact('course'));
-    }
+    // public function courseTopic(Request $request)
+    // {
+    //   $course = Course::orderBy("id","DESC")->get();
+      
+    //   return redirect('cursos_temas/1');
+    //   //  return view('usuarios', compact('course'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

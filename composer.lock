@@ -892,34 +892,34 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.16.0",
+            "version": "v2.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "017400f609c1fb71ab5ad824c50eabd4c3eaf779"
+                "reference": "846f149c9f879449145326dad99ef00bf1d879f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/017400f609c1fb71ab5ad824c50eabd4c3eaf779",
-                "reference": "017400f609c1fb71ab5ad824c50eabd4c3eaf779",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/846f149c9f879449145326dad99ef00bf1d879f3",
+                "reference": "846f149c9f879449145326dad99ef00bf1d879f3",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "~6.0",
+                "firebase/php-jwt": "^6.0",
                 "google/apiclient-services": "~0.350",
                 "google/auth": "^1.37",
-                "guzzlehttp/guzzle": "^6.5.8||^7.4.5",
-                "guzzlehttp/psr7": "^1.9.1||^2.2.1",
+                "guzzlehttp/guzzle": "^7.4.5",
+                "guzzlehttp/psr7": "^2.6",
                 "monolog/monolog": "^2.9||^3.0",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
                 "phpseclib/phpseclib": "^3.0.36"
             },
             "require-dev": {
                 "cache/filesystem-adapter": "^1.1",
                 "composer/composer": "^1.10.23",
                 "phpcompatibility/php-compatibility": "^9.2",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.5",
+                "phpspec/prophecy-phpunit": "^2.1",
+                "phpunit/phpunit": "^9.6",
                 "squizlabs/php_codesniffer": "^3.8",
                 "symfony/css-selector": "~2.1",
                 "symfony/dom-crawler": "~2.1"
@@ -955,22 +955,22 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client/issues",
-                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.16.0"
+                "source": "https://github.com/googleapis/google-api-php-client/tree/v2.18.0"
             },
-            "time": "2024-04-24T00:59:47+00:00"
+            "time": "2024-10-16T21:58:58+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.360.0",
+            "version": "v0.382.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "e48813050e660c7dcbe48cb6556461efe6381a54"
+                "reference": "9d9d154c8fc3c4b300c27e492f0e917d8ac35124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/e48813050e660c7dcbe48cb6556461efe6381a54",
-                "reference": "e48813050e660c7dcbe48cb6556461efe6381a54",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/9d9d154c8fc3c4b300c27e492f0e917d8ac35124",
+                "reference": "9d9d154c8fc3c4b300c27e492f0e917d8ac35124",
                 "shasum": ""
             },
             "require": {
@@ -999,29 +999,29 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/google-api-php-client-services/issues",
-                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.360.0"
+                "source": "https://github.com/googleapis/google-api-php-client-services/tree/v0.382.0"
             },
-            "time": "2024-06-17T01:06:20+00:00"
+            "time": "2024-11-15T01:10:24+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.40.0",
+            "version": "v1.43.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "bff9f2d01677e71a98394b5ac981b99523df5178"
+                "reference": "b6a80acd906492086db59aada9196dcfb9c512fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/bff9f2d01677e71a98394b5ac981b99523df5178",
-                "reference": "bff9f2d01677e71a98394b5ac981b99523df5178",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/b6a80acd906492086db59aada9196dcfb9c512fe",
+                "reference": "b6a80acd906492086db59aada9196dcfb9c512fe",
                 "shasum": ""
             },
             "require": {
                 "firebase/php-jwt": "^6.0",
                 "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.4.5",
-                "php": "^8.0",
+                "php": "^8.1",
                 "psr/cache": "^2.0||^3.0",
                 "psr/http-message": "^1.1||^2.0"
             },
@@ -1059,9 +1059,9 @@
             "support": {
                 "docs": "https://googleapis.github.io/google-auth-library-php/main/",
                 "issues": "https://github.com/googleapis/google-auth-library-php/issues",
-                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.40.0"
+                "source": "https://github.com/googleapis/google-auth-library-php/tree/v1.43.0"
             },
-            "time": "2024-05-31T19:16:15+00:00"
+            "time": "2024-11-07T19:35:20+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -4928,16 +4928,16 @@
         },
         {
             "name": "socialiteproviders/manager",
-            "version": "v4.6.0",
+            "version": "v4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Manager.git",
-                "reference": "dea5190981c31b89e52259da9ab1ca4e2b258b21"
+                "reference": "ab0691b82cec77efd90154c78f1854903455c82f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/dea5190981c31b89e52259da9ab1ca4e2b258b21",
-                "reference": "dea5190981c31b89e52259da9ab1ca4e2b258b21",
+                "url": "https://api.github.com/repos/SocialiteProviders/Manager/zipball/ab0691b82cec77efd90154c78f1854903455c82f",
+                "reference": "ab0691b82cec77efd90154c78f1854903455c82f",
                 "shasum": ""
             },
             "require": {
@@ -4998,20 +4998,20 @@
                 "issues": "https://github.com/socialiteproviders/manager/issues",
                 "source": "https://github.com/socialiteproviders/manager"
             },
-            "time": "2024-05-04T07:57:39+00:00"
+            "time": "2024-11-10T01:56:18+00:00"
         },
         {
             "name": "socialiteproviders/microsoft",
-            "version": "4.3.0",
+            "version": "4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/Microsoft.git",
-                "reference": "9cda621d75b8681b9c0a015a766f05aa5d29d1d0"
+                "reference": "9f55e544f183c36096a14b2e61b5d6c9dc23961e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/Microsoft/zipball/9cda621d75b8681b9c0a015a766f05aa5d29d1d0",
-                "reference": "9cda621d75b8681b9c0a015a766f05aa5d29d1d0",
+                "url": "https://api.github.com/repos/SocialiteProviders/Microsoft/zipball/9f55e544f183c36096a14b2e61b5d6c9dc23961e",
+                "reference": "9f55e544f183c36096a14b2e61b5d6c9dc23961e",
                 "shasum": ""
             },
             "require": {
@@ -5048,7 +5048,7 @@
                 "issues": "https://github.com/socialiteproviders/providers/issues",
                 "source": "https://github.com/socialiteproviders/providers"
             },
-            "time": "2024-05-13T22:57:35+00:00"
+            "time": "2024-07-12T02:43:55+00:00"
         },
         {
             "name": "spatie/laravel-permission",
