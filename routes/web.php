@@ -129,7 +129,9 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], function () {
     //
-
+    Route::get('hola',function (){
+        return view('student.vista');
+    });
 
     Route::resource("temas", App\Http\Controllers\TopicController::class);
     Route::post('topicStore',[App\Http\Controllers\TopicController::class, 'store']);
