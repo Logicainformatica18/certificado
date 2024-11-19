@@ -23,7 +23,7 @@
     <p></p>
     <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white;width:250px" class="btn"
         data-toggle="modal" data-target="#exampleModal"
-        onclick="New();$('#user')[0].reset();user.fotografia.src="https://via.placeholder.com/150;'>
+        onclick="New();$('#user')[0].reset();user.fotografia.src="https://placehold.co/150;'>
         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
     </button>
     <p></p>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="size-100">
                                 <br>
-                                <img id="blah" name="fotografia" src="https://via.placeholder.com/150"
+                                <img id="blah" name="fotografia" src="https://placehold.co/150"
                                     alt="Tu imagen" class="img-bordered" width="100%">
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
                         style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
-                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://via.placeholder.com/150';"
+                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://placehold.co/150';"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"

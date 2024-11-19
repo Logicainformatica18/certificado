@@ -54,6 +54,8 @@
                                                     <!-- <button class="note-icon-pencil" ></button> -->
                                                     <button class="btn btn-danger note-icon-trash"
                                                         onclick="courseDestroy('{{ $courses->id }}'); return false"></button>
+                                                        <a class="btn btn-warning note-icon-pencil"
+                                                        onclick="courseTopic('{{ $courses->id }}')"> Temario</a>
                                                 @endrole
                                                 @role('Docente|Coordinación')
                                                     <a class="btn btn-warning note-icon-pencil"

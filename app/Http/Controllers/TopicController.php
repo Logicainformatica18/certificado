@@ -28,7 +28,10 @@ class TopicController extends Controller
     {
         //
     }
-
+    public function report()
+    {
+        return "hola gaaaaaaaa";
+    }
     /**
      * Store a newly created resource in storage.
      */

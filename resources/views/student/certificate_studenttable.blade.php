@@ -47,7 +47,7 @@
                                             <td>{{ $registry_details->registry->course->description }}</td>
                                             <td>
                                                 @if ($registry_details->average < 14)
-                                                    Desaprobado
+                                                    Pendiente
                                                 @else
                                                     Aprobado
                                                 @endif
