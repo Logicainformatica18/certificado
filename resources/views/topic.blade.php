@@ -17,19 +17,54 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
+    <script>
+      function  reset_textarea(){
+       // JavaScript para establecer el contenido del textarea
+      // document.getElementsByClassName('note-editable')[0].innerHTML = "hola";
+                // JavaScript para establecer el contenido del textarea
+     document.getElementsByClassName('note-editable')[0].innerHTML = "";
+        }
+              
+    </script>
     <!-- Button trigger modal -->
-    <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
+    {{-- <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
     data-target="#exampleModal"
     onclick="New();$('#topic')[0].reset();">
     <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
-</button>
+</button> --}}
 
     <p></p>
     <form action="" method="post" role="form" id="topic" name="form">
         <input type="hidden" name="id" id="id">
         {{ csrf_field() }}
         Descripción : <input type="text" name="description" id="description" class="form-control">
-             
+          <p>
+            <div class="container-fluid">
+                <div class="form-group row">
+                    <br>
+                    Imagen Principal
+                    <p></p>
+                    <div class="col-10">
+                    </div>
+                    <div class="btn btn-default btn-file col-2">
+                        <i class="fas fa-paperclip"></i> Subir
+                        <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
+                    </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="size-10 container-fluid col-12">
+                        <br>
+                        <img id="blah" name="fotografia" src="https://placehold.co/500x350" alt="Tu imagen"
+                            class="img-bordered" width="250px">
+                            <p></p>
+                    </div>  
+    
+                </div>
+                 
+            </div>
+            
+        </p>   
+
         Contenido :
         <textarea id="summernote"style="height:'900px'" name="post">
            
@@ -38,12 +73,14 @@
       
         Detalle : <input type="text" name="detail" id="detail" class="form-control">
         Instrucciones :
-        <textarea class="form-control" rows="4"name="instruction"id="instruction"> </textarea>
+        <textarea class="form-control" rows="6"name="instruction"id="instruction"> </textarea>
         Puntos : 
         <input type="number" name="point" id="point" class="form-control" value="0">
-  
+       <p></p>
+
+
 <p></p>
-    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#topic')[0].reset();"
+    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#topic')[0].reset();reset_textarea();"
         name="new">
     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()"
         name="create">

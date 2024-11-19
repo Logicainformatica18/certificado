@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('detail')->nullable();
             $table->string('instruction')->nullable();
+            $table->string('image')->nullable();
             $table->integer('point')->default('0');
             $table->longText('post')->nullable();
             $table->string('link_1')->nullable();

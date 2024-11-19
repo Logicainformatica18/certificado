@@ -89,11 +89,13 @@ function topicEdit(id) {
             topic.id.value = response.data["id"];
             topic.description.value = response.data["description"];
             topic.detail.value = response.data["detail"];
-            topic.hours.value = response.data["hours"];
-            topic.type.value = response.data["type_id"];
-            topic.folder_certification.value =
-                response.data["folder_certification"];
-            topic.review.value = response.data["review"];
+            topic.detail.value = response.data["instruction"];
+     
+      
+   
+          
+             // JavaScript para establecer el contenido del textarea
+ document.getElementsByClassName('note-editable')[0].innerHTML = response.data["post"];
         })
         .catch(function (response) {
             //handle error

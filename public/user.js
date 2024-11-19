@@ -126,7 +126,7 @@ function userEdit(id) {
                 user.fotografia.src ="imageusers/"+ response.data["photo"];
             }
             else{
-                user.fotografia.src ="https://via.placeholder.com/150";
+                user.fotografia.src ="https://placehold.co/150";
             }
             user.email.value = response.data["email"];
             user.cellphone.value = response.data["cellphone"];
