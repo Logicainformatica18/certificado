@@ -28,9 +28,13 @@ class TopicController extends Controller
     {
         //
     }
-    public function report()
+    public function report(Request $request)
     {
-        return "hola gaaaaaaaa";
+        
+        $topic = Topic::where('course_id','=',$request->course_id)
+        ->where('id','=',$request->topic_id)->get();
+
+         return view("student.curso_topic", compact("topic"));
     }
     /**
      * Store a newly created resource in storage.

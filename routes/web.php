@@ -138,7 +138,7 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], 
     Route::post('topicDestroy',[App\Http\Controllers\TopicController::class, 'destroy']);
     Route::post('topicShow',[App\Http\Controllers\TopicController::class, 'show']);
 
-    Route::get('cursos/{curso_id}/{tema}/{topic_id}',[App\Http\Controllers\TopicController::class, 'report']);
+    Route::get('cursos/{course_id}/{tema}/{topic_id}',[App\Http\Controllers\TopicController::class, 'report']);
 
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);
