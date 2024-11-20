@@ -10,6 +10,7 @@ class GoogleSheetController extends Controller
 {
     protected $googleSheetService;
 
+    
     public function __construct(GoogleSheetService $googleSheetService)
     {
         $this->googleSheetService = $googleSheetService;
