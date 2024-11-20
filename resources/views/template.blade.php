@@ -185,11 +185,11 @@
 
             <div class="container-fluid">
                 <div class="row w-100">
-                    <div class="col col-lg-6"style="font-family:Montalban">
+                    <div class="col col-lg-6 col-sm-6 col-sx-6"style="font-family:Montalban">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('logo_certificaciones.png') }}" alt="" width="100px">
-                        </a> | Certificaciones
-                    </div>
+                            <img src="{{ asset('ayba/3.png') }}" alt="" width="100px">
+                        </a> | Academy
+                                        </div>
                     <div class="col col-lg-2">
 
                     </div>
