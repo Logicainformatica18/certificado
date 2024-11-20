@@ -23,10 +23,11 @@
                                     <th class="sorting">Puntos</th>
                                     <th class="sorting">Vista Previa</th>
                                    
-                                    <th class="sorting">PDF 1</th>
-                                    <th class="sorting">PDF 2</th>
-                                    <th class="sorting">PDF 3</th>
-                                    <th class="sorting">PDF 4</th>
+                                    <th class="sorting">Recurso 1</th>
+                                    <th class="sorting">Recurso 2</th>
+                                    <th class="sorting">Recurso 3</th>
+                                    <th class="sorting">Recurso 4</th>
+                                    <th class="sorting">Categorías</th>
                                     <th class="sorting">Detalle</th>
                                     <th><img width="20"
                                             src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
@@ -46,6 +47,11 @@
                                             <td>{{ $topics->resource_2 }}</td>
                                             <td>{{ $topics->resource_3}}</td>
                                             <td>{{ $topics->resource_4 }}</td>
+                                            <td>
+                                                @foreach ($topics->categoryDetail as $item )
+                                                    {{$item->category->description." "}}
+                                                @endforeach
+                                            </td>
                                             <td>{{ $topics->detail }}</td>
                                             <td>
                                                 @role('Coordinación|Administrador')
