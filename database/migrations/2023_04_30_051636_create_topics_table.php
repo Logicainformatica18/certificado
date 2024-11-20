@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('detail')->nullable();
             $table->string('instruction')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image_1')->nullable();
+            $table->string('image_2')->nullable();
             $table->integer('point')->default('0');
             $table->longText('post')->nullable();
             $table->string('link_1')->nullable();
@@ -32,7 +33,7 @@ return new class extends Migration
             $table->string('resource_2')->nullable();
             $table->string('resource_3')->nullable();
             $table->string('resource_4')->nullable();
-            $table->time('duration')->nullable();
+            $table->time('time')->nullable();
 
             
             $table->timestamps();

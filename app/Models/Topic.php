@@ -10,7 +10,7 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'course_id','user_id','description','post','instruction', 'point','detail'];
+        'course_id','user_id','description','post','instruction', 'point','detail','resource_1','resource_2','time','image_1','image_2'];
         public function course()    
     {
 
@@ -20,5 +20,10 @@ class Topic extends Model
     {
 
         return $this->hasMany('App\Models\CategoryDetail', 'topic_id','id');
+    }
+    public function user()    
+    {
+
+        return $this->hasOne('App\Models\User', 'id','user_id');
     }
 }

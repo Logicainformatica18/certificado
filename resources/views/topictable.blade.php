@@ -18,8 +18,9 @@
                                     <th></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Curso</th>
+                       
                                     <th class="sorting">Descripción</th>
- 
+                                    <th class="sorting">Instructor</th>
                                     <th class="sorting">Puntos</th>
                                     <th class="sorting">Ver Contenido</th>
                                    
@@ -38,8 +39,10 @@
                                         <tr>
                                             <td></td>
                                             <td>{{ $topics->id }}</td>
+                                          
                                             <td>{{ $topics->course->description }}</td>
                                             <td>{{ $topics->description }}</td>
+                                            <td>{{ $topics->user->names }}</td>
                                             <td>{{ $topics->point }}</td>
                                             <td><a target="_blank" href="cursos/{{$topics->course->id}}/tema/{{$topics->id}}">Ver</a> </td>
                                           

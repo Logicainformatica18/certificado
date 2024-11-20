@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="{{asset('template_premium/assets/images/logos/favicon.png')}}" />
+  <link rel="shortcut icon" type="image/png" href="{{asset('ayba/favicon.png')}}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="{{asset('template_premium/assets/css/styles.css')}}" />
 
-  <title>wdw</title>
+  <title>{{$topic[0]->description}}</title>
 </head>
 
 <body>
   
   <!-- Preloader -->
-  <div class="preloader">
-    <img src="{{asset('template_premium/assets/images/logos/favicon.png')}}" alt="loader" class="lds-ripple img-fluid" />
-  </div>
+  {{-- <div class="preloader">
+    <img src="{{asset('ayba/favicon.png')}}" alt="loader" class="lds-ripple img-fluid" />
+  </div> --}}
   <div id="main-wrapper">
     <!-- Sidebar Start -->
     <aside class="side-mini-panel with-vertical">
@@ -125,8 +125,8 @@
             </div>
             <div class="sidebarmenu">
               <div class="brand-logo d-flex align-items-center nav-logo">
-                <a href="{{asset('template_premium/main/index.html')}}" class="text-nowrap logo-img">
-                  <img src="{{asset('template_premium/assets/images/logos/logo.svg')}}" alt="Logo" />
+                <a href="#" class="text-nowrap logo-img">
+                  <img src="{{asset('ayba/3.png')}}" alt="Logo"  width="150px"/>
                 </a>
 
               </div>
@@ -2459,7 +2459,7 @@
                   <nav aria-label="breadcrumb" class="ms-auto">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item d-flex align-items-center">
-                        <a class="text-muted text-decoration-none d-flex" href="template_premium/main/index.html">
+                        <a class="text-muted text-decoration-none d-flex" href="{{url('/')}}">
                           <iconify-icon icon="solar:home-2-line-duotone" class="fs-6"></iconify-icon>
                         </a>
                       </li>
@@ -2478,14 +2478,16 @@
           <div class="card rounded-2 overflow-hidden">
             <div class="position-relative">
               <a href="javascript:void(0)">
-                <img src="{{asset('template_premium/assets/images/blog/blog-img5.jpg')}}" class="card-img-top rounded-0 object-fit-cover" alt="matdash-img" height="240">
+                <img src="{{asset('ayba/proyecto_banner.png')}}" class="card-img-top rounded-0 object-fit-cover" alt="matdash-img" height="240">
               </a>
-              <span class="badge text-bg-light mb-9 me-9 position-absolute bottom-0 end-0">2
-                min Read</span>
+              <span class="badge text-bg-light mb-9 me-9 position-absolute bottom-0 end-0">{{$topic[0]->time}} </span>
               <img src="{{asset('template_premium/assets/images/profile/user-5.jpg')}}" alt="matdash-img" class="img-fluid rounded-circle position-absolute bottom-0 start-0 mb-n9 ms-9" width="40" height="40" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Esther Lindsey">
             </div>
             <div class="card-body p-4">
-              <span class="badge text-bg-light mt-3">Lifestyle</span>
+              @foreach ($topic[0]->categoryDetail as $item)
+              <span class="badge text-bg-light mt-3">{{$item->category->description}} </span>
+                
+              @endforeach
               
               <h2 class="fs-9 fw-semibold my-4">{{$topic[0]->description}} </h2>
               <div class="d-flex align-items-center gap-4">

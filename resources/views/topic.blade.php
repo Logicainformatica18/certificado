@@ -7,8 +7,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Publicaciones -
-                        {{$course[0]->description}}</h1>
-                  
+                        {{ $course[0]->description }}</h1>
+
                     {{ session('success') }}
                 </div>
                 <div class="col-sm-6">
@@ -36,93 +36,109 @@
 
     <p></p>
     @role('Coordinación|Administrador')
-    <form action="" method="post" role="form" id="topic" name="form">
-        <input type="hidden" name="id" id="id">
-        {{ csrf_field() }}
-        Descripción : <input type="text" name="description" id="description" class="form-control">
-        <p>
-        <div class="container-fluid">
-            <div class="form-group row">
-                <br>
-                Imagen Principal
-                <p></p>
-                <div class="col-10">
-                </div>
-                <div class="btn btn-default btn-file col-2">
-                    <i class="fas fa-paperclip"></i> Subir
-                    <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
-                </div>
-                <div class="col-8">
-                </div>
-                <div class="size-10 container-fluid col-12">
+        <form action="" method="post" role="form" id="topic" name="form">
+            <input type="hidden" name="id" id="id">
+            {{ csrf_field() }}
+            Descripción : <input type="text" name="description" id="description" class="form-control">
+            <p>
+            <div class="container-fluid">
+                <div class="form-group row">
                     <br>
-                    <img id="blah" name="fotografia" src="https://placehold.co/500x350" alt="Tu imagen"
-                        class="img-bordered" width="250px">
+                    Imagen Principal
                     <p></p>
+                    <div class="col-10">
+                    </div>
+                    <div class="btn btn-default btn-file col-2">
+                        <i class="fas fa-paperclip"></i> Subir
+                        <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
+                    </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="size-10 container-fluid col-12">
+                        <br>
+                        <img id="blah" name="fotografia" src="https://placehold.co/500x350" alt="Tu imagen"
+                            class="img-bordered" width="250px">
+                        <p></p>
+                    </div>
+
                 </div>
 
             </div>
 
-        </div>
-
-        </p>
+            </p>
 
 
-        <p>
-            <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
-        <div class="col-12" data-select2-id="23">
-            <div class="form-group" data-select2-id="22">
-                <label>Categorías :</label>
+            <p>
+                <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+            <div class="col-12" data-select2-id="23">
+                <div class="form-group" data-select2-id="22">
+                    <label>Categorías :</label>
 
 
 
 
-                <select name="category[]"id="category" class="select2 select2-hidden-accessible" multiple=""
-                    data-placeholder="Any" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                    {{-- <option data-select2-id="16" value="1" selected >número 0</option>
+                    <select name="category[]"id="category" class="select2 select2-hidden-accessible" multiple=""
+                        data-placeholder="Any" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        {{-- <option data-select2-id="16" value="1" selected >número 0</option>
                         <option data-select2-id="17" value="1" >número 1</option>
                         </option> --}}
 
-                    @foreach ($category as $item)
-                        <option value="{{ $item->id }}">{{ $item->description }}</option>
-                    @endforeach
-                   
+                        @foreach ($category as $item)
+                            <option value="{{ $item->id }}">{{ $item->description }}</option>
+                        @endforeach
 
-                </select>
+
+                    </select>
+                </div>
             </div>
-        </div>
-        <p></p>
-        <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-        <script>
-            $(function() {
-                $('.select2').select2()
-            });
-        </script>
-        </p>
-        Contenido :
-        <textarea id="summernote"style="height:'900px'" name="post">
+            <p></p>
+            <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+            <script>
+                $(function() {
+                    $('.select2').select2()
+                });
+            </script>
+            </p>
+            Contenido :
+            <textarea id="summernote"style="height:'900px'" name="post">
            
             <p></p>
           </textarea>
 
-        Detalle : <input type="text" name="detail" id="detail" class="form-control">
-        Instrucciones :
-        <textarea class="form-control" rows="6"name="instruction" id="instruction"> </textarea>
-        Puntos :
-        <input type="number" name="point" id="point" class="form-control" value="0">
-        <p></p>
+            Detalle : <input type="text" name="detail" id="detail" class="form-control">
+            Duración :
+            <select name="time" id="time" class="form-control">
+                <option value="0.5"selected>30 Mínutos</option>
+                <option value="1">1 Hora</option>
+                <option value="2">2 Horas</option>
+                <option value="4">4 Horas</option>
+            </select>
 
 
-        <p></p>
-        <input type="button" value="Nuevo" class="btn"
-            style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
-            onclick="New();$('#topic')[0].reset();reset_textarea();" name="new">
-        <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()" name="create">
-        <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
+            Instrucciones :
+            <textarea class="form-control" rows="6"name="instruction" id="instruction"> </textarea>
+            Puntos :
+            <input type="number" name="point" id="point" class="form-control" value="0">
+            <p></p>
+            <div class="col col-lg-2 col-md-4 col-sm-5">
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="btn btn-default btn-file col-9"style="border-radius:20px">
+                        <i class="fas fa-paperclip"></i> Subir Excel
+                        <input type="file" name="file" class="form-control">
+                    </div>
+            </div>
 
-    </form>
+            <p></p>
+            <input type="button" value="Nuevo" class="btn"
+                style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
+                onclick="New();$('#topic')[0].reset();reset_textarea();" name="new">
+            <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()" name="create">
+            <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
+
+        </form>
     @endrole
-  
+
 
     <p></p>
     <!-- /.content -->
