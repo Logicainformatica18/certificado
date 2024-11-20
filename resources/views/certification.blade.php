@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title"
-        content="Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital" />
+        content="Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
@@ -17,7 +17,7 @@
 
 
 
-    <title>Mi Certificación en : {{ $certification[0]->description }} en Certificados One Digital</title>
+    <title>Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -110,7 +110,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #5a86ea">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #023039">
 
         <div class="container-fluid">
             <div class="row w-100">
@@ -181,7 +181,7 @@
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#5a86ea; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#023039; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -258,7 +258,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#5a86ea;font-size:120%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#023039;font-size:120%;font-family: Montserrat-BoldItalic">
                     One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"

@@ -80,7 +80,7 @@
     </div>
     <div class="col col-lg-6 col-md-6 col-sm-6">
         <br>
-        <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn"
+        <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn"
         onclick='registryDetailImportGoogle()'>
         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Importar Google
     </button>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                         onclick="New();$('#registry_detail')[0].reset();" name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create"
                         onclick="registry_detailStore()" name="create">

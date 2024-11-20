@@ -28,7 +28,7 @@
         }
     </script>
     <!-- Button trigger modal -->
-    {{-- <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
+    {{-- <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn" data-toggle="modal"
     data-target="#exampleModal"
     onclick="New();$('#topic')[0].reset();">
     <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
@@ -114,7 +114,7 @@
 
         <p></p>
         <input type="button" value="Nuevo" class="btn"
-            style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+            style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
             onclick="New();$('#topic')[0].reset();reset_textarea();" name="new">
         <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()" name="create">
         <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
@@ -165,7 +165,7 @@
                         
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff" onclick="New();$('#topic')[0].reset();"
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" onclick="New();$('#topic')[0].reset();"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()"
                         name="create">
