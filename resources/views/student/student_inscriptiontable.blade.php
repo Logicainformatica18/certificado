@@ -16,6 +16,9 @@
 
                         @php
                             $img = $registrys->course->emision;
+                            if ($img=="") {
+                            $img='curso_promocion.jpg';
+                            }
                         @endphp
                         <div style="width: 15rem;border-radius:40px" class="card" >
                             <img src="{{ asset('imageusers/'.$img) }}" class="card-img-top" alt="..."
@@ -23,7 +26,7 @@
                             >
                             <div class="card-body" style="background: linear-gradient(to left, #011316 20%, #023039 80% );
                             border-bottom-left-radius:40px;border-bottom-right-radius:40px;
-                            wwcolor:white">
+                            color:white">
 
                                 <h5 class="card-title"style="font-family:Montserrat-Bold;
                                 font-size:20px;
@@ -41,7 +44,7 @@
                                 </p>
                              
                                 @role('Estudiante')
-                                    <a class="btn btn-sm" style="border-radius:15px;color:white;background-color: #023039"
+                                    <a class="btn btn-sm" style="border-radius:15px;color:rgb(0, 0, 0);background-color: #5be8dd"
                                         onclick="inscriptionStore('{{ $registrys->id }}','{{Auth::user()->model_has_roles[0]->model_id}}-{{Auth::user()->model_has_roles[0]->model_type}}-{{Auth::user()->model_has_roles[0]->role_id}}')">
                                         INSCRIBIRME</a>
                                 @endrole

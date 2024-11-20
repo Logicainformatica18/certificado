@@ -114,9 +114,9 @@
 
         <div class="container-fluid">
             <div class="row w-100">
-                <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('logo_certificaciones.png') }}" alt="" width="100px">
+                <div class="col col-sm-12 col-lg-6"style="font-family:Montalban;color:#ffffff">
+                    <a class="navbar-brand" href="{{ url('/') }}" >
+                        <img src="{{ asset('ayba/4.png') }}" alt="" width="50px">
                     </a> | Certificaciones
                 </div>
                 <div class="col col-lg-2">
@@ -181,7 +181,7 @@
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#023039; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#F6A42C; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -259,7 +259,7 @@
             <div class="col-12 text-center">
 
                 <h2 style="color:#023039;font-size:120%;font-family: Montserrat-BoldItalic">
-                    One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
+                    Ayba Corp reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
                     style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
