@@ -21,7 +21,7 @@
     <!-- Button trigger modal -->
 
     <p></p>
-    <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white;width:250px" class="btn"
+    <button type="button"style="border-radius:20px;background-color:#023039;color:white;width:250px" class="btn"
         data-toggle="modal" data-target="#exampleModal"
         onclick="New();$('#user')[0].reset();user.fotografia.src="https://placehold.co/150;'>
         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
@@ -58,7 +58,7 @@
         </div>
         <div class="col col-lg-6 col-md-6 col-sm-6">
             <br>
-            <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn"
+            <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn"
             onclick='userImportGoogle()'>
             <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Importar Google
         </button>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                         onclick="New();$('#user')[0].reset(); user.fotografia.src='https://placehold.co/150';"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
@@ -219,7 +219,7 @@
                             @endforeach
                         </select>
                         <br>
-                        <input type="button" style="color:#ffffff;background-color:#5a86ea;font-family:Montserrat-Bold"
+                        <input type="button" style="color:#ffffff;background-color:#023039;font-family:Montserrat-Bold"
                             value="Agregar" class="btn" onclick="userRoleStore()" name="create">
 
 
@@ -236,7 +236,7 @@
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                         onclick="New();$('#role')[0].reset();" name="new">
 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

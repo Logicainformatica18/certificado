@@ -20,7 +20,7 @@
     </section>
     @role('Coordinación|Administrador')
         <!-- Button trigger modal -->
-        <button type="button"style="border-radius:20px;background-color:#5a86ea;color:white" class="btn" data-toggle="modal"
+        <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn" data-toggle="modal"
             data-target="#exampleModal" onclick="New();$('#registry')[0].reset();">
             <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
         </button>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#5a86ea;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                         onclick="New();$('#registry')[0].reset();" name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="registryStore()"
                         name="create">

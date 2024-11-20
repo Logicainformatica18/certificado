@@ -1,143 +1,73 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($users->roles as $item)
-        <div class="container">
 
-            <a href="{{ url($item->name) }}">
-                @if ($item->name == 'Estudiante')
-                    <div class="card badge-primary"
-                        style="background: linear-gradient(to right, #5a86ea, #0038ab);border-radius:25px">
 
-                        <div class="row">
-                            {{-- <div class="col-lg-1">
-                            </div> --}}
-                            <div class="col-lg-1"
-                                style="margin-left: 50px;margin-right: -25px;   align-items: center;display: flex;">
-                                <img src="{{ asset('ESTUDIANTE.png') }}" width="45px" alt="" srcset="" ">
+    
+
+
+    <div class="container">
+
+
+        <div class="row">
+            @foreach ($users->roles as $item)
+                
+                    @if ($item->name == 'Estudiante')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                        <a href="{{ url($item->name) }}">
+                            <div class="card"
+                                style="width: 100%;background: linear-gradient(to left, #011316 20%, #023039 80% );border-radius:20px">
+                                <img class="card-img-top" src="{{ asset('ESTUDIANTE.png') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
+                                    <p class="card-text"style="color:#ffff ">Como estudiante podrás acceder a los materiales del curso donde te haz inscrito.</p>
+                                    {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                                 </div>
-
-                         <div class="col-lg-10"style=" color:black">
-                                <p></p>
-                                <style>
-                                    .custom-container {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover el contenedor hacia arriba */
-                                    }
-
-                                    .custom-container h2,
-                                    .custom-container .bad {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover los elementos hacia arriba */
-                                    }
-                                </style>
-                                <h2><b
-                                        style="margin-left:-12px;color:#ffffff;font-family:Montserrat-Bold;font-size:28px">{{ $item->name }}</b>
-                                </h2>
-                                <div class="custom-container">
-
-
-                                </div>
-
-
                             </div>
-
-
-
-                        </div>
-                        <!-- /.card-header -->
-
+                        </a>
+                        <p></p>
                     </div>
-                @elseif($item->name == 'Coordinación')
-                    <div class="card badge-primary" style="background: linear-gradient(to right, #0A2262, #0038ab);border-radius:25px">
-                        <div class="row">
-                            <div class="col-lg-1"
-                                style="margin-left: 50px;margin-right: -25px;   align-items: center;display: flex;">
-                                <img src="{{ asset('COORDINACION.png') }}" width="45px" alt="" srcset="" ">
-                                                </div>
-
-                                                                    <div class="col-lg-10"style=" color:white">
-                                <p></p>
-                                <style>
-                                    .custom-container {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover el contenedor hacia arriba */
-                                    }
-
-                                    .custom-container h2,
-                                    .custom-container .bad {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover los elementos hacia arriba */
-                                    }
-                                </style>
-                                 <h2><b
-                                    style="margin-left:-12px;color:#ffffff;font-family:Montserrat-Bold;font-size:28px">{{ $item->name }}</b>
-                            </h2>
-                                <div class="custom-container">
-
-
+            
+              
+                    @elseif($item->name == 'Coordinación')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                        <a href="{{ url($item->name) }}">
+                            <div class="card"
+                                style="width: 100%;background: linear-gradient(to left, #011316 20%, #023039 80% );border-radius:20px">
+                                <img class="card-img-top" src="{{ asset('COORDINACION.png') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
+                                    <p class="card-text"style="color:#ffff ">Como coordinador tendrán todos los permisos en el
+                                        sistema.</p>
+                                    {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                                 </div>
-
-
                             </div>
-
-
-
-                        </div>
-                        <!-- /.card-header -->
-
-                    </div>
-                @elseif($item->name == 'Docente')
-                    <div class="card badge-primary" style="background: linear-gradient(to right, #5a86ea, #0038ab);border-radius:25px">
-
-                        <div class="row">
-                            <div class="col-lg-1"
-                                style="margin-left: 50px;margin-right: -25px;   align-items: center;display: flex;">
-                                <img src="{{ asset('PROFESOR.png') }}" width="45px" alt="" srcset="" ">
-                                                </div>
-
-                                                                    <div class="col-lg-10"style=" color:white">
-                                <p></p>
-                                <style>
-                                    .custom-container {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover el contenedor hacia arriba */
-                                    }
-
-                                    .custom-container h2,
-                                    .custom-container .bad {
-                                        position: relative;
-                                        top: -7px;
-                                        /* Ajusta este valor para mover los elementos hacia arriba */
-                                    }
-                                </style>
-                                 <h2><b
-                                    style="margin-left:-12px;color:#ffffff;font-family:Montserrat-Bold;font-size:28px">{{ $item->name }}</b>
-                            </h2>
-                                <div class="custom-container">
-
-
-                                </div>
-
-
+                        </a>
+                        <p></p>
+                                            </div>
+                                            
+                    @elseif($item->name == 'Docente')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                    <a href="{{ url($item->name) }}">
+                        <div class="card"
+                            style="width: 100%;background: linear-gradient(to left, #011316 20%, #023039 80% );border-radius:20px">
+                            <img class="card-img-top" src="{{ asset('COORDINACION.png') }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
+                                <p class="card-text"style="color:#ffff ">Como Docente podrás gestionar las calificaciones de
+                                    tus estudiantes</p>
+                                {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                             </div>
-
-
-
                         </div>
-                        <!-- /.card-header -->
+                    </a>
+                    <p></p>
+                </div>
+                    @endif
 
-                    </div>
-                @endif
-
-            </a>
-
+               
+                <p></p>
+            @endforeach
         </div>
-        <p></p>
-    @endforeach
+
+    </div>
 @endsection

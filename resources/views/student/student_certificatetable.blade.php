@@ -49,7 +49,7 @@
                                             <td>
                                                
                                                 @role('Estudiante')
-                                                    <a class="btn  note-icon-pencil" style="font-size:12px;background-color:  #5a86ea;color:white"
+                                                    <a class="btn  note-icon-pencil" style="font-size:12px;background-color:  #023039;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole
                                                 

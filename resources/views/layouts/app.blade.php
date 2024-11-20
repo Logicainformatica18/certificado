@@ -67,7 +67,7 @@
         }
     </style>
     <div id="app">
-        <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #0a2262, #0038ab);">
+        <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #023039,#011316 );">
             {{-- <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -76,19 +76,19 @@
 
             <div class="container-fluid">
                 <div class="row w-100">
-                    <div class="col col-lg-1">
+                    <div class="col col-lg-1 col-sm-12 col-xs-12">
 
                     </div>
-                    <div class="col col-lg-4">
+                    <div class="col col-lg-4 col-sm-8 col-xs-12">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('logo_certificaciones.png') }}" alt="" width="130px">
+                            <img src="{{ asset('ayba/3.png') }}" alt="" width="130px">
                         </a>
-                        <b style="font-family: Montalban;color:#5a86ea;font-size:20px">| Certificaciones</b>
+                        <b style="font-family: Montalban;color:#ffffff;font-size:100%">| Academy</b>
                     </div>
                     <div class="col col-lg-2">
 
                     </div>
-                    <div class="col col-lg-4 d-flex justify-content-end align-items-center">
+                    <div class="col col-lg-4 col-sm-1 d-flex justify-content-end align-items-center">
                         <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="40px"
                             class="mr-2">
                         <a href="{{ route('logout') }}" style="color: white;">Cerrar Sesión</a>
@@ -159,87 +159,82 @@
 
     <!-- Botón flotante de WhatsApp -->
     <div class="whatsapp-btn">
-        <a href="https://wa.pe/onedigital"
-            target="_blank" title="Enviar mensaje por WhatsApp">
+        <a href="https://wa.pe/onedigital" target="_blank" title="Enviar mensaje por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-acecb733-abe8-49cc-b4b3-4d7169390095" data-elfsight-app-lazy></div>
-<center>
-  
-    <iframe 
-    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FONEDIGITAL.Latam&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=859285638195545" 
-    width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-</center>
 
     <p></p>
     <br>
 
-    <footer class="main-footer" style="height:310px; background-color:#bdbbbb;color:white">
-       
-  <br>
+    {{-- <footer class="main-footer" style="height:310px; background-color:#bdbbbb;color:white">
+
+        <br>
 
         <div class="container">
-         
+
             <div class="row">
-             
+
                 <div class="col-lg-2 col-md-2 col-sm-12">
-            <p></p>
-                    <img src="{{ asset('logo_one.png') }}"  alt="" width="100%" style="margin-bottom: -20px">
+                    <p></p>
+                    <img src="{{ asset('logo_one.png') }}" alt="" width="100%" style="margin-bottom: -20px">
                     <p></p>
                 </div>
                 <div class="col-lg-5 col-md-9">
                     <p></p>
                     <!-- Descripción a la izquierda -->
-             
-                    
-                    <p class="text-justify" style="color:#0a2262;font-family:Montserrat-Semibold;font-size:100%">
+
+
+                    <p class="text-justify" style="color:#023039;font-family:Montserrat-Semibold;font-size:100%">
                         Somos una empresa de capacitaciones y consultoría en herramientas digitales, inteligencia de
                         negocio y analítica de datos, <b style="font-family: Montserrat-Bold">Asesoramos, capacitamos y
                             formamos</b>
                         profesionales mediante el uso de los softwares más requeridos del mercado.
                     </p>
-                    
+
                     <span
-                            style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
-                            <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev.
-                                AnthonyCode</a></span>
+                        style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
+                        <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev.
+                            AnthonyCode</a></span>
                 </div>
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-3" style="font-family: Montserrat-Regular;color:#5a86ea">
+                <div class="col-lg-3" style="font-family: Montserrat-Regular;color:#023039">
                     <p></p>
-              
-                  
+
+
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="https://www.facebook.com/ONEDIGITAL.Latam/"target="_blank"> <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}"
-                            alt="" width="30px"></a>
-                    <a href=""target="_blank"> <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}"
-                            alt="" width="30px"></a>
-                    <a href="https://www.instagram.com/onedigitall.latam/"target="_blank">  <img
-                                src="{{ asset('dist/img/page_certification/Recurso 2.png') }}" alt=""
-                                width="30px"></a>
-                        <a href="https://www.youtube.com/@onedigitall"target="_blank"> <img src="{{ asset('dist/img/page_certification/Recurso 6.png') }}"
-                                alt="" width="30px"></a>
-                        <a href="https://www.linkedin.com/company/77579829/admin/feed/posts/"target="_blank">  <img
-                                    src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt=""
-                                    width="30px"></a>
-                            <a href="https://wa.pe/onedigital"target="_blank"> <img src="{{ asset('dist/img/page_certification/Recurso 4.png') }}"
-                                    alt="" width="30px"></a>
-                            <p></p>
-                            <!-- Enlaces en el centro -->
-                            <a href="#">Nosotros</a> |
-                            <a href="#">Cursos</a> |
-                            <a href="#">Política de Privacidad</a>
+                    <a href="https://www.facebook.com/ONEDIGITAL.Latam/"target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt=""
+                            width="30px"></a>
+                    <a href=""target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt=""
+                            width="30px"></a>
+                    <a href="https://www.instagram.com/onedigitall.latam/"target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 2.png') }}" alt=""
+                            width="30px"></a>
+                    <a href="https://www.youtube.com/@onedigitall"target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 6.png') }}" alt=""
+                            width="30px"></a>
+                    <a href="https://www.linkedin.com/company/77579829/admin/feed/posts/"target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt=""
+                            width="30px"></a>
+                    <a href="https://wa.pe/onedigital"target="_blank"> <img
+                            src="{{ asset('dist/img/page_certification/Recurso 4.png') }}" alt=""
+                            width="30px"></a>
+                    <p></p>
+                    <!-- Enlaces en el centro -->
+                    <a href="#">Nosotros</a> |
+                    <a href="#">Cursos</a> |
+                    <a href="#">Política de Privacidad</a>
                 </div>
-          
+
             </div>
         </div>
         </div>
 
-     
-    </footer>
+
+    </footer> --}}
 
 </body>
 

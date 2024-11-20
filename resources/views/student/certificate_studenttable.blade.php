@@ -73,23 +73,23 @@
                                                 <td>
                                                     @if ($registry_details->$notes >= 5)
                                                  
-                                                        <button class="btn " style="background-color:  #5a86ea;color:white"
+                                                        <button class="btn " style="background-color:  #023039;color:white"
                                                             onclick="certificationGenerate('{{ $registry_details->id }}','participacion','{{ $registry_details->code_certification }}','{{ $i }}')">Participación</button>
 
                                                      
                                                     @else
-                                                        <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
+                                                        <button class="btn " onclick=""style="background-color:  #023039;color:white"
                                                             disabled>Participáción</button>
                                                     @endif
                                                     @if ($registry_details->$notes > 13.5)
                                                  
                                                    
 
-                                                    <button class="btn "style="background-color:  #5a86ea;color:white"
+                                                    <button class="btn "style="background-color:  #023039;color:white"
                                                         onclick="certificationGenerate('{{ $registry_details->id }}','aprobacion','{{ $registry_details->code_certification }}','{{ $i }}')">&nbsp;Aprobación&nbsp;</button>
                                                 @else
                                                   
-                                                    <button class="btn " onclick=""style="background-color:  #5a86ea;color:white"
+                                                    <button class="btn " onclick=""style="background-color:  #023039;color:white"
                                                         disabled>Aprobación</button>
                                                 @endif
                                                 </td>

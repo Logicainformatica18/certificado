@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados One</title>
+    <title>Aybar Corp</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -28,7 +28,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
+    <link rel="icon" type="image/jpg" href="{{ asset('ayba/favicon.png') }}" />
 
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('category.js') }}"></script>
@@ -175,7 +175,7 @@
     </style>
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand"
-            style="background: linear-gradient(to right,#5a86ea,#6a9dea);color:white">
+            style="background: linear-gradient(to right,#023039,#0d0d0e);color:white">
             <ul class="navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i
@@ -207,11 +207,11 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4"
-            style="background: linear-gradient(to right,#0a2262,#0038ab);">
+            style="background: linear-gradient(to right,#023039,#0d0d0e);">
             <!-- Brand Logo -->
             <a href="/" class="brand-link text-center">
                 <h3 style="color:white"><b>
-                        <img src="{{ asset('dist/img/Recurso 26.png') }}" alt="AdminLTE Logo"class="" width="70%"
+                        <img src="{{ asset('ayba/4.png') }}" alt="AdminLTE Logo"class="" width="70%"
                             style="">
 
                 </h3>
@@ -1108,7 +1108,7 @@
     }
 
     .whatsapp-message {
-        background-color: #5a86ea;
+        background-color: #023039;
         color: #fff;
         padding: 10px;
         border-radius: 20px;

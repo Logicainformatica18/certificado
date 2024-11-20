@@ -18,14 +18,14 @@
                             <img src="{{ asset('../curso_promocion.jpg') }}" class="card-img-top" alt="..."
                             style="border-top-left-radius:40px;border-top-right-radius:40px;"
                             >
-                            <div class="card-body" style="background: linear-gradient(to right, #0a2262, #0038ab);
+                            <div class="card-body" style="background: linear-gradient(to left, #011316 20%, #023039 80% );
                             border-bottom-left-radius:40px;border-bottom-right-radius:40px;
                             color:white">
                                  <h5 class="card-title"style="font-family:Montserrat-Bold;
                                  font-size:20px";
                                 >{{ $registry_details->registry->course->description }} </h5>
                                 {{-- <div class="ribbon-wrapper">
-                                    <div class="ribbon" style="background-color: #5a86ea">
+                                    <div class="ribbon" style="background-color: #023039">
                                         {{ $registry_details->registry->edition }}
                                     </div>
                                 </div> --}}
