@@ -21,7 +21,7 @@
                                     <th class="sorting">Descripción</th>
  
                                     <th class="sorting">Puntos</th>
-                                    <th class="sorting">Vista Previa</th>
+                                    <th class="sorting">Ver Contenido</th>
                                    
                                     <th class="sorting">Recurso 1</th>
                                     <th class="sorting">Recurso 2</th>

@@ -35,6 +35,7 @@
 </button> --}}
 
     <p></p>
+    @role('Coordinación|Administrador')
     <form action="" method="post" role="form" id="topic" name="form">
         <input type="hidden" name="id" id="id">
         {{ csrf_field() }}
@@ -120,6 +121,8 @@
         <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
 
     </form>
+    @endrole
+  
 
     <p></p>
     <!-- /.content -->
