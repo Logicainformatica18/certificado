@@ -1,4 +1,3 @@
-holaa
 <table class="table table-responsive">
     <th>id</th>
     <th>Descripción</th>

@@ -38,8 +38,8 @@ return new class extends Migration
               ////////////////
               $table->time('hour_start');
               $table->time('hour_end');
-              $table->dateTime('fec_start');
-              $table->dateTime('fec_end');
+              $table->date('fec_start');
+              $table->date('fec_end');
               $table->date('date_certification');
               $table->string('edition');
                 $table->string('type');

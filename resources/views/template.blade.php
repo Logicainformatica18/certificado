@@ -176,31 +176,31 @@
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand"
             style="background: linear-gradient(to right,#023039,#0d0d0e);color:white">
+
+        
+
+              
             <ul class="navbar-nav">
                 <li class="nav-item ">
                     <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ url('/') }}" class="nav-link">
+                        <img style="margin-top: -5px" src="{{ asset('ayba/3.png') }}" alt="" width="100px">
+
+                    </a>
+                  </li>
+                  <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ url('/') }}" style="font-family:Montalban;"class="nav-link text-white">| Academy</a>
+                  </li>
+                  <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ url('/') }}" class="nav-link">
+                        <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="30px"
+                        class="mr-2">
+                    </a>
+                  </li>
             </ul>
-
-            <div class="container-fluid">
-                <div class="row w-100">
-                    <div class="col col-lg-6 col-sm-6 col-sx-6"style="font-family:Montalban">
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset('ayba/3.png') }}" alt="" width="100px">
-                        </a> | Academy
-                                        </div>
-                    <div class="col col-lg-2">
-
-                    </div>
-                    <div class="col col-lg-4 d-flex justify-content-end align-items-center">
-                        <a href="{{ route('logout') }}">
-                            <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="30px"
-                                class="mr-2">
-                        </a>
-                    </div>
-                </div>
-            </div>
         </nav>
 
 
@@ -1014,7 +1014,7 @@
                         extend: 'pdfHtml5',
                         download: 'open',
                         orientation: 'landscape',
-                        pageSize: 'LEG  AL',
+                        pageSize: 'LEGAL',
 
                         
                     },

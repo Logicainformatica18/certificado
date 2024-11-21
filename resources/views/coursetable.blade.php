@@ -16,6 +16,9 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th></th>
+                                    <th><img width="20"
+                                        src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
+                                        srcset=""></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
@@ -23,27 +26,12 @@
                                     <th class="sorting">Horas</th>
                                     <th class="sorting">Detalle</th>
                                     <th class="sorting">Presentación</th>
-                                    <th><img width="20"
-                                            src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
-                                            srcset=""></th>
+                                 
                                 </thead>
                                 <tbody>
                                     @foreach ($course as $courses)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $courses->id }}</td>
-                                            <td>{{ $courses->description }}</td>
-                                            <td>{{ $courses->type->description }}</td>
-
-                                            <td><img src="{{ asset('imageusers/' . $courses->emision) }}"
-                                                    alt="" srcset="" width="100"></td>
-
-                                           
-                                            <td>{{ $courses->hours }}</td>
-                                            <td>{{ $courses->detail }}</td>
-                                            <td><img src="{{ asset('imageusers/' . $courses->presentation) }}"
-                                                    alt="" srcset="" width="100"></td>
-
                                             <td>
                                                 @role('Coordinación|Administrador')
                                                     <!-- Button trigger modal -->
@@ -62,6 +50,20 @@
                                                         onclick="courseDetail('{{ $courses->id }}')"> Certificado</a>
                                                 @endrole
                                             </td>
+                                            <td>{{ $courses->id }}</td>
+                                            <td>{{ $courses->description }}</td>
+                                            <td>{{ $courses->type->description }}</td>
+
+                                            <td><img src="{{ asset('imageusers/' . $courses->emision) }}"
+                                                    alt="" srcset="" width="100"></td>
+
+                                           
+                                            <td>{{ $courses->hours }}</td>
+                                            <td>{{ $courses->detail }}</td>
+                                            <td><img src="{{ asset('imageusers/' . $courses->presentation) }}"
+                                                    alt="" srcset="" width="100"></td>
+
+                           
 
                                         </tr>
                                     @endforeach
