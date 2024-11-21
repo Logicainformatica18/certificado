@@ -74,4 +74,8 @@ class User extends Authenticatable
         $this->notify(new ResetPassword($token));
     }
 
+    public function session(){
+        return $this->hasOne('App\Models\Session', 'user_id');
+    }
+
 }

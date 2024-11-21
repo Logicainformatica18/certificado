@@ -2893,7 +2893,7 @@
                             <h2 class="fs-9 fw-semibold my-4">{{ $topic[0]->description }} </h2>
                             <div class="d-flex align-items-center gap-4">
                                 <div class="d-flex align-items-center gap-2">
-                                    <i class="ti ti-eye text-dark fs-5"></i>2252
+                                    <i class="ti ti-eye text-dark fs-5"></i>10
                                 </div>
                                 <div class="d-flex align-items-center gap-2">
                                     <i class="ti ti-message-2 text-dark fs-5"></i>3
@@ -2907,6 +2907,12 @@
                         </div>
                         <div class="card-body border-top p-4">
 
+                                {{-- <h2 class="fs-8 fw-semibold mb-3">Title of the paragraph</h2> --}}
+                                <p class="mb-3">
+                                    @php
+                                        echo $topic[0]->post;
+                                    @endphp
+                                </p>
                             @if ($topic[0]->resource_1!="")
                                 
                             @php
@@ -2926,12 +2932,7 @@
                                 
                             @endif
                            
-                            {{-- <h2 class="fs-8 fw-semibold mb-3">Title of the paragraph</h2> --}}
-                            <p class="mb-3">
-                                @php
-                                    echo $topic[0]->post;
-                                @endphp
-                            </p>
+                        
 
                             @if ($topic[0]->file_1 != '')
                                 @php
