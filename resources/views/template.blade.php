@@ -195,7 +195,7 @@
                     <a href="{{ url('/') }}" style="font-family:Montalban;"class="nav-link text-white">| Academy</a>
                   </li>
                   <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('/') }}" class="nav-link">
+                    <a href="{{ url('logout') }}" class="nav-link">
                         <img src="{{ asset('CERRAR-SESION-BLANCO.png') }}" alt="" width="30px"
                         class="mr-2">
                     </a>
