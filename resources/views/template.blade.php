@@ -985,9 +985,10 @@
     <script>
         function datatable_load() {
             $("#example1").DataTable({
+               
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",
-                    "zeroRecords": "No se encontró nada, lo siento",
+                    "zeroRecords": "No se encontró nada",
                     "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "No records available",
                     "infoFiltered": "(filtered from _MAX_ total records)",
@@ -1013,7 +1014,9 @@
                         extend: 'pdfHtml5',
                         download: 'open',
                         orientation: 'landscape',
-                        pageSize: 'LEGAL'
+                        pageSize: 'LEG  AL',
+
+                        
                     },
                     {
                         extend: 'excelHtml5',

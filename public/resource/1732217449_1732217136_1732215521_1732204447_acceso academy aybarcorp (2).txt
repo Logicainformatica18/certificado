@@ -1,0 +1,12 @@
+ssh
+server: 107.180.113.70
+
+
+user : ku1ud9hq13hg
+clave: sSGLTIWO!57u
+
+
+bd: academy_aybacorp
+user : academy
+
+clave : 47QCKG67FGLZ8Zf

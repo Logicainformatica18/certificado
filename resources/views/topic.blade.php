@@ -40,7 +40,7 @@
             <input type="hidden" name="id" id="id">
             {{ csrf_field() }}
             Descripción : <input type="text" name="description" id="description" class="form-control">
-            <p>
+           
             <div class="container-fluid">
                 <div class="form-group row">
                     <br>
@@ -65,7 +65,7 @@
 
             </div>
 
-            </p>
+      
 
 
             <p>
@@ -84,6 +84,10 @@
                         </option> --}}
 
                         @foreach ($category as $item)
+                        @if($loop->first)
+                        <option selected value="{{ $item->id }}">{{ $item->description }}</option>
+                   
+                        @endif
                             <option value="{{ $item->id }}">{{ $item->description }}</option>
                         @endforeach
 
@@ -108,10 +112,9 @@
             Detalle : <input type="text" name="detail" id="detail" class="form-control">
             Duración :
             <select name="time" id="time" class="form-control">
-                <option value="0.5"selected>30 Mínutos</option>
-                <option value="1">1 Hora</option>
-                <option value="2">2 Horas</option>
-                <option value="4">4 Horas</option>
+                <option value="01:00:00">1 Hora</option>
+                <option value="02:00:00">2 Horas</option>
+                <option value="04:00:00">4 Horas</option>
             </select>
 
 
@@ -142,26 +145,31 @@
                         font-size: 15px;
                     }
                 </style>
-                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="resource_1" id="resource_1">
                         <label class="custom-file-label" for="customFile">ADJUNTAR EN .ZIP O .RAR</label>
                     </div>
                 </div>
-                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input"name="file_1" id="file_1" accept=".pdf">
                         <label class="custom-file-label" for="customFile">PDF 1</label>
                     </div>
                 </div>
-                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="file_2" id="file_2"accept=".pdf">
                         <label class="custom-file-label" for="customFile">PDF 2</label>
                     </div>
                 </div>
-                
-
+                Estado de Datos Adjuntos : 
+                <div id="progress-container" style="width: 100%; background-color: #f71515;">
+                    <div id="progress-bar" style="width: 0%; height: 20px; background-color: green;"></div>
+                  </div>
+                  <p id="progress-message">Cargando...</p>
+                  
+                  
                 <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }} "></script>
                 <script>
                     $(function() {
@@ -182,7 +190,8 @@
                 style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                 onclick="New();$('#topic')[0].reset();reset_textarea();" name="new">
             <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="topicStore()" name="create">
-            <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
+            <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();"
+                name="update">
 
         </form>
     @endrole
