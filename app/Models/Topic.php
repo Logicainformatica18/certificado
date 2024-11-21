@@ -10,7 +10,7 @@ class Topic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'course_id','user_id','description','post','instruction', 'point','detail','resource_1','resource_2','time','image_1','image_2'];
+        'course_id','user_id','description','post','instruction', 'point','detail','resource_1','resource_2','time','image_1','image_2','file_1','file_2'];
         public function course()    
     {
 

@@ -67,6 +67,27 @@ class TopicController extends Controller
         $topic->post = $request->post;
         $topic->instruction = $request->instruction;
         $topic->point = $request->point;
+        $topic->time = $request->time;
+        //photo
+        if ($request->file('photo') != null) {
+            $request->photo = photoStore($request->file('photo'), "imageusers");
+            $topic->image_1 = $request->photo;
+        }
+                   //file
+                   if ($request->file('file_1') != null) {
+                    $request->file_1 = photoStore($request->file('file_1'), "imageusers");
+                    $topic->file_1 = $request->file_1;
+                }
+                //file
+        if ($request->file('file_2') != null) {
+            $request->file_2 = photoStore($request->file('file_2'), "imageusers");
+            $topic->file_2 = $request->file_2;
+        }
+                        //resource
+        if ($request->file('resource_1') != null) {
+            $request->resource_1 = photoStore($request->file('resource_1'), "resource");
+            $topic->resource_1 = $request->resource_1;
+        }
         $topic->save();
 
         
