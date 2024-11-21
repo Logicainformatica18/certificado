@@ -36,7 +36,7 @@
 
     <p></p>
     @role('Coordinación|Administrador')
-        <form action="" method="post" role="form" id="topic" name="form">
+        <form action="" method="post" role="form" id="topic" name="form"enctype="multipart/form-data">
             <input type="hidden" name="id" id="id">
             {{ csrf_field() }}
             Descripción : <input type="text" name="description" id="description" class="form-control">
@@ -120,16 +120,64 @@
             Puntos :
             <input type="number" name="point" id="point" class="form-control" value="0">
             <p></p>
-            <div class="col col-lg-2 col-md-4 col-sm-5">
-                <form action="#" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="btn btn-default btn-file col-9"style="border-radius:20px">
-                        <i class="fas fa-paperclip"></i> Subir Excel
-                        <input type="file" name="file" class="form-control">
+            Documentos :
+            <br>
+            <div class="row">
+
+                <style>
+                    .custom-file-input:lang(es)~.custom-file-label {
+                        font-weight: 500;
+                        color: #007bff;
+                    }
+
+                    .custom-file-input:focus~.custom-file-label {
+                        border-color: #80bdff;
+
+                        box-shadow: inset 0 0 0 0.2rem rgba(86, 179, 255, 0.25);
+                    }
+
+
+                    .custom-file-input:valid~.custom-file-label {
+                        color: #28a745;
+                        font-size: 15px;
+                    }
+                </style>
+                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="resource_1" id="resource_1">
+                        <label class="custom-file-label" for="customFile">ADJUNTAR EN .ZIP O .RAR</label>
                     </div>
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"name="file_1" id="file_1" accept=".pdf">
+                        <label class="custom-file-label" for="customFile">PDF 1</label>
+                    </div>
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="file_2" id="file_2"accept=".pdf">
+                        <label class="custom-file-label" for="customFile">PDF 2</label>
+                    </div>
+                </div>
+                
+
+                <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }} "></script>
+                <script>
+                    $(function() {
+                        bsCustomFileInput.init();
+                    });
+                </script>
+
+
+
+
             </div>
 
             <p></p>
+
+
+
             <input type="button" value="Nuevo" class="btn"
                 style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
                 onclick="New();$('#topic')[0].reset();reset_textarea();" name="new">

@@ -24,10 +24,10 @@
                                     <th class="sorting">Puntos</th>
                                     <th class="sorting">Ver Contenido</th>
                                    
-                                    <th class="sorting">Recurso 1</th>
-                                    <th class="sorting">Recurso 2</th>
-                                    <th class="sorting">Recurso 3</th>
-                                    <th class="sorting">Recurso 4</th>
+                                    <th class="sorting">Archivos</th>
+                                    <th class="sorting">PDF 1</th>
+                                    <th class="sorting">PDF 2</th>
+                            
                                     <th class="sorting">Categorías</th>
                                     <th class="sorting">Detalle</th>
                                     <th><img width="20"
@@ -45,11 +45,15 @@
                                             <td>{{ $topics->user->names }}</td>
                                             <td>{{ $topics->point }}</td>
                                             <td><a target="_blank" href="cursos/{{$topics->course->id}}/tema/{{$topics->id}}">Ver</a> </td>
+                                            @php
+                                                $url = "resource/".$topics->resource_1;
+                                            @endphp
+                                            <td><a target="_blank" href="{{asset($url)}}">{{ $topics->resource_1 }} </a>
+                                                 </td>
+                                            <td>{{ $topics->file_1 }}</td>
+                                            <td>{{ $topics->file_2 }}</td>
                                           
-                                            <td>{{ $topics->resource_1 }}</td>
-                                            <td>{{ $topics->resource_2 }}</td>
-                                            <td>{{ $topics->resource_3}}</td>
-                                            <td>{{ $topics->resource_4 }}</td>
+                                     
                                             <td>
                                                 @foreach ($topics->categoryDetail as $item )
                                                     {{$item->category->description." "}}

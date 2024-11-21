@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('image_2')->nullable();
             $table->integer('point')->default('0');
             $table->longText('post')->nullable();
+            $table->string('file_1')->nullable();
+            $table->string('file_2')->nullable();
             $table->string('link_1')->nullable();
             $table->string('link_2')->nullable();
-            $table->string('link_3')->nullable();
-            $table->string('link_4')->nullable();
             $table->string('resource_1')->nullable();
             $table->string('resource_2')->nullable();
             $table->string('resource_3')->nullable();
