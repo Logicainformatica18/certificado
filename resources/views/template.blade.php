@@ -467,7 +467,7 @@
                         </li> --}}
 
                         @role('Coordinación')
-                            <li class="nav-item has-treeview menu-open">
+                            <li class="nav-item has-treeview menu-close">
                                 <a href="#" class="nav-link">
                                     {{-- <i class="nav-icon fas fa-table"></i> --}}
                                     <img src="{{ asset('Recurso 22.png') }}" alt="" srcset="" width="25px">
@@ -557,7 +557,7 @@
                                 </li> --}}
                   
                         @role('Estudiante')
-                            <li class="nav-item has-treeview menu-open">
+                            <li class="nav-item has-treeview menu-close">
 
                                 <a href="#" class="nav-link">
                                     {{-- <i class="nav-icon fas fa-table"></i> --}}
@@ -600,7 +600,7 @@
                             </li>
                         @endrole
                         @role('Docente')
-                            <li class="nav-item has-treeview menu-open">
+                            <li class="nav-item has-treeview menu-close">
 
                                 <a href="#" class="nav-link">
                                     {{-- <i class="nav-icon fas fa-table"></i> --}}
