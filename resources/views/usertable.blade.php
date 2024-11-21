@@ -22,6 +22,7 @@
                                         alt="" srcset=""></th>
                                     
                                     <th>ID</th>
+                                    <th>Estado</th>
                                     <th>Dni</th>
                                     <th>Paterno</th>
                                     <th>Materno</th>
@@ -55,6 +56,13 @@
                                             </td>
 
                                             <td>{{ $users->id }}</td>
+                                            <td>
+                                                @if ($users->session == "")
+                                                <span class="badge badge-danger">Inactivo</span>
+                                                @else
+                                                <span class="badge badge-success">Activo</span>
+                                                @endif 
+                                            </td>
                                             <td>{{ $users->dni }}</td>
                                             <td>{{ $users->firstname }}</td>
                                             <td>{{ $users->lastname }}</td>
