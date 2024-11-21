@@ -16,18 +16,15 @@
                             <table id="example1" class="table table-bordered table-striped table-responsive">
                                 <thead>
                                     <th ></th>
+                                    <th ><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt="" srcset=""></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Detalle</th>
-                                    <th ><img width="20" src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt="" srcset=""></th>
                                 </thead>
                                 <tbody>
                                     @foreach ($type as $types)
                                         <tr>
                                             <td></td>
-                                            <td>{{ $types->id }}</td>
-                                            <td>{{ $types->description }}</td>
-                                            <td>{{ $types->detail }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success note-icon-pencil"
@@ -37,6 +34,9 @@
                                                 <!-- <button class="note-icon-pencil" ></button> -->
                                                 <button class="btn btn-danger note-icon-trash" onclick="typeDestroy('{{ $types->id }}'); return false"></button>
                                             </td>
+                                            <td>{{ $types->id }}</td>
+                                            <td>{{ $types->description }}</td>
+                                            <td>{{ $types->detail }}</td>
 
                                         </tr>
                                     @endforeach

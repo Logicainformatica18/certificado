@@ -28,6 +28,7 @@
                                     <th class="sorting">Frecuencia</th>
                                     <th class="sorting">Fecha Inicio</th>
                                     <th class="sorting">Fecha Fin</th>
+                                    <th class="sorting">Fecha Certificación</th>
                                         <th class="sorting">N° Certificados</th>
                                  
                                     <th class="sorting">Hora Inicio</th>
@@ -86,6 +87,7 @@
                                             <td>{{ $registrys->schedule->description }} </td>
                                             <td>{{ $registrys->fec_start }}</td>
                                             <td>{{ $registrys->fec_end }}</td>
+                                            <td>{{ $registrys->date_certification }}</td>
                                              <td>{{ $registrys->count_notes }}</td>
                                        
                                             <td>{{ $registrys->hour_start }}</td>

@@ -20,7 +20,9 @@
                                     <th><img width="20"
                                         src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png"
                                         alt="" srcset=""></th>
-                                    
+                                        <th><img width="20"
+                                            src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png"
+                                            alt="" srcset=""></th>
                                     <th>ID</th>
                                     <th>Estado</th>
                                     <th>Dni</th>
@@ -49,11 +51,14 @@
                                                 <button type="button" class="btn btn-success note-icon-pencil"
                                                     data-toggle="modal" data-target="#exampleModal"
                                                     onclick="userEdit('{{ $users->id }}'); Up();  return false"></button>
-
-                                                <!-- <button class="note-icon-pencil" ></button> -->
-                                                <button class="btn btn-danger note-icon-trash"
-                                                    onclick="userDestroy('{{ $users->id }}'); return false"></button>
-                                            </td>
+                                                </td>
+                                                <td>
+ <!-- <button class="note-icon-pencil" ></button> -->
+ <button class="btn btn-danger note-icon-trash"
+ onclick="userDestroy('{{ $users->id }}'); return false"></button>
+                                                </td>
+                                               
+                                       
 
                                             <td>{{ $users->id }}</td>
                                             <td>

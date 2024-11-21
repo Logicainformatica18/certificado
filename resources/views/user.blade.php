@@ -203,7 +203,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"style="font-color:#1b3d6d;font-family:Montserrat-Bold">
-                        Gestionar Permisos</h5>
+                        Gestionar Roles</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -235,11 +235,9 @@
 
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
-                        onclick="New();$('#role')[0].reset();" name="new">
+              
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" data-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
             </div>

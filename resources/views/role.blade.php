@@ -85,6 +85,7 @@
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
+                        <p></p>
                         <input type="button" value="Agregar" class="btn btn-success" onclick="rolePermissionStore()"
                             name="create">
 
