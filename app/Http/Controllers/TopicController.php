@@ -28,7 +28,7 @@ class TopicController extends Controller
         $course = Course::where("id", "=", $course_id)->get();
         $topic = Topic::where("course_id", "=", $course_id)->get();
         $category = Category::all();
-        return view("topic", compact("topic", "category","course"));
+        return view("topic", compact("topic", "category", "course"));
         //
     }
 
@@ -57,12 +57,12 @@ class TopicController extends Controller
     {
 
         $course_id = Session::get('course_id');
-    
+
 
         $topic = new Topic;
         $topic->description = $request->description;
         $topic->course_id = $course_id;
-        $topic->user_id =  Auth::user()->id;
+        $topic->user_id = Auth::user()->id;
         $topic->detail = $request->detail;
         $topic->post = $request->post;
         $topic->instruction = $request->instruction;
@@ -73,36 +73,36 @@ class TopicController extends Controller
             $request->photo = photoStore($request->file('photo'), "imageusers");
             $topic->image_1 = $request->photo;
         }
-                   //file
-                   if ($request->file('file_1') != null) {
-                    $request->file_1 = photoStore($request->file('file_1'), "imageusers");
-                    $topic->file_1 = $request->file_1;
-                }
-                //file
+        //file
+        if ($request->file('file_1') != null) {
+            $request->file_1 = photoStore($request->file('file_1'), "file");
+            $topic->file_1 = $request->file_1;
+        }
+        //file
         if ($request->file('file_2') != null) {
-            $request->file_2 = photoStore($request->file('file_2'), "imageusers");
+            $request->file_2 = photoStore($request->file('file_2'), "file");
             $topic->file_2 = $request->file_2;
         }
-                        //resource
+        //resource
         if ($request->file('resource_1') != null) {
             $request->resource_1 = photoStore($request->file('resource_1'), "resource");
             $topic->resource_1 = $request->resource_1;
         }
         $topic->save();
 
-        
+
         // Garantiza que $request->category sea siempre un array, incluso si solo se seleccionó un valor
-       // $category = (array) $request->category;
+        // $category = (array) $request->category;
 
         foreach ($request->category as $categorys) {
-           
+
             $categoryDetail = new CategoryDetail;
             $categoryDetail->category_id = $categorys;
-             $categoryDetail->topic_id = $topic->id;
+            $categoryDetail->topic_id = $topic->id;
             $categoryDetail->save();
         }
 
-     return $this->create();
+        return $this->create();
     }
 
     /**
@@ -156,9 +156,13 @@ class TopicController extends Controller
      */
     public function destroy(Request $request)
     {
-
+        $table = Topic::find($request["id"]);
+        photoDestroy($table->image_1, "imageusers");
+        photoDestroy($table->resource_1, "resource");
+        photoDestroy($table->file_1, "file");
+        photoDestroy($table->file_2, "file");
         Topic::find($request->id)->delete();
-      //  CategoryDetail::where('type_id', $request->id)->delete();
+        //  CategoryDetail::where('type_id', $request->id)->delete();
 
         return $this->create();
     }
