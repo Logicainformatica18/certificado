@@ -37,7 +37,7 @@
             <p></p>
             <div class="row mb-2">
                 <div class="col-12" id="accordion">
-                    <div class="card card-primary card-outline">
+                    <div class="card card-warning card-outline">
                         <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">
                             <div class="card-header">
                                 <h4 class="card-title w-100">
@@ -66,19 +66,7 @@
                                             accept=".xlsx" >
                                         <label class="custom-file-label" for="customFile">Adjuntar Excel .xlsx</label>
                                     </div>
-
-
-
-
-
-
-
-
-
                             </div>
-
-
-
                             <div class="col-lg-12 col-md-12 col-sm-12 ml-3">
                                 <button name="import_button" 
                                     class="btn btn-success"style="border-radius:20px">Importar Documento</button>
@@ -96,7 +84,7 @@
             <div class="row mb-0">
 
                 <div class="col-12" id="accordion1">
-                    <div class="card card-primary card-outline">
+                    <div class="card card-warning card-outline">
                         <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne1" aria-expanded="false">
                             <div class="card-header">
                                 <h4 class="card-title w-100">
