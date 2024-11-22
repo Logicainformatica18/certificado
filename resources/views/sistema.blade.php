@@ -1,5 +1,6 @@
 @extends('template')
 @section('content')
+<p></p>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
