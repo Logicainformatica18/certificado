@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <style type="text/css">
         @font-face {
             font-family: "Montalban";
@@ -66,6 +65,13 @@
             font-style: normal;
         }
     </style>
+
+
+
+
+
+
+
     <div id="app">
         <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #023039,#011316 );">
             {{-- <ul class="navbar-nav">
@@ -74,6 +80,11 @@
                 </li>
             </ul> --}}
 
+
+
+
+
+            
             <div class="container-fluid">
                 <div class="row w-100">
                     <div class="col col-lg-1 col-sm-12 col-xs-12">

@@ -113,7 +113,7 @@
     
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed"style="font-family:Montserrat-Regular">
+<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed"style="font-family:Montserrat-Regular">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -938,7 +938,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Main content -->
-                <div class="content-wrapper"style="background-color: white">
+                <div class="content-wrapper">
                     <!-- Main content -->
                     <section class="content">
                         <div class="container-fluid">
@@ -950,10 +950,9 @@
                 </div>
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer">
-                <span
-                    style="background-image: linear-gradient(45deg, rgb(255, 0, 149), red); -webkit-background-clip: text; color: transparent;">
-                    <a href="https://anthonycode.com"target="_blank">Copyright © 2024 Dev. AnthonyCode</a></span>
+            <footer class="main-footer" style="background: linear-gradient(to right,#023039,#0d0d0e);">
+                <span>
+                    <a class="text-white" href="https://anthonycode.com"target="_blank">Copyright © 2025 Dev. AnthonyCode</a></span>
                 <div class="float-right d-none d-sm-inline-block">
                 </div>
             </footer>
@@ -1077,12 +1076,18 @@
         }
         datatable_load();
     </script>
+       <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }} "></script>
+       <script>
+           $(function() {
+               bsCustomFileInput.init();
+           });
+       </script>
 
 <style>
     /* Estilos para el botón flotante de WhatsApp */
     .whatsapp-container {
         position: fixed;
-        bottom: 20px;
+        bottom: 80px;
         right: 20px;
         display: flex;
         align-items: center;
