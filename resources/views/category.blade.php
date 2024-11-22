@@ -4,25 +4,40 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 style="font-family:Montserrat-Bold">Categorías</h1>
-                    {{ session('success') }}
-                </div>
-                <div class="col-sm-6">
+                <div class="col col-sm-12 col-md-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
                         <li class="breadcrumb-item active" style="color:#1b3d6d">Categorías</li>
                     </ol>
                 </div>
+                        
+
+                
+            </div>
+            <div class="row mb-2">
+
+
+
+                <div class="col col-lg-2 col-md-4 col-sm-12">
+                    <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Categorías</h1>
+                    {{ session('success') }}
+                </div>
+
+                <div class="col col-lg-10 col-md-8 col-sm-12">
+                    <button type="button"style="border-radius:20px;background-color:#023039;color:white;width:150px"
+                        class="btn" data-toggle="modal" data-target="#exampleModal"
+                        onclick="New();$('#category')[0].reset();">
+                        <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
+                    </button>
+
+                </div>
+
+
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
-    <!-- Button trigger modal -->
-    <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn" data-toggle="modal"
-        data-target="#exampleModal"
-        onclick="New();$('#category')[0].reset();">
-        <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
-    </button>
+ 
 
     <p></p>
     <!-- /.content -->
