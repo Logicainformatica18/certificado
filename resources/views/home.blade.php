@@ -31,15 +31,15 @@
         <div class="row">
             @foreach ($users->roles as $item)
                 
-                    @if ($item->name == 'Estudiante')
+                    @if ($item->name == 'Socio Comercial')
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
                         <a href="{{ url($item->name) }}">
                             <div class="card"
                                 style="width: 100%;background: linear-gradient(to left, #011316 20%, #023039 80% );border-radius:20px">
-                                <img class="card-img-top" src="{{ asset('ESTUDIANTE.png') }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset('Socio Comercial.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
-                                    <p class="card-text"style="color:#ffff ">Como estudiante podrás acceder a los materiales del curso donde te haz inscrito.</p>
+                                    <p class="card-text"style="color:#ffff ">Como Socio Comercial podrás acceder a los materiales del curso donde te haz inscrito.</p>
                                     {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                         <p></p>
                                             </div>
                                             
-                    @elseif($item->name == 'Docente')
+                    @elseif($item->name == 'Coach')
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
                     <a href="{{ url($item->name) }}">
                         <div class="card"
@@ -73,8 +73,8 @@
                             <img class="card-img-top" src="{{ asset('COORDINACION.png') }}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
-                                <p class="card-text"style="color:#ffff ">Como Docente podrás gestionar las calificaciones de
-                                    tus estudiantes</p>
+                                <p class="card-text"style="color:#ffff ">Como Coach podrás gestionar las calificaciones de
+                                    tus Socio Comercials</p>
                                 {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                             </div>
                         </div>

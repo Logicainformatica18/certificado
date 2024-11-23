@@ -24,7 +24,7 @@
                                     <th class="sorting">Curso</th>
                                     <th class="sorting">Estado</th>
 
-                                    <th class="sorting">Docente</th>
+                                    <th class="sorting">Coach</th>
 
 
                                     @for ($i = 1; $i <= $registry->count_notes ; $i++)

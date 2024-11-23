@@ -65,7 +65,7 @@
                         {{ csrf_field() }}
                         Código : <input type="text" name="description" id="description" class="form-control">
                         Edición: <input type="number" name="edition" id="edition" class="form-control">
-                        Docente
+                        Coach
                         <select name="teacher" id="teacher" class="form-control">
                             @foreach ($teacher_new as $item)
                                 <option value="{{ $item->model_id }}-{{ $item->model_type }}-{{ $item->role_id }}">

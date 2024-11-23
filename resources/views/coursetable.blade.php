@@ -45,7 +45,7 @@
                                                         <a class="btn btn-warning note-icon-pencil"
                                                         onclick="courseTopic('{{ $courses->id }}')"> Temario</a>
                                                 @endrole
-                                                @role('Docente|Coordinación')
+                                                @role('Coach|Coordinación')
                                                     <a class="btn btn-warning note-icon-pencil"
                                                         onclick="courseDetail('{{ $courses->id }}')"> Certificado</a>
                                                 @endrole

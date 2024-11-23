@@ -23,7 +23,7 @@
                                     <th class="sorting">Código</th>
                                     <th class="sorting">Curso</th>
                                     <th class="sorting">Edición</th>
-                                    <th class="sorting">Docente</th>
+                                    <th class="sorting">Coach</th>
                                     <th class="sorting">Tipo </th>
                                     <th class="sorting">Frecuencia</th>
                                     <th class="sorting">Fecha Inicio</th>
@@ -58,7 +58,7 @@
                                                     <button class="btn btn-danger note-icon-trash"
                                                         onclick="registryDestroy('{{ $registrys->id }}'); return false"></button>
                                                 @endrole
-                                                @role('Docente')
+                                                @role('Coach')
 
                                                 @if (isset($validate)!="1")
                                                 <a class="btn btn-warning note-icon-pencil"

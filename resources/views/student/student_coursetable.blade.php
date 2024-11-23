@@ -36,7 +36,7 @@
                                     {{ substr($registry_details->registry->fec_start, 0, 11) }}
                                 </p>
                              
-                                @role('Estudiante')
+                                @role('Socio Comercial')
                                 <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
                                         onclick="courseTopic('{{ $registry_details->registry->course->id }}','{{ $registry_details->id }}')" href="#">
                                         Temario</a>
