@@ -44,7 +44,7 @@ class GoogleSheetController extends Controller
                     'sex'       => substr($row['sexo'], 0, 1),
                     'cellphone' => $row['celular'],
                 ]);
-                $user->assignRole('Estudiante');
+                $user->assignRole('Socio Comercial');
             }
             return view('index', compact('object'));
 

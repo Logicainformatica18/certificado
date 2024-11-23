@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
 
-Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
+Route::resource('Socio Comercial', App\Http\Controllers\StudentController::class);
 
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
@@ -34,7 +34,7 @@ Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'cour
    Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
 
 
-Route::group(['middleware' => ['role:Estudiante|Docente|Coordinación']], function () {
+Route::group(['middleware' => ['role:Socio Comercial|Coach|Coordinación']], function () {
 
 
 Route::resource('Mi-examen', App\Http\Controllers\QualificationController::class);
@@ -76,11 +76,11 @@ Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::clas
 
 
 
- Route::get('Docente', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
+ Route::get('Coach', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Coordinación', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 Route::get('/Administrador', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 /////////////////////////////////////////
-Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
+Route::group(['middleware' => ['role:Coordinación|Coach']], function () {
 
 
 
@@ -127,7 +127,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 
 
-Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], function () {
+Route::group(['middleware' => ['role:Coordinación|Administrador|Socio Comercial']], function () {
     //
     Route::get('hola',function (){
         return view('student.vista');
@@ -208,7 +208,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
 
 
 
-   Route::resource("estudiantes", App\Http\Controllers\StudentController::class);
+   Route::resource("Socio Comercials", App\Http\Controllers\StudentController::class);
    Route::post('studentStore',[App\Http\Controllers\StudentController::class, 'store']);
    Route::post('studentEdit',[App\Http\Controllers\StudentController::class, 'edit']);
    Route::post('studentUpdate',[App\Http\Controllers\StudentController::class, 'update']);
@@ -237,7 +237,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
-          Route::get('estudiante-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
+          Route::get('Socio Comercial-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
      
     
 
@@ -276,7 +276,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
                  $newUser->save();
                  //login as the new user
                  Auth::login($newUser);
-                 $newUser->assignRole('Estudiante');
+                 $newUser->assignRole('Socio Comercial');
                  //
                //  $newUser->createToken(request()->device_name)->plainTextToken ;
                  // go to the dashboard
@@ -344,7 +344,7 @@ Route::get('login/microsoft/callback', function () {
             $newUser->save();
             //login as the new user
             Auth::login($newUser);
-            $newUser->assignRole('Estudiante');
+            $newUser->assignRole('Socio Comercial');
             //
           //  $newUser->createToken(request()->device_name)->plainTextToken ;
             // go to the dashboard

@@ -43,7 +43,7 @@
                                     Inicio: {{ substr($registrys->fec_start, 0, 11) }}
                                 </p>
                              
-                                @role('Estudiante')
+                                @role('Socio Comercial')
                                     <a class="btn btn-sm" style="border-radius:15px;color:rgb(0, 0, 0);background-color: #5be8dd"
                                         onclick="inscriptionStore('{{ $registrys->id }}','{{Auth::user()->model_has_roles[0]->model_id}}-{{Auth::user()->model_has_roles[0]->model_type}}-{{Auth::user()->model_has_roles[0]->role_id}}')">
                                         INSCRIBIRME</a>

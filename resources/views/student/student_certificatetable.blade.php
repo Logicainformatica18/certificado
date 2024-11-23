@@ -48,7 +48,7 @@
                                             <td>{{ $certifications->cantidad_preguntas }}</td>
                                             <td>
                                                
-                                                @role('Estudiante')
+                                                @role('Socio Comercial')
                                                     <a class="btn  note-icon-pencil" style="font-size:12px;background-color:  #023039;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole

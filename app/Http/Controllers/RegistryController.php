@@ -42,7 +42,7 @@ class RegistryController extends Controller{
         */
         $user=Auth::user();
         //$user->model_has_roles[0]->role_id;
-        if ($user->roles_[0]->name=="Docente") {
+        if ($user->roles_[0]->name=="Coach") {
           
           $registry = Registry::where('teacher_m','=',$user->model_has_roles[0]->model_id)->get();
         }

@@ -556,7 +556,7 @@
                                     </a>
                                 </li> --}}
                   
-                        @role('Estudiante')
+                        @role('Socio Comercial')
                             <li class="nav-item has-treeview menu-close">
 
                                 <a href="#" class="nav-link">
@@ -564,7 +564,7 @@
                                     <img src="{{ asset('Recurso 22.png') }}" alt="" srcset=""
                                         width="25px">
                                     <p style="font-family:Montserrat-Bold">
-                                        Estudiante
+                                        Socio Comercial
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
@@ -599,7 +599,7 @@
                                 </ul>
                             </li>
                         @endrole
-                        @role('Docente')
+                        @role('Coach')
                             <li class="nav-item has-treeview menu-close">
 
                                 <a href="#" class="nav-link">
@@ -607,7 +607,7 @@
                                     <img src="{{ asset('Recurso 22.png') }}" alt="" srcset=""
                                         width="25px">
                                     <p style="font-family:Montserrat-Bold">
-                                        Docente
+                                        Coach
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
