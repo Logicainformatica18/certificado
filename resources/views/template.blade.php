@@ -940,7 +940,7 @@
                 <!-- Main content -->
                 <div class="content-wrapper">
                     <!-- Main content -->
-                    <section class="content">
+                    <section class="content" style="background-color: white" >
                         <div class="container-fluid">
                             @yield('content')
 
@@ -1129,9 +1129,9 @@
 
     <!-- Contenedor para el botón de WhatsApp y el mensaje -->
     <div class="whatsapp-container">
-        <div class="whatsapp-message">
+        {{-- <div class="whatsapp-message">
             ¿Necesitas ayuda?
-        </div>
+        </div> --}}
         <div class="whatsapp-btn">
             <a href="https://wa.pe/onedigital" target="_blank" title="Enviar mensaje por WhatsApp">
                 <i class="fab fa-whatsapp"></i>

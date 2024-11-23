@@ -19,6 +19,12 @@
                                     <th><img width="20"
                                         src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
                                         srcset=""></th>
+                                        <th><img width="20"
+                                            src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
+                                            srcset=""></th>
+                                            <th><img width="20"
+                                                src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png" alt=""
+                                                srcset=""></th>
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
@@ -32,8 +38,9 @@
                                     @foreach ($course as $courses)
                                         <tr>
                                             <td></td>
-                                            <td>
+                                           
                                                 @role('Coordinación|Administrador')
+                                                <td>
                                                     <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-success note-icon-pencil"
                                                         data-toggle="modal" data-target="#exampleModal"
@@ -42,14 +49,22 @@
                                                     <!-- <button class="note-icon-pencil" ></button> -->
                                                     <button class="btn btn-danger note-icon-trash"
                                                         onclick="courseDestroy('{{ $courses->id }}'); return false"></button>
-                                                        <a class="btn btn-warning note-icon-pencil"
-                                                        onclick="courseTopic('{{ $courses->id }}')"> Temario</a>
+                                                      
+                                                    </td>
+                                                        <td>
+                                                            <a class="btn btn-warning "
+                                                            onclick="courseTopic('{{ $courses->id }}')"> Temario</a>
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-warning "
+                                                            onclick="courseDetail('{{ $courses->id }}')"> Certificado</a>
+                                                        </td>
                                                 @endrole
-                                                @role('Coach|Coordinación')
+                                                {{-- @role('Coach|Coordinación')
                                                     <a class="btn btn-warning note-icon-pencil"
                                                         onclick="courseDetail('{{ $courses->id }}')"> Certificado</a>
-                                                @endrole
-                                            </td>
+                                                @endrole --}}
+                                         
                                             <td>{{ $courses->id }}</td>
                                             <td>{{ $courses->description }}</td>
                                             <td>{{ $courses->type->description }}</td>
