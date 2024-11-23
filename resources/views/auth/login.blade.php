@@ -1,260 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AnthonyCode</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
+  <!-- Required meta tags -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon icon-->
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+
+  <!-- Core Css -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <title>Aybar Corp</title>
 </head>
-<style type="text/css">
-    .welcome {
-        margin: 0px;
-        background-image: url("{{ asset('imagen-de-inicio.png') }}");
-        width: 100%;
-        background-repeat: no-repeat
-    }
 
-    .full-height {
-        height: 100vh;
-        /* altura de la pantalla completa */
-    }
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
 
-    .bg-image {
-        background: url("{{ asset('imagen-de-inicio.png') }}") no-repeat left center;
-        background-size: cover;
-    }
+    <img src="{{ asset('ayba/1.png') }}" alt="loader" class="lds-ripple img-fluid" />
+  </div>
+  <div id="main-wrapper">
+    <div class="position-relative overflow-hidden radial-gradient min-vh-100 w-100">
+      <div class="position-relative z-index-5">
+        <div class="row gx-0">
 
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Bold.otf') }}");
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Medium.otf') }}");
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Light.otf') }}");
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Regular.otf') }}");
-        font-weight: 500;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Semibold.otf') }}");
-        font-weight: 600;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'Kohinoor Bangla', sans-serif;
-        font-weight: 300;
-        /* Utiliza la variante "Light" por defecto */
-    }
-
-
-
-    h2 {
-        font-weight: 600;
-        /* Usará KohinoorBangla-SemiBold.ttf */
-        color: black;
-    }
-</style>
-
-<body class="">
-    <div class="">
-        <div class="row container-fluid">
-
-            <div class="col-md-4">
-                <div class="row h-100 justify-content-center align-items-center">
-
-                    <!-- /.login-logo -->
-                    <div class="">
-                        <div class="card-body login-card-body">
-                            &nbsp;&nbsp;&nbsp;
+          <div class="col-lg-6 col-xl-5 col-xxl-4">
+            <div class="min-vh-100 bg-body row justify-content-center align-items-center p-5">
+              <div class="col-12 auth-card">
+                <a href="{{url('/')}}" class="text-nowrap logo-img d-block w-100 text-center">
+                  <img src="{{asset('ayba/1.png')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
+                 
+                </a>
+                <h2 class="mb-2 mt-4 fs-7 fw-bolder">Iniciar Sesión</h2>
+                {{-- <p class="mb-9">Your Admin Dashboard</p> --}}
+                <div class="row">
+                  <div class="col-12 mb-2 mb-sm-0">
+                    <a class="btn btn-link border border-muted d-flex align-items-center justify-content-center rounded-2 py-8 text-decoration-none" href="{{ url('auth/google') }}" role="button">
+                     
+                        <img src="../assets/images/svgs/google-icon.svg" alt="matdash-img" class="img-fluid me-2" width="18" height="18" />
+                      Google
+                    </a>
+                  </div>
+                  {{-- <div class="col-6">
+                    <a class="btn btn-link border border-muted d-flex align-items-center justify-content-center rounded-2 py-8 text-decoration-none" href="javascript:void(0)" role="button">
+                      <img src="../assets/images/svgs/facebook-icon.svg" alt="matdash-img" class="img-fluid me-2" width="18" height="18" />
+                      Facebook
+                    </a>
+                  </div> --}}
+                </div>
+                <div class="position-relative text-center my-4">
+                  <p class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">
+                    o ingresa con email
+                  </p>
+                  <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+                </div>
+                <form method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input id="email" type="email"
+                    class="form-control @error('email') is-invalid @enderror" name="email"
+                    value="{{ old('email') }}" required autocomplete="email" autofocus
+                    placeholder="Email"id="exampleInputEmail1" aria-describedby="emailHelp">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    {{-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" /> --}}
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
 
 
-                            <div class="login-logo">
-                                <img src="{{ asset('ayba/1.png') }}" alt="" srcset=""width="30%">
 
-                                <h1 style="font-weight: bold;font-size:20px; color: #023039;"><b>Academy</b>
-                                </h1>
-                            </div>
-                            <p class="login-box-msg" style="color:#023039;">Ingrese sus datos para iniciar sesión</p>
-
-                            <form method="POST" action="{{ route('login') }}">
-                                &nbsp;&nbsp;<span style="color: #023039;font-size:13px">Email</span>
-                                {{ csrf_field() }}
-                                <div class="input-group mb-3 container">
-
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Email">
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                &nbsp;&nbsp;<span style="color: #023039;font-size:13px">Contraseña</span>
-                                <div class="input-group mb-3 container">
-                                    <input id="password" type="password"
+                    <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password" placeholder="Contraseña">
+                                        required autocomplete="current-password" placeholder="Contraseña"id="exampleInputPassword1">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
 
-
-
-
-                                <div class="row container">
-
-                                    <div
-                                        class="col-12 text-center md d-flex  justify-content-center align-items-center">
-                                        <p></p>
-
-                                        <button type="submit"
-                                            class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #023039;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
-                                            <span style="color:white; font-size: 1em;">INICIAR SESIÓN</span>
-                                        </button>
-
-                                    </div>
-                                </div>
-                                <div class="row container">
-                                    <div class="col-1"></div>
-                                    <div class="col-1">
-                                        <div class="icheck-primary">
-                                            <p></p>
-
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <span style="color: #023039;font-size:12px">Recordarme</span>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-1"></div>
-                                    <div class="col-9">
-                                        <p></p>
-                                        @if (Route::has('password.request'))
-                                            <a class="login-box-msg"
-                                                href="{{ route('password.request') }}"style="color:#023039;font-size:13px">
-                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                &nbsp;¿Olvidaste tu Contraseña?
-                                            </a>
-                                        @endif
-                                    </div>
-                                    <!-- /.col -->
-
-                                    <!-- /.col -->
-
-                                    <!-- /.col -->
-                                </div>
-                                <p></p>
-
-                                <div class="social-auth-links text-center mb-3">
-
-                                    {{-- <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a> --}}
-                                    <a href="{{ url('auth/google') }}"
-                                        class="btn btn-block shadow-sm p-2 mb-5  rounded"
-                                        style="background-color:#F6A42C;color:white">
-
-
-                                        <div class="google-auth__GoogleAuthStyled-sc-7d7ymg-0 ewxrDx">
-                                            <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                                version="1.1" x="0px" y="0px" viewBox="0 0 48 48"
-                                                enable-background="new 0 0 48 48" height="20px" width="20px"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
- c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
- c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                                                </path>
-                                                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657
- C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                                                </path>
-                                                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36
- c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                                                </path>
-                                                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
- c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                                                </path>
-                                            </svg><span> Continuar con Google</span>
-
-                                        </div>
-                                    </a>
-                                </div>
-                            </form>
-
-                            </form>
-
-
-
-                        </div>
-                        <!-- /.login-card-body -->
+                   
+                  </div>
+                  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="form-check">
+                                          
+                        <input class="form-check-input primary" type="checkbox" name="remember"
+                        id="remember" {{ old('remember') ? 'checked' : '' }} checked>
+                        <label class="form-check-label text-dark" for="flexCheckChecked" >
+                            Recordarme
+    
+                      </label>
                     </div>
 
+                    @if (Route::has('password.request'))
+                   
+                    <a class="text-primary fw-medium" href="{{ route('password.request') }}">¿Olvidaste tu Contraseña?</a>
+                @endif
+
+                  </div>
+                  <button type="submit"
+                  class="btn btn-primary w-100 py-8 mb-4 rounded-2"
+                  style="background-color: #023039;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
+                  <span style="color:white; font-size: 1em;">Ingresar</span>
+              </button>
+
+                
+                  {{-- <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-medium">New to MatDash?</p>
+                    <a class="text-primary fw-medium ms-2" href="../dark/authentication-register.html">Create an
+                      account</a>
+                  </div> --}}
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-xl-7 col-xxl-8 position-relative overflow-hidden   d-none d-lg-block">
+            {{-- <div class="circle-top"></div> --}}
+            <img src="ayba/f_login.png" alt="">
+            <div>
+              
+              {{-- <img src="../assets/images/logos/logo-icon.svg" class="circle-bottom" alt="Logo-Dark" /> --}}
+            </div>
+            {{-- <div class="d-lg-flex align-items-center z-index-5 position-relative h-n80">
+              <div class="row justify-content-center w-100">
+                <div class="col-lg-6">
+                  <h2 class="text-white fs-10 mb-3 lh-base">
+                    Welcome to
+                    <br />
+                    MatDash
+                  </h2>
+                  <span class="opacity-75 fs-4 text-white d-block mb-3">MatDash helps developers to build organized
+                    and well
+                    <br />
+                    coded dashboards full of beautiful and rich modules.
+                  </span>
+                  <a href="../landingpage/index.html" class="btn btn-primary">Learn More</a>
                 </div>
-            </div>
-            <div class="col-md-8 bg-image full-height d-none d-md-block">
-                <!-- contenido de la primera columna -->
-            </div>
+              </div>
+            </div> --}}
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
+  <!-- Import Js Files -->
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="../assets/js/theme/app.dark.init.js"></script>
+  <script src="../assets/js/theme/theme.js"></script>
+  <script src="../assets/js/theme/app.min.js"></script>
+  <script src="../assets/js/theme/sidebarmenu.js"></script>
 
-
-    <!-- /.login-box -->
-
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>

@@ -1486,6 +1486,7 @@
                             </div>
                             <div class="offcanvas-body pt-0" data-simplebar style="height: calc(100vh - 80px)">
                                 <ul id="sidebarnav">
+                                    <a href=""></a>
                                     <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow ms-0" href="javascript:void(0)"
                                             aria-expanded="false">
