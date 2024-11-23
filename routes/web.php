@@ -16,10 +16,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-// Route::get('/', function () {
+Route::get('premium', function () {
 
-//       return view('welcome');
-// });
+      return view('vista2');
+});
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
