@@ -73,12 +73,17 @@
                         Nombre de Carpeta de Certificados : <input type="text" name="folder_certification"
                             id="folder_certification" class="form-control">
                             <p></p>
-
+                            Adjuntar brochure
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="brochure" class="form-control"
+                                    accept=".pdf" >
+                                <label class="custom-file-label" for="customFile">Adjuntar PDF .pdf</label>
+                            </div>
                         <div class="container align-content-center">
                             <div class="form-group row">
                                 Imagen Presentación
-                                <div class="col-sm-1"></div>
-                                <div class="btn btn-default btn-file col-9">
+                      
+                                <div class="btn btn-default btn-file col-12">
                                     <i class="fas fa-paperclip"></i> Subir
                                     <input type='file' id="imgInp" name="presentation" onchange="readImage(this,'#blah');">
                                 </div>
@@ -93,17 +98,24 @@
                         </div>
                          Review : <textarea name="review" id="" cols="30" rows="10" class="form-control"></textarea>
                         <br>
+                     
+
+
+
                         <div class="container align-content-center">
                             <div class="form-group row">
                                 Curso en Emisión
-                                <div class="col-sm-1"></div>
-                                <div class="btn btn-default btn-file col-9">
+                                
+                                <div class="btn btn-default btn-file col-12">
                                     <i class="fas fa-paperclip"></i> Subir
                                     <input type='file' id="imgInp2" name="emision" onchange="readImage(this,'#blah2');">
                                 </div>
 
 
                             </div>
+
+                           
+
                             <div class="size-100">
                                 <br>
                                 <img id="blah2" name="fotografia2" src="https://placehold.co/150" alt="Tu imagen"

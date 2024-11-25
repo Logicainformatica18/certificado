@@ -12,7 +12,7 @@ function datebirth($day, $month, $year)
     $datebirth =    $year . "-" . $month . "-" . $day;
     return $datebirth;
 }
-function photoStore($photo, $directory)
+function fileStore($photo, $directory)
 {
     if ($photo != "") {
 
@@ -23,7 +23,7 @@ function photoStore($photo, $directory)
         return    $imageName;
     }
 }
-function photoDestroy($photo, $directory)
+function fileDestroy($photo, $directory)
 {
     try {
         $image_path = public_path() . '/' . $directory . '/' . $photo;

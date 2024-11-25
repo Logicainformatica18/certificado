@@ -68,24 +68,24 @@ class TopicController extends Controller
         $topic->instruction = $request->instruction;
         $topic->point = $request->point;
         $topic->time = $request->time;
-        //photo
+        //file
         if ($request->file('photo') != null) {
-            $request->photo = photoStore($request->file('photo'), "imageusers");
+            $request->photo = fileStore($request->file('photo'), "imageusers");
             $topic->image_1 = $request->photo;
         }
         //file
         if ($request->file('file_1') != null) {
-            $request->file_1 = photoStore($request->file('file_1'), "file");
+            $request->file_1 = fileStore($request->file('file_1'), "file");
             $topic->file_1 = $request->file_1;
         }
         //file
         if ($request->file('file_2') != null) {
-            $request->file_2 = photoStore($request->file('file_2'), "file");
+            $request->file_2 = fileStore($request->file('file_2'), "file");
             $topic->file_2 = $request->file_2;
         }
         //resource
         if ($request->file('resource_1') != null) {
-            $request->resource_1 = photoStore($request->file('resource_1'), "resource");
+            $request->resource_1 = fileStore($request->file('resource_1'), "resource");
             $topic->resource_1 = $request->resource_1;
         }
         $topic->save();
@@ -141,8 +141,8 @@ class TopicController extends Controller
 
         // if ($request->file('photo') != null) {
         //    // $table = topic::find($request["id"]);
-        //     photoDestroy($topic->photo, "imageusers");
-        //     $request->photo = photoStore($request->file('photo'), "imageusers");
+        //     fileDestroy($topic->photo, "imageusers");
+        //     $request->photo = fileStore($request->file('photo'), "imageusers");
         //     $topic->photo = $request->photo;
         // }
 
@@ -157,10 +157,10 @@ class TopicController extends Controller
     public function destroy(Request $request)
     {
         $table = Topic::find($request["id"]);
-        photoDestroy($table->image_1, "imageusers");
-        photoDestroy($table->resource_1, "resource");
-        photoDestroy($table->file_1, "file");
-        photoDestroy($table->file_2, "file");
+        fileDestroy($table->image_1, "imageusers");
+        fileDestroy($table->resource_1, "resource");
+        fileDestroy($table->file_1, "file");
+        fileDestroy($table->file_2, "file");
         Topic::find($request->id)->delete();
         //  CategoryDetail::where('type_id', $request->id)->delete();
 

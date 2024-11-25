@@ -20,9 +20,10 @@
                             $img='curso_promocion.jpg';
                             }
                         @endphp
+                         
                         <div style="width: 15rem;border-radius:40px" class="card" >
                             <img src="{{ asset('imageusers/'.$img) }}" class="card-img-top" alt="..."
-                            style="border-top-left-radius:40px;border-top-right-radius:40px;height:200px"
+                            style="border-top-left-radius:40px;border-top-right-radius:40px"
                             >
                             <div class="card-body" style="background: linear-gradient(to left, #011316 20%, #023039 80% );
                             border-bottom-left-radius:40px;border-bottom-right-radius:40px;
@@ -44,9 +45,17 @@
                                 </p>
                              
                                 @role('Socio Comercial')
+                                <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
+                                download="{{$registrys->course->brochure}}" href="{{asset('brochure/'.$registrys->course->brochure)}}">
+                                Broshure</a>
+                                <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
+                                        onclick="courseTopic('{{ $registrys->course->id }}','')" href="#">
+                                        Temario</a>
+                                       <p></p>
                                     <a class="btn btn-sm" style="border-radius:15px;color:rgb(0, 0, 0);background-color: #5be8dd"
                                         onclick="inscriptionStore('{{ $registrys->id }}','{{Auth::user()->model_has_roles[0]->model_id}}-{{Auth::user()->model_has_roles[0]->model_type}}-{{Auth::user()->model_has_roles[0]->role_id}}')">
                                         INSCRIBIRME</a>
+                                       
                                 @endrole
 
                             </div>

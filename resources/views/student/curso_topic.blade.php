@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('ayba/favicon.png') }}" />
 
     <!-- Core Css -->
-    <link rel="stylesheet" href="{{ asset('template_premium/assets/css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
     <title>{{ $topic[0]->description }}</title>
 </head>
