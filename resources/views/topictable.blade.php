@@ -26,7 +26,7 @@
                                     <th class="sorting">Instructor</th>
                                     <th class="sorting">Puntos</th>
                                     <th class="sorting">Ver Contenido</th>
-
+                                    <th class="sorting">Video</th>
                                     <th class="sorting">Archivos</th>
                                     <th class="sorting">PDF 1</th>
                                     <th class="sorting">PDF 2</th>
@@ -61,6 +61,12 @@
                                             <td><a target="_blank"
                                                     href="cursos/{{ $topics->course->id }}/tema/{{ $topics->id }}">Ver</a>
                                             </td>
+
+                                            <td><a target="_blank" href="{{ asset($topics->video) }}"
+                                                >{{ $topics->video }}
+                                            </a>
+                                        </td>
+
                                             @php
                                                 $resource_1 = 'resource/' . $topics->resource_1;
                                             @endphp

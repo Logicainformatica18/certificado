@@ -115,7 +115,9 @@ function topicEdit(id) {
       topic.id.value = response.data["id"];
       topic.description.value = response.data["description"];
       topic.detail.value = response.data["detail"];
-      topic.detail.value = response.data["instruction"];
+      topic.instruction.value = response.data["instruction"];
+       topic.video.value = response.data["video"];
+       topic.type.value = response.data["type"];
 
       // JavaScript para establecer el contenido del textarea
       document.getElementsByClassName("note-editable")[0].innerHTML = response.data["post"];
