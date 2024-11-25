@@ -375,24 +375,28 @@
 
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                    <iframe width="100%" height="800" src="{{ $url }}" title="YouTube video player"
+                    <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+                    <h1>&nbsp; {{ $topic[0]->description }}</h1>
                 </div>
 
                 <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="card overflow-hidden">
                         <div class="card-body p-0">
-                            <img src="{{asset('assets/images/backgrounds/profilebg.jpg')}}" alt="matdash-img"
+
+
+                            <img src="{{ asset('assets/images/backgrounds/profilebg.jpg') }}" alt="matdash-img"
                                 class="img-fluid">
+
                             <div class="row align-items-center">
                                 <div class="col-lg-4 order-lg-1 order-2">
                                     <div class="d-flex align-items-center justify-content-around m-4">
                                         <div class="text-center">
                                             <i class="ti ti-file-description fs-6 d-block mb-2"></i>
-                                            <h6 class="mb-0 fw-semibold lh-1">{{$count}}</h6>
+                                            <h6 class="mb-0 fw-semibold lh-1">{{ $count }}</h6>
                                             <p class="mb-0 ">Posts</p>
                                         </div>
                                         <div class="text-center">
@@ -400,7 +404,7 @@
                                             <h6 class="mb-0 fw-semibold lh-1">100</h6>
                                             <p class="mb-0 ">Followers</p>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                                 <div class="col-lg-4 mt-n3 order-lg-2 order-1">
@@ -409,13 +413,23 @@
                                             <div class="d-flex align-items-center justify-content-center round-110">
                                                 <div
                                                     class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden round-100">
-                                                    <img src="{{asset('assets/images/profile/user-1.jpg')}}" alt="matdash-img"
-                                                        class="w-100 h-100">
+
+                                                    @if ($topic[0]->user->photo == '')
+                                                        <img src="{{ asset('assets/images/profile/user-1.jpg') }}"
+                                                            alt="matdash-img" class="w-100 h-100">
+                                                    @else
+                                                        <img src="{{ asset('imageusers/' . $topic[0]->user->photo) }}"
+                                                            alt="matdash-img" class="img-fluid">
+                                                    @endif
+
+
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <h5 class="mb-0">{{$topic[0]->user->firstname}} {{$topic[0]->user->names}}</h5>
+                                            <h5 class="mb-0">{{ $topic[0]->user->firstname }}
+                                                {{ $topic[0]->user->names }}</h5>
                                             <p class="mb-0">Coach</p>
                                         </div>
                                     </div>
@@ -471,7 +485,7 @@
                                     <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
                                         data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
                                         role="tab" aria-controls="pills-friends" aria-selected="false">
-                                        <i class="ti ti-user-circle fs-5"></i>
+                                        <i class="ti ti-heart-circle fs-5"></i>
                                         <span class="d-none d-md-block">Temas</span>
                                     </button>
                                 </li>
@@ -515,52 +529,83 @@
                                             Disqus.</a></noscript>
 
 
-                                    {{-- <div class="card">
-                <div class="card-body border-bottom">
-                  <div class="d-flex align-items-center gap-6 flex-wrap">
-                    <img src="../assets/images/profile/user-1.jpg" alt="matdash-img" class="rounded-circle" width="40" height="40">
-                    <h6 class="mb-0">David McMichael</h6>
-                    <span class="fs-2">
-                      <span class="p-1 text-bg-light rounded-circle d-inline-block"></span> 15 min
-                      ago
-                    </span>
-                  </div>
-                  <p class="text-dark my-3">
-                    Faco kiswuoti mucurvi juokomo fobgi aze huweik zazjofefa kuujer talmoc li niczot lohejbo vozev
-                    zi huto. Ju
-                    tupma uwujate bevolkoh hob munuap lirec zak ja li hotlanu pigtunu.
-                  </p>
-                  <iframe class="rounded-4 border border-2 mb-3 h-300" src="https://www.youtube.com/embed/d1-FRj20WBE" frameborder="0" width="100%"></iframe>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex align-items-center gap-2">
-                      <a class="round-32 rounded-circle btn btn-primary p-0 hstack justify-content-center" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Like">
-                        <i class="ti ti-thumb-up"></i>
-                      </a>
-                      <span class="text-dark fw-semibold">129</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-2 ms-4">
-                      <a class="round-32 rounded-circle btn btn-secondary p-0 hstack justify-content-center" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Comment">
-                        <i class="ti ti-message-2"></i>
-                      </a>
-                      <span class="text-dark fw-semibold">0</span>
-                    </div>
-                    <a class="text-dark ms-auto d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Share">
-                      <i class="ti ti-share"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center gap-6 flex-wrap p-3 flex-lg-nowrap">
-                  <img src="../assets/images/profile/user-1.jpg" alt="matdash-img" class="rounded-circle" width="33" height="33">
-                  <input type="text" class="form-control py-8" id="exampleInputtext3" aria-describedby="textHelp" placeholder="Comment">
-                  <button class="btn btn-primary">Comment</button>
-                </div>
-              </div> --}}
+
                                 </div>
                             </div>
                         </div>
 
+                        <div class="tab-pane fade show" id="pills-followers" role="tabpanel"
+                            aria-labelledby="pills-followers-tab" tabindex="0">
+                         
+
+                        </div>
+                        <div class="tab-pane fade show" id="pills-friends" role="tabpanel"
+                            aria-labelledby="pills-friends-tab" tabindex="0">
+                            <div class="card">
+
+                                <div class="card-body border-bottom">
+                                    <div class="d-flex align-items-center gap-6 flex-wrap">
 
 
+                                        @if ($topic[0]->user->photo == '')
+                                        <img src="{{asset('assets/images/profile/user-1.jpg')}}" alt="matdash-img"
+                                        class="rounded-circle" width="40" height="40">
+                                    @else
+                                        <img src="{{ asset('imageusers/' . $topic[0]->user->photo) }}"
+                                        alt="matdash-img"  class="rounded-circle" width="40" height="40">
+                                    @endif
+                                        
+
+                                        <h6 class="mb-0">David McMichael</h6>
+                                        <span class="fs-2">
+                                            <span class="p-1 text-bg-light rounded-circle d-inline-block"></span>
+                                            15 min
+                                            ago
+                                        </span>
+                                    </div>
+                                    <p class="text-dark my-3">
+                                        Faco kiswuoti mucurvi juokomo fobgi aze huweik zazjofefa kuujer talmoc
+                                        li niczot lohejbo vozev
+                                        zi huto. Ju
+                                        tupma uwujate bevolkoh hob munuap lirec zak ja li hotlanu pigtunu.
+                                    </p>
+                                    <iframe class="rounded-4 border border-2 mb-3 h-300"
+                                        src="https://www.youtube.com/embed/d1-FRj20WBE" frameborder="0"
+                                        width="100%"></iframe>
+                                    <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <a class="round-32 rounded-circle btn btn-primary p-0 hstack justify-content-center"
+                                                href="javascript:void(0)" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" data-bs-title="Like">
+                                                <i class="ti ti-thumb-up"></i>
+                                            </a>
+                                            <span class="text-dark fw-semibold">129</span>
+                                        </div>
+                                        <div class="d-flex align-items-center gap-2 ms-4">
+                                            <a class="round-32 rounded-circle btn btn-secondary p-0 hstack justify-content-center"
+                                                href="javascript:void(0)" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" data-bs-title="Comment">
+                                                <i class="ti ti-message-2"></i>
+                                            </a>
+                                            <span class="text-dark fw-semibold">0</span>
+                                        </div>
+                                        <a class="text-dark ms-auto d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle"
+                                            href="javascript:void(0)" data-bs-toggle="tooltip"
+                                            data-bs-placement="top" data-bs-title="Share">
+                                            <i class="ti ti-share"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-6 flex-wrap p-3 flex-lg-nowrap">
+                                    <img src="../assets/images/profile/user-1.jpg" alt="matdash-img"
+                                        class="rounded-circle" width="33" height="33">
+                                    <input type="text" class="form-control py-8" id="exampleInputtext3"
+                                        aria-describedby="textHelp" placeholder="Comment">
+                                    <button class="btn btn-primary">Comment</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
