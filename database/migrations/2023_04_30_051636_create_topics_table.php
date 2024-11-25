@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('detail')->nullable();
             $table->string('instruction')->nullable();
+            $table->string('video')->nullable();
+            $table->string('type');
             $table->string('image_1')->nullable();
             $table->string('image_2')->nullable();
             $table->integer('point')->default('0');

@@ -68,6 +68,8 @@ class TopicController extends Controller
         $topic->instruction = $request->instruction;
         $topic->point = $request->point;
         $topic->time = $request->time;
+        $topic->video = $request->video;
+        $topic->type = $request->type;
         //file
         if ($request->file('photo') != null) {
             $request->photo = fileStore($request->file('photo'), "imageusers");

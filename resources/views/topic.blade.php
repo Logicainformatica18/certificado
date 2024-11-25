@@ -40,15 +40,23 @@
             <input type="hidden" name="id" id="id">
             {{ csrf_field() }}
             Descripción : <input type="text" name="description" id="description" class="form-control">
+            Tipo :
+            <select name="type" id="type"class="form-control">
+                <option value="video">Video</option>
+                <option value="read">Lectura</option>
+            </select>
+            Video :
+            <input type="text" name="video" id="video" class="form-control">
            
-            <div class="container-fluid">
-                <div class="form-group row">
+           
+           
+               
                     <br>
                     Imagen Principal
                     <p></p>
-                    <div class="col-10">
+                    <div class="col-12">
                     </div>
-                    <div class="btn btn-default btn-file col-2">
+                    <div class="btn btn-default btn-file col-12">
                         <i class="fas fa-paperclip"></i> Subir
                         <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
                     </div>
@@ -61,9 +69,8 @@
                         <p></p>
                     </div>
 
-                </div>
-
-            </div>
+               
+          
 
       
 
