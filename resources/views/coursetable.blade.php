@@ -28,6 +28,7 @@
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     <th class="sorting">Tipo</th>
+                                    <th class="sorting">Brochure</th>
                                     <th class="sorting">Imágen Emisión</th>
                                     <th class="sorting">Horas</th>
                                     <th class="sorting">Detalle</th>
@@ -68,6 +69,17 @@
                                             <td>{{ $courses->id }}</td>
                                             <td>{{ $courses->description }}</td>
                                             <td>{{ $courses->type->description }}</td>
+                                            <td>
+                                                @if ($courses->brochure!="")
+                                                <a href="{{asset("brochure/".$courses->brochure)}}" download="{{$courses->brochure}}">
+                                                    Descargar</a>
+                                                
+                                                @endif   
+                                               
+                                            </td>
+
+
+
 
                                             <td><img src="{{ asset('imageusers/' . $courses->emision) }}"
                                                     alt="" srcset="" width="100"></td>
@@ -75,7 +87,10 @@
                                            
                                             <td>{{ $courses->hours }}</td>
                                             <td>{{ $courses->detail }}</td>
-                                            <td><img src="{{ asset('imageusers/' . $courses->presentation) }}"
+                                            @php
+                                                $img="imageusers/" . $courses->presentation;
+                                            @endphp
+                                            <td><img src="{{ $img }}"
                                                     alt="" srcset="" width="100"></td>
 
                            

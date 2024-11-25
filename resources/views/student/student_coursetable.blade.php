@@ -38,6 +38,9 @@
                              
                                 @role('Socio Comercial')
                                 <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
+                                download="{{$registry_details->registry->course->brochure}}" href="{{asset('brochure/'.$registry_details->registry->course->brochure)}}">
+                                Broshure</a>
+                                <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
                                         onclick="courseTopic('{{ $registry_details->registry->course->id }}','{{ $registry_details->id }}')" href="#">
                                         Temario</a>
                                         <p></p>

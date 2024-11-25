@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('type_id')->references('id')->on('types');
             $table->string('description');
             $table->string('hours');
+            $table->string('brochure')->nullable();
             $table->string('detail')->nullable();
             $table->string('code_certificate')->nullable();
             
