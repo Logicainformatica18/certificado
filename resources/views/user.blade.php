@@ -25,7 +25,7 @@
                 <div class="col col-lg-10 col-md-8 col-sm-12">
                     <button type="button"style="border-radius:20px;background-color:#023039;color:white;width:150px"
                         class="btn" data-toggle="modal" data-target="#exampleModal"
-                        onclick="New();$('#user')[0].reset();user.fotografia.src="https://placehold.co/150;'>
+                        onclick="New();$('#user')[0].reset();">
                         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
                     </button>
 
@@ -171,7 +171,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" role="form" id="user" name="form">
+                <form name="f_1"id="f_1">
+
+                    </form>
+                    <form action="" method="post" role="form" id="user" name="user"enctype="multipart/form-data">
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
 
@@ -266,8 +269,7 @@
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
                         style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
-                        onclick="New();$('#user')[0].reset(); user.fotografia.src='https://placehold.co/150';"
-                        name="new">
+                        onclick="New();$('#user')[0].reset();"   name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"
                         id="update">

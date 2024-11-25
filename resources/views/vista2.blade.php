@@ -1,260 +1,881 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AnthonyCode</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
+
+    <!-- Core Css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
+
+    <title>MatDash Bootstrap Admin</title>
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="{{ 'assets/libs/owl.carousel/dist/assets/owl.carousel.min.css' }}" />
+    <link rel="stylesheet" href="{{ 'assets/libs/aos/dist/aos.css' }}" />
 </head>
-<style type="text/css">
-    .welcome {
-        margin: 0px;
-        background-image: url("{{ asset('imagen-de-inicio.png') }}");
-        width: 100%;
-        background-repeat: no-repeat
-    }
 
-    .full-height {
-        height: 100vh;
-        /* altura de la pantalla completa */
-    }
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img src="{{ 'assets/images/logos/favicon.png' }}" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <div id="main-wrapper flex-column">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg py-0">
+                <div class="container">
+                    <a class="navbar-brand me-0 py-0" href="../main/index.html">
+                        <img src="{{ asset('ayba/1.png') }}"width="60px" alt="img-fluid" />
+                    </a>
+                    <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ti ti-menu-2 fs-9"></i>
+                    </button>
+                    <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <i class="ti ti-menu-2 fs-9"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
+                            <li class="nav-item dropdown hover-dd mega-dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
+                                    Demos
+                                    <span class="d-flex align-items-center">
+                                        <i class="ti ti-chevron-down"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-animate-up p-4">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <h5 class="fs-5 fw-bolder">Different Demos</h5>
+                                            <h6 class="text-muted">Included with the Package</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center my-4">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/demos/demo-main.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/index3.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Main
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/demos/demo-dark.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../dark/index.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Dark
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/demos/demo-horizontal.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../horizontal/index.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Horizontal
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/demos/demo-minisidebar.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../minisidebar/index.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Minisidebar
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/demos/demo-rtl.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../rtl/index.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">RTL</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center mb-4">
+                                        <div class="col-md-12">
+                                            <h5 class="fs-5 fw-semibold mt-8">Different Apps</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-12">
+                                            <div class="row justify-content-between">
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/apps/app-calendar.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/app-calendar.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Calendar
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/apps/app-chat.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/app-chat.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Chat
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/apps/app-email.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/app-email.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Email
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/apps/app-contact.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/app-contact2.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Contact
+                                                    </h6>
+                                                </div>
+                                                <div class="col">
+                                                    <div
+                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
+                                                        <img src="../assets/images/apps/app-invoice.jpg"
+                                                            alt="matdash-img" class="img-fluid" />
+                                                        <a target="_blank" href="../main/app-invoice.html"
+                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
+                                                            Preview</a>
+                                                    </div>
+                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
+                                                        Invoice
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown hover-dd mega-dropdown pages-dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    aria-expanded="false">
+                                    Pages
+                                    <span class="d-flex align-items-center">
+                                        <i class="ti ti-chevron-down"></i>
+                                    </span>
+                                </a>
+                                <div
+                                    class="dropdown-menu dropdown-menu-nav  dropdown-menu-animate-up py-0 overflow-hidden">
+                                    <div class="position-relative">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="p-4 pb-3">
 
-    .bg-image {
-        background: url("{{ asset('imagen-de-inicio.png') }}") no-repeat left center;
-        background-size: cover;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Bold.otf') }}");
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Medium.otf') }}");
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Light.otf') }}");
-        font-weight: 300;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Regular.otf') }}");
-        font-weight: 500;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: "Kohinoor Bangla";
-        src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Semibold.otf') }}");
-        font-weight: 600;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'Kohinoor Bangla', sans-serif;
-        font-weight: 300;
-        /* Utiliza la variante "Light" por defecto */
-    }
-
-
-
-    h2 {
-        font-weight: 600;
-        /* Usará KohinoorBangla-SemiBold.ttf */
-        color: black;
-    }
-</style>
-
-<body class="">
-    <div class="">
-        <div class="row container-fluid">
-
-            <div class="col-md-4">
-                <div class="row h-100 justify-content-center align-items-center">
-
-                    <!-- /.login-logo -->
-                    <div class="">
-                        <div class="card-body login-card-body">
-                            &nbsp;&nbsp;&nbsp;
-
-
-                            <div class="login-logo">
-                                <img src="{{ asset('ayba/1.png') }}" alt="" srcset=""width="30%">
-
-                                <h1 style="font-weight: bold;font-size:20px; color: #023039;"><b>Academy</b>
-                                </h1>
-                            </div>
-                            <p class="login-box-msg" style="color:#023039;">Ingrese sus datos para iniciar sesión</p>
-
-                            <form method="POST" action="{{ route('login') }}">
-                                &nbsp;&nbsp;<span style="color: #023039;font-size:13px">Email</span>
-                                {{ csrf_field() }}
-                                <div class="input-group mb-3 container">
-
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="Email">
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-envelope"></span>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="position-relative">
+                                                                <a href="../main/app-chat.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-primary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon
+                                                                            icon="solar:chat-line-bold-duotone"
+                                                                            class="fs-7 text-primary"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Chat Application</h6>
+                                                                        <span class="fs-11 d-block text-body-color">New
+                                                                            messages arrived</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-invoice.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-secondary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon
+                                                                            icon="solar:bill-list-bold-duotone"
+                                                                            class="fs-7 text-secondary"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Invoice App</h6>
+                                                                        <span class="fs-11 d-block text-body-color">Get
+                                                                            latest invoice</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-contact2.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-warning-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon
+                                                                            icon="solar:phone-calling-rounded-bold-duotone"
+                                                                            class="fs-7 text-warning"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Contact Application</h6>
+                                                                        <span class="fs-11 d-block text-body-color">2
+                                                                            Unsaved Contacts</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-email.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-danger-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon icon="solar:letter-bold-duotone"
+                                                                            class="fs-7 text-danger"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Email App</h6>
+                                                                        <span class="fs-11 d-block text-body-color">Get
+                                                                            new emails</span>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="position-relative">
+                                                                <a href="../main/page-user-profile.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-success-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon icon="solar:user-bold-duotone"
+                                                                            class="fs-7 text-success"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">User Profile</h6>
+                                                                        <span
+                                                                            class="fs-11 d-block text-body-color">learn
+                                                                            more information</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-calendar.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-primary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon
+                                                                            icon="solar:calendar-minimalistic-bold-duotone"
+                                                                            class="fs-7 text-primary"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Calendar App</h6>
+                                                                        <span class="fs-11 d-block text-body-color">Get
+                                                                            dates</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-contact.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-secondary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon
+                                                                            icon="solar:smartphone-2-bold-duotone"
+                                                                            class="fs-7 text-secondary"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Contact List Table</h6>
+                                                                        <span class="fs-11 d-block text-body-color">Add
+                                                                            new contact</span>
+                                                                    </div>
+                                                                </a>
+                                                                <a href="../main/app-notes.html"
+                                                                    class="d-flex align-items-center pb-9 position-relative">
+                                                                    <div
+                                                                        class="bg-warning-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                        <iconify-icon icon="solar:notes-bold-duotone"
+                                                                            class="fs-7 text-warning"></iconify-icon>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 class="mb-0">Notes Application</h6>
+                                                                        <span
+                                                                            class="fs-11 d-block text-body-color">To-do
+                                                                            and Daily tasks</span>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 d-none d-lg-flex">
+                                                <img src="../assets/images/backgrounds/mega-dd-bg.jpg" alt="mega-dd"
+                                                    class="img-fluid mega-dd-bg" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                &nbsp;&nbsp;<span style="color: #023039;font-size:13px">Contraseña</span>
-                                <div class="input-group mb-3 container">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password" placeholder="Contraseña">
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                            <span class="fas fa-lock"></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="row container">
-
-                                    <div
-                                        class="col-12 text-center md d-flex  justify-content-center align-items-center">
-                                        <p></p>
-
-                                        <button type="submit"
-                                            class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #023039;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
-                                            <span style="color:white; font-size: 1em;">INICIAR SESIÓN</span>
-                                        </button>
-
-                                    </div>
-                                </div>
-                                <div class="row container">
-                                    <div class="col-1"></div>
-                                    <div class="col-1">
-                                        <div class="icheck-primary">
-                                            <p></p>
-
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <span style="color: #023039;font-size:12px">Recordarme</span>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-1"></div>
-                                    <div class="col-9">
-                                        <p></p>
-                                        @if (Route::has('password.request'))
-                                            <a class="login-box-msg"
-                                                href="{{ route('password.request') }}"style="color:#023039;font-size:13px">
-                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                                &nbsp;¿Olvidaste tu Contraseña?
-                                            </a>
-                                        @endif
-                                    </div>
-                                    <!-- /.col -->
-
-                                    <!-- /.col -->
-
-                                    <!-- /.col -->
-                                </div>
-                                <p></p>
-
-                                <div class="social-auth-links text-center mb-3">
-
-                                    {{-- <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a> --}}
-                                    <a href="{{ url('auth/google') }}"
-                                        class="btn btn-block shadow-sm p-2 mb-5  rounded"
-                                        style="background-color:#F6A42C;color:white">
-
-
-                                        <div class="google-auth__GoogleAuthStyled-sc-7d7ymg-0 ewxrDx">
-                                            <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                                version="1.1" x="0px" y="0px" viewBox="0 0 48 48"
-                                                enable-background="new 0 0 48 48" height="20px" width="20px"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
- c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
- c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                                                </path>
-                                                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657
- C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                                                </path>
-                                                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36
- c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                                                </path>
-                                                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
- c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                                                </path>
-                                            </svg><span> Continuar con Google</span>
-
-                                        </div>
-                                    </a>
-                                </div>
-                            </form>
-
-                            </form>
-
-
-
-                        </div>
-                        <!-- /.login-card-body -->
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../docs/index.html"
+                                    target="_blank">Documentation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="https://adminmart.com/support/"
+                                    target="_blank">Support</a>
+                            </li>
+                            <li class="nav-item ms-2">
+                                <a class="btn btn-primary btn-hover-shadow"
+                                    href="../main/authentication-login2.html">Login</a>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </nav>
+        </header>
+        <div class="body-wrapper overflow-hidden bg-white p-0 m-0 rounded-0">
+
+            @php
+                $url = explode('=', $topic[0]->video);
+                $url = 'https://www.youtube.com/embed/' . $url[1];
+            @endphp
+
+            <div class="row">
+                <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                    <iframe width="100%" height="800" src="{{ $url }}" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-body p-0">
+                            <img src="{{asset('assets/images/backgrounds/profilebg.jpg')}}" alt="matdash-img"
+                                class="img-fluid">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 order-lg-1 order-2">
+                                    <div class="d-flex align-items-center justify-content-around m-4">
+                                        <div class="text-center">
+                                            <i class="ti ti-file-description fs-6 d-block mb-2"></i>
+                                            <h6 class="mb-0 fw-semibold lh-1">{{$count}}</h6>
+                                            <p class="mb-0 ">Posts</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <i class="ti ti-user-circle fs-6 d-block mb-2"></i>
+                                            <h6 class="mb-0 fw-semibold lh-1">100</h6>
+                                            <p class="mb-0 ">Followers</p>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mt-n3 order-lg-2 order-1">
+                                    <div class="mt-n5">
+                                        <div class="d-flex align-items-center justify-content-center mb-2">
+                                            <div class="d-flex align-items-center justify-content-center round-110">
+                                                <div
+                                                    class="border border-4 border-white d-flex align-items-center justify-content-center rounded-circle overflow-hidden round-100">
+                                                    <img src="{{asset('assets/images/profile/user-1.jpg')}}" alt="matdash-img"
+                                                        class="w-100 h-100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <h5 class="mb-0">{{$topic[0]->user->firstname}} {{$topic[0]->user->names}}</h5>
+                                            <p class="mb-0">Coach</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 order-last">
+                                    <ul
+                                        class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-4 gap-3">
+                                        <li>
+                                            <a class="d-flex align-items-center justify-content-center btn btn-primary p-2 fs-4 rounded-circle"
+                                                href="javascript:void(0)" width="30" height="30">
+                                                <i class="ti ti-brand-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-secondary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                                                href="javascript:void(0)">
+                                                <i class="ti ti-brand-dribbble"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-danger d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                                                href="javascript:void(0)">
+                                                <i class="ti ti-brand-youtube"></i>
+                                            </a>
+                                        </li>
+                                        {{-- <li>
+                                            <button class="btn btn-primary text-nowrap">Add To Story</button>
+                                        </li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
+                                id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                        id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                                        type="button" role="tab" aria-controls="pills-profile"
+                                        aria-selected="true">
+                                        <i class="ti ti-user-circle fs-5"></i>
+                                        <span class="d-none d-md-block">Comentarios</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6"
+                                        id="pills-followers-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-followers" type="button" role="tab"
+                                        aria-controls="pills-followers" aria-selected="false">
+                                        <i class="ti ti-heart fs-5"></i>
+                                        <span class="d-none d-md-block">Recursos</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
+                                        role="tab" aria-controls="pills-friends" aria-selected="false">
+                                        <i class="ti ti-user-circle fs-5"></i>
+                                        <span class="d-none d-md-block">Temas</span>
+                                    </button>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab" tabindex="0">
+                            <div class="row">
+
+
+
+
+
+                                <div class="col-lg-12 container-fluid">
+
+                                    <div id="disqus_thread"></div>
+
+                                    <script>
+                                        /**
+                                         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                                        /*
+                                        var disqus_config = function () {
+                                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                        };
+                                        */
+                                        (function() { // DON'T EDIT BELOW THIS LINE
+                                            var d = document,
+                                                s = d.createElement('script');
+                                            s.src = 'https://ayba-corp.disqus.com/embed.js';
+                                            s.setAttribute('data-timestamp', +new Date());
+                                            (d.head || d.body).appendChild(s);
+                                        })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the <a
+                                            href="https://disqus.com/?ref_noscript">comments powered by
+                                            Disqus.</a></noscript>
+
+
+                                    {{-- <div class="card">
+                <div class="card-body border-bottom">
+                  <div class="d-flex align-items-center gap-6 flex-wrap">
+                    <img src="../assets/images/profile/user-1.jpg" alt="matdash-img" class="rounded-circle" width="40" height="40">
+                    <h6 class="mb-0">David McMichael</h6>
+                    <span class="fs-2">
+                      <span class="p-1 text-bg-light rounded-circle d-inline-block"></span> 15 min
+                      ago
+                    </span>
+                  </div>
+                  <p class="text-dark my-3">
+                    Faco kiswuoti mucurvi juokomo fobgi aze huweik zazjofefa kuujer talmoc li niczot lohejbo vozev
+                    zi huto. Ju
+                    tupma uwujate bevolkoh hob munuap lirec zak ja li hotlanu pigtunu.
+                  </p>
+                  <iframe class="rounded-4 border border-2 mb-3 h-300" src="https://www.youtube.com/embed/d1-FRj20WBE" frameborder="0" width="100%"></iframe>
+                  <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                      <a class="round-32 rounded-circle btn btn-primary p-0 hstack justify-content-center" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Like">
+                        <i class="ti ti-thumb-up"></i>
+                      </a>
+                      <span class="text-dark fw-semibold">129</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 ms-4">
+                      <a class="round-32 rounded-circle btn btn-secondary p-0 hstack justify-content-center" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Comment">
+                        <i class="ti ti-message-2"></i>
+                      </a>
+                      <span class="text-dark fw-semibold">0</span>
+                    </div>
+                    <a class="text-dark ms-auto d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle" href="javascript:void(0)" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Share">
+                      <i class="ti ti-share"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-6 flex-wrap p-3 flex-lg-nowrap">
+                  <img src="../assets/images/profile/user-1.jpg" alt="matdash-img" class="rounded-circle" width="33" height="33">
+                  <input type="text" class="form-control py-8" id="exampleInputtext3" aria-describedby="textHelp" placeholder="Comment">
+                  <button class="btn btn-primary">Comment</button>
+                </div>
+              </div> --}}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-xl-3 container-fluid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </div>
             </div>
-            <div class="col-md-8 bg-image full-height d-none d-md-block">
-                <!-- contenido de la primera columna -->
+
+
+            {{-- <section class="hero-section text-bg-light position-relative overflow-hidden mb-0 mb-lg-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-8">
+
+                            <div class="hero-content my-5 my-xl-0">
+                <h6 class="d-flex align-items-center gap-2 fs-4 fw-semibold mb-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                  <i class="ti ti-rocket text-secondary fs-6"></i>Kick startwwww
+                  your project with
+                </h6>
+                <h1 class="fw-bolder mb-7 fs-13" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                  Enhance <span class="text-primary">Developer's Productivity</span> with a MatDash
+
+                </h1>
+                <p class="fs-5 mb-5 text-dark fw-normal" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                  MatDash comes with light & dark color skins, well designed
+                  dashboards, applications and pages.
+                </p>
+                <div class="d-sm-flex align-items-center gap-3" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                  <a class="btn btn-primary px-5 py-6 btn-hover-shadow d-block mb-3 mb-sm-0" href="../main/authentication-login2.html">Login</a>
+                  <a class="btn btn-outline-primary d-block scroll-link px-7 py-6" href="#production-template">Live
+                    Preview</a>
+                </div>
+              </div>
+                        </div>
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <div class="hero-img-slide position-relative bg-light p-4 rounded">
+                                <div class="d-flex flex-row">
+                                    <div>
+                                        <div class="banner-img-1 slideup">
+                                            <img src="../assets/images/hero-img/bannerimg1.png" alt="matdash-img"
+                                                class="img-fluid" />
+                                        </div>
+                                        <div class="banner-img-1 slideup">
+                                            <img src="../assets/images/hero-img/bannerimg1.png" alt="matdash-img"
+                                                class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="banner-img-2 slideDown">
+                                            <img src="../assets/images/hero-img/bannerimg2.png" alt="matdash-img"
+                                                class="img-fluid" />
+                                        </div>
+                                        <div class="banner-img-2 slideDown">
+                                            <img src="../assets/images/hero-img/bannerimg2.png" alt="matdash-img"
+                                                class="img-fluid" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> --}}
+
+
+        </div>
+        <footer class="footer-part pt-7 pb-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="text-center">
+                            <a href="index-new.html">
+                                <img src="{{ asset('ayba/1.png') }}"width="70px" alt="matdash-img"
+                                    class="img-fluid pb-3" />
+                            </a>
+                            <p class="mb-0 text-dark">
+                                Todos los Derechos Reservados by MatDash. Developed by
+                                <a class="text-dark text-hover-primary border-bottom border-primary"
+                                    href="https://anthonycode.com">AnthonyCode.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="offcanvas offcanvas-start matdash-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header p-4">
+                <img src="../assets/images/logos/logo.svg" alt="matdash-img" class="img-fluid" width="150" />
+            </div>
+            <div class="offcanvas-body p-4">
+                <ul class="navbar-nav justify-content-end flex-grow-1">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between fs-3 text-dark"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Demos <i class="ti ti-chevron-down fs-14"></i>
+                        </a>
+                        <ul class="dropdown-menu ps-2">
+                            <li>
+                                <a class="dropdown-item text-dark" href="../dark/index.html">Dark</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="../horizontal/index.html">Horizontal</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="../main/index3.html">main</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="../minisidebar/index.html">Minisidebar</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="../rtl/index.html">RTL</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mt-3 dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between fs-3 text-dark"
+                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages <i class="ti ti-chevron-down fs-14"></i>
+                        </a>
+                        <div class="dropdown-menu mt-3 ps-1">
+                            <div class="position-relative">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="p-4 pb-3">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="position-relative">
+                                                        <a href="../main/app-chat.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-primary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:chat-line-bold-duotone"
+                                                                    class="fs-7 text-primary"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Chat Application</h6>
+                                                                <span class="fs-11 d-block text-body-color">New
+                                                                    messages arrived</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-invoice.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-secondary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:bill-list-bold-duotone"
+                                                                    class="fs-7 text-secondary"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Invoice App</h6>
+                                                                <span class="fs-11 d-block text-body-color">Get latest
+                                                                    invoice</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-contact2.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-warning-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon
+                                                                    icon="solar:phone-calling-rounded-bold-duotone"
+                                                                    class="fs-7 text-warning"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Contact Application</h6>
+                                                                <span class="fs-11 d-block text-body-color">2 Unsaved
+                                                                    Contacts</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-email.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-danger-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:letter-bold-duotone"
+                                                                    class="fs-7 text-danger"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Email App</h6>
+                                                                <span class="fs-11 d-block text-body-color">Get new
+                                                                    emails</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="position-relative">
+                                                        <a href="../main/page-user-profile.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-success-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:user-bold-duotone"
+                                                                    class="fs-7 text-success"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">User Profile</h6>
+                                                                <span class="fs-11 d-block text-body-color">learn more
+                                                                    information</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-calendar.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-primary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon
+                                                                    icon="solar:calendar-minimalistic-bold-duotone"
+                                                                    class="fs-7 text-primary"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Calendar App</h6>
+                                                                <span class="fs-11 d-block text-body-color">Get
+                                                                    dates</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-contact.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-secondary-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:smartphone-2-bold-duotone"
+                                                                    class="fs-7 text-secondary"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Contact List Table</h6>
+                                                                <span class="fs-11 d-block text-body-color">Add new
+                                                                    contact</span>
+                                                            </div>
+                                                        </a>
+                                                        <a href="../main/app-notes.html"
+                                                            class="d-flex align-items-center pb-9 position-relative">
+                                                            <div
+                                                                class="bg-warning-subtle rounded round-48 me-3 d-flex align-items-center justify-content-center">
+                                                                <iconify-icon icon="solar:notes-bold-duotone"
+                                                                    class="fs-7 text-warning"></iconify-icon>
+                                                            </div>
+                                                            <div>
+                                                                <h6 class="mb-0">Notes Application</h6>
+                                                                <span class="fs-11 d-block text-body-color">To-do and
+                                                                    Daily tasks</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 d-none d-lg-flex">
+                                        <img src="../assets/images/backgrounds/mega-dd-bg.jpg" alt="mega-dd"
+                                            class="img-fluid mega-dd-bg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link fs-3 text-dark active" aria-current="page"
+                            href="../docs/index.html">Documentation</a>
+                    </li>
+                    <li class="nav-item mt-3">
+                        <a class="nav-link fs-3 text-dark" href="#">Pages</a>
+                    </li>
+                </ul>
+                <form class="d-flex mt-3" role="search">
+                    <a href="../main/authentication-login2.html" class="btn btn-primary w-100 py-2">Login</a>
+                </form>
             </div>
         </div>
     </div>
+    <div class="dark-transparent sidebartoggler"></div>
+    <script>
+        function handleColorTheme(e) {
+            document.documentElement.setAttribute("data-color-theme", e);
+        }
+    </script>
+    <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
+    <!-- Import Js Files -->
+    <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/app.init.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/theme.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/app.min.js') }}"></script>
+    <script src="{{ asset('assets/js/theme/sidebarmenu.js') }}"></script>
 
-
-    <!-- /.login-box -->
-
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-
+    <!-- solar icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="{{ asset('assets/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/aos/dist/aos.js') }}"></script>
+    <script src="{{ asset('assets/js/landingpage/landingpage.js') }}"></script>
 </body>
 
 </html>

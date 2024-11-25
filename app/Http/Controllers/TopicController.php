@@ -46,9 +46,11 @@ class TopicController extends Controller
     {
 
         $topic = Topic::where('course_id', '=', $request->course_id)
-            ->where('id', '=', $request->topic_id)->get();
+        ->where('id', '=', $request->topic_id)->get();
 
-        return view("student.curso_topic", compact("topic"));
+        $count = Topic::where('user_id', '=', $topic[0]->user_id)->count();
+            return view("vista2", compact("topic","count"));
+       // return view("student.curso_topic", compact("topic"));
     }
     /**
      * Store a newly created resource in storage.

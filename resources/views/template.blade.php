@@ -36,7 +36,7 @@
 
     <script src="{{ asset('function.js') }}"></script>
 
-    <script src="{{ asset('user.js') }}"></script>
+    <script src="{{ asset('user.js') }}" defer></script>
     <script src="{{ asset('role.js') }}"></script>
     <script src="{{ asset('schedule.js') }}"></script>
     <script src="{{ asset('registry.js') }}"></script>
@@ -1141,7 +1141,7 @@
     </div>
 
     <!-- Font Awesome para el ícono de WhatsApp -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> --}}
 </body>
 
 </html>
