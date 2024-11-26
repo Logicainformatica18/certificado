@@ -54,9 +54,9 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-
-
+    <!-- YOUTUBE LITE -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
+    <!-- YOUTUBE LITE -->
     <!-- jQuery -->
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->

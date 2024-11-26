@@ -17,20 +17,25 @@
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="{{ 'assets/libs/owl.carousel/dist/assets/owl.carousel.min.css' }}" />
     <link rel="stylesheet" href="{{ 'assets/libs/aos/dist/aos.css' }}" />
+    <!-- YOUTUBE LITE -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
+    <!-- YOUTUBE LITE -->
 </head>
 
 <body>
+
     <!-- Preloader -->
     <div class="preloader">
         <img src="{{ 'assets/images/logos/favicon.png' }}" alt="loader" class="lds-ripple img-fluid" />
     </div>
     <div id="main-wrapper flex-column">
         <header class="header">
-            <nav class="navbar navbar-expand-lg py-0">
-                <div class="container">
+            <nav class="navbar navbar-expand-lg py-0 ">
+                <div class="container-fluid">
                     <a class="navbar-brand me-0 py-0" href="../main/index.html">
                         <img src="{{ asset('ayba/1.png') }}"width="60px" alt="img-fluid" />
                     </a>
+
                     <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -40,170 +45,103 @@
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <i class="ti ti-menu-2 fs-9"></i>
                     </button>
+
+
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
-                            <li class="nav-item dropdown hover-dd mega-dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false">
-                                    Demos
-                                    <span class="d-flex align-items-center">
-                                        <i class="ti ti-chevron-down"></i>
-                                    </span>
+
+
+                            <li class="nav-item dropdown">
+                                <a href="javascript:void(0)"
+                                    class="nav-link nav-icon-hover-bg rounded-circle d-flex d-lg-none align-items-center justify-content-center"
+                                    type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar"
+                                    aria-controls="offcanvasWithBothOptions">
+                                    <iconify-icon icon="solar:sort-line-duotone" class="fs-6"></iconify-icon>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-animate-up p-4">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-12">
-                                            <h5 class="fs-5 fw-bolder">Different Demos</h5>
-                                            <h6 class="text-muted">Included with the Package</h6>
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center my-4">
-                                        <div class="col-lg-12">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/demos/demo-main.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/index3.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Main
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/demos/demo-dark.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../dark/index.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Dark
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/demos/demo-horizontal.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../horizontal/index.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Horizontal
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/demos/demo-minisidebar.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../minisidebar/index.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Minisidebar
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/demos/demo-rtl.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../rtl/index.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">RTL</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center mb-4">
-                                        <div class="col-md-12">
-                                            <h5 class="fs-5 fw-semibold mt-8">Different Apps</h5>
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-12">
-                                            <div class="row justify-content-between">
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/apps/app-calendar.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/app-calendar.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Calendar
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/apps/app-chat.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/app-chat.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Chat
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/apps/app-email.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/app-email.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Email
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/apps/app-contact.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/app-contact2.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Contact
-                                                    </h6>
-                                                </div>
-                                                <div class="col">
-                                                    <div
-                                                        class="border d-block rounded-1 mb-2 position-relative lp-demos-box overflow-hidden">
-                                                        <img src="../assets/images/apps/app-invoice.jpg"
-                                                            alt="matdash-img" class="img-fluid" />
-                                                        <a target="_blank" href="../main/app-invoice.html"
-                                                            class="btn btn-primary lp-demos-btn fs-2 p-1 position-absolute top-50 start-50 translate-middle">Live
-                                                            Preview</a>
-                                                    </div>
-                                                    <h6 class="mb-0 text-center fw-bolder fs-3">
-                                                        Invoice
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ul>
                             </li>
-                            <li class="nav-item dropdown hover-dd mega-dropdown pages-dropdown">
+                            <li class="nav-item">
+                                <a class="nav-link moon dark-layout nav-icon-hover-bg rounded-circle"
+                                    href="javascript:void(0)" style="display: flex;">
+                                    <iconify-icon icon="solar:moon-line-duotone" class="moon fs-6"
+                                        style="display: flex;"></iconify-icon>
+                                </a>
+                                <a class="nav-link sun light-layout nav-icon-hover-bg rounded-circle"
+                                    href="javascript:void(0)" style="display: none">
+                                    <iconify-icon icon="solar:sun-2-line-duotone" class="sun fs-6"
+                                        style="display: none;"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="nav-item d-block d-xl-none">
+                                <a class="nav-link nav-icon-hover-bg rounded-circle" href="javascript:void(0)"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <iconify-icon icon="solar:magnifer-line-duotone" class="fs-6"></iconify-icon>
+                                </a>
+                            </li>
+
+                      
+                           
+
+                            <!-- ------------------------------- -->
+                            <!-- start language Dropdown -->
+
+                            <!-- ------------------------------- -->
+                            <!-- end language Dropdown -->
+                            <!-- ------------------------------- -->
+
+                            <!-- ------------------------------- -->
+                            <!-- start profile Dropdown -->
+                            <!-- ------------------------------- -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="javascript:void(0)" id="drop1" aria-expanded="false">
+                                    <div class="d-flex align-items-center gap-2 lh-base">
+                                        <img src="{{asset('imageusers/'.Auth::user()->photo)}}" class="rounded-circle"
+                                            width="35" height="35" alt="matdash-img">
+                                        <iconify-icon icon="solar:alt-arrow-down-bold" class="fs-2"></iconify-icon>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu profile-dropdown dropdown-menu-end dropdown-menu-animate-up"
+                                    aria-labelledby="drop1">
+                                    <div class="position-relative px-4 pt-3 pb-2">
+                                        <div class="d-flex align-items-center mb-3 pb-3 border-bottom gap-6">
+                                            <img src="../assets/images/profile/user-1.jpg" class="rounded-circle"
+                                                width="56" height="56" alt="matdash-img">
+                                            <div>
+                                                <h5 class="mb-0 fs-12">David McMichael <span
+                                                        class="text-success fs-11">Pro</span>
+                                                </h5>
+                                                <p class="mb-0 text-dark">
+                                                    david@wrappixel.com
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="message-body">
+                                            <a href="javascript:void(0)" class="p-2 dropdown-item h6 rounded-1">
+                                                My Profile
+                                            </a>
+                                            <a href="javascript:void(0)" class="p-2 dropdown-item h6 rounded-1">
+                                                My Subscription
+                                            </a>
+                                            <a href="javascript:void(0)" class="p-2 dropdown-item h6 rounded-1">
+                                                My Statements <span
+                                                    class="badge bg-danger-subtle text-danger rounded ms-8">4</span>
+                                            </a>
+                                            <a href="javascript:void(0)" class="p-2 dropdown-item h6 rounded-1">
+                                                Account Settings
+                                            </a>
+                                            <a href="../main/authentication-login2.html"
+                                                class="p-2 dropdown-item h6 rounded-1">
+                                                Sign Out
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- ------------------------------- -->
+                            <!-- end profile Dropdown -->
+                            <!-- ------------------------------- -->
+
+                            {{-- <li class="nav-item dropdown hover-dd mega-dropdown pages-dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     aria-expanded="false">
                                     Pages
@@ -348,19 +286,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="../docs/index.html"
-                                    target="_blank">Documentation</a>
-                            </li>
-                            <li class="nav-item">
+                            </li> --}}
+
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="https://adminmart.com/support/"
                                     target="_blank">Support</a>
-                            </li>
-                            <li class="nav-item ms-2">
-                                <a class="btn btn-primary btn-hover-shadow"
-                                    href="../main/authentication-login2.html">Login</a>
-                            </li>
+                            </li> --}}
+
                         </ul>
                     </div>
                 </div>
@@ -370,17 +302,62 @@
 
             @php
                 $url = explode('=', $topic[0]->video);
-                $url = 'https://www.youtube.com/embed/' . $url[1];
+                // $url = 'https://www.youtube.com/embed/' . $url[1];
             @endphp
 
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                    <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
+
+                    <style>
+                        lite-youtube {
+                            /* No Shadow */
+                            --lite-youtube-frame-shadow-visible: no;
+
+                        }
+
+
+                        .lite-youtube-fallback {
+                            aspect-ratio: 16 / 9;
+                            /* matches YouTube player */
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            gap: 1em;
+                            padding: 1em;
+                            background-color: #c00d0d;
+                            color: #000000;
+                            text-decoration: none;
+                        }
+
+                        /* right-facing triangle "Play" icon */
+                        .lite-youtube-fallback::before {
+                            display: block;
+                            content: '';
+                            border: solid transparent;
+                            border-width: 2em 0 2em 3em;
+                            border-left-color: rgb(0, 0, 0);
+                        }
+
+                        .lite-youtube-fallback:hover::before {
+                            border-left-color: #fff;
+                        }
+
+                        .lite-youtube-fallback:focus {
+                            outline: 2px solid red;
+                        }
+                    </style>
+                    <lite-youtube videoid="{{ $url[1] }}">
+
+                    </lite-youtube>
+                    {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
+
+                    {{-- <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                    <h1>&nbsp; {{ $topic[0]->description }}</h1>
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
+                    <p></p>
+                    <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
                 </div>
 
                 <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-xs-12">
@@ -388,8 +365,9 @@
                         <div class="card-body p-0">
 
 
-                            <img src="{{ asset('assets/images/backgrounds/profilebg.jpg') }}" alt="matdash-img"
-                                class="img-fluid">
+                            <img src="{{ asset('ayba/bg_user.png') }}" width="100%" alt="matdash-img" class="img-fluid">
+                            {{-- <img src="{{ asset('assets/images/backgrounds/profilebg.jpg') }}" alt="matdash-img"
+                                class="img-fluid"> --}}
 
                             <div class="row align-items-center">
                                 <div class="col-lg-4 order-lg-1 order-2">
@@ -536,7 +514,7 @@
 
                         <div class="tab-pane fade show" id="pills-followers" role="tabpanel"
                             aria-labelledby="pills-followers-tab" tabindex="0">
-                         
+
 
                         </div>
                         <div class="tab-pane fade show" id="pills-friends" role="tabpanel"
@@ -548,13 +526,15 @@
 
 
                                         @if ($topic[0]->user->photo == '')
-                                        <img src="{{asset('assets/images/profile/user-1.jpg')}}" alt="matdash-img"
-                                        class="rounded-circle" width="40" height="40">
-                                    @else
-                                        <img src="{{ asset('imageusers/' . $topic[0]->user->photo) }}"
-                                        alt="matdash-img"  class="rounded-circle" width="40" height="40">
-                                    @endif
-                                        
+                                            <img src="{{ asset('assets/images/profile/user-1.jpg') }}"
+                                                alt="matdash-img" class="rounded-circle" width="40"
+                                                height="40">
+                                        @else
+                                            <img src="{{ asset('imageusers/' . $topic[0]->user->photo) }}"
+                                                alt="matdash-img" class="rounded-circle" width="40"
+                                                height="40">
+                                        @endif
+
 
                                         <h6 class="mb-0">David McMichael</h6>
                                         <span class="fs-2">
@@ -701,7 +681,7 @@
 
 
         </div>
-        <footer class="footer-part pt-7 pb-5">
+        <footer class="footer-part pt-7 pb-5"style="background: linear-gradient(to right,#023039,#0d0d0e)">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
@@ -710,9 +690,9 @@
                                 <img src="{{ asset('ayba/1.png') }}"width="70px" alt="matdash-img"
                                     class="img-fluid pb-3" />
                             </a>
-                            <p class="mb-0 text-dark">
+                            <p class="mb-0 text-white">
                                 Todos los Derechos Reservados by MatDash. Developed by
-                                <a class="text-dark text-hover-primary border-bottom border-primary"
+                                <a class="text-white text-hover-primary border-bottom border-primary"
                                     href="https://anthonycode.com">AnthonyCode.</a>
                             </p>
                         </div>
@@ -921,6 +901,7 @@
     <script src="{{ asset('assets/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/libs/aos/dist/aos.js') }}"></script>
     <script src="{{ asset('assets/js/landingpage/landingpage.js') }}"></script>
+
 </body>
 
 </html>
