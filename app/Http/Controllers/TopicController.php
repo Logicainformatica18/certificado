@@ -52,6 +52,15 @@ class TopicController extends Controller
             return view("vista2", compact("topic","count"));
        // return view("student.curso_topic", compact("topic"));
     }
+    public function topic_list(Request $request)
+    {
+
+        $topic_list = Topic::where('course_id', '=', $request->course_id)->get();
+
+      
+            return view("topic.topic_list", compact("topic_list"));
+       // return view("student.curso_topic", compact("topic"));
+    }
     /**
      * Store a newly created resource in storage.
      */

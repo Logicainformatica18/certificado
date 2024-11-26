@@ -32,8 +32,8 @@
         <header class="header">
             <nav class="navbar navbar-expand-lg py-0 ">
                 <div class="container-fluid">
-                    <a class="navbar-brand me-0 py-0" href="../main/index.html">
-                        <img src="{{ asset('ayba/1.png') }}"width="60px" alt="img-fluid" />
+                    <a class="navbar-brand me-0 py-0 " href="{{url('/')}}">
+                        <img src="{{ asset('ayba/3.png') }}"width="100px" alt="img-fluid" />
                     </a>
 
                     <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse"
@@ -52,33 +52,9 @@
                         <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
 
 
-                            <li class="nav-item dropdown">
-                                <a href="javascript:void(0)"
-                                    class="nav-link nav-icon-hover-bg rounded-circle d-flex d-lg-none align-items-center justify-content-center"
-                                    type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar"
-                                    aria-controls="offcanvasWithBothOptions">
-                                    <iconify-icon icon="solar:sort-line-duotone" class="fs-6"></iconify-icon>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link moon dark-layout nav-icon-hover-bg rounded-circle"
-                                    href="javascript:void(0)" style="display: flex;">
-                                    <iconify-icon icon="solar:moon-line-duotone" class="moon fs-6"
-                                        style="display: flex;"></iconify-icon>
-                                </a>
-                                <a class="nav-link sun light-layout nav-icon-hover-bg rounded-circle"
-                                    href="javascript:void(0)" style="display: none">
-                                    <iconify-icon icon="solar:sun-2-line-duotone" class="sun fs-6"
-                                        style="display: none;"></iconify-icon>
-                                </a>
-                            </li>
-                            <li class="nav-item d-block d-xl-none">
-                                <a class="nav-link nav-icon-hover-bg rounded-circle" href="javascript:void(0)"
-                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <iconify-icon icon="solar:magnifer-line-duotone" class="fs-6"></iconify-icon>
-                                </a>
-                            </li>
-
+                          
+                            
+                 
                       
                            
 
@@ -95,8 +71,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:void(0)" id="drop1" aria-expanded="false">
                                     <div class="d-flex align-items-center gap-2 lh-base">
-                                        <img src="{{asset('imageusers/'.Auth::user()->photo)}}" class="rounded-circle"
-                                            width="35" height="35" alt="matdash-img">
+                                  @if (Auth::user()->photo=="")
+                                  <img src="{{asset('assets/images/profile/user-1.jpg')}}" class="rounded-circle"
+                                  width="35" height="35" alt="matdash-img">
+                                  @else
+                                  <img src="{{asset('imageusers/'.Auth::user()->photo)}}" class="rounded-circle"
+                                  width="35" height="35" alt="matdash-img">
+                                  @endif
+                                       
                                         <iconify-icon icon="solar:alt-arrow-down-bold" class="fs-2"></iconify-icon>
                                     </div>
                                 </a>
@@ -306,13 +288,13 @@
             @endphp
 
             <div class="row">
-                <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
                     <style>
                         lite-youtube {
                             /* No Shadow */
                             --lite-youtube-frame-shadow-visible: no;
-
+width: 100%;
                         }
 
 
@@ -360,12 +342,13 @@
                     <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
                 </div>
 
-                <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12" >
                     <div class="card overflow-hidden">
                         <div class="card-body p-0">
 
 
-                            <img src="{{ asset('ayba/bg_user.png') }}" width="100%" alt="matdash-img" class="img-fluid">
+                            <img src="{{ asset('ayba/bg_user.png') }}" width="100%" alt="matdash-img" style="height: 150px"
+                            >
                             {{-- <img src="{{ asset('assets/images/backgrounds/profilebg.jpg') }}" alt="matdash-img"
                                 class="img-fluid"> --}}
 
@@ -376,6 +359,11 @@
                                             <i class="ti ti-file-description fs-6 d-block mb-2"></i>
                                             <h6 class="mb-0 fw-semibold lh-1">{{ $count }}</h6>
                                             <p class="mb-0 ">Posts</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <i class="ti ti-user-circle fs-6 d-block mb-2"></i>
+                                            <h6 class="mb-0 fw-semibold lh-1">100</h6>
+                                            <p class="mb-0 ">Likes</p>
                                         </div>
                                         <div class="text-center">
                                             <i class="ti ti-user-circle fs-6 d-block mb-2"></i>
@@ -414,22 +402,28 @@
                                 </div>
                                 <div class="col-lg-4 order-last">
                                     <ul
-                                        class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-4 gap-3">
+                                        class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-4 gap-3 m-10">
                                         <li>
                                             <a class="d-flex align-items-center justify-content-center btn btn-primary p-2 fs-4 rounded-circle"
-                                                href="javascript:void(0)" width="30" height="30">
+                                                href="{{$topic[0]->user->fb}}" width="30" height="30"target="_blank">
                                                 <i class="ti ti-brand-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="btn btn-secondary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
-                                                href="javascript:void(0)">
+                                                href="{{$topic[0]->user->portfolio}}"target="_blank">
                                                 <i class="ti ti-brand-dribbble"></i>
                                             </a>
                                         </li>
+                                        {{-- <li>
+                                            <a class="btn btn-warning d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
+                                                href="{{$topic[0]->user->portfolio}}"target="_blank">
+                                                <i class="ti ti-brand-github"></i>
+                                            </a>
+                                        </li> --}}
                                         <li>
                                             <a class="btn btn-danger d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
-                                                href="javascript:void(0)">
+                                                href="{{$topic[0]->user->youtube}}" target="_blank">
                                                 <i class="ti ti-brand-youtube"></i>
                                             </a>
                                         </li>
@@ -442,7 +436,15 @@
                             <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                                 id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
+                                        role="tab" aria-controls="pills-friends" aria-selected="false">
+                                        <i class="ti ti-file fs-5"></i>
+                                        <span class="d-none d-md-block">Temas</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6"
                                         id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
                                         type="button" role="tab" aria-controls="pills-profile"
                                         aria-selected="true">
@@ -455,24 +457,18 @@
                                         id="pills-followers-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-followers" type="button" role="tab"
                                         aria-controls="pills-followers" aria-selected="false">
-                                        <i class="ti ti-heart fs-5"></i>
+                                        <i class="ti ti-download fs-5"></i>
                                         <span class="d-none d-md-block">Recursos</span>
                                     </button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
-                                        role="tab" aria-controls="pills-friends" aria-selected="false">
-                                        <i class="ti ti-heart-circle fs-5"></i>
-                                        <span class="d-none d-md-block">Temas</span>
-                                    </button>
-                                </li>
+        
+                   
 
                             </ul>
                         </div>
                     </div>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-profile" role="tabpanel"
+                        <div class="tab-pane fade show " id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
                             <div class="row">
 
@@ -514,113 +510,42 @@
 
                         <div class="tab-pane fade show" id="pills-followers" role="tabpanel"
                             aria-labelledby="pills-followers-tab" tabindex="0">
-
+                            <div class="card-body">
+                                <div class="form-group">
+                                  <h4 class="card-title">Recursos</h4>
+                                  <p class="card-subtitle mb-3">{{$topic[0]->instruction}}</p>
+                                  <a  download="{{$topic[0]->resource_1}}" href="{{asset('resource/'.$topic[0]->resource_1)}}" target="_blank"
+                                     class="
+                                      btn
+                                      d-block
+                                      w-100 
+                                      fw-medium
+                                      bg-success-subtle
+                                      text-success
+                                      block-card
+                                    ">
+                                    Descargar 
+                                  </a>
+                                </div>
+                              </div>
 
                         </div>
-                        <div class="tab-pane fade show" id="pills-friends" role="tabpanel"
-                            aria-labelledby="pills-friends-tab" tabindex="0">
-                            <div class="card">
-
-                                <div class="card-body border-bottom">
-                                    <div class="d-flex align-items-center gap-6 flex-wrap">
-
-
-                                        @if ($topic[0]->user->photo == '')
-                                            <img src="{{ asset('assets/images/profile/user-1.jpg') }}"
-                                                alt="matdash-img" class="rounded-circle" width="40"
-                                                height="40">
-                                        @else
-                                            <img src="{{ asset('imageusers/' . $topic[0]->user->photo) }}"
-                                                alt="matdash-img" class="rounded-circle" width="40"
-                                                height="40">
-                                        @endif
-
-
-                                        <h6 class="mb-0">David McMichael</h6>
-                                        <span class="fs-2">
-                                            <span class="p-1 text-bg-light rounded-circle d-inline-block"></span>
-                                            15 min
-                                            ago
-                                        </span>
-                                    </div>
-                                    <p class="text-dark my-3">
-                                        Faco kiswuoti mucurvi juokomo fobgi aze huweik zazjofefa kuujer talmoc
-                                        li niczot lohejbo vozev
-                                        zi huto. Ju
-                                        tupma uwujate bevolkoh hob munuap lirec zak ja li hotlanu pigtunu.
-                                    </p>
-                                    <iframe class="rounded-4 border border-2 mb-3 h-300"
-                                        src="https://www.youtube.com/embed/d1-FRj20WBE" frameborder="0"
-                                        width="100%"></iframe>
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <a class="round-32 rounded-circle btn btn-primary p-0 hstack justify-content-center"
-                                                href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" data-bs-title="Like">
-                                                <i class="ti ti-thumb-up"></i>
-                                            </a>
-                                            <span class="text-dark fw-semibold">129</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 ms-4">
-                                            <a class="round-32 rounded-circle btn btn-secondary p-0 hstack justify-content-center"
-                                                href="javascript:void(0)" data-bs-toggle="tooltip"
-                                                data-bs-placement="top" data-bs-title="Comment">
-                                                <i class="ti ti-message-2"></i>
-                                            </a>
-                                            <span class="text-dark fw-semibold">0</span>
-                                        </div>
-                                        <a class="text-dark ms-auto d-flex align-items-center justify-content-center bg-transparent p-2 fs-4 rounded-circle"
-                                            href="javascript:void(0)" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" data-bs-title="Share">
-                                            <i class="ti ti-share"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center gap-6 flex-wrap p-3 flex-lg-nowrap">
-                                    <img src="../assets/images/profile/user-1.jpg" alt="matdash-img"
-                                        class="rounded-circle" width="33" height="33">
-                                    <input type="text" class="form-control py-8" id="exampleInputtext3"
-                                        aria-describedby="textHelp" placeholder="Comment">
-                                    <button class="btn btn-primary">Comment</button>
-                                </div>
-                            </div>
+                        <div class="tab-pane active fade show" id="pills-friends" role="tabpanel"
+                            aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px">
+                          <iframe src="{{url('topic_list/'.$topic[0]->course_id)}}" frameborder="0" width="100%"
+                            height="300px"
+                            >
+                        
+                          </iframe>
 
                         </div>
                     </div>
                 </div>
 
-                <div class="col-xl-3 container-fluid">
+                {{-- <div class="col-xl-3 container-fluid">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
+                </div> --}}
             </div>
 
 
@@ -681,13 +606,13 @@
 
 
         </div>
-        <footer class="footer-part pt-7 pb-5"style="background: linear-gradient(to right,#023039,#0d0d0e)">
+        <footer class="footer-part pt-7 pb-5 "style="background: linear-gradient(to right,#023039,#0d0d0e)">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
                         <div class="text-center">
                             <a href="index-new.html">
-                                <img src="{{ asset('ayba/1.png') }}"width="70px" alt="matdash-img"
+                                <img src="{{ asset('ayba/4.png') }}"width="100px" alt="matdash-img"
                                     class="img-fluid pb-3" />
                             </a>
                             <p class="mb-0 text-white">
@@ -702,35 +627,13 @@
         </footer>
         <div class="offcanvas offcanvas-start matdash-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header p-4">
-                <img src="../assets/images/logos/logo.svg" alt="matdash-img" class="img-fluid" width="150" />
+            <div class="offcanvas-header p-4 text-center">
+                <img src="{{asset('ayba/3.png')}}" alt="matdash-img" class="img-fluid" width="100%" />
             </div>
             <div class="offcanvas-body p-4">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between fs-3 text-dark"
-                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Demos <i class="ti ti-chevron-down fs-14"></i>
-                        </a>
-                        <ul class="dropdown-menu ps-2">
-                            <li>
-                                <a class="dropdown-item text-dark" href="../dark/index.html">Dark</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-dark" href="../horizontal/index.html">Horizontal</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-dark" href="../main/index3.html">main</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-dark" href="../minisidebar/index.html">Minisidebar</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-dark" href="../rtl/index.html">RTL</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item mt-3 dropdown">
+             
+                    {{-- <li class="nav-item mt-3 dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between fs-3 text-dark"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages <i class="ti ti-chevron-down fs-14"></i>
@@ -866,18 +769,18 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="nav-item mt-3">
                         <a class="nav-link fs-3 text-dark active" aria-current="page"
-                            href="../docs/index.html">Documentation</a>
+                            href="{{url('logout')}}">Cerrar Sesión</a>
                     </li>
-                    <li class="nav-item mt-3">
+                    {{-- <li class="nav-item mt-3">
                         <a class="nav-link fs-3 text-dark" href="#">Pages</a>
-                    </li>
+                    </li> --}}
                 </ul>
-                <form class="d-flex mt-3" role="search">
+                {{-- <form class="d-flex mt-3" role="search">
                     <a href="../main/authentication-login2.html" class="btn btn-primary w-100 py-2">Login</a>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>

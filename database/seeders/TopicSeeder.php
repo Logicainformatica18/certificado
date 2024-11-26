@@ -23,5 +23,15 @@ class TopicSeeder extends Seeder
             'type' => 'video',
             
         ]);
+        Topic::create([
+            'course_id' => '1',
+            'user_id' => '2',
+            'description' => 'Python',
+            'detail' =>'detalles',
+            'instruction' =>'Instrucciones',
+                'video'=> 'https://www.youtube.com/watch?v=DFg1V-rO6Pg',
+            'type' => 'video',
+            
+        ]);
     }
 }
