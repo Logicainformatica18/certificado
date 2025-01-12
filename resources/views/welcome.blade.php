@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados One</title>
+    <title>Anthony Code</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
@@ -99,7 +99,7 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #5a86ea;"><b>Certificados One</b>
+                                <h1 style="font-weight: bold;font-size:57px; color: #5a86ea;"><b>Anthony Code</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>

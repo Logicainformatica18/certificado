@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Certificados One</title>
+    <title>Anthony Code</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -44,6 +44,7 @@
 
     <script src="{{ asset('registry_detail.js') }}"></script>
     <script src="{{ asset('type.js') }}"></script>
+    <script src="{{ asset('topic.js') }}"></script>
     <script src="{{ asset('course.js') }}"></script>
     <script src="{{ asset('exam.js') }}"></script>
     <script src="{{ asset('qualification.js') }}"></script>

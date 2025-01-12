@@ -28,6 +28,9 @@ Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])-
 
 Route::resource('Estudiante', App\Http\Controllers\StudentController::class);
 
+Route::get('cursos_temario',[App\Http\Controllers\TopicController::class, 'index']);
+//Route::get('certificaciones/{id}/{type}/{cid}/{cert}',[App\Http\Controllers\CertificationController::class, 'report']);
+
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
 Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'course_detail']);
@@ -39,6 +42,9 @@ Route::group(['middleware' => ['role:Estudiante|Docente|Coordinación']], functi
 
 Route::resource('Mi-examen', App\Http\Controllers\QualificationController::class);
 Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::class);
+
+
+
 
 
    Route::post('qualificationStore',[App\Http\Controllers\QualificationController::class, 'store']);
