@@ -190,7 +190,7 @@ function certificationDetail(id) {
   
        /////////////////////////////
        
-       ctx.fillText(hour, x+411, 730);
+       ctx.fillText(hour, x+371, 730);
        
    ctx.font = "bold 45px Montserrat-Bold";
        ctx.fillStyle = "#0a2262";
@@ -203,7 +203,7 @@ function certificationDetail(id) {
        ctx.fillStyle = "#0a2262";
    
   
-          ctx.fillText(type, x-76, 730);
+          ctx.fillText(type, x-66, 730);
   
        /////////////////
        

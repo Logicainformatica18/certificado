@@ -42,7 +42,21 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="{{ asset('linkedin.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('certification2.js') }}"></script>
+    @php
+    if ($registry_detail->registry->course->type->description=="Programa") {
+        $route_certification = asset('certification3/plantilla_one_aprobado.png');
+        echo"<script type='text/javascript' src='../../../../../../certification2.js'></script>" ;
+    }
+    elseif($registry_detail->registry->course->type->description=="Curso"){
+        $route_certification = asset('certification3/plantilla_course_note.png');
+        echo"<script type='text/javascript' src='../../../../../../certification_course_note.js'></script>" ;
+       
+    }
+    else{
+        return view('errors.404');
+    }
+    
+@endphp
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
 
@@ -151,7 +165,7 @@
     
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset('certification3/plantilla_one_aprobado.png');
+
     
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(150)->generate($url));
     ?>

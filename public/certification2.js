@@ -277,7 +277,7 @@ function certificationDetail(id) {
           orientacion_anio = orientacion_anio  +27;
       }
       if(mesCorto== "10") {
-          mesCorto="Obtubre";
+          mesCorto="Octubre";
           x= x+2;
           orientacion_th= orientacion_th +21;
           orientacion_anio = orientacion_anio  +12;

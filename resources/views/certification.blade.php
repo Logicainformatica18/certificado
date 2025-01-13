@@ -40,10 +40,24 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
     <!-- Google Font: Source Sans Pro -->
-
+    @php
+    if ($registry_detail->registry->course->type->description=="Programa") {
+        $route_certification = asset('certification3/plantilla_one_participacion.png');
+        echo"<script type='text/javascript' src='../../../../../../certification.js'></script>" ;
+    }
+    elseif($registry_detail->registry->course->type->description=="Curso"){
+        $route_certification = asset('certification3/plantilla_course_not_note.png');
+        echo"<script type='text/javascript' src='../../../../../../certification_course_not_note.js'></script>" ;
+       
+    }
+    else{
+        return view('errors.404');
+    }
+    
+@endphp
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <script src="{{ asset('linkedin.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('certification.js') }}"></script>
+
     <script src="{{ asset('axios.min.js') }}"></script>
     <script src="{{ asset('function.js') }}"></script>
 
@@ -154,9 +168,10 @@
     $day = $carbonDate->day;
     
     /////////////////////////////////////////////////////////
+
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset('certification3/plantilla_one_participacion.png');
-    
+  
+
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(500)->generate($url));
     ?>
     <?php
