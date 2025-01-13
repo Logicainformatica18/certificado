@@ -107,7 +107,7 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
    Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
    Route::post('courseUpdate',[App\Http\Controllers\CourseController::class, 'update']);
    Route::post('courseDestroy',[App\Http\Controllers\CourseController::class, 'destroy']);
-   Route::post('courseShow',[App\Http\Controllers\CourseController::class, 'show']);
+
 
 
 
@@ -129,6 +129,19 @@ Route::group(['middleware' => ['role:Coordinación|Docente']], function () {
 
 Route::group(['middleware' => ['role:Coordinación|Administrador|Estudiante']], function () {
     //
+    Route::get('hola',function (){
+        return view('student.vista');
+    });
+
+    Route::resource("temas", App\Http\Controllers\TopicController::class);
+    Route::post('topicStore',[App\Http\Controllers\TopicController::class, 'store']);
+    Route::post('topicEdit',[App\Http\Controllers\TopicController::class, 'edit']);
+    Route::post('topicUpdate',[App\Http\Controllers\TopicController::class, 'update']);
+    Route::post('topicDestroy',[App\Http\Controllers\TopicController::class, 'destroy']);
+    Route::post('topicShow',[App\Http\Controllers\TopicController::class, 'show']);
+
+    Route::get('cursos/{course_id}/{tema}/{topic_id}',[App\Http\Controllers\TopicController::class, 'report']);
+
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
    Route::post('categoryStore',[App\Http\Controllers\CategoryController::class, 'store']);
    Route::post('categoryEdit',[App\Http\Controllers\CategoryController::class, 'edit']);

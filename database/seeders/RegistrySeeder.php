@@ -25,9 +25,6 @@ class RegistrySeeder extends Seeder
                 'teacher_t' => 'App\Models\User',
                 'teacher_r' => '3',
                 'assistance_id' => '1',
-
-
-
                 'schedule_id' => '1',
                 'hour_start' => '19:00:00',
                 'hour_end' => '22:00:00',
@@ -37,7 +34,8 @@ class RegistrySeeder extends Seeder
                 'detail' => '',
                 'edition' => '40',
                 'type' => 'Clase',
-                   'count_notes' => '8'
+                   'count_notes' => '1',
+                'state'=> 'enabled',
             ]);
     }
 }

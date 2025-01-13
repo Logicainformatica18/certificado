@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="size-100">
                                     <br>
-                                    <img id="blah1" name="fotografia" src="https://via.placeholder.com/150" alt="Tu imagen"
+                                    <img id="blah1" name="fotografia" src="https://placehold.co/150" alt="Tu imagen"
                                         class="img-bordered" width="40%">
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="size-100">
                                     <br>
-                                    <img id="blah2" name="fotografia" src="https://via.placeholder.com/150" alt="Tu imagen"
+                                    <img id="blah2" name="fotografia" src="https://placehold.co/150" alt="Tu imagen"
                                         class="img-bordered" width="40%">
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="size-100">
                                     <br>
-                                    <img id="blah3" name="fotografia" src="https://via.placeholder.com/150"
+                                    <img id="blah3" name="fotografia" src="https://placehold.co/150"
                                         alt="Tu imagen" class="img-bordered" width="40%">
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                 </div>
                                 <div class="size-100">
                                     <br>
-                                    <img id="blah4" name="fotografia" src="https://via.placeholder.com/150"
+                                    <img id="blah4" name="fotografia" src="https://placehold.co/150"
                                         alt="Tu imagen" class="img-bordered" width="40%">
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="size-100">
                                     <br>
-                                    <img id="blah5" name="fotografia" src="https://via.placeholder.com/150"
+                                    <img id="blah5" name="fotografia" src="https://placehold.co/150"
                                         alt="Tu imagen" class="img-bordered" width="40%">
                                 </div>
                             </div>

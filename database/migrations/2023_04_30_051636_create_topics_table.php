@@ -16,7 +16,25 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('description')->nullable();
             $table->string('detail')->nullable();
+            $table->string('instruction')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('point')->default('0');
+            $table->longText('post')->nullable();
+            $table->string('link_1')->nullable();
+            $table->string('link_2')->nullable();
+            $table->string('link_3')->nullable();
+            $table->string('link_4')->nullable();
+            $table->string('resource_1')->nullable();
+            $table->string('resource_2')->nullable();
+            $table->string('resource_3')->nullable();
+            $table->string('resource_4')->nullable();
+            $table->time('duration')->nullable();
+
+            
             $table->timestamps();
         });
     }

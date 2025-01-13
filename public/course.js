@@ -22,6 +22,30 @@ function courseDetail(id,registry_detail_id) {
       console.log(response);
     });
 }
+function courseTopic(id,registry_detail_id) {
+  var formData = new FormData(document.getElementById("course"));
+  formData.append("id", id);
+  formData.append("registry_detail_id", registry_detail_id);
+  axios({
+    method: "post",
+    url: "course_detail",
+    data: formData,
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
+    .then(function(response) {
+      //handle success
+      window.location.href = "temas";
+      // var contentdiv = document.getElementById("mycontent");
+      // contentdiv.innerHTML = response.data;
+      // alert("hola");
+    })
+    .catch(function(response) {
+      //handle error
+      console.log(response);
+    });
+}
 function courseDetailStudent(id,registry_detail_id) {
   var formData = new FormData(document.getElementById("course"));
   formData.append("id", id);

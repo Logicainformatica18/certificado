@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'course_id','user_id','description','post','instruction', 'point','detail'];
+        public function course()    
+    {
+
+        return $this->hasOne('App\Models\Course', 'id','course_id');
+    }
+    public function categoryDetail()    
+    {
+
+        return $this->hasMany('App\Models\CategoryDetail', 'topic_id','id');
+    }
 }
