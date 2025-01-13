@@ -203,7 +203,7 @@ function certificationDetail(id) {
        ctx.fillStyle = "#0a2262";
    
   
-       ctx.fillText(type, x-70, 728);
+       ctx.fillText(type, x-70, 729);
   
        /////////////////
        ctx.font = "italic 27px Montserrat-Regular";
