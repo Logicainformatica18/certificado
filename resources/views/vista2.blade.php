@@ -32,7 +32,7 @@
         <header class="header">
             <nav class="navbar navbar-expand-lg py-0 ">
                 <div class="container-fluid">
-                    <a class="navbar-brand me-0 py-0 " href="{{url('/')}}">
+                    <a class="navbar-brand me-0 py-0 " href="{{ url('/') }}">
                         <img src="{{ asset('ayba/3.png') }}"width="100px" alt="img-fluid" />
                     </a>
 
@@ -50,14 +50,6 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center mb-2 mb-lg-0 ms-auto">
-
-
-                          
-                            
-                 
-                      
-                           
-
                             <!-- ------------------------------- -->
                             <!-- start language Dropdown -->
 
@@ -71,14 +63,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:void(0)" id="drop1" aria-expanded="false">
                                     <div class="d-flex align-items-center gap-2 lh-base">
-                                  @if (Auth::user()->photo=="")
-                                  <img src="{{asset('assets/images/profile/user-1.jpg')}}" class="rounded-circle"
-                                  width="35" height="35" alt="matdash-img">
-                                  @else
-                                  <img src="{{asset('imageusers/'.Auth::user()->photo)}}" class="rounded-circle"
-                                  width="35" height="35" alt="matdash-img">
-                                  @endif
-                                       
+                                        @if (Auth::user()->photo == '')
+                                            <img src="{{ asset('assets/images/profile/user-1.jpg') }}"
+                                                class="rounded-circle" width="35" height="35" alt="matdash-img">
+                                        @else
+                                            <img src="{{ asset('imageusers/' . Auth::user()->photo) }}"
+                                                class="rounded-circle" width="35" height="35" alt="matdash-img">
+                                        @endif
+
                                         <iconify-icon icon="solar:alt-arrow-down-bold" class="fs-2"></iconify-icon>
                                     </div>
                                 </a>
@@ -290,47 +282,10 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
-                    <style>
-                        lite-youtube {
-                            /* No Shadow */
-                            --lite-youtube-frame-shadow-visible: no;
-width: 100%;
-                        }
-
-
-                        .lite-youtube-fallback {
-                            aspect-ratio: 16 / 9;
-                            /* matches YouTube player */
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            flex-direction: column;
-                            gap: 1em;
-                            padding: 1em;
-                            background-color: #c00d0d;
-                            color: #000000;
-                            text-decoration: none;
-                        }
-
-                        /* right-facing triangle "Play" icon */
-                        .lite-youtube-fallback::before {
-                            display: block;
-                            content: '';
-                            border: solid transparent;
-                            border-width: 2em 0 2em 3em;
-                            border-left-color: rgb(0, 0, 0);
-                        }
-
-                        .lite-youtube-fallback:hover::before {
-                            border-left-color: #fff;
-                        }
-
-                        .lite-youtube-fallback:focus {
-                            outline: 2px solid red;
-                        }
-                    </style>
-                    <lite-youtube videoid="{{ $url[1] }}">
-
+  
+                    <lite-youtube class="rounded-1"   videoid="{{ $url[1] }}"posterquality="maxresdefault">
+                        dsds
+                        
                     </lite-youtube>
                     {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
 
@@ -342,13 +297,13 @@ width: 100%;
                     <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
                 </div>
 
-                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12" >
+                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="card overflow-hidden">
                         <div class="card-body p-0">
 
 
-                            <img src="{{ asset('ayba/bg_user.png') }}" width="100%" alt="matdash-img" style="height: 150px"
-                            >
+                            <img src="{{ asset('ayba/bg_user.png') }}" width="100%" alt="matdash-img"
+                                style="height: 150px">
                             {{-- <img src="{{ asset('assets/images/backgrounds/profilebg.jpg') }}" alt="matdash-img"
                                 class="img-fluid"> --}}
 
@@ -405,13 +360,14 @@ width: 100%;
                                         class="list-unstyled d-flex align-items-center justify-content-center justify-content-lg-end my-3 mx-4 pe-4 gap-3 m-10">
                                         <li>
                                             <a class="d-flex align-items-center justify-content-center btn btn-primary p-2 fs-4 rounded-circle"
-                                                href="{{$topic[0]->user->fb}}" width="30" height="30"target="_blank">
+                                                href="{{ $topic[0]->user->fb }}" width="30"
+                                                height="30"target="_blank">
                                                 <i class="ti ti-brand-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="btn btn-secondary d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
-                                                href="{{$topic[0]->user->portfolio}}"target="_blank">
+                                                href="{{ $topic[0]->user->portfolio }}"target="_blank">
                                                 <i class="ti ti-brand-dribbble"></i>
                                             </a>
                                         </li>
@@ -423,7 +379,7 @@ width: 100%;
                                         </li> --}}
                                         <li>
                                             <a class="btn btn-danger d-flex align-items-center justify-content-center p-2 fs-4 rounded-circle"
-                                                href="{{$topic[0]->user->youtube}}" target="_blank">
+                                                href="{{ $topic[0]->user->youtube }}" target="_blank">
                                                 <i class="ti ti-brand-youtube"></i>
                                             </a>
                                         </li>
@@ -436,18 +392,18 @@ width: 100%;
                             <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                                 id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
-                                        role="tab" aria-controls="pills-friends" aria-selected="false">
+                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                        id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends"
+                                        type="button" role="tab" aria-controls="pills-friends"
+                                        aria-selected="false">
                                         <i class="ti ti-file fs-5"></i>
                                         <span class="d-none d-md-block">Temas</span>
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6"
-                                        id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                                        type="button" role="tab" aria-controls="pills-profile"
-                                        aria-selected="true">
+                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6" id="pills-profile-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+                                        role="tab" aria-controls="pills-profile" aria-selected="true">
                                         <i class="ti ti-user-circle fs-5"></i>
                                         <span class="d-none d-md-block">Comentarios</span>
                                     </button>
@@ -461,8 +417,8 @@ width: 100%;
                                         <span class="d-none d-md-block">Recursos</span>
                                     </button>
                                 </li>
-        
-                   
+
+
 
                             </ul>
                         </div>
@@ -512,10 +468,11 @@ width: 100%;
                             aria-labelledby="pills-followers-tab" tabindex="0">
                             <div class="card-body">
                                 <div class="form-group">
-                                  <h4 class="card-title">Recursos</h4>
-                                  <p class="card-subtitle mb-3">{{$topic[0]->instruction}}</p>
-                                  <a  download="{{$topic[0]->resource_1}}" href="{{asset('resource/'.$topic[0]->resource_1)}}" target="_blank"
-                                     class="
+                                    <h4 class="card-title">Recursos</h4>
+                                    <p class="card-subtitle mb-3">{{ $topic[0]->instruction }}</p>
+                                    <a download="{{ $topic[0]->resource_1 }}"
+                                        href="{{ asset('resource/' . $topic[0]->resource_1) }}" target="_blank"
+                                        class="
                                       btn
                                       d-block
                                       w-100 
@@ -524,19 +481,18 @@ width: 100%;
                                       text-success
                                       block-card
                                     ">
-                                    Descargar 
-                                  </a>
+                                        Descargar
+                                    </a>
                                 </div>
-                              </div>
+                            </div>
 
                         </div>
                         <div class="tab-pane active fade show" id="pills-friends" role="tabpanel"
                             aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px">
-                          <iframe src="{{url('topic_list/'.$topic[0]->course_id)}}" frameborder="0" width="100%"
-                            height="300px"
-                            >
-                        
-                          </iframe>
+                            <iframe src="{{ url('topic_list/' . $topic[0]->course_id) }}" frameborder="0"
+                                width="100%" height="300px">
+
+                            </iframe>
 
                         </div>
                     </div>
@@ -628,11 +584,11 @@ width: 100%;
         <div class="offcanvas offcanvas-start matdash-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header p-4 text-center">
-                <img src="{{asset('ayba/3.png')}}" alt="matdash-img" class="img-fluid" width="100%" />
+                <img src="{{ asset('ayba/3.png') }}" alt="matdash-img" class="img-fluid" width="100%" />
             </div>
             <div class="offcanvas-body p-4">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
-             
+
                     {{-- <li class="nav-item mt-3 dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between fs-3 text-dark"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -772,7 +728,7 @@ width: 100%;
                     </li> --}}
                     <li class="nav-item mt-3">
                         <a class="nav-link fs-3 text-dark active" aria-current="page"
-                            href="{{url('logout')}}">Cerrar Sesión</a>
+                            href="{{ url('logout') }}">Cerrar Sesión</a>
                     </li>
                     {{-- <li class="nav-item mt-3">
                         <a class="nav-link fs-3 text-dark" href="#">Pages</a>

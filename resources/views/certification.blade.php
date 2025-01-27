@@ -155,7 +155,7 @@
     
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset('certification3/plantilla_one_participacion.png');
+    $route_certification = asset('certification3/aybar_certificado.png');
     
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(500)->generate($url));
     ?>
@@ -182,7 +182,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1 style="color:#F6A42C; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
-            <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
+            <h2 style="color:#03424E;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
 
@@ -262,18 +262,18 @@
                     Ayba Corp reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to left, #F6A42C, #F6A42C); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
                 <script></script>
                 <button class="btn btn-outline-info" id="btnpdf"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #555Bff, #00c0ff); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #F6A42C, #F6A42C); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
                 </button>
                 <p></p>
-                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #555Bff, #00c0ff);"></div>
+                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #F6A42C, #F6A42C);"></div>
                 <p></p>
                 <p style="font-size:110;font-family:Montserrat-Medium;color:#828282"><b
                         style="font-family: Montserrat-Bold">Tus logros merecen ser vistos.</b>
@@ -288,12 +288,12 @@
 
             </div>
             <div class="col-lg-4">
-                <div class="input-group mb-3"style="width: 100%" style="background-color: #09246">
+                <div class="input-group mb-3"style="width: 100%" style="background-color: #03424E">
                     <button
-                        class="input-group-text"style="height:30px;border-radius:30px;border-color:#092469; color:#ffffff;background-color:#092469;width: 100%"
+                        class="input-group-text"style="height:30px;border-radius:30px;border-color:#03424E; color:#ffffff;background-color:#03424E;width: 100%"
                         onclick="copiarAlPortapapeles() ;">
                         <input type="text" id="texto"
-                            class="form-control"style="font-family:Montserrat-Bold;font-size:10px; background-color: #092469;color:#ffffff;border:none;height:30px"
+                            class="form-control"style="font-family:Montserrat-Bold;font-size:10px; background-color: #03424E;color:#ffffff;border:none;height:30px"
                             id=""value="{{ $url }}">
 
                         <b>Copiar</b> </button>

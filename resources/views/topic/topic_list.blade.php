@@ -172,6 +172,65 @@
                 </span>
             </div>
 <p></p>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      const liteYoutube = document.querySelector('lite-youtube');
+      if (liteYoutube) {
+        const playButton = liteYoutube.shadowRoot.querySelector('#playButton');
+        if (playButton) {
+          playButton.style.width = '0px';
+          playButton.style.height = '00px';
+          playButton.style.backgroundRepeat = 'no-repeat'; // Evita la repetición
+        }
+      }
+    });
+  </script>
+     <style>
+             
+
+        lite-youtube {
+            /* No Shadow */
+            --lite-youtube-frame-shadow-visible: no;
+            width: 100%;
+        }
+
+
+        .lite-youtube-fallback {
+            aspect-ratio: 16 / 9;
+            /* matches YouTube player */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1em;
+            padding: 1em;
+            background-color: #c00d0d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        /* right-facing triangle "Play" icon */
+        .lite-youtube-fallback::before {
+            display: block;
+            content: '';
+            border: solid transparent;
+            border-width: 2em 0 2em 3em;
+            border-left-color: rgb(0, 0, 0);
+        }
+
+        .lite-youtube-fallback:hover::before {
+            border-left-color: #fff;
+        }
+
+        .lite-youtube-fallback:focus {
+            outline: 2px solid red;
+        }
+       
+
+
+    </style>
             @foreach ($topic_list as $topic_lists)
             <h6>
                 {{ $topic_lists->description}}
@@ -183,12 +242,18 @@
                     $url = explode('=', $topic_lists->video);
 
                 @endphp
+               
+ 
 
-                {{-- <lite-youtube class="rounded-4 border border-2 mb-3 h-300" videoid="{{ $url[1] }}"> 
+         
+                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}"> 
 
-                </lite-youtube> --}}
-                <iframe class="rounded-4 border border-2 mb-3 h-300"
-                    src="https://www.youtube.com/embed/{{ $url[1] }}" frameborder="0"></iframe>
+
+                </lite-youtube>
+
+   
+                {{-- <iframe class="rounded-4 border border-2 mb-3 h-300"
+                    src="https://www.youtube.com/embed/{{ $url[1] }}" frameborder="0"></iframe> --}}
             @endforeach
 
             {{-- <div class="d-flex align-items-center">
