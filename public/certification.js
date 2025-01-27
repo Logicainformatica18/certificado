@@ -170,16 +170,16 @@ function certificationDetail(id) {
   
               ctx.textAlign = "center";
               ctx.textBaseline = 'middle';
-          ctx.fillStyle ="#03424E";
+          ctx.fillStyle ="black";
          // ctx.
   
              // student = student.toUpperCase();
           let x = canvas1.width / 2  ;
   
-       ctx.fillText(student, x, 790);
+       ctx.fillText(student, x, 690);
        
    ctx.font = "34px Montserrat-Regular";
-       ctx.fillStyle = "#03424E";
+       ctx.fillStyle = "black";
        /////////////////////////////////
   
   if (hour <= 9) {
@@ -190,25 +190,25 @@ function certificationDetail(id) {
   
        /////////////////////////////
        
-       ctx.fillText(hour, x+365, 885);
+       ctx.fillText(hour, x-132, 865);
        
    ctx.font = "bold 45px Montserrat-Bold";
-       ctx.fillStyle = "#03424E";
+       ctx.fillStyle = "black";
        
   
-          ctx.fillText('"'+text+'"', x, 950);
+          ctx.fillText('"'+text+'"', x, 915);
        /////////type /////////
   
-       ctx.font = "37px Montserrat-Regular";
-       ctx.fillStyle = "#03424E";
+       ctx.font = "33px Montserrat-Regular";
+       ctx.fillStyle = "black";
    
   
-          ctx.fillText(type, x-88, 885);
+          ctx.fillText(type + " de capacitación ", x+350, 822);
   
        /////////////////
        
           ctx.font = "italic 27px Montserrat-Regular";
-         ctx.fillStyle ="#03424E";
+         ctx.fillStyle ="black";
               ctx.textAlign = "center";
   
        
@@ -307,16 +307,16 @@ function certificationDetail(id) {
       }
       
   
-      ctx.fillText("Lima, "+ day + " "+mesCorto + " de "+anio  , x +500,  1372);
+      ctx.fillText("Lima, "+ day + " "+mesCorto + " de "+anio  , x ,  1320);
       ctx.font = "bold 15px Open Sans";
             //  ctx.fillText(text_th  , orientacion_th +9, 490);
       //         ctx.font = "bold 20px Open Sans";
       //  ctx.fillText(anio, orientacion_anio + 359, 672);
   
-   ctx.font = "bold 27px Montserrat-bold";
-   ctx.fillStyle ="#03424E";
+   ctx.font = "bold 20px Montserrat-bold";
+   ctx.fillStyle ="black";
    ctx.textAlign = "center";
-   ctx.fillText("ID: "+id, 290, 480);
+   ctx.fillText("ID: "+id, 285, 635);
   
   
   
@@ -327,7 +327,7 @@ function certificationDetail(id) {
        let image1 = new Image();
          image1.src =qr_url;
     image1.onload = function() {
-        ctx.drawImage(image1, 180, 250, 210, 210);
+        ctx.drawImage(image1, 180, 400, 210, 210);
     }
   
   

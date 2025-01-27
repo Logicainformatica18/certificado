@@ -110,7 +110,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #023039">
+    <nav class="navbar navbar-expand-md  shadow-sm" style="background: linear-gradient(90deg,#1ab138 20%, #46dd62 80%);" >
 
         <div class="container-fluid">
             <div class="row w-100">
@@ -155,7 +155,7 @@
     
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
-    $route_certification = asset('certification3/aybar_certificado.png');
+    $route_certification = asset('certification3/credilotes_certificado.png');
     
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(500)->generate($url));
     ?>
@@ -182,7 +182,7 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1 style="color:#F6A42C; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
-            <h2 style="color:#03424E;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
+            <h2 style="color:#fd7e14;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
 
@@ -258,7 +258,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#023039;font-size:120%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#fd7e14;font-size:120%;font-family: Montserrat-BoldItalic">
                     Ayba Corp reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
@@ -288,12 +288,12 @@
 
             </div>
             <div class="col-lg-4">
-                <div class="input-group mb-3"style="width: 100%" style="background-color: #03424E">
+                <div class="input-group mb-3"style="width: 100%" style="background-color: #fd7e14">
                     <button
-                        class="input-group-text"style="height:30px;border-radius:30px;border-color:#03424E; color:#ffffff;background-color:#03424E;width: 100%"
+                        class="input-group-text"style="height:30px;border-radius:30px;border-color:#fd7e14; color:#ffffff;background-color:#fd7e14;width: 100%"
                         onclick="copiarAlPortapapeles() ;">
                         <input type="text" id="texto"
-                            class="form-control"style="font-family:Montserrat-Bold;font-size:10px; background-color: #03424E;color:#ffffff;border:none;height:30px"
+                            class="form-control"style="font-family:Montserrat-Bold;font-size:10px; background-color: #fd7e14;color:#ffffff;border:none;height:30px"
                             id=""value="{{ $url }}">
 
                         <b>Copiar</b> </button>
