@@ -170,16 +170,16 @@ function certificationDetail(id) {
   
               ctx.textAlign = "center";
               ctx.textBaseline = 'middle';
-          ctx.fillStyle ="#0a2262";
+          ctx.fillStyle ="#03424E";
          // ctx.
   
              // student = student.toUpperCase();
           let x = canvas1.width / 2  ;
   
-       ctx.fillText(student, x, 605);
+       ctx.fillText(student, x, 790);
        
    ctx.font = "34px Montserrat-Regular";
-       ctx.fillStyle = "#0a2262";
+       ctx.fillStyle = "#03424E";
        /////////////////////////////////
   
   if (hour <= 9) {
@@ -190,25 +190,25 @@ function certificationDetail(id) {
   
        /////////////////////////////
        
-       ctx.fillText(hour, x+411, 730);
+       ctx.fillText(hour, x+365, 885);
        
    ctx.font = "bold 45px Montserrat-Bold";
-       ctx.fillStyle = "#0a2262";
+       ctx.fillStyle = "#03424E";
        
   
-          ctx.fillText('"'+text+'"', x, 800);
+          ctx.fillText('"'+text+'"', x, 950);
        /////////type /////////
   
        ctx.font = "37px Montserrat-Regular";
-       ctx.fillStyle = "#0a2262";
+       ctx.fillStyle = "#03424E";
    
   
-          ctx.fillText(type, x-76, 730);
+          ctx.fillText(type, x-88, 885);
   
        /////////////////
        
           ctx.font = "italic 27px Montserrat-Regular";
-         ctx.fillStyle ="#0a2262";
+         ctx.fillStyle ="#03424E";
               ctx.textAlign = "center";
   
        
@@ -314,9 +314,9 @@ function certificationDetail(id) {
       //  ctx.fillText(anio, orientacion_anio + 359, 672);
   
    ctx.font = "bold 27px Montserrat-bold";
-   ctx.fillStyle ="#0a2262";
+   ctx.fillStyle ="#03424E";
    ctx.textAlign = "center";
-   ctx.fillText("ID: "+id, 530, 1400);
+   ctx.fillText("ID: "+id, 290, 480);
   
   
   
@@ -327,7 +327,7 @@ function certificationDetail(id) {
        let image1 = new Image();
          image1.src =qr_url;
     image1.onload = function() {
-        ctx.drawImage(image1, 85, 1210, 200, 200);
+        ctx.drawImage(image1, 180, 250, 210, 210);
     }
   
   
