@@ -7,8 +7,8 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Publicaciones -
-                        {{$course[0]->description}}</h1>
-                  
+                        {{ $course[0]->description }}</h1>
+
                     {{ session('success') }}
                 </div>
                 <div class="col-sm-6">
@@ -35,6 +35,7 @@
 </button> --}}
 
     <p></p>
+    @role("Coordinación")
     <form action="" method="post" role="form" id="topic" name="form">
         <input type="hidden" name="id" id="id">
         {{ csrf_field() }}
@@ -78,14 +79,12 @@
 
                 <select name="category[]"id="category" class="select2 select2-hidden-accessible" multiple=""
                     data-placeholder="Any" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                    {{-- <option data-select2-id="16" value="1" selected >número 0</option>
-                        <option data-select2-id="17" value="1" >número 1</option>
-                        </option> --}}
+                  
 
                     @foreach ($category as $item)
                         <option value="{{ $item->id }}">{{ $item->description }}</option>
                     @endforeach
-                   
+
 
                 </select>
             </div>
@@ -120,7 +119,7 @@
         <input type="button" value="Modificar" class="btn btn-danger"id="update" onclick="topicUpdate();" name="update">
 
     </form>
-
+    @endrole
     <p></p>
     <!-- /.content -->
     {{-- {{ $topic->onEachSide(5)->links() }} --}}
