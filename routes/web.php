@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
 
-Route::resource('Socio Comercial', App\Http\Controllers\StudentController::class);
+Route::resource('socio_comercial', App\Http\Controllers\StudentController::class);
 
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
@@ -34,7 +34,7 @@ Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'cour
    Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
 
 
-Route::group(['middleware' => ['role:Socio Comercial|Coach|Coordinación']], function () {
+Route::group(['middleware' => ['role:socio_comercial|Coach|Coordinación']], function () {
 
 
 Route::resource('Mi-examen', App\Http\Controllers\QualificationController::class);
@@ -46,7 +46,7 @@ Route::resource('Mis-cursos', App\Http\Controllers\StudentCourseController::clas
    Route::post('qualificationUpdate',[App\Http\Controllers\QualificationController::class, 'update']);
    Route::post('qualificationDestroy',[App\Http\Controllers\QualificationController::class, 'destroy']);
    Route::post('qualificationShow',[App\Http\Controllers\QualificationController::class, 'show']);
-   
+
   Route::post('qualification_certification',[App\Http\Controllers\QualificationController::class, 'qualification_certification']);
 
    Route::resource("evaluaciones", App\Http\Controllers\EvaluationController::class);
@@ -101,7 +101,7 @@ Route::group(['middleware' => ['role:Coordinación|Coach']], function () {
    Route::post('registry_detailDestroy',[App\Http\Controllers\RegistryDetailController::class, 'destroy']);
    Route::post('registry_detailShow',[App\Http\Controllers\RegistryDetailController::class, 'show']);
 
-   
+
    Route::resource("cursos", App\Http\Controllers\CourseController::class);
    Route::post('courseStore',[App\Http\Controllers\CourseController::class, 'store']);
    Route::post('courseEdit',[App\Http\Controllers\CourseController::class, 'edit']);
@@ -122,12 +122,12 @@ Route::group(['middleware' => ['role:Coordinación|Coach']], function () {
 
 
 
- 
+
 });
 
 
 
-Route::group(['middleware' => ['role:Coordinación|Administrador|Socio Comercial']], function () {
+Route::group(['middleware' => ['role:Coordinación|Administrador|socio_comercial']], function () {
     //
     Route::get('hola',function (){
         return view('student.vista');
@@ -211,7 +211,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
 
 
 
-   Route::resource("Socio Comercials", App\Http\Controllers\StudentController::class);
+   Route::resource("socio_comercials", App\Http\Controllers\StudentController::class);
    Route::post('studentStore',[App\Http\Controllers\StudentController::class, 'store']);
    Route::post('studentEdit',[App\Http\Controllers\StudentController::class, 'edit']);
    Route::post('studentUpdate',[App\Http\Controllers\StudentController::class, 'update']);
@@ -240,9 +240,9 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
-          Route::get('Socio Comercial-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
-     
-    
+          Route::get('socio_comercial-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
+
+
 
  Route::resource("certificados", App\Http\Controllers\CertificateController::class);
 
@@ -251,9 +251,9 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
 
 
  Route::get('/auth/google', [\App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
- 
+
  use App\Models\User;
- 
+
 
  Route::get('/auth/google/callback', function () {
     try {
@@ -275,11 +275,11 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
                      'google_id'=> $user->id,
                      'password' => Hash::make('onedigital123')
                  ]);
-               
+
                  $newUser->save();
                  //login as the new user
                  Auth::login($newUser);
-                 $newUser->assignRole('Socio Comercial');
+                 $newUser->assignRole('socio_comercial');
                  //
                //  $newUser->createToken(request()->device_name)->plainTextToken ;
                  // go to the dashboard
@@ -289,7 +289,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
          } catch (Exception $e) {
              dd($e->getMessage());
          }
- 
+
  });
 
  Route::controller(App\Http\Controllers\UserController::class)->group(function(){
@@ -297,19 +297,19 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
     Route::post('users-import', 'import')->name('users.import');
 
    Route::post('userImportGoogle', 'importGoogle');
-    
-    
+
+
 });
 
 Route::controller(ExamController::class)->group(function(){
-   
+
     Route::post('exams-import', 'import')->name('exams.import');
 
 });
 
 
 Route::controller(RegistryDetailController::class)->group(function(){
-   
+
     Route::post('registry_detail-import', 'import')->name('registry_detail.import');
     Route::post('registryDetailImportGoogle', 'importGoogle');
 
@@ -343,11 +343,11 @@ Route::get('login/microsoft/callback', function () {
                 'google_id'=> $user->id,
                 'password' => Hash::make('onedigital123')
             ]);
-          
+
             $newUser->save();
             //login as the new user
             Auth::login($newUser);
-            $newUser->assignRole('Socio Comercial');
+            $newUser->assignRole('socio_comercial');
             //
           //  $newUser->createToken(request()->device_name)->plainTextToken ;
             // go to the dashboard

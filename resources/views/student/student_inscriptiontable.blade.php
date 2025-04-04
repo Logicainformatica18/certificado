@@ -4,7 +4,7 @@
 
             @php
                 $enumeracion = 0;
-                
+
             @endphp
             <div class="row">
 
@@ -20,7 +20,7 @@
                             $img='curso_promocion.jpg';
                             }
                         @endphp
-                         
+
                         <div style="width: 15rem;border-radius:40px" class="card" >
                             <img src="{{ asset('imageusers/'.$img) }}" class="card-img-top" alt="..."
                             style="border-top-left-radius:40px;border-top-right-radius:40px"
@@ -43,8 +43,8 @@
                                 <p class="card-text"style="font-size:13px;font-family:Montserrat-Regular">
                                     Inicio: {{ substr($registrys->fec_start, 0, 11) }}
                                 </p>
-                             
-                                @role('Socio Comercial')
+
+                                @role('socio_comercial')
                                 <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
                                 download="{{$registrys->course->brochure}}" href="{{asset('brochure/'.$registrys->course->brochure)}}">
                                 Broshure</a>
@@ -55,7 +55,7 @@
                                     <a class="btn btn-sm" style="border-radius:15px;color:rgb(0, 0, 0);background-color: #5be8dd"
                                         onclick="inscriptionStore('{{ $registrys->id }}','{{Auth::user()->model_has_roles[0]->model_id}}-{{Auth::user()->model_has_roles[0]->model_type}}-{{Auth::user()->model_has_roles[0]->role_id}}')">
                                         INSCRIBIRME</a>
-                                       
+
                                 @endrole
 
                             </div>
@@ -65,7 +65,7 @@
 
             </div>
 
-  
+
 
 
         </div>

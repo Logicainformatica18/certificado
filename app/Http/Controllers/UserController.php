@@ -162,7 +162,7 @@ class UserController extends Controller
                $users->password =  Hash::make($request->password);
             $users->save();
         }
-        
+
         return   $this->create();
     }
 
@@ -181,7 +181,7 @@ class UserController extends Controller
     }
     public function updateProfile(Request $request)
     {
-        
+
      //  $request->datebirth = datebirth($request->day, $request->month, $request->year);
      //  if ($request->photo == "") {
            $users = User::find($request->id);
@@ -191,7 +191,7 @@ class UserController extends Controller
       $users->lastname = $request->lastname;
 
         $users->sex=   $request->sex;
-  
+
      //      $users->datebirth = $request->datebirth;
      //      $users->cellphone = $request->cellphone;
 
@@ -239,20 +239,20 @@ class UserController extends Controller
         $user = User::find($id);
         return view("user_roletable", compact("user"));
     }
-   public function import() 
+   public function import()
     {
         Excel::import(new ImportUsers, request()->file('file'));
-            
+
         return back();
     }
     public function importGoogle(Request $request){
-     //   $request->id_sheet = '1ShgVLdsBMDAW2v0Xzk3JL8xls0KlKUEUMzY5mlTvwds'; 
+     //   $request->id_sheet = '1ShgVLdsBMDAW2v0Xzk3JL8xls0KlKUEUMzY5mlTvwds';
      //   $request->range = 'hoja!A1:H10'; // Ajusta el rango según tu hoja de cálculo
 
-   
+
             $google = New GoogleSheetService();
             $data =   $google->getSheetDataWithHeaders($request->id_sheet, $request->range);
-     
+
             $object = json_decode(json_encode($data));
            // return $object;
             // return var_dump($data);
@@ -275,15 +275,15 @@ class UserController extends Controller
                         'cellphone' => $row->celular,
                     ]);
                     $user1->save();
-                    $user1->assignRole('Socio Comercial');
+                    $user1->assignRole('socio_comercial');
                 }
-                
-              
+
+
             }
-          
-          
 
 
-     
+
+
+
     }
 }

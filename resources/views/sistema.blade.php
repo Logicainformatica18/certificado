@@ -166,7 +166,7 @@
 
                     {{-- <div class="col-md-12">
                         <h5><b style="font-family:Montserrat-Bold;color:#023039">&nbsp;&nbsp; Información Laboral</b></h5>
-                        
+
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline" id="mycontent">
                             <div class="card-body box-profile" style="font-size: 12px">
@@ -174,7 +174,7 @@
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <b style="font-family:Montserrat-SemiBold">Cargo</b>
-                                        <a class="float-right">Socio Comercial</a>
+                                        <a class="float-right">socio_comercial</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b style="font-family:Montserrat-SemiBold">Experiencia</b> <a class="float-right">{{ $users->datebirth }}</a>
@@ -310,7 +310,7 @@
                                                 </div>
                                             </div>
 
-                                           
+
                                             <div class="form-group row">
                                                 <label for="inputdatebirth"
                                                     class="col-sm-2

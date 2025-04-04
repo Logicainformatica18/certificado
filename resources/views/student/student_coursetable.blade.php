@@ -4,7 +4,7 @@
 
             @php
                 $enumeracion = 0;
-                
+
             @endphp
             <div class="row">
 
@@ -35,8 +35,8 @@
                                 <p class="card-text"style="font-size:13px;font-family:Montserrat-Regular">
                                     {{ substr($registry_details->registry->fec_start, 0, 11) }}
                                 </p>
-                             
-                                @role('Socio Comercial')
+
+                                @role('socio_comercial')
                                 <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
                                 download="{{$registry_details->registry->course->brochure}}" href="{{asset('brochure/'.$registry_details->registry->course->brochure)}}">
                                 Broshure</a>
