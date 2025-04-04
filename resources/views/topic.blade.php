@@ -42,7 +42,7 @@
             Descripción : <input type="text" name="description" id="description" class="form-control">
             Tipo :
             <select name="type" id="type"class="form-control">
-                <option value="video">Video</option>
+                <option value="video_youtube">Video</option>
                 <option value="video_drive">Video Google Drive</option>
                 <option value="read">Lectura</option>
             </select>
