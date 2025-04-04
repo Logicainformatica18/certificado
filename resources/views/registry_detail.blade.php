@@ -93,7 +93,7 @@
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             onclick="New();$('#registry_detail')[0].reset();">
-            Agregar socio_comercial
+            Agregar Socio-comercial
         </button>
     @endrole
     <p></p>
@@ -142,7 +142,7 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
 
-                        socio_comercials
+                        Socio-comercials
 
                         <select name="student" id="student" class="form-control">
                             @foreach ($student as $item)
@@ -208,7 +208,7 @@
                             </script>
                         @endfor
 
-                        socio_comercial MATRICULADO
+                        Socio-comercial MATRICULADO
                         <select name="pay" id="pay" class="form-control">
 
                             <option value="not">No</option>

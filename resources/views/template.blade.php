@@ -556,7 +556,7 @@
                                     </a>
                                 </li> --}}
 
-                        @role('socio_comercial')
+                        @role('Socio-comercial')
                             <li class="nav-item has-treeview menu-open">
 
                                 <a href="#" class="nav-link">
@@ -564,7 +564,7 @@
                                     <img src="{{ asset('Recurso 22.png') }}" alt="" srcset=""
                                         width="25px">
                                     <p style="font-family:Montserrat-Bold">
-                                        socio_comercial
+                                        Socio-comercial
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>

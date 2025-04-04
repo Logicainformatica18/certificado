@@ -76,7 +76,7 @@ class LoginController extends Controller
                 $newUser->save();
                 //login as the new user
                 Auth::login($newUser);
-                $newUser->assignRole('socio_comercial');
+                $newUser->assignRole('Socio-comercial');
                 // go to the dashboard
                 return redirect('/home');
             }

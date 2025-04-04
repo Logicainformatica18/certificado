@@ -26,7 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/sistema', [App\Http\Controllers\HomeController::class, 'sistema'])->name('sistema');
 
 
-Route::resource('socio_comercial', App\Http\Controllers\StudentController::class);
+Route::resource('Socio-comercial', App\Http\Controllers\StudentController::class);
 
 
 Route::resource('Mis-certificados', App\Http\Controllers\CertificationStudentController::class);
@@ -34,7 +34,7 @@ Route::post('course_detail',[App\Http\Controllers\CourseController::class, 'cour
    Route::post('certification_detail',[App\Http\Controllers\CertificationController::class, 'certification_detail']);
 
 
-Route::group(['middleware' => ['role:socio_comercial|Coach|Coordinación']], function () {
+Route::group(['middleware' => ['role:Socio-comercial|Coach|Coordinación']], function () {
 
 
 Route::resource('Mi-examen', App\Http\Controllers\QualificationController::class);
@@ -127,7 +127,7 @@ Route::group(['middleware' => ['role:Coordinación|Coach']], function () {
 
 
 
-Route::group(['middleware' => ['role:Coordinación|Administrador|socio_comercial']], function () {
+Route::group(['middleware' => ['role:Coordinación|Administrador|Socio-comercial']], function () {
     //
     Route::get('hola',function (){
         return view('student.vista');
@@ -211,7 +211,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
 
 
 
-   Route::resource("socio_comercials", App\Http\Controllers\StudentController::class);
+   Route::resource("Socio-comercials", App\Http\Controllers\StudentController::class);
    Route::post('studentStore',[App\Http\Controllers\StudentController::class, 'store']);
    Route::post('studentEdit',[App\Http\Controllers\StudentController::class, 'edit']);
    Route::post('studentUpdate',[App\Http\Controllers\StudentController::class, 'update']);
@@ -240,7 +240,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
     //  Route::post('certificationOpen',[App\Http\Controllers\RegistryDetailController::class, 'certificationGenerate']);
     //obtener registry_detail_id para poder generar el certificado despuees
          Route::resource("certificados_mantenimiento", App\Http\Controllers\CertificationController::class);
-          Route::get('socio_comercial-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
+          Route::get('Socio-comercial-certificados',[App\Http\Controllers\CertificationController::class, 'student']);
 
 
 
@@ -279,7 +279,7 @@ Route::post('inscriptionStore',[App\Http\Controllers\InscriptionController::clas
                  $newUser->save();
                  //login as the new user
                  Auth::login($newUser);
-                 $newUser->assignRole('socio_comercial');
+                 $newUser->assignRole('Socio-comercial');
                  //
                //  $newUser->createToken(request()->device_name)->plainTextToken ;
                  // go to the dashboard
@@ -347,7 +347,7 @@ Route::get('login/microsoft/callback', function () {
             $newUser->save();
             //login as the new user
             Auth::login($newUser);
-            $newUser->assignRole('socio_comercial');
+            $newUser->assignRole('Socio-comercial');
             //
           //  $newUser->createToken(request()->device_name)->plainTextToken ;
             // go to the dashboard
