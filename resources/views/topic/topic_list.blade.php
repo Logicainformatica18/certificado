@@ -4,11 +4,11 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
     <!-- YOUTUBE LITE -->
     {{-- <iframe src="{{url('topic_list/'.$topic[0]->course_id)}}" frameborder="0" width="100%">
-                        
+
 </iframe> --}}
 
 
-{{-- 
+{{--
     <div class="col-lg-6 d-flex align-items-stretch">
         <!--  start Scrollspy with nested nav -->
         <div class="card w-100">
@@ -174,7 +174,7 @@
 <p></p>
 
 <script>
-    
+
     document.addEventListener('DOMContentLoaded', function () {
       const liteYoutube = document.querySelector('lite-youtube');
       if (liteYoutube) {
@@ -188,7 +188,7 @@
     });
   </script>
      <style>
-             
+
 
         lite-youtube {
             /* No Shadow */
@@ -227,7 +227,7 @@
         .lite-youtube-fallback:focus {
             outline: 2px solid red;
         }
-       
+
 
 
     </style>
@@ -242,16 +242,21 @@
                     $url = explode('=', $topic_lists->video);
 
                 @endphp
-               
- 
 
-         
-                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}"> 
+
+
+@if ($topic_lists->type=="video_drive")
+<iframe src="https://drive.google.com/embeddedfolderview?id={{ $topic_lists->video }}#grid" style="width:100%; height:500px; border:0;"></iframe>
+
+
+@elseif($topic_lists->type=="video_youtube")
+
+                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}">
 
 
                 </lite-youtube>
 
-   
+                @endif
                 {{-- <iframe class="rounded-4 border border-2 mb-3 h-300"
                     src="https://www.youtube.com/embed/{{ $url[1] }}" frameborder="0"></iframe> --}}
             @endforeach

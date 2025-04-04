@@ -43,14 +43,15 @@
             Tipo :
             <select name="type" id="type"class="form-control">
                 <option value="video">Video</option>
+                <option value="video_drive">Video Google Drive</option>
                 <option value="read">Lectura</option>
             </select>
             Video :
             <input type="text" name="video" id="video" class="form-control">
-           
-           
-           
-               
+
+
+
+
                     <br>
                     Imagen Principal
                     <p></p>
@@ -69,10 +70,10 @@
                         <p></p>
                     </div>
 
-               
-          
 
-      
+
+
+
 
 
             <p>
@@ -93,7 +94,7 @@
                         @foreach ($category as $item)
                         @if($loop->first)
                         <option selected value="{{ $item->id }}">{{ $item->description }}</option>
-                   
+
                         @endif
                             <option value="{{ $item->id }}">{{ $item->description }}</option>
                         @endforeach
@@ -112,7 +113,7 @@
             </p>
             Contenido :
             <textarea id="summernote"style="height:'900px'" name="post">
-           
+
             <p></p>
           </textarea>
 
@@ -170,14 +171,14 @@
                         <label class="custom-file-label" for="customFile">PDF 2</label>
                     </div>
                 </div>
-                Estado de Datos Adjuntos : 
+                Estado de Datos Adjuntos :
                 <div id="progress-container" style="width: 100%; background-color: #f71515;">
                     <div id="progress-bar" style="width: 0%; height: 20px; background-color: green;"></div>
                   </div>
                   <p id="progress-message">Cargando...</p>
-                  
-                  
-         
+
+
+
 
 
 
@@ -223,23 +224,23 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
                         Descripción : <input type="text" name="description" id="description" class="form-control">
-                             
+
                         Contenido :
                         <textarea id="summernote"style="height:'900px'" name="post">
-                           
+
                             <p></p>
                           </textarea>
-                      
+
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">
                         Instrucciones :
                         <textarea class="form-control" rows="4"name="instruction"id="instruction"> </textarea>
-                        Puntos : 
+                        Puntos :
                         <input type="number" name="point" id="point" class="form-control" value="0">
-                  
 
-                       
-                       
-                        
+
+
+
+
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" onclick="New();$('#topic')[0].reset();"
