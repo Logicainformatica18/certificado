@@ -282,11 +282,27 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
-  
-                    <lite-youtube class="rounded-1"   videoid="{{ $url[1] }}"posterquality="maxresdefault">
-                        dsds
-                        
-                    </lite-youtube>
+
+
+@if ($topic_lists->type=="video_drive")
+<iframe src="https://drive.google.com/embeddedfolderview?id={{ $topic_lists->video }}#grid" style="width:100%; height:500px; border:0;"></iframe>
+
+
+@elseif($topic_lists->type=="video_youtube")
+     {{-- <p class="text-dark my-3">
+                   {{ $topic_lists->description}}
+                </p> --}}
+                @php
+                    $url = explode('=', $topic_lists->video);
+
+                @endphp
+
+                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}">
+
+
+                </lite-youtube>
+
+                @endif
                     {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
 
                     {{-- <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
@@ -475,7 +491,7 @@
                                         class="
                                       btn
                                       d-block
-                                      w-100 
+                                      w-100
                                       fw-medium
                                       bg-success-subtle
                                       text-success
