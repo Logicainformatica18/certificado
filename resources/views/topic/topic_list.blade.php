@@ -235,13 +235,7 @@
             <h6>
                 {{ $topic_lists->description}}
             </h6>
-                {{-- <p class="text-dark my-3">
-                   {{ $topic_lists->description}}
-                </p> --}}
-                @php
-                    $url = explode('=', $topic_lists->video);
 
-                @endphp
 
 
 
@@ -250,6 +244,13 @@
 
 
 @elseif($topic_lists->type=="video_youtube")
+     {{-- <p class="text-dark my-3">
+                   {{ $topic_lists->description}}
+                </p> --}}
+                @php
+                    $url = explode('=', $topic_lists->video);
+
+                @endphp
 
                 <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}">
 
