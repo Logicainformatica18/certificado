@@ -284,16 +284,16 @@
 
 
 
-@if ($topic_lists->type=="video_drive")
-<iframe src="https://drive.google.com/embeddedfolderview?id={{ $topic_lists->video }}#grid" style="width:100%; height:500px; border:0;"></iframe>
+@if ($topic[0]->type=="video_drive")
+<iframe src="https://drive.google.com/embeddedfolderview?id={{ $topic[0]->video }}#grid" style="width:100%; height:500px; border:0;"></iframe>
 
 
-@elseif($topic_lists->type=="video_youtube")
+@elseif($topic[0]->type=="video_youtube")
      {{-- <p class="text-dark my-3">
-                   {{ $topic_lists->description}}
+                   {{ $topic[0]->description}}
                 </p> --}}
                 @php
-                    $url = explode('=', $topic_lists->video);
+                    $url = explode('=', $topic[0]->video);
 
                 @endphp
 
