@@ -312,6 +312,16 @@
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
                     <p></p>
                     <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
+                    <p></p>
+                    <div class="conatiner">
+
+                        <p class="text-black">
+                            @php
+
+echo    $topic[0]->post;
+@endphp
+</p>
+</div>
                 </div>
 
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
