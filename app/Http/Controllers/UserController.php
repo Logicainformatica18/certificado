@@ -275,7 +275,7 @@ class UserController extends Controller
                         'cellphone' => $row->celular,
                     ]);
                     $user1->save();
-                    $user1->assignRole('socio_comercial');
+                    $user1->assignRole('Socio-comercial');
                 }
 
 

@@ -31,15 +31,15 @@
         <div class="row">
             @foreach ($users->roles as $item)
 
-                    @if ($item->name == 'socio_comercial')
+                    @if ($item->name == 'Socio-comercial')
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
                         <a href="{{ url($item->name) }}">
                             <div class="card"
                                 style="width: 100%;background: linear-gradient(to left, #011316 20%, #023039 80% );border-radius:20px">
-                                <img class="card-img-top" src="{{ asset('socio_comercial.png') }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset('Socio-comercial.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
-                                    <p class="card-text"style="color:#ffff ">Como socio_comercial podrás acceder a los materiales del curso donde te haz inscrito.</p>
+                                    <p class="card-text"style="color:#ffff ">Como Socio-comercial podrás acceder a los materiales del curso donde te haz inscrito.</p>
                                     {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"style="color:white ">{{ $item->name }}</h5>
                                 <p class="card-text"style="color:#ffff ">Como Coach podrás gestionar las calificaciones de
-                                    tus socio_comercials</p>
+                                    tus Socio-comercials</p>
                                 {{-- <a href="#" class="btn btn-primary">Ingresar</a> --}}
                             </div>
                         </div>

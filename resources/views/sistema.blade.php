@@ -174,7 +174,7 @@
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <b style="font-family:Montserrat-SemiBold">Cargo</b>
-                                        <a class="float-right">socio_comercial</a>
+                                        <a class="float-right">Socio-comercial</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b style="font-family:Montserrat-SemiBold">Experiencia</b> <a class="float-right">{{ $users->datebirth }}</a>

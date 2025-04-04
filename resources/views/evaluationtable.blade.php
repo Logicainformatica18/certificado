@@ -32,7 +32,7 @@
                                             <td>{{ $registry_details->registry->course->description }}</td>
                                             <td>{{ $registry_details->registry->edition }}</td>
                                             <td>
-                                                @role('socio_comercial|Administrador')
+                                                @role('Socio-comercial|Administrador')
                                                    <a class="btn btn-warning note-icon-pencil"
                                                         onclick="courseDetail('{{ $registry_details->registry->course->id }}')"> Evaluarme</a>
                                                 @endrole

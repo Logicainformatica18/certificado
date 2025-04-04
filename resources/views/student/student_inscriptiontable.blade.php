@@ -44,7 +44,7 @@
                                     Inicio: {{ substr($registrys->fec_start, 0, 11) }}
                                 </p>
 
-                                @role('socio_comercial')
+                                @role('Socio-comercial')
                                 <a class="btn btn-sm" style="border-radius:15px;color:black;background-color: #5be8dd"
                                 download="{{$registrys->course->brochure}}" href="{{asset('brochure/'.$registrys->course->brochure)}}">
                                 Broshure</a>

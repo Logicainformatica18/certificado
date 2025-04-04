@@ -37,7 +37,7 @@ function topicDetailStudent(id, registry_detail_id) {
   })
     .then(function(response) {
       //handle success
-      window.location.href = "socio_comercial-certificados";
+      window.location.href = "Socio-comercial-certificados";
       // var contentdiv = document.getElementById("mycontent");
       // contentdiv.innerHTML = response.data;
       //  alert("hola");
