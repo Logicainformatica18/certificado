@@ -10,7 +10,7 @@ class GoogleSheetController extends Controller
 {
     protected $googleSheetService;
 
-    
+
     public function __construct(GoogleSheetService $googleSheetService)
     {
         $this->googleSheetService = $googleSheetService;
@@ -23,7 +23,7 @@ class GoogleSheetController extends Controller
 
         try {
             $data = $this->googleSheetService->getSheetDataWithHeaders($spreadsheetId, $range);
-     
+
 //             return $data;
             $object = json_decode(json_encode($data));
 
@@ -33,7 +33,7 @@ class GoogleSheetController extends Controller
                 if (!$existingStudent) {
                     return null;
                 }
-                
+
                 $user = new User([
                     'dni'       => $row['dni'],
                     'names'     => $row['nombres'],
@@ -44,7 +44,7 @@ class GoogleSheetController extends Controller
                     'sex'       => substr($row['sexo'], 0, 1),
                     'cellphone' => $row['celular'],
                 ]);
-                $user->assignRole('Socio Comercial');
+                $user->assignRole('socio_comercial');
             }
             return view('index', compact('object'));
 

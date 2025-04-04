@@ -42,7 +42,7 @@
                     <h4>  {{ $registry->schedule->description }} </h4>
                 </div>
                 <div class="col-sm-7" style="font-family:Montserrat-Regular">
-                    
+
                 </div>
                 <div class="col-sm-3" style="font-family:Montserrat-SemiBold;color:#1b3d6d">
                     <h3>Fecha Inicio:</h3>
@@ -73,7 +73,7 @@
 
     </div>
     <div class="col col-lg-3 col-md-3 col-sm-6">
-        Rango: 
+        Rango:
       <input id="range" type="text"class="form-control" width="100%" placeholder="ejem: Hoja1!A1:C200"
       value="Hoja1!A1:C200">
 
@@ -86,14 +86,14 @@
     </button>
 
     </div>
-  
+
 </div>
 <P></P>
     @role('Coordinación')
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             onclick="New();$('#registry_detail')[0].reset();">
-            Agregar Socio Comercial
+            Agregar socio_comercial
         </button>
     @endrole
     <p></p>
@@ -142,7 +142,7 @@
                         <input type="hidden" name="id" id="id">
                         {{ csrf_field() }}
 
-                        Socio Comercials
+                        socio_comercials
 
                         <select name="student" id="student" class="form-control">
                             @foreach ($student as $item)
@@ -208,7 +208,7 @@
                             </script>
                         @endfor
 
-                        Socio Comercial MATRICULADO
+                        socio_comercial MATRICULADO
                         <select name="pay" id="pay" class="form-control">
 
                             <option value="not">No</option>

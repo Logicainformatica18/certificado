@@ -63,7 +63,7 @@ class User extends Authenticatable
      {
          return $this->hasMany('App\Models\Role', 'roles','model_id');
      }
-     //este metodo es usado para obtener los certificados de los Socio Comercials segun model_has_roles hacia registry detail
+     //este metodo es usado para obtener los certificados de los socio_comercials segun model_has_roles hacia registry detail
      public function model_has_roles()
      {
          return $this->hasMany('App\Models\Model_has_role', 'model_id','id');

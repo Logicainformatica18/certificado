@@ -15,7 +15,7 @@
                             <!-- DataTables -->
                             <table id="" class="table table-bordered table-striped">
                                 <thead>
-                                   
+
                                     <th class="sorting">ID</th>
                                     <th class="sorting">Descripción</th>
                                     @role('Coordinación|Administrador')
@@ -23,7 +23,7 @@
                                         <th class="sorting">Detalle</th>
                                     @endrole
    <th class="sorting">Horas</th>
-                        
+
                                     <th><img width="20"
                                             src="https://cdn-icons-png.flaticon.com/512/6671/6671938.png"
                                             alt="" srcset=""></th>
@@ -34,7 +34,7 @@
                                     @endphp
                                     @foreach ($certification as $certifications)
                                         <tr>
-                                      
+
                                             <td>{{ $enumeracion = $enumeracion + 1 }}</td>
                                             <td>{{ $certifications->description }}</td>
 
@@ -43,7 +43,7 @@
                                                 <td>{{ $certifications->detail }}</td>
                                             @endrole
                                             <td>{{ $certifications->hours }}</td>
-                                        
+
                                             <td>
                                                 @role('Coordinación|Administrador')
                                                     <!-- Button trigger modal -->
@@ -57,7 +57,7 @@
                                                     <a class="btn btn-warning note-icon-pencil"
                                                         onclick="certificationDetail('{{ $certifications->id }}')">Exámen</a>
                                                 @endrole
-                                                {{-- @role('Socio Comercial')
+                                                {{-- @role('socio_comercial')
                                                     <a class="btn  note-icon-pencil" style="background-color:  #023039;color:white"
                                                         onclick="qualificationStore('{{ $certifications->id }}');"> Rendir Exámen</a>
                                                 @endrole

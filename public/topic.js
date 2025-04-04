@@ -37,7 +37,7 @@ function topicDetailStudent(id, registry_detail_id) {
   })
     .then(function(response) {
       //handle success
-      window.location.href = "Socio Comercial-certificados";
+      window.location.href = "socio_comercial-certificados";
       // var contentdiv = document.getElementById("mycontent");
       // contentdiv.innerHTML = response.data;
       //  alert("hola");
@@ -65,7 +65,7 @@ function topicStore() {
       if (progressEvent.lengthComputable) {
         // Calculamos el porcentaje de progreso
         var percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-        
+
         // Actualizamos la barra de progreso
         document.getElementById("progress-bar").style.width = percent + "%";
       }
