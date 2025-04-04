@@ -285,7 +285,8 @@
 
 
 @if ($topic[0]->type=="video_drive")
-<iframe src="https://drive.google.com/embeddedfolderview?id={{ $topic[0]->video }}#grid" style="width:100%; height:500px; border:0;"></iframe>
+<iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%" height="500" allow="autoplay" allowfullscreen></iframe>
+
 
 
 @elseif($topic[0]->type=="video_youtube")
