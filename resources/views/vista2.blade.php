@@ -289,9 +289,7 @@
                         <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%"
                             height="500" allow="autoplay" allowfullscreen></iframe>
                     @elseif($topic[0]->type == 'video_youtube')
-                        {{-- <p class="text-dark my-3">
-                   {{ $topic[0]->description}}
-                </p> --}}
+
                         @php
                             $url = explode('=', $topic[0]->video);
 
@@ -302,6 +300,11 @@
 
 
                         </lite-youtube>
+                        @elseif($topic[0]->type == 'video_local')
+                        <div>
+                            <video src="{{asset('../../imageusers/'.$topic[0]->video)}}" controls width="100%"></video>
+
+                        </div>
                     @endif
                     {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
 
