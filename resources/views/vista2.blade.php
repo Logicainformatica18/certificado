@@ -515,9 +515,9 @@ echo    $topic[0]->post;
 
                         </div>
                         <div class="tab-pane active fade show" id="pills-friends" role="tabpanel"
-                            aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px">
+                            aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px; ">
                             <iframe src="{{ url('topic_list/' . $topic[0]->course_id) }}" frameborder="0"
-                                width="100%" height="300px">
+                                width="100%" height="1000px">
 
                             </iframe>
 
@@ -599,9 +599,9 @@ echo    $topic[0]->post;
                                     class="img-fluid pb-3" />
                             </a>
                             <p class="mb-0 text-white">
-                                Todos los Derechos Reservados by MatDash. Developed by
+                                Copyright © 2025
                                 <a class="text-white text-hover-primary border-bottom border-primary"
-                                    href="https://anthonycode.com">AnthonyCode.</a>
+                                    href="https://anthonycode.com"> </a>
                             </p>
                         </div>
                     </div>

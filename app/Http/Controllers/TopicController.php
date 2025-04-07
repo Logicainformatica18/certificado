@@ -55,9 +55,9 @@ class TopicController extends Controller
     public function topic_list(Request $request)
     {
 
-        $topic_list = Topic::where('course_id', '=', $request->course_id)->get();
+        $topic_list = Topic::where('course_id', '=', $request->course_id)->paginate(5);
 
-      
+
             return view("topic.topic_list", compact("topic_list"));
        // return view("student.curso_topic", compact("topic"));
     }
