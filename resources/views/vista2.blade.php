@@ -13,7 +13,7 @@
     <!-- Core Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
-    <title>MatDash Bootstrap Admin</title>
+    <title>{{$topic[0]->description}}</title>
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="{{ 'assets/libs/owl.carousel/dist/assets/owl.carousel.min.css' }}" />
     <link rel="stylesheet" href="{{ 'assets/libs/aos/dist/aos.css' }}" />
@@ -284,26 +284,24 @@
 
 
 
-@if ($topic[0]->type=="video_drive")
-<iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%" height="500" allow="autoplay" allowfullscreen></iframe>
-
-
-
-@elseif($topic[0]->type=="video_youtube")
-     {{-- <p class="text-dark my-3">
+                    @if ($topic[0]->type == 'video_drive')
+                        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%"
+                            height="500" allow="autoplay" allowfullscreen></iframe>
+                    @elseif($topic[0]->type == 'video_youtube')
+                        {{-- <p class="text-dark my-3">
                    {{ $topic[0]->description}}
                 </p> --}}
-                @php
-                    $url = explode('=', $topic[0]->video);
+                        @php
+                            $url = explode('=', $topic[0]->video);
 
-                @endphp
+                        @endphp
 
-                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}">
+                        <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100"
+                            posterquality="maxresdefault" videoid="{{ $url[1] }}">
 
 
-                </lite-youtube>
-
-                @endif
+                        </lite-youtube>
+                    @endif
                     {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
 
                     {{-- <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
@@ -318,10 +316,10 @@
                         <p class="text-black">
                             @php
 
-echo    $topic[0]->post;
-@endphp
-</p>
-</div>
+                                echo $topic[0]->post;
+                            @endphp
+                        </p>
+                    </div>
                 </div>
 
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
@@ -435,6 +433,7 @@ echo    $topic[0]->post;
                                         <span class="d-none d-md-block">Comentarios</span>
                                     </button>
                                 </li>
+                                @if ($topic[0]->file_1!="")
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6"
                                         id="pills-followers-tab" data-bs-toggle="pill"
@@ -444,6 +443,8 @@ echo    $topic[0]->post;
                                         <span class="d-none d-md-block">Recursos</span>
                                     </button>
                                 </li>
+                                @endif
+
 
 
 

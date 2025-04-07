@@ -62,9 +62,9 @@
                                                     href="cursos/{{ $topics->course->id }}/tema/{{ $topics->id }}">Ver</a>
                                             </td>
 
-                                            <td><a target="_blank" href="{{ asset($topics->video) }}"
-                                                >{{ $topics->video }}
-                                            </a>
+                                            <td>
+                                                 {{ $topics->video }}
+
                                         </td>
 
                                             @php
