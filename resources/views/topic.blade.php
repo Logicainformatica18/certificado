@@ -45,6 +45,7 @@
                 <option value="video_youtube">Video</option>
                 <option value="video_drive">Video Google Drive</option>
                 <option value="read">Lectura</option>
+                <option value="video_local">Video Local</option>
             </select>
             Video :
             <input type="text" name="video" id="video" class="form-control">
