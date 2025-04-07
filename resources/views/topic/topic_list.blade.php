@@ -253,6 +253,11 @@
 
 
                     </lite-youtube>
+                    @elseif($topic_lists->type == 'video_local')
+                    <div>
+                        <video src="{{asset('../../videos/'.$topic_lists->video)}}" controls width="100%"></video>
+
+                    </div>
                 @endif
                 <p></p>
                 {{-- <iframe class="rounded-4 border border-2 mb-3 h-300"
