@@ -20,6 +20,7 @@
     <!-- YOUTUBE LITE -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
     <!-- YOUTUBE LITE -->
+    <link rel="icon" type="image/jpg" href="{{ asset('ayba/favicon.png') }}" />
 </head>
 
 <body>
