@@ -302,7 +302,7 @@
                         </lite-youtube>
                         @elseif($topic[0]->type == 'video_local')
                         <div>
-                            <video src="{{asset('../../imageusers/'.$topic[0]->video)}}" controls width="100%"></video>
+                            <video src="{{asset('../../videos/'.$topic[0]->video)}}" controls width="100%"></video>
 
                         </div>
                     @endif
