@@ -8,7 +8,7 @@
 </iframe> --}}
 
 
-{{--
+    {{--
     <div class="col-lg-6 d-flex align-items-stretch">
         <!--  start Scrollspy with nested nav -->
         <div class="card w-100">
@@ -171,93 +171,90 @@
                     ago
                 </span>
             </div>
-<p></p>
+            <p></p>
 
-<script>
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const liteYoutube = document.querySelector('lite-youtube');
-      if (liteYoutube) {
-        const playButton = liteYoutube.shadowRoot.querySelector('#playButton');
-        if (playButton) {
-          playButton.style.width = '0px';
-          playButton.style.height = '00px';
-          playButton.style.backgroundRepeat = 'no-repeat'; // Evita la repetición
-        }
-      }
-    });
-  </script>
-     <style>
-
-
-        lite-youtube {
-            /* No Shadow */
-            --lite-youtube-frame-shadow-visible: no;
-            width: 100%;
-        }
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const liteYoutube = document.querySelector('lite-youtube');
+                    if (liteYoutube) {
+                        const playButton = liteYoutube.shadowRoot.querySelector('#playButton');
+                        if (playButton) {
+                            playButton.style.width = '0px';
+                            playButton.style.height = '00px';
+                            playButton.style.backgroundRepeat = 'no-repeat'; // Evita la repetición
+                        }
+                    }
+                });
+            </script>
+            <style>
+                lite-youtube {
+                    /* No Shadow */
+                    --lite-youtube-frame-shadow-visible: no;
+                    width: 100%;
+                }
 
 
-        .lite-youtube-fallback {
-            aspect-ratio: 16 / 9;
-            /* matches YouTube player */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1em;
-            padding: 1em;
-            background-color: #c00d0d;
-            color: #000000;
-            text-decoration: none;
-        }
+                .lite-youtube-fallback {
+                    aspect-ratio: 16 / 9;
+                    /* matches YouTube player */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 1em;
+                    padding: 1em;
+                    background-color: #c00d0d;
+                    color: #000000;
+                    text-decoration: none;
+                }
 
-        /* right-facing triangle "Play" icon */
-        .lite-youtube-fallback::before {
-            display: block;
-            content: '';
-            border: solid transparent;
-            border-width: 2em 0 2em 3em;
-            border-left-color: rgb(0, 0, 0);
-        }
+                /* right-facing triangle "Play" icon */
+                .lite-youtube-fallback::before {
+                    display: block;
+                    content: '';
+                    border: solid transparent;
+                    border-width: 2em 0 2em 3em;
+                    border-left-color: rgb(0, 0, 0);
+                }
 
-        .lite-youtube-fallback:hover::before {
-            border-left-color: #fff;
-        }
+                .lite-youtube-fallback:hover::before {
+                    border-left-color: #fff;
+                }
 
-        .lite-youtube-fallback:focus {
-            outline: 2px solid red;
-        }
-
-
-
-    </style>
+                .lite-youtube-fallback:focus {
+                    outline: 2px solid red;
+                }
+            </style>
             @foreach ($topic_list as $topic_lists)
-            <h6>
-                {{ $topic_lists->description}}
-            </h6>
+                @php
+                    $url = 'cursos/' . $topic_lists->course_id . '/tema/' . $topic_lists->id;
+                @endphp
+                <h6>
+                    <a target="_blank" href="{{ url($url) }}">{{ $topic_lists->description }}</a>
+                </h6>
 
 
 
 
-@if ($topic_lists->type=="video_drive")
-<iframe src="https://drive.google.com/file/d/{{ $topic_lists->video }}/preview" width="100%" height="500" allow="autoplay" allowfullscreen></iframe>
-
-
-@elseif($topic_lists->type=="video_youtube")
-     {{-- <p class="text-dark my-3">
+                @if ($topic_lists->type == 'video_drive')
+                    <iframe src="https://drive.google.com/file/d/{{ $topic_lists->video }}/preview" width="100%"
+                        height="200" allow="autoplay" allowfullscreen></iframe>
+                @elseif($topic_lists->type == 'video_youtube')
+                    {{-- <p class="text-dark my-3">
                    {{ $topic_lists->description}}
                 </p> --}}
-                @php
-                    $url = explode('=', $topic_lists->video);
+                    @php
+                        $url = explode('=', $topic_lists->video);
 
-                @endphp
+                    @endphp
 
-                <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100" posterquality="maxresdefault"  videoid="{{ $url[1] }}">
+                    <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100"
+                        posterquality="maxresdefault" videoid="{{ $url[1] }}">
 
 
-                </lite-youtube>
-
+                    </lite-youtube>
                 @endif
+                <p></p>
                 {{-- <iframe class="rounded-4 border border-2 mb-3 h-300"
                     src="https://www.youtube.com/embed/{{ $url[1] }}" frameborder="0"></iframe> --}}
             @endforeach
@@ -293,4 +290,24 @@
             aria-describedby="textHelp" placeholder="Comment">
         <button class="btn btn-primary">Comment</button>
     </div> --}}
+    </div>
+
+    <style>
+        .relative svg {
+            width: 44px;
+            /* Ajusta el tamaño del icono */
+            height: 44px;
+        }
+
+        .hidden div p {
+            display: none;
+
+        }
+
+        .hidden div {
+            margin: 20px
+        }
+    </style>
+    <div class="mt-5 d-flex justify-content-start" style="height:20px;width:100%">
+        {{ $topic_list->links() }}
     </div>

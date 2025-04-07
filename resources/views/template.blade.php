@@ -952,7 +952,7 @@
             <!-- /.content-wrapper -->
             <footer class="main-footer" style="background: linear-gradient(to right,#023039,#0d0d0e);">
                 <span>
-                    <a class="text-white" href="https://anthonycode.com"target="_blank">Copyright © 2025 Dev. AnthonyCode</a></span>
+                    <a class="text-white" href="https://anthonycode.com"target="_blank">Copyright © 2025 </a></span>
                 <div class="float-right d-none d-sm-inline-block">
                 </div>
             </footer>
