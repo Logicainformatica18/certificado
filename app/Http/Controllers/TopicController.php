@@ -10,7 +10,8 @@ use App\Models\Category;
 use App\Models\CategoryDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Session; 
+ use Illuminate\Support\Str;
 class TopicController extends Controller
 {
     /**
@@ -32,6 +33,7 @@ class TopicController extends Controller
         //
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -42,6 +44,55 @@ class TopicController extends Controller
 
         return view("topictable", compact("topic"));
     }
+    public function groupedByCategory($course_id)
+    {
+        // Obtener el curso actual
+        $course = \App\Models\Course::findOrFail($course_id);
+
+        // Obtener todos los topics del curso con relaciones precargadas
+        $topics = \App\Models\Topic::with(['categories', 'user'])
+            ->where('course_id', $course_id)
+            ->get();
+
+        // Agrupar manualmente los temas por nombre de categoría
+        $grouped = [];
+
+        foreach ($topics as $topic) {
+            foreach ($topic->categories as $category) {
+                $grouped[$category->description][] = $topic;
+            }
+        }
+
+        // Ordenar por nombre de categoría
+        ksort($grouped);
+
+        return view('topic_grouped', [
+            'groupedTopics' => $grouped,
+            'course' => $course,
+        ]);
+    }
+
+  
+
+    public function topicsByCategory($course_id, $category)
+    {
+        $course = Course::findOrFail($course_id);
+    
+        $category = urldecode($category); // 👈 muy importante
+    
+        $topics = Topic::with(['categories', 'user'])
+            ->where('course_id', $course_id)
+            ->whereHas('categories', function ($query) use ($category) {
+                $query->whereRaw('LOWER(description) = ?', [strtolower($category)]);
+            })
+            ->paginate(10);
+    
+        return view('topic.topic_by_category', compact('topics', 'course', 'category'));
+    }
+    
+
+
+
     public function report(Request $request)
     {
 
