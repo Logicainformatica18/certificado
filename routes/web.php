@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\RegistryDetailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TopicController;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 /*
@@ -143,6 +144,9 @@ Route::group(['middleware' => ['role:Coordinación|Administrador|Socio-comercial
 
     Route::get('cursos/{course_id}/{tema}/{topic_id}',[App\Http\Controllers\TopicController::class, 'report']);
     Route::get('topic_list/{course_id}',[App\Http\Controllers\TopicController::class, 'topic_list']);
+    Route::get('temas-por-categoria/{course_id}/{category}', [App\Http\Controllers\TopicController::class, 'topicsByCategory'])
+    ->name('topics.byCategory');
+
 
 
    Route::resource("categorias", App\Http\Controllers\CategoryController::class);
@@ -362,7 +366,9 @@ Route::get('login/microsoft/callback', function () {
 
 Route::get('google_sheet',[\App\Http\Controllers\GoogleSheetController::class, 'index']);
 
+Route::get('/temario/{course_id}', [TopicController::class, 'groupedByCategory'])->name('topics.grouped');
 
+Route::get('/temarios-agrupados', [TopicController::class, 'groupedByCategory'])->name('topics.grouped');
 
 
 
