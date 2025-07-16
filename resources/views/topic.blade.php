@@ -40,36 +40,82 @@
             <input type="hidden" name="id" id="id">
             {{ csrf_field() }}
             Descripción : <input type="text" name="description" id="description" class="form-control">
-            Tipo :
-            <select name="type" id="type"class="form-control">
-                <option value="video_youtube">Video</option>
-                <option value="video_drive">Video Google Drive</option>
-                <option value="read">Lectura</option>
-                <option value="video_local">Video Local</option>
-            </select>
-            Video :
-            <input type="text" name="video" id="video" class="form-control">
+
+            <!-- Select de Tipo -->
+            <div class="form-group">
+                <label for="type">Tipo de contenido</label>
+                <select name="type" id="type" class="form-control" onchange="updateVideoHelp()">
+                    <option value="video_youtube">Video YouTube</option>
+                    <option value="video_drive">Video Google Drive</option>
+                    <option value="video_local">Video Local</option>
+                    <option value="read">Lectura</option>
+                    <option value="video_iframe">iFrame (OneDrive u otro)</option>
+                </select>
+                <small id="typeHelp" class="form-text text-muted mt-1">
+                    Ingresa la URL completa del video de YouTube, por ejemplo:
+                    <code>https://www.youtube.com/watch?v=DFg1v-rO6Pg</code>
+                </small>
+            </div>
+
+            <!-- Campo para pegar URL, ID o iFrame -->
+            <div class="form-group">
+                <label for="video">Contenido Video</label>
+                <textarea class="form-control" id="video" name="video" rows="3"
+                    placeholder="Aquí pegar URL, ID o código iFrame según el tipo"></textarea>
+            </div>
+
+            <script>
+                function updateVideoHelp() {
+                    const type = document.getElementById('type').value;
+                    const help = document.getElementById('typeHelp');
+
+                    switch (type) {
+                        case 'video_youtube':
+                            help.innerHTML =
+                                'Ingresa la URL completa de YouTube, p.ej.: <code>https://www.youtube.com/watch?v=DFg1v-rO6Pg</code>';
+                            break;
+                        case 'video_drive':
+                            help.innerHTML =
+                                'Ingresa solo el <strong>ID de Google Drive</strong>, p.ej.: <code>1Tq86aa-fVyd7ezSUMnfo5-3XtdrYE6_V</code>';
+                            break;
+                        case 'video_local':
+                            help.innerHTML = 'Selecciona o sube un archivo de video local desde tu equipo.';
+                            break;
+                        case 'read':
+                            help.innerHTML = 'Lectura: no se necesita enlace de video.';
+                            break;
+                        case 'video_iframe':
+                            help.innerHTML =
+                                'Pega aquí el <strong>código iFrame completo</strong> que te proporciona OneDrive (o cualquier otro embed).';
+                            break;
+                        default:
+                            help.innerHTML = '';
+                    }
+                }
+            </script>
 
 
 
 
-                    <br>
-                    Imagen Principal
-                    <p></p>
-                    <div class="col-12">
-                    </div>
-                    <div class="btn btn-default btn-file col-12">
-                        <i class="fas fa-paperclip"></i> Subir
-                        <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
-                    </div>
-                    <div class="col-8">
-                    </div>
-                    <div class="size-10 container-fluid col-12">
-                        <br>
-                        <img id="blah" name="fotografia" src="https://placehold.co/500x350" alt="Tu imagen"
-                            class="img-bordered" width="250px">
-                        <p></p>
-                    </div>
+
+
+            <br>
+            Imagen Principal
+            <p></p>
+            <div class="col-12">
+            </div>
+            <div class="btn btn-default btn-file col-12">
+                <i class="fas fa-paperclip"></i> Subir
+                <input type='file' id="imgInp" name="photo" onchange="readImage(this,'#blah');">
+            </div>
+            <div class="col-8">
+            </div>
+            <div class="size-10 container-fluid col-12">
+                <br>
+                <img id="blah" name="fotografia" src="https://placehold.co/500x350" alt="Tu imagen" class="img-bordered"
+                    width="250px">
+                <p></p>
+            </div>
 
 
 
@@ -93,10 +139,9 @@
                         </option> --}}
 
                         @foreach ($category as $item)
-                        @if($loop->first)
-                        <option selected value="{{ $item->id }}">{{ $item->description }}</option>
-
-                        @endif
+                            @if ($loop->first)
+                                <option selected value="{{ $item->id }}">{{ $item->description }}</option>
+                            @endif
                             <option value="{{ $item->id }}">{{ $item->description }}</option>
                         @endforeach
 
@@ -175,8 +220,8 @@
                 Estado de Datos Adjuntos :
                 <div id="progress-container" style="width: 100%; background-color: #f71515;">
                     <div id="progress-bar" style="width: 0%; height: 20px; background-color: green;"></div>
-                  </div>
-                  <p id="progress-message">Cargando...</p>
+                </div>
+                <p id="progress-message">Cargando...</p>
 
 
 

@@ -283,48 +283,68 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
+    @if ($topic[0]->type == 'video_drive')
+        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview"
+                width="100%" height="500" allow="autoplay" allowfullscreen
+                class="rounded border border-primary shadow mb-3"></iframe>
 
+    @elseif ($topic[0]->type == 'video_youtube')
+        @php
+            $url = explode('=', $topic[0]->video);
+        @endphp
+        <lite-youtube class="rounded border border-secondary shadow mb-3"
+                      style="width:100%; height: 500px;"
+                      posterquality="maxresdefault"
+                      videoid="{{ $url[1] }}">
+        </lite-youtube>
 
-                    @if ($topic[0]->type == 'video_drive')
-                        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%"
-                            height="500" allow="autoplay" allowfullscreen></iframe>
-                    @elseif($topic[0]->type == 'video_youtube')
+    @elseif ($topic[0]->type == 'video_local')
+        <div class="border border-success rounded shadow p-2 mb-3">
+            <video src="{{ asset('../../videos/' . $topic[0]->video) }}"
+                   controls width="100%" height="500"
+                   class="rounded">
+            </video>
+        </div>
 
-                        @php
-                            $url = explode('=', $topic[0]->video);
+    @elseif ($topic[0]->type == 'video_iframe')
+     <div class="embed-responsive-container">
+    {!! $topic[0]->video !!}
+</div>
+<style>
+.embed-responsive-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid #17a2b8;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-                        @endphp
+.embed-responsive-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+}
+</style>
 
-                        <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100"
-                            posterquality="maxresdefault" videoid="{{ $url[1] }}">
+    @endif
 
+    <p></p>
+    <h1 class="font-weight-bold">{{ strtoupper($topic[0]->description) }}</h1>
+    <p></p>
+    <div class="container">
+        <p class="text-black">
+            {!! $topic[0]->post !!}
+        </p>
+    </div>
+</div>
 
-                        </lite-youtube>
-                        @elseif($topic[0]->type == 'video_local')
-                        <div>
-                            <video src="{{asset('../../videos/'.$topic[0]->video)}}" controls width="100%"></video>
-
-                        </div>
-                    @endif
-                    {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
-
-                    {{-- <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
-                    <p></p>
-                    <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
-                    <p></p>
-                    <div class="conatiner">
-
-                        <p class="text-black">
-                            @php
-
-                                echo $topic[0]->post;
-                            @endphp
-                        </p>
-                    </div>
-                </div>
 
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="card overflow-hidden">
