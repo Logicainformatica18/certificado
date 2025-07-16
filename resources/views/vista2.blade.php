@@ -440,8 +440,19 @@
                             </div>
                             <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                                 id="pills-tab" role="tablist">
+                                   @if ($topic[0]->file_1!="")
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                        id="pills-followers-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-followers" type="button" role="tab"
+                                        aria-controls="pills-followers" aria-selected="false">
+                                        <i class="ti ti-download fs-5"></i>
+                                        <span class="d-none d-md-block">Recursos</span>
+                                    </button>
+                                </li>
+                                @endif
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6"
                                         id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends"
                                         type="button" role="tab" aria-controls="pills-friends"
                                         aria-selected="false">
@@ -457,17 +468,7 @@
                                         <span class="d-none d-md-block">Comentarios</span>
                                     </button>
                                 </li>
-                                @if ($topic[0]->file_1!="")
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6"
-                                        id="pills-followers-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-followers" type="button" role="tab"
-                                        aria-controls="pills-followers" aria-selected="false">
-                                        <i class="ti ti-download fs-5"></i>
-                                        <span class="d-none d-md-block">Recursos</span>
-                                    </button>
-                                </li>
-                                @endif
+
 
 
 
@@ -516,30 +517,50 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-followers" role="tabpanel"
+                        <div class="tab-pane active fade show" id="pills-followers" role="tabpanel"
                             aria-labelledby="pills-followers-tab" tabindex="0">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <h4 class="card-title">Recursos</h4>
-                                    <p class="card-subtitle mb-3">{{ $topic[0]->instruction }}</p>
-                                    <a download="{{ $topic[0]->resource_1 }}"
-                                        href="{{ asset('resource/' . $topic[0]->resource_1) }}" target="_blank"
-                                        class="
-                                      btn
-                                      d-block
-                                      w-100
-                                      fw-medium
-                                      bg-success-subtle
-                                      text-success
-                                      block-card
-                                    ">
-                                        Descargar
-                                    </a>
-                                </div>
-                            </div>
+                           <div class="card-body">
+    <div class="form-group">
+        <h4 class="card-title mb-2">📚 Recursos Adjuntos</h4>
+        <p class="card-subtitle mb-3 text-muted">
+            {{ $topic[0]->instruction ?? 'Puedes descargar los archivos complementarios del tema.' }}
+        </p>
+
+        @if (!empty($topic[0]->resource_1))
+            <a download="{{ $topic[0]->resource_1 }}"
+                href="{{ asset('resource/' . $topic[0]->resource_1) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar recurso 1</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+
+        @if (!empty($topic[0]->file_1))
+            <a download="{{ $topic[0]->file_1 }}"
+                href="{{ asset('file/' . $topic[0]->file_1) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 1</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+
+        @if (!empty($topic[0]->file_2))
+            <a download="{{ $topic[0]->file_2 }}"
+                href="{{ asset('file/' . $topic[0]->file_2) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 2</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+    </div>
+</div>
+
 
                         </div>
-                        <div class="tab-pane active fade show" id="pills-friends" role="tabpanel"
+                        <div class="tab-pane  fade show" id="pills-friends" role="tabpanel"
                             aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px; ">
                             <iframe src="{{ url('topic_list/' . $topic[0]->course_id) }}" frameborder="0"
                                 width="100%" height="1000px">
