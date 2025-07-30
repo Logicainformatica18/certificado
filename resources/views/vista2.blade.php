@@ -283,48 +283,68 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
+    @if ($topic[0]->type == 'video_drive')
+        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview"
+                width="100%" height="500" allow="autoplay" allowfullscreen
+                class="rounded border border-primary shadow mb-3"></iframe>
 
+    @elseif ($topic[0]->type == 'video_youtube')
+        @php
+            $url = explode('=', $topic[0]->video);
+        @endphp
+        <lite-youtube class="rounded border border-secondary shadow mb-3"
+                      style="width:100%; height: 500px;"
+                      posterquality="maxresdefault"
+                      videoid="{{ $url[1] }}">
+        </lite-youtube>
 
-                    @if ($topic[0]->type == 'video_drive')
-                        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%"
-                            height="500" allow="autoplay" allowfullscreen></iframe>
-                    @elseif($topic[0]->type == 'video_youtube')
+    @elseif ($topic[0]->type == 'video_local')
+        <div class="border border-success rounded shadow p-2 mb-3">
+            <video src="{{ asset('../../videos/' . $topic[0]->video) }}"
+                   controls width="100%" height="500"
+                   class="rounded">
+            </video>
+        </div>
 
-                        @php
-                            $url = explode('=', $topic[0]->video);
+    @elseif ($topic[0]->type == 'video_iframe')
+     <div class="embed-responsive-container">
+    {!! $topic[0]->video !!}
+</div>
+<style>
+.embed-responsive-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid #17a2b8;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-                        @endphp
+.embed-responsive-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0;
+}
+</style>
 
-                        <lite-youtube style="width:30%" class="rounded-1 border border-2 mb-3 h-100"
-                            posterquality="maxresdefault" videoid="{{ $url[1] }}">
+    @endif
 
+    <p></p>
+    <h1 class="font-weight-bold">{{ strtoupper($topic[0]->description) }}</h1>
+    <p></p>
+    <div class="container">
+        <p class="text-black">
+            {!! $topic[0]->post !!}
+        </p>
+    </div>
+</div>
 
-                        </lite-youtube>
-                        @elseif($topic[0]->type == 'video_local')
-                        <div>
-                            <video src="{{asset('../../videos/'.$topic[0]->video)}}" controls width="100%"></video>
-
-                        </div>
-                    @endif
-                    {{-- <lite-youtube videoid="{{$url[1]}}"></lite-youtube> --}}
-
-                    {{-- <iframe width="100%" height="800px" src="{{ $url }}" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
-                    <p></p>
-                    <h1>&nbsp; {{ strtoupper($topic[0]->description) }}</h1>
-                    <p></p>
-                    <div class="conatiner">
-
-                        <p class="text-black">
-                            @php
-
-                                echo $topic[0]->post;
-                            @endphp
-                        </p>
-                    </div>
-                </div>
 
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div class="card overflow-hidden">
@@ -420,8 +440,19 @@
                             </div>
                             <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                                 id="pills-tab" role="tablist">
+                                   @if ($topic[0]->file_1!="")
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                        id="pills-followers-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-followers" type="button" role="tab"
+                                        aria-controls="pills-followers" aria-selected="false">
+                                        <i class="ti ti-download fs-5"></i>
+                                        <span class="d-none d-md-block">Recursos</span>
+                                    </button>
+                                </li>
+                                @endif
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6"
                                         id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends"
                                         type="button" role="tab" aria-controls="pills-friends"
                                         aria-selected="false">
@@ -437,17 +468,7 @@
                                         <span class="d-none d-md-block">Comentarios</span>
                                     </button>
                                 </li>
-                                @if ($topic[0]->file_1!="")
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link hstack gap-2 rounded-0 fs-12 py-6"
-                                        id="pills-followers-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-followers" type="button" role="tab"
-                                        aria-controls="pills-followers" aria-selected="false">
-                                        <i class="ti ti-download fs-5"></i>
-                                        <span class="d-none d-md-block">Recursos</span>
-                                    </button>
-                                </li>
-                                @endif
+
 
 
 
@@ -496,30 +517,50 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade show" id="pills-followers" role="tabpanel"
+                        <div class="tab-pane active fade show" id="pills-followers" role="tabpanel"
                             aria-labelledby="pills-followers-tab" tabindex="0">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <h4 class="card-title">Recursos</h4>
-                                    <p class="card-subtitle mb-3">{{ $topic[0]->instruction }}</p>
-                                    <a download="{{ $topic[0]->resource_1 }}"
-                                        href="{{ asset('resource/' . $topic[0]->resource_1) }}" target="_blank"
-                                        class="
-                                      btn
-                                      d-block
-                                      w-100
-                                      fw-medium
-                                      bg-success-subtle
-                                      text-success
-                                      block-card
-                                    ">
-                                        Descargar
-                                    </a>
-                                </div>
-                            </div>
+                           <div class="card-body">
+    <div class="form-group">
+        <h4 class="card-title mb-2">📚 Recursos Adjuntos</h4>
+        <p class="card-subtitle mb-3 text-muted">
+            {{ $topic[0]->instruction ?? 'Puedes descargar los archivos complementarios del tema.' }}
+        </p>
+
+        @if (!empty($topic[0]->resource_1))
+            <a download="{{ $topic[0]->resource_1 }}"
+                href="{{ asset('resource/' . $topic[0]->resource_1) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar recurso 1</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+
+        @if (!empty($topic[0]->file_1))
+            <a download="{{ $topic[0]->file_1 }}"
+                href="{{ asset('file/' . $topic[0]->file_1) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 1</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+
+        @if (!empty($topic[0]->file_2))
+            <a download="{{ $topic[0]->file_2 }}"
+                href="{{ asset('file/' . $topic[0]->file_2) }}"
+                target="_blank"
+                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 2</span>
+                <i class="fas fa-download"></i>
+            </a>
+        @endif
+    </div>
+</div>
+
 
                         </div>
-                        <div class="tab-pane active fade show" id="pills-friends" role="tabpanel"
+                        <div class="tab-pane  fade show" id="pills-friends" role="tabpanel"
                             aria-labelledby="pills-friends-tab" tabindex="0" style="margin-top:-30px; ">
                             <iframe src="{{ url('topic_list/' . $topic[0]->course_id) }}" frameborder="0"
                                 width="100%" height="1000px">

@@ -1,74 +1,83 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temas por Categoría</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
-</head>
-<body>
+@extends('template')
+
+@section('content')
 <div class="container-fluid py-4">
-    <div class="card">
-        <div class="card-body border-bottom">
-            <h5 class="mb-0">
-                {{ $topics->count() ? $topics->first()->course->description : 'Curso' }} - Categoría: {{ $category }}
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0" style="font-family: Montserrat-Bold;">
+                {{ $topics->count() ? $topics->first()->course->description : 'Curso' }}
+                <small class="text-light">| Categoría: <strong>{{ $category }}</strong></small>
             </h5>
         </div>
 
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descripción</th>
-                        <th>Instructor</th>
-                        <th>Tipo</th>
-                        <th>Video</th>
-                        <th>Detalle</th>
-                        <th>Puntos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($topics as $topic)
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-sm">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>{{ $topic->id }}</td>
-                            <td>
-                                <a target="_blank" href="{{ url('cursos/' . $topic->course_id . '/tema/' . $topic->id) }}">
-                                    {{ $topic->description }}
-                                </a>
-                            </td>
-                            <td>{{ optional($topic->user)->names }}</td>
-                            <td>{{ $topic->type }}</td>
-                            <td>{{ $topic->video }}</td>
-                            <td>{{ $topic->detail }}</td>
-                            <td>{{ $topic->point }}</td>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Instructor</th>
+                            <th>Tipo</th>
+                            <th>Video</th>
+                            <th>Detalle</th>
+                            <th>Puntos</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <style>
-                .relative svg {
-                    width: 44px;
-                    /* Ajusta el tamaño del icono */
-                    height: 44px;
-                }
-        
-                .hidden div p {
-                    display: none;
-        
-                }
-        
-                .hidden div {
-                    margin: 20px
-                }
-            </style>
-          
+                    </thead>
+                    <tbody>
+                        @foreach ($topics as $topic)
+                            <tr>
+                                <td>{{ $topic->id }}</td>
+                                <td>
+                                    <a
+                                        target="_blank"
+                                        href="{{ url('cursos/' . $topic->course_id . '/tema/' . $topic->id) }}"
+                                        class="text-primary font-weight-bold"
+                                        style="text-decoration: none;"
+                                    >
+                                        <i class="fas fa-link mr-1"></i>{{ $topic->description }}
+                                    </a>
+                                </td>
+                                <td>{{ optional($topic->user)->names }}</td>
+                                <td>
+                                    <span class="badge badge-secondary">{{ $topic->type }}</span>
+                                </td>
+                                <td class="text-truncate" style="max-width: 200px;">
+                                    {{ $topic->video }}
+                                </td>
+                                <td>{{ $topic->detail }}</td>
+                                <td>
+                                    <span class="badge badge-info">{{ $topic->point }}</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
-           <div class="mt-5 d-flex justify-content-start" style="height:20px;width:100%">
+            {{-- Paginación --}}
+            <div class="mt-4 d-flex justify-content-center">
                 {{ $topics->links() }}
             </div>
         </div>
     </div>
 </div>
-</body>
-</html>
+
+{{-- Estilos adicionales si se requiere --}}
+@push('styles')
+    <style>
+        .relative svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .hidden div p {
+            display: none;
+        }
+
+        .hidden div {
+            margin: 20px;
+        }
+    </style>
+@endpush
+@endsection

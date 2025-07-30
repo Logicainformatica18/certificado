@@ -5,7 +5,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">
-                    Temario agrupado - {{ $course->description }}
+                    Temario agrupado -w {{ $course->description }}
                 </h1>
             </div>
             <div class="col-sm-6">
