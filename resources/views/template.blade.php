@@ -95,6 +95,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 
@@ -1133,7 +1134,8 @@
             ¿Necesitas ayuda?
         </div> --}}
         <div class="whatsapp-btn">
-            <a href="https://wa.pe/onedigital" target="_blank" title="Enviar mensaje por WhatsApp">
+            <a href="https://wa.me/51986547813?text=Hola%2C%20quisiera%20más%20información.
+" target="_blank" title="Enviar mensaje por WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
         </div>

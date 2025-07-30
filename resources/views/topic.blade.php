@@ -86,7 +86,7 @@
                             break;
                         case 'video_iframe':
                             help.innerHTML =
-                                'Pega aquí el <strong>código iFrame completo</strong> que te proporciona OneDrive (o cualquier otro embed).';
+                                'Pega aquí el <strong>código iFrame completo</strong> que te proporciona OneDrive (o cualquier otro embed). <br> Ejemplo: <code>&lt;iframe src="https://onedrive.live.com/embed?cid=1234567890ABCDEF&resid=1234567890ABCDEF%21123&authkey=ABCDEFGH" width="100%" height="400px" frameborder="0"&gt;&lt;/iframe&gt;</code> Puede ser video, imágenes o PDF';
                             break;
                         default:
                             help.innerHTML = '';
