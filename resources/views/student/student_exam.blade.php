@@ -66,7 +66,7 @@
                             <img src="{{ asset('Recurso 6.png') }}" alt="" width="30px">
                         </div>
                         <div class="col-lg-9">
-                           
+
                             <span><b style="font-family:Montserrat-Bold">Fecha de Vencimiento de Evaluación</b></span>
                             <p></p>
                         </div>
@@ -74,9 +74,11 @@
                             <img src="{{ asset('Recurso 5.png') }}" alt="" width="30px">
                         </div>
                         <div class="col-lg-9">
-                           
+
                             <span><b style="font-family:Montserrat-Bold">Intentos</b></span><br>
-                            <span >limitados : 2 </span>
+                            <span >limitados : 3 </span><br>
+                            <span>Intentos restantes : {{3 -$registry_details->limit }}</span>
+
                         </div>
                     </div>
 
