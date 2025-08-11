@@ -10,7 +10,7 @@ use App\Models\Category;
 use App\Models\CategoryDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session; 
+use Illuminate\Support\Facades\Session;
  use Illuminate\Support\Str;
 class TopicController extends Controller
 {
@@ -72,37 +72,63 @@ class TopicController extends Controller
         ]);
     }
 
-  
+
 
     public function topicsByCategory($course_id, $category)
     {
         $course = Course::findOrFail($course_id);
-    
+
         $category = urldecode($category); // 👈 muy importante
-    
+
         $topics = Topic::with(['categories', 'user'])
             ->where('course_id', $course_id)
             ->whereHas('categories', function ($query) use ($category) {
                 $query->whereRaw('LOWER(description) = ?', [strtolower($category)]);
             })
             ->paginate(10);
-    
+
         return view('topic.topic_by_category', compact('topics', 'course', 'category'));
     }
-    
 
 
 
-    public function report(Request $request)
-    {
 
-        $topic = Topic::where('course_id', '=', $request->course_id)
-        ->where('id', '=', $request->topic_id)->get();
+public function report(Request $request)
+{
+    $courseId = (int) $request->course_id;
+    $topicId  = (int) $request->topic_id;
 
-        $count = Topic::where('user_id', '=', $topic[0]->user_id)->count();
-            return view("vista2", compact("topic","count"));
-       // return view("student.curso_topic", compact("topic"));
+    // Mantengo tu $topic como colección para no romper el Blade ($topic[0])
+    $topic = Topic::where('course_id', $courseId)
+        ->where('id', $topicId)
+        ->get();
+
+    if ($topic->isEmpty()) {
+        abort(404);
     }
+
+    // Lista ordenada de IDs de temas del curso
+    $topicIds = Topic::where('course_id', $courseId)
+        ->orderBy('id')
+        ->pluck('id')
+        ->toArray();
+
+    // Array de URLs con tu formato
+    $urls = array_map(function ($id) use ($courseId) {
+        return url("cursos/{$courseId}/tema/{$id}#");
+    }, $topicIds);
+
+    // Posición actual y siguiente URL (si existe)
+    $currentIndex = array_search($topicId, $topicIds, true);
+    $nextUrl = ($currentIndex !== false && $currentIndex < count($urls) - 1)
+        ? $urls[$currentIndex + 1]
+        : null;
+
+    $count = Topic::where('user_id', $topic[0]->user_id)->count();
+
+    return view('vista2', compact('topic', 'count', 'urls', 'currentIndex', 'nextUrl'));
+}
+
     public function topic_list(Request $request)
     {
 

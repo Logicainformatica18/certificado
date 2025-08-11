@@ -164,12 +164,74 @@
           </textarea>
 
             Detalle : <input type="text" name="detail" id="detail" class="form-control">
-            Duración :
-            <select name="time" id="time" class="form-control">
-                <option value="01:00:00">1 Hora</option>
-                <option value="02:00:00">2 Horas</option>
-                <option value="04:00:00">4 Horas</option>
-            </select>
+            <p></p>
+            {{-- Tiempo del tema (por defecto 30 min) --}}
+            <div class="form-group">
+                <label for="time_preset">Tiempo requerido</label>
+                <div class="d-flex gap-2">
+                    <select id="time_preset" class="form-control" style="max-width: 250px;">
+                        <option value="30" selected>30 minutos (por defecto)</option>
+                        <option value="60">1 hora</option>
+                        <option value="120">2 horas</option>
+                        <option value="240">4 horas</option>
+                        <option value="custom">Personalizado…</option>
+                    </select>
+
+                    <input type="number" id="time_custom_minutes" class="form-control" placeholder="Minutos" min="1"
+                        step="1" style="max-width: 140px; display:none;">
+                </div>
+
+                {{-- Este es el valor real que enviamos al backend (HH:MM:SS) --}}
+                <input type="hidden" name="time" id="time" value="00:30:00">
+            </div>
+
+            <script>
+                (function() {
+                    const preset = document.getElementById('time_preset');
+                    const custom = document.getElementById('time_custom_minutes');
+                    const hidden = document.getElementById('time');
+
+                    function pad(n) {
+                        return String(n).padStart(2, '0');
+                    }
+
+                    function minutesToHHMMSS(m) {
+                        m = Math.max(1, parseInt(m || 0, 10)); // mínimo 1
+                        const h = Math.floor(m / 60);
+                        const mm = m % 60;
+                        return `${pad(h)}:${pad(mm)}:00`;
+                    }
+
+                    function syncHidden() {
+                        let minutes;
+                        if (preset.value === 'custom') {
+                            // si no hay valor, por defecto 30
+                            minutes = parseInt(custom.value || '30', 10);
+                            custom.value = minutes; // normaliza
+                        } else {
+                            minutes = parseInt(preset.value, 10);
+                        }
+                        hidden.value = minutesToHHMMSS(minutes);
+                    }
+
+                    // Eventos
+                    preset.addEventListener('change', function() {
+                        if (this.value === 'custom') {
+                            custom.style.display = '';
+                            if (!custom.value) custom.value = 30;
+                        } else {
+                            custom.style.display = 'none';
+                        }
+                        syncHidden();
+                    });
+
+                    custom.addEventListener('input', syncHidden);
+
+                    // Inicialización (30 min por defecto)
+                    syncHidden();
+                })();
+            </script>
+
 
 
             Instrucciones :

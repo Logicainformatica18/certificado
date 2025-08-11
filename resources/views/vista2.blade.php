@@ -13,7 +13,7 @@
     <!-- Core Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
-    <title>{{$topic[0]->description}}</title>
+    <title>{{ $topic[0]->description }}</title>
     <!-- Owl Carousel  -->
     <link rel="stylesheet" href="{{ 'assets/libs/owl.carousel/dist/assets/owl.carousel.min.css' }}" />
     <link rel="stylesheet" href="{{ 'assets/libs/aos/dist/aos.css' }}" />
@@ -283,70 +283,66 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
 
-    @if ($topic[0]->type == 'video_drive')
-        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview"
-                width="100%" height="500" allow="autoplay" allowfullscreen
-                class="rounded border border-primary shadow mb-3"></iframe>
+                    @if ($topic[0]->type == 'video_drive')
+                        <iframe src="https://drive.google.com/file/d/{{ $topic[0]->video }}/preview" width="100%"
+                            height="500" allow="autoplay" allowfullscreen
+                            class="rounded border border-primary shadow mb-3"></iframe>
+                    @elseif ($topic[0]->type == 'video_youtube')
+                        @php
+                            $url = explode('=', $topic[0]->video);
+                        @endphp
+                        <lite-youtube class="rounded border border-secondary shadow mb-3"
+                            style="width:100%; height: 500px;" posterquality="maxresdefault"
+                            videoid="{{ $url[1] }}">
+                        </lite-youtube>
+                    @elseif ($topic[0]->type == 'video_local')
+                        <div class="border border-success rounded shadow p-2 mb-3">
+                            <video src="{{ asset('../../videos/' . $topic[0]->video) }}" controls width="100%"
+                                height="500" class="rounded">
+                            </video>
+                        </div>
+                    @elseif ($topic[0]->type == 'video_iframe')
+                        <div class="embed-responsive-container">
+                            {!! $topic[0]->video !!}
+                        </div>
+                        <style>
+                            .embed-responsive-container {
+                                position: relative;
+                                width: 100%;
+                                padding-bottom: 56.25%;
+                                /* 16:9 aspect ratio */
+                                height: 0;
+                                overflow: hidden;
+                                margin-bottom: 1rem;
+                                border: 1px solid #17a2b8;
+                                border-radius: 0.5rem;
+                                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                            }
 
-    @elseif ($topic[0]->type == 'video_youtube')
-        @php
-            $url = explode('=', $topic[0]->video);
-        @endphp
-        <lite-youtube class="rounded border border-secondary shadow mb-3"
-                      style="width:100%; height: 500px;"
-                      posterquality="maxresdefault"
-                      videoid="{{ $url[1] }}">
-        </lite-youtube>
+                            .embed-responsive-container iframe {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100% !important;
+                                height: 100% !important;
+                                border: 0;
+                            }
+                        </style>
+                    @endif
 
-    @elseif ($topic[0]->type == 'video_local')
-        <div class="border border-success rounded shadow p-2 mb-3">
-            <video src="{{ asset('../../videos/' . $topic[0]->video) }}"
-                   controls width="100%" height="500"
-                   class="rounded">
-            </video>
-        </div>
-
-    @elseif ($topic[0]->type == 'video_iframe')
-     <div class="embed-responsive-container">
-    {!! $topic[0]->video !!}
-</div>
-<style>
-.embed-responsive-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border: 1px solid #17a2b8;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.embed-responsive-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    border: 0;
-}
-</style>
-
-    @endif
-
-    <p></p>
-    <h1 class="font-weight-bold">{{ strtoupper($topic[0]->description) }}</h1>
-    <p></p>
-    <div class="container">
-        <p class="text-black">
-            {!! $topic[0]->post !!}
-        </p>
-    </div>
-</div>
+                    <p></p>
+                    <h1 class="font-weight-bold">{{ strtoupper($topic[0]->description) }}</h1>
+                    <p></p>
+                    <div class="container">
+                        <p class="text-black">
+                            {!! $topic[0]->post !!}
+                        </p>
+                    </div>
+                </div>
 
 
                 <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+
                     <div class="card overflow-hidden">
                         <div class="card-body p-0">
 
@@ -438,24 +434,50 @@
                                     </ul>
                                 </div>
                             </div>
+                            {{-- Cronómetro de tema --}}
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="mb-2">⏱️ Tiempo del tema</h5>
+
+    <div class="d-flex align-items-center mb-2">
+      <span class="badge bg-secondary me-2" id="elapsedLabel">00:00</span>
+      <small class="text-muted">/</small>
+      <small class="text-muted ms-2" id="requiredLabel">--:--</small>
+    </div>
+
+    <div class="progress mb-3" style="height:10px;">
+      <div class="progress-bar" id="timeProgress" role="progressbar"
+           style="width: 0%;" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+
+    {{-- Botón mostrar al completar --}}
+    <a id="btnContinue" href="#"
+       class="btn btn-success d-none">Continuar al siguiente tema</a>
+
+    {{-- Mientras no cumple tiempo --}}
+    <button id="btnLocked" class="btn btn-secondary" disabled>
+      Completa el tiempo para continuar
+    </button>
+  </div>
+</div>
+
                             <ul class="nav nav-pills user-profile-tab justify-content-center mt-2 bg-primary-subtle rounded-2 rounded-top-0"
                                 id="pills-tab" role="tablist">
-                                   @if ($topic[0]->file_1!="")
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
-                                        id="pills-followers-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-followers" type="button" role="tab"
-                                        aria-controls="pills-followers" aria-selected="false">
-                                        <i class="ti ti-download fs-5"></i>
-                                        <span class="d-none d-md-block">Recursos</span>
-                                    </button>
-                                </li>
+                                @if ($topic[0]->file_1 != '')
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active hstack gap-2 rounded-0 fs-12 py-6"
+                                            id="pills-followers-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-followers" type="button" role="tab"
+                                            aria-controls="pills-followers" aria-selected="false">
+                                            <i class="ti ti-download fs-5"></i>
+                                            <span class="d-none d-md-block">Recursos</span>
+                                        </button>
+                                    </li>
                                 @endif
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6"
-                                        id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends"
-                                        type="button" role="tab" aria-controls="pills-friends"
-                                        aria-selected="false">
+                                    <button class="nav-link  hstack gap-2 rounded-0 fs-12 py-6" id="pills-friends-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-friends" type="button"
+                                        role="tab" aria-controls="pills-friends" aria-selected="false">
                                         <i class="ti ti-file fs-5"></i>
                                         <span class="d-none d-md-block">Temas</span>
                                     </button>
@@ -475,7 +497,9 @@
 
                             </ul>
                         </div>
+
                     </div>
+
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show " id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
@@ -519,44 +543,41 @@
 
                         <div class="tab-pane active fade show" id="pills-followers" role="tabpanel"
                             aria-labelledby="pills-followers-tab" tabindex="0">
-                           <div class="card-body">
-    <div class="form-group">
-        <h4 class="card-title mb-2">📚 Recursos Adjuntos</h4>
-        <p class="card-subtitle mb-3 text-muted">
-            {{ $topic[0]->instruction ?? 'Puedes descargar los archivos complementarios del tema.' }}
-        </p>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <h4 class="card-title mb-2">📚 Recursos Adjuntos</h4>
+                                    <p class="card-subtitle mb-3 text-muted">
+                                        {{ $topic[0]->instruction ?? 'Puedes descargar los archivos complementarios del tema.' }}
+                                    </p>
 
-        @if (!empty($topic[0]->resource_1))
-            <a download="{{ $topic[0]->resource_1 }}"
-                href="{{ asset('resource/' . $topic[0]->resource_1) }}"
-                target="_blank"
-                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
-                <span><i class="fas fa-file-pdf mr-2"></i>Descargar recurso 1</span>
-                <i class="fas fa-download"></i>
-            </a>
-        @endif
+                                    @if (!empty($topic[0]->resource_1))
+                                        <a download="{{ $topic[0]->resource_1 }}"
+                                            href="{{ asset('resource/' . $topic[0]->resource_1) }}" target="_blank"
+                                            class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                                            <span><i class="fas fa-file-pdf mr-2"></i>Descargar recurso 1</span>
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    @endif
 
-        @if (!empty($topic[0]->file_1))
-            <a download="{{ $topic[0]->file_1 }}"
-                href="{{ asset('file/' . $topic[0]->file_1) }}"
-                target="_blank"
-                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
-                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 1</span>
-                <i class="fas fa-download"></i>
-            </a>
-        @endif
+                                    @if (!empty($topic[0]->file_1))
+                                        <a download="{{ $topic[0]->file_1 }}"
+                                            href="{{ asset('file/' . $topic[0]->file_1) }}" target="_blank"
+                                            class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                                            <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 1</span>
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    @endif
 
-        @if (!empty($topic[0]->file_2))
-            <a download="{{ $topic[0]->file_2 }}"
-                href="{{ asset('file/' . $topic[0]->file_2) }}"
-                target="_blank"
-                class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
-                <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 2</span>
-                <i class="fas fa-download"></i>
-            </a>
-        @endif
-    </div>
-</div>
+                                    @if (!empty($topic[0]->file_2))
+                                        <a download="{{ $topic[0]->file_2 }}"
+                                            href="{{ asset('file/' . $topic[0]->file_2) }}" target="_blank"
+                                            class="btn btn-outline-danger mb-2 d-flex align-items-center justify-content-between">
+                                            <span><i class="fas fa-file-pdf mr-2"></i>Descargar PDF 2</span>
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
 
 
                         </div>
@@ -833,6 +854,102 @@
     <script src="{{ asset('assets/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/libs/aos/dist/aos.js') }}"></script>
     <script src="{{ asset('assets/js/landingpage/landingpage.js') }}"></script>
+<script>
+(function () {
+  // Datos del backend
+  const rawTime      = @json($topic[0]->time ?? '00:30:00');
+  const urls         = @json($urls ?? []);
+  const currentIndex = @json($currentIndex ?? 0);
+
+  // Siguiente URL (null si es el último)
+  const nextUrl = (Array.isArray(urls) && currentIndex >= 0 && currentIndex < urls.length - 1)
+    ? urls[currentIndex + 1]
+    : null;
+  const isLast = !nextUrl;
+
+  // Helpers
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function fmt(sec){
+    sec = Math.max(0, Math.floor(sec));
+    const m = Math.floor(sec / 60), s = sec % 60;
+    return `${pad(m)}:${pad(s)}`;
+  }
+  function parseToSeconds(v){
+    if (v == null) return 0;
+    if (typeof v === 'number') return Math.max(0, v) * 60;
+    const str = String(v).trim();
+    if (/^\d+$/.test(str)) return parseInt(str, 10) * 60;
+    const p = str.split(':').map(x => parseInt(x,10));
+    if (p.length === 3) return (p[0]*3600)+(p[1]*60)+(p[2]||0);
+    if (p.length === 2) return (p[0]*60)+(p[1]||0);
+    return 0;
+  }
+
+  // UI
+  const elElapsed   = document.getElementById('elapsedLabel');
+  const elRequired  = document.getElementById('requiredLabel');
+  const bar         = document.getElementById('timeProgress');
+  const btnContinue = document.getElementById('btnContinue');
+  const btnLocked   = document.getElementById('btnLocked');
+  const endMessage  = document.getElementById('endMessage');
+
+  const total = parseToSeconds(rawTime);
+  elRequired.textContent = fmt(total);
+  if (nextUrl) btnContinue.href = nextUrl;
+
+  // Si total = 0 → pasar al instante
+  if (total === 0) {
+    btnLocked.classList.add('d-none');
+    bar.style.width = '100%';
+    bar.setAttribute('aria-valuenow', '100');
+    elElapsed.textContent = fmt(0);
+
+    if (isLast) {
+      // último tema: NO mostrar continuar
+      btnContinue.classList.add('d-none');
+      if (endMessage) endMessage.classList.remove('d-none');
+    } else {
+      btnContinue.classList.remove('d-none');
+    }
+    return;
+  }
+
+  // Cronómetro
+  let elapsed = 0;
+  let last = Date.now();
+
+  function tick() {
+    const now = Date.now();
+    const delta = Math.min((now - last)/1000, 2.0);
+    last = now;
+
+    elapsed = Math.min(total, elapsed + delta);
+    elElapsed.textContent = fmt(elapsed);
+
+    const pct = Math.round((elapsed / total) * 100);
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', String(pct));
+
+    if (elapsed >= total) {
+      clearInterval(timer);
+      btnLocked.classList.add('d-none');
+
+      if (isLast) {
+        // Último tema: NO mostrar continuar
+        btnContinue.classList.add('d-none');
+        if (endMessage) endMessage.classList.remove('d-none');
+      } else {
+        btnContinue.classList.remove('d-none');
+      }
+    }
+  }
+
+  const timer = setInterval(tick, 1000);
+  document.addEventListener('visibilitychange', () => { last = Date.now(); });
+})();
+</script>
+
+
 
 </body>
 
