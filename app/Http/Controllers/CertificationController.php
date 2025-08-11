@@ -17,20 +17,11 @@ class CertificationController extends Controller
      */
     public function index()
     {
-//            $course_id = Session::get('course_id');
-//           //  $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
-//   $course = Course::where("id","=",$course_id)->get();
-
-
-// $certification = Certification::join('exams', 'certifications.id', '=', 'exams.certification_id')
-//     ->selectRaw('certifications.id, certifications.description, COUNT(exams.id) as cantidad_preguntas')
-//     ->where('certifications.course_id', '=', $course_id)
-//     ->groupBy('certifications.id', 'certifications.description')
-//     ->get();
+ 
 
                $course_id = Session::get('course_id');
             $certification= Certification::where('course_id','=',$course_id)->orderBy('course_id','DESC')->get();
-   
+
   $course = Course::orderBy('id','ASC')->get();
 
 
@@ -90,7 +81,7 @@ if ($type=="participacion") {
    elseif ($type=="aprobacion") {
     return view("certification2",compact("registry_detail","type","cert","certification"));
    }
-    
+
 
 
 
@@ -132,7 +123,7 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                        $certification->note = $request->note;
-                    
+
                         $certification->hours = $request->hours;
         $certification->save();
         return $this->create();
@@ -165,9 +156,9 @@ file_put_contents($filename, $imageData);
              $certification->detail = $request->detail;
                   $certification->course_id = $request->course_id;
                       $certification->note = $request->note;
-           
+
                        $certification->hours = $request->hours;
-                 
+
         $certification->save();
         return $this->create();
     }
@@ -185,11 +176,11 @@ file_put_contents($filename, $imageData);
         //
         return "hola";
     }
-    
+
     public function certification_detail(Request $request)
     {
-        
+
        return Session::put('certification_id',$request->id );
-  
+
     }
 }

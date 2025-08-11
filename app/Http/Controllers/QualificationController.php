@@ -114,30 +114,34 @@ class QualificationController extends Controller
 if ($registry_details->limit >= $certification->limit) {
     // 1) Resolver datos “seguros”
     $studentName  = optional(optional($registry_details->model_has_role)->student)->names ?: 'Juan Perez';
-    $studentEmail = optional(optional($registry_details->model_has_role)->student)->email ?: 'sin-correo@dominio.com';
-    $profEmail    = "programador@aybarsac.com";
+    $studentEmail = optional(optional($registry_details->model_has_role)->student)->email ?: 'logicainformatica18@gmail.com';
+    $profEmail    = "SANDROPEREZ@aybarsac.com";
     $certName     = $certification->description; // o el campo correcto en tu tabla
     $used         = (int) ($registry_details->limit ?? 0);
     $allowed      = (int) ($certification->limit ?? 0);
 
-    // 2) Log para depuración completa (agregamos el email del estudiante)
-    \Log::info('Datos para AttemptsExhaustedMail', [
-        'studentName'         => $studentName,
-        'studentEmail'        => $studentEmail,
-        'profEmail'           => $profEmail,
-        'certification_name'  => $certName,
-        'registry_limit'      => $used,
-        'certification_limit' => $allowed,
-        'certification_all'   => method_exists($certification, 'toArray') ? $certification->toArray() : null,
-        'registry_details'    => method_exists($registry_details, 'toArray') ? $registry_details->toArray() : null,
-    ]);
+    // // 2) Log para depuración completa (agregamos el email del estudiante)
+    // \Log::info('Datos para AttemptsExhaustedMail', [
+    //     'studentName'         => $studentName,
+    //     'studentEmail'        => $studentEmail,
+    //     'profEmail'           => $profEmail,
+    //     'certification_name'  => $certName,
+    //     'registry_limit'      => $used,
+    //     'certification_limit' => $allowed,
+    //     'certification_all'   => method_exists($certification, 'toArray') ? $certification->toArray() : null,
+    //     'registry_details'    => method_exists($registry_details, 'toArray') ? $registry_details->toArray() : null,
+    // ]);
 
     // 3) Envío de correo
     try {
-        Mail::to($profEmail)->send(
-            new AttemptsExhaustedMail($studentName, $studentEmail, $certName, $used, $allowed)
-        );
-        \Log::info('AttemptsExhaustedMail enviado OK', ['to' => $profEmail]);
+        Mail::to($profEmail)
+    ->cc('logicainformatica18@gmail.com')
+    ->send(
+        new AttemptsExhaustedMail($studentName, $studentEmail, $certName, $used, $allowed)
+    );
+
+
+
     } catch (\Throwable $e) {
         \Log::error('Error enviando AttemptsExhaustedMail', [
             'to'      => $profEmail,

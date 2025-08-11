@@ -21,62 +21,164 @@ function certificationDetail(id) {
         console.log(response);
       });
   }
-  function certificationStore() {
-      var formData = new FormData(document.getElementById("certification"));
-      axios({
-              method: 'post',
-              url: 'certificationStore',
-              data: formData,
-              headers: {
-                  'Content-Type': 'multipart/form-data'
-              }
-          })
-          .then(function(response) {
-              //handle success
-              var contentdiv = document.getElementById("mycontent");
-              contentdiv.innerHTML = response.data;
-    //carga pdf- csv - excel
-    datatable_load();
-    alert('Registrado Correctamente');
-          })
-          .catch(function(response) {
-              //handle error
-              console.log(response);
-          });
-  
+function getRoute(id) {
+  return document.getElementById(id)?.content || '';
+}
+
+function clearFormErrors(form) {
+  form.querySelectorAll('[data-error]').forEach(el => {
+    el.classList.add('d-none');
+    el.textContent = '';
+  });
+}
+
+function showFormErrors(form, errors) {
+  // errors: { field: ['msg1','msg2'], ... }
+  Object.entries(errors || {}).forEach(([field, msgs]) => {
+    const errEl = form.querySelector(`[data-error="${field}"]`);
+    if (errEl) {
+      errEl.textContent = Array.isArray(msgs) ? msgs[0] : String(msgs);
+      errEl.classList.remove('d-none');
+    }
+  });
+}
+
+async function certificationStore() {
+  const form = document.getElementById('certificationForm') || document.getElementById('certification');
+  const btnCreate = document.getElementById('create');
+  if (!form) return console.warn('No se encontró el formulario');
+
+  clearFormErrors(form);
+
+  const url = getRoute('route-store') || 'certificationStore';
+  const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+  // estado de carga
+  const prevText = btnCreate?.innerHTML;
+  if (btnCreate) {
+    btnCreate.disabled = true;
+    btnCreate.innerHTML = 'Guardando...';
   }
-  
-  
-  function certificationEdit(id) {
-      var formData = new FormData(document.getElementById("certification"));
-      formData.append("id",id);
-      axios({
-              method: 'post',
-              url: 'certificationEdit',
-              data: formData,
-              headers: {
-                  'Content-Type': 'multipart/form-data'
-              }
-          })
-          .then(function(response) {
-              //handle success
-              var contentdiv = document.getElementById("mycontent");
-             // contentdiv.innerHTML = response.data["description"];
-              certification.id.value=          response.data["id"];
-              certification.description.value= response.data["description"];
-              certification.detail.value = response.data["detail"];
-              certification.course_id.value = response.data["course_id"];
-              certification.note.value=    response.data["note"];
-  
-          })
-          .catch(function(response) {
-              //handle error
-              console.log(response);
-          });
-  
+
+  try {
+    const formData = new FormData(form);
+    const response = await axios.post(url, formData, {
+      headers: {
+        'X-CSRF-TOKEN': token,
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    // si devuelves HTML parcial (tabla renderizada)
+    if (typeof response.data === 'string') {
+      const contentdiv = document.getElementById('mycontent');
+      if (contentdiv) contentdiv.innerHTML = response.data;
+      if (typeof datatable_load === 'function') datatable_load();
+    }
+
+    // si devuelves JSON, podrías recargar o actualizar fila; por ahora:
+    // if (response.data && response.data.data) { ... }
+
+    // feedback
+    if (window.toastr) {
+      toastr.success('Registrado correctamente');
+    } else {
+      alert('Registrado correctamente');
+    }
+
+    // reset form + cerrar modal
+    form.reset();
+    clearFormErrors(form);
+    if (typeof $ !== 'undefined') {
+      $('#certificationModal').modal('hide');
+    }
+
+  } catch (error) {
+    // validaciones 422
+    if (error.response && error.response.status === 422) {
+      const errs = error.response.data.errors || {};
+      showFormErrors(form, errs);
+      if (window.toastr) {
+        toastr.error('Revisa los campos resaltados');
+      }
+      console.error('Errores de validación:', errs);
+    } else {
+      console.error(error);
+      if (window.toastr) {
+        toastr.error('Ocurrió un error al guardar');
+      } else {
+        alert('Ocurrió un error al guardar');
+      }
+    }
+  } finally {
+    if (btnCreate) {
+      btnCreate.disabled = false;
+      btnCreate.innerHTML = prevText || 'Guardar';
+    }
   }
-  
-  
+}
+
+
+
+function certificationEdit(id) {
+
+    var form = document.getElementById("certification");
+    if (!form) { console.warn('No se encontró el form #certification'); return; }
+
+    var formData = new FormData(form); // incluye _token del form
+    formData.append("id", id);
+
+    axios({
+        method: 'post',
+        url: 'certificationEdit', // tu endpoint custom POST
+        data: formData,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            'Accept': 'application/json'
+        }
+    })
+    .then(function (response) {
+        // Soporta respuesta directa o JsonResource {data:{...}}
+        var d = response.data && response.data.data ? response.data.data : response.data;
+
+        // Rellenar campos (usa form.elements para no depender de variables globales)
+        form.elements['id'].value          = d.id || '';
+        form.elements['description'].value = d.description || '';
+        form.elements['detail'].value      = d.detail || '';
+        form.elements['course_id'].value   = d.course_id || '';
+        form.elements['note'].value        = d.note || '';
+
+        if (form.elements['hours'])      form.elements['hours'].value      = (d.hours ?? '');
+        if (form.elements['limit'])      form.elements['limit'].value      = (d.limit ?? '');
+        if (form.elements['code'])       form.elements['code'].value       = (d.code ?? '');
+        if (form.elements['url'])        form.elements['url'].value        = (d.url ?? '');
+        if (form.elements['url_image'])  form.elements['url_image'].value  = (d.url_image ?? '');
+
+        // Modo edición: deshabilita Guardar, habilita Modificar
+        var createBtn = document.getElementById('create');
+        var updateBtn = document.getElementById('update');
+        if (createBtn) createBtn.disabled = true;
+        if (updateBtn) updateBtn.disabled = false;
+
+        // Abre el modal (si usas Bootstrap)
+        if (typeof $ !== 'undefined') {
+            $('#certificationModal').modal('show');
+        }
+    })
+    .catch(function (error) {
+        if (error.response && error.response.status === 404) {
+            alert('El certificado no existe');
+        } else if (error.response && error.response.status === 419) {
+            alert('Sesión expirada. Actualiza la página e inténtalo de nuevo.');
+        } else {
+            console.error(error);
+            alert('No se pudo cargar el certificado');
+        }
+    });
+
+}
+
+
   function certificationOpen(id) {
       var formData = new FormData(document.getElementById("qualification"));
       formData.append("id",id);
@@ -93,27 +195,27 @@ function certificationDetail(id) {
               //abrin nueva pestaña el cerficado generato
             let url = "certificaciones-mantenimiento";
              window.open(url, "_blank");
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
           })
           .catch(function (response) {
-  
+
               //handle error
               console.log(response);
           });
-  
+
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   function certificationGenerate(id, type, code_certification, cert) {
-      
+
       var formData = new FormData(document.getElementById("qualification"));
       formData.append("id",id);
       axios({
@@ -130,36 +232,36 @@ function certificationDetail(id) {
                let url = "certificaciones/id=" + id + "/type=" + type +"/cid="+code_certification +"/cert="+cert;
            //    window.open(url2, "_blank");
               window.open(url, "_blank");
-              
+
           })
           .catch(function (response) {
-  
+
               //handle error
               console.log(response);
           });
-  
-  }
-  
-  
-  
-  
-  
 
-  
-  
-  
+  }
+
+
+
+
+
+
+
+
+
   function generateCertication(image_src, student, canvas_id, qr_url, id, cert,text,hour,type,day,mesCorto,anio) {
-  
-  
-  
+
+
+
         var c = document.getElementById(canvas_id);
     //  var c = document.getElementById("canvas");
     var ctx = c.getContext("2d");
-  
+
     var image = new Image();
-  
-  
-  
+
+
+
         image.src =image_src;
    image.onload = function() {
               ctx.drawImage(image, 0, 0, canvas1.width, canvas1.height);
@@ -167,63 +269,63 @@ function certificationDetail(id) {
            //   ctx.font = '35px Relaway';
           //   ctx.font = "bold 10pt Courier";
    ctx.font = "italic 54px Montserrat-bold";
-  
+
               ctx.textAlign = "center";
               ctx.textBaseline = 'middle';
           ctx.fillStyle ="black";
          // ctx.
-  
+
              // student = student.toUpperCase();
           let x = canvas1.width / 2  ;
-  
+
        ctx.fillText(student, x, 690);
-       
+
    ctx.font = "34px Montserrat-Regular";
        ctx.fillStyle = "black";
        /////////////////////////////////
-  
+
   if (hour <= 9) {
       hour = "0" + hour;
   }
-  
-  
-  
+
+
+
        /////////////////////////////
-       
+
        ctx.fillText(hour, x-132, 865);
-       
+
    ctx.font = "bold 45px Montserrat-Bold";
        ctx.fillStyle = "black";
-       
-  
+
+
           ctx.fillText('"'+text+'"', x, 915);
        /////////type /////////
-  
+
        ctx.font = "33px Montserrat-Regular";
        ctx.fillStyle = "black";
-   
-  
+
+
           ctx.fillText(type + " de capacitación ", x+350, 822);
-  
+
        /////////////////
-       
+
           ctx.font = "italic 27px Montserrat-Regular";
          ctx.fillStyle ="black";
               ctx.textAlign = "center";
-  
-       
-  
+
+
+
   var fechaActual = new Date();
   //fechaActual.setMonth(fechaActual.getMonth());
   //fechaActual.setDate(fechaActual.getDate());
   //var dia = fechaActual.getDate();
   //var mesCorto = fechaActual.toLocaleDateString('en-US', { month: 'long' });
   //var anio = fechaActual.getFullYear();
-  
+
   let text_th ="th";
-  
-  
-  
+
+
+
   let orientacion_th = x ;
   let = orientacion_anio=x;
      if(mesCorto== "1") {
@@ -231,7 +333,7 @@ function certificationDetail(id) {
         x= x+5;
           orientacion_th= orientacion_th +17;
           orientacion_anio = orientacion_anio +5;
-  
+
       }
       if(mesCorto== "2") {
           mesCorto="Febrero";
@@ -239,7 +341,7 @@ function certificationDetail(id) {
           orientacion_th= orientacion_th +22;
           orientacion_anio = orientacion_anio +13;
       }
-  
+
       if(mesCorto== "3") {
           mesCorto="Marzo";
           x=x+3;
@@ -300,55 +402,55 @@ function certificationDetail(id) {
           orientacion_th= orientacion_th +5;
           orientacion_anio = orientacion_anio +5;
       }
-  
-  
+
+
       if (day <= 9) {
           day = "0" + day;
       }
-      
-  
+
+
       ctx.fillText("Lima, "+ day + " "+mesCorto + " de "+anio  , x ,  1320);
       ctx.font = "bold 15px Open Sans";
             //  ctx.fillText(text_th  , orientacion_th +9, 490);
       //         ctx.font = "bold 20px Open Sans";
       //  ctx.fillText(anio, orientacion_anio + 359, 672);
-  
+
    ctx.font = "bold 20px Montserrat-bold";
    ctx.fillStyle ="black";
    ctx.textAlign = "center";
    ctx.fillText("ID: "+id, 285, 635);
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
    //agregar qr encima de certificado
        let image1 = new Image();
          image1.src =qr_url;
     image1.onload = function() {
         ctx.drawImage(image1, 180, 400, 210, 210);
     }
-  
-  
-  
+
+
+
        image1.addEventListener("load", function() {
     // Aquí puedes realizar acciones una vez que la imagen haya terminado de cargar
      // alert("El canvas ha terminado de cargar");
-  
+
         let imagen = document.getElementById("imagen");
       imagen.value=canvas1.toDataURL('image/jpeg');
-  
+
   //   let oimage = document.getElementById("oimage");
   //        oimage.content=canvas1.toDataURL('image/jpeg');
-  
+
   //  GUARDAR IMAGEN EN INPUT
-  
+
                certificationSavePhoto(imagen.value, id,cert);
-  
-  
+
+
        });
-  
+
    }
   }
   function certificationSavePhoto(id,code_certification,cert) {
@@ -366,82 +468,82 @@ function certificationDetail(id) {
           })
           .then(function(response) {
               //handle success
-  
+
              var contentdiv = document.getElementById("mycontent");
              contentdiv.innerHTML = response.data;
     //carga pdf- csv - excel
-  
+
            //   alert('Actualiza una vez más la página para compartir');
-            
+
           })
           .catch(function(response) {
               //handle error
               console.log(response);
           });
-  
+
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   function buttons_png() {
            //gnerar png
       $(document).on("click", "#btnpng", function () {
-  
+
       let lblpng = document.createElement('a');
               lblpng.download = "Certificado.png";
-  
+
           lblpng.href = canvas1.toDataURL('image/jpeg');
-  
-  
-  
-  
+
+
+
+
       // var img = document.getElementById("img_certification");
       //  img.src = canvas1.toDataURL('image/jpeg');
    //   var headTag = document.getElementsByTagName('head')[0];
-  
+
   // // Crear el elemento meta
   // var metaTag = document.createElement('meta');
-  
+
   // // Establecer los atributos del meta tag
   // metaTag.setAttribute('property', 'og:image');
   // metaTag.setAttribute('content',  canvas1.toDataURL('image/jpeg'));
-  
+
   // // Añadir el meta tag al elemento head
   //         headTag.appendChild(metaTag);
-  
-  
-  
+
+
+
           lblpng.click();
       });
-  
-  
+
+
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   function buttons_pdf(canvas_id) {
-  
+
         var canvas_id = document.getElementById(canvas_id);
-  
-  
+
+
   //generar pdf
   $(document).on("click","#btnpdf", function(){
       var imgData1 = canvas1.toDataURL('image/png');
@@ -452,8 +554,8 @@ function certificationDetail(id) {
       // var imgData6 = canvas6.toDataURL('image/png');
       // var imgData7 = canvas7.toDataURL('image/png');
       // var imgData8 = canvas8.toDataURL('image/png');
-  
-  
+
+
       var doc = new jsPDF('l', 'mm');
       doc.addImage(imgData1, 'PNG', 15, 5);
       // doc.addPage();
@@ -470,28 +572,28 @@ function certificationDetail(id) {
       // doc.addImage(imgData7, 'PNG', 15, 5);
       //  doc.addPage();
       // doc.addImage(imgData8, 'PNG', 15, 5);
-  
+
       doc.save('Certificado.pdf');
   });
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   function certificationUpdate() {
       var formData = new FormData(document.getElementById("certification"));
       axios({
@@ -509,23 +611,23 @@ function certificationDetail(id) {
                 //carga pdf- csv - excel
                 datatable_load();
                 alert('Modificado Correctamente');
-  
+
           })
           .catch(function(response) {
               //handle error
               console.log(response);
           });
-  
+
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   function qrGenerate(id) {
-  
+
   }
-  
+
   function certificationOne() {
       var formData = new FormData(document.getElementById("certification"));
       axios({
@@ -544,24 +646,24 @@ function certificationDetail(id) {
                 //datatable_load();
               let url = "certificaciones/registry_detail_id=" + id ;
               window.open(url, "_blank");
-  
+
           })
           .catch(function(response) {
               //handle error
               console.log(response);
           });
-  
+
   }
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   function certificationDestroy(id) {
-  
+
   if(confirm("¿Quieres eliminar este registro?")){
     var formData = new FormData(document.getElementById("certification"));
       formData.append("id",id)
@@ -580,7 +682,7 @@ function certificationDetail(id) {
                 //carga pdf- csv - excel
                 datatable_load();
                 alert('Eliminado Correctamente');
-  
+
           })
           .catch(function(response) {
               //handle error
@@ -588,7 +690,7 @@ function certificationDetail(id) {
           });
   }
   }
-  
+
   function certificationShow() {
       var formData = new FormData(document.getElementById("show"));
       axios({
@@ -607,6 +709,5 @@ function certificationDetail(id) {
               //handle error
               console.log(response);
           });
-  
+
   }
-  
