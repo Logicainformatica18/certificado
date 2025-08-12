@@ -181,7 +181,7 @@
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#2a1b09; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#3a260c; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#fd7e14;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -262,18 +262,18 @@
                     Ayba Corp reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="border-radius:30px;background-image: linear-gradient(to left, #2a1b09, #2a1b09); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to left, #3a260c, #3a260c); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
                 <script></script>
                 <button class="btn btn-outline-info" id="btnpdf"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #2a1b09, #2a1b09); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #3a260c, #3a260c); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
                 </button>
                 <p></p>
-                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #2a1b09, #2a1b09);"></div>
+                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #3a260c, #3a260c);"></div>
                 <p></p>
                 <p style="font-size:110;font-family:Montserrat-Medium;color:#828282"><b
                         style="font-family: Montserrat-Bold">Tus logros merecen ser vistos.</b>

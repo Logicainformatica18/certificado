@@ -30,7 +30,7 @@
           <div class="col-lg-6 col-xl-5 col-xxl-4">
             <div class="min-vh-100 bg-body row justify-content-center align-items-center p-5">
               <div class="col-12 auth-card">
-                <a href="{{url('/')}}" class="text-nowrap logo-img d-block w-100 text-center" style="border-radius: 20px; background-color: #2a1b09;padding:10px" >
+                <a href="{{url('/')}}" class="text-nowrap logo-img d-block w-100 text-center" style="border-radius: 20px; background-color: #F6A42C;padding:10px" >
                   <img src="{{asset('ayba/1.webp')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
 
                 </a>
@@ -107,7 +107,7 @@
                   </div>
                   <button type="submit"
                   class="btn btn-primary w-100 py-8 mb-4 rounded-2"
-                  style="background-color: #000000;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#2a1b09">
+                  style="background-color: #000000;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
                   <span style="color:white; font-size: 1em;">Ingresar</span>
               </button>
 

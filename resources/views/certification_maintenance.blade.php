@@ -215,7 +215,7 @@
                     <button
                         type="button"
                         class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#3a260c;color:#ffffff"
                         onclick="New(); document.getElementById('certificationForm').reset(); clearFormErrors();"
                     >
                         Nuevo

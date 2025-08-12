@@ -109,7 +109,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #2a1b09">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #3a260c">
         <div class="row w-100">
             <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -179,7 +179,7 @@
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#2a1b09; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#3a260c; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -256,7 +256,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#2a1b09;font-size:120%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#3a260c;font-size:120%;font-family: Montserrat-BoldItalic">
                     One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"

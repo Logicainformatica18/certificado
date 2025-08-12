@@ -73,7 +73,7 @@
 
 
     <div id="app">
-        <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #2a1b09,#011316 );">
+        <nav class="main-header navbar navbar-expand" style="background: linear-gradient(to right, #3a260c,#011316 );">
             {{-- <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -196,7 +196,7 @@
                     <!-- Descripción a la izquierda -->
 
 
-                    <p class="text-justify" style="color:#2a1b09;font-family:Montserrat-Semibold;font-size:100%">
+                    <p class="text-justify" style="color:#3a260c;font-family:Montserrat-Semibold;font-size:100%">
                         Somos una empresa de capacitaciones y consultoría en herramientas digitales, inteligencia de
                         negocio y analítica de datos, <b style="font-family: Montserrat-Bold">Asesoramos, capacitamos y
                             formamos</b>
@@ -210,7 +210,7 @@
                 </div>
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-3" style="font-family: Montserrat-Regular;color:#2a1b09">
+                <div class="col-lg-3" style="font-family: Montserrat-Regular;color:#3a260c">
                     <p></p>
 
 

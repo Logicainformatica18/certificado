@@ -124,7 +124,7 @@
                                                 <button
                                                     type="button"
                                                     class="btn btn-primary btn-sm"
-                                                    style="background-color:#2a1b09;border-color:#2a1b09"
+                                                    style="background-color:#3a260c;border-color:#3a260c"
                                                     title="Rendir Examen"
                                                     onclick="qualificationStore('{{ $item->id }}');"
                                                 >

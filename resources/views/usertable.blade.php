@@ -43,7 +43,7 @@
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn" data-toggle="modal"
-                                                    style="background-color:#2a1b09;color:#ffffff"
+                                                    style="background-color:#3a260c;color:#ffffff"
                                                     data-target="#exampleModal2"
                                                     onclick="userRoleEdit('{{ $users->id }}');  return false">Roles</button>
                                             </td>

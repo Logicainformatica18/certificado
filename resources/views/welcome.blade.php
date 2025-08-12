@@ -99,7 +99,7 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #2a1b09;"><b>ComexLat</b>
+                                <h1 style="font-weight: bold;font-size:57px; color: #3a260c;"><b>ComexLat</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>
@@ -150,7 +150,7 @@
 
                                         <button type="submit"
                                             class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #2a1b09;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
+                                            style="background-color: #3a260c;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
                                             <span style="color:white; font-size: 1.5em;">INICIAR SESIÓN</span>
                                         </button>
 
@@ -184,7 +184,7 @@
                                 <div class="d-flex justify-content-center">
                                     @if (Route::has('password.request'))
                                         <a class="login-box-msg"
-                                            href="{{ route('password.request') }}"style="color:#2a1b09">
+                                            href="{{ route('password.request') }}"style="color:#3a260c">
                                             ¿Olvidaste tu Contraseña?
                                         </a>
                                     @endif

@@ -5,7 +5,7 @@
     <h2 style="font-family:Montserrat-Bold;color:#1b3d6d"><b>Exámen de conocimiento</b> </h2>
 
     <div class="row">
-        <div class="col-lg-3 text-center"style="font-size:15px;background-color:#2a1b09;
+        <div class="col-lg-3 text-center"style="font-size:15px;background-color:#3a260c;
             border-radius:20px;text-align:center;color:#ffffff;display: flex;
         align-items: center;height:30px;
             ">
@@ -19,7 +19,7 @@
         <div class="col-lg-9">
 
             <p></p>
-            <div class="progress" style="background-color: #2a1b09; border: 2px;height:10px">
+            <div class="progress" style="background-color: #3a260c; border: 2px;height:10px">
                 @php
                     $enumeracion = 0;
                     $porcentaje = (1 / $qualification_count) * 100;
@@ -32,7 +32,7 @@
 
 
             </div>
-            <div class="text-right" style="font-size:10px;color:#2a1b09">1 DE {{ $qualification_count }} PREGUNTAS
+            <div class="text-right" style="font-size:10px;color:#3a260c">1 DE {{ $qualification_count }} PREGUNTAS
                 RESPONDIDAS</div>
 
         </div>
@@ -93,7 +93,7 @@
                         <li class="list-group-item">
                             <div
                                 class="row text-left input-group d-flex align-items-center"style="
-                                background: linear-gradient(to right,#2a1b09,#0d0d0e);
+                                background: linear-gradient(to right,#3a260c,#0d0d0e);
                                 ;color:white;font-size:10px;height:60px;border-radius:8px">
                                 <div class="col-lg-3">
                                     <img src="{{ asset('Recurso 4.png') }}" alt=""width="30px">
@@ -130,7 +130,7 @@
                         </p>
                         <br>
                         <li class="list-group-item center">
-                            <button id="complete" class="btn  btn-lg"style="background-color:#2a1b09;color:white"
+                            <button id="complete" class="btn  btn-lg"style="background-color:#3a260c;color:white"
                                 onclick="qualificationCertification();return false">Terminar</button>
                         </li>
 

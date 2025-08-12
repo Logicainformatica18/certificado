@@ -656,7 +656,7 @@
 
 
         </div>
-        <footer class="footer-part pt-7 pb-5 "style="background: linear-gradient(to right,#2a1b09,#0d0d0e)">
+        <footer class="footer-part pt-7 pb-5 "style="background: linear-gradient(to right,#3a260c,#0d0d0e)">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-4">

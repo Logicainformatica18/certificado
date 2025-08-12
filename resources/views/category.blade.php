@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="col col-lg-10 col-md-8 col-sm-12">
-                    <button type="button"style="border-radius:20px;background-color:#2a1b09;color:white;width:150px"
+                    <button type="button"style="border-radius:20px;background-color:#3a260c;color:white;width:150px"
                         class="btn" data-toggle="modal" data-target="#exampleModal"
                         onclick="New();$('#category')[0].reset();">
                         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
@@ -69,7 +69,7 @@
 
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff" onclick="New();$('#category')[0].reset();"
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#3a260c;color:#ffffff" onclick="New();$('#category')[0].reset();"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="categoryStore()"
                         name="create">

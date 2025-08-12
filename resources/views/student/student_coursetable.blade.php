@@ -11,7 +11,7 @@
                             style="border-top-left-radius: 40px; border-top-right-radius: 40px;" alt="...">
 
                         <div class="card-body d-flex flex-column justify-content-between"
-                            style="background: linear-gradient(to left, #011316 20%, #2a1b09 80%);
+                            style="background: linear-gradient(to left, #011316 20%, #3a260c 80%);
                                    border-bottom-left-radius: 40px;
                                    border-bottom-right-radius: 40px;
                                    color: white;">
