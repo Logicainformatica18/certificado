@@ -17,6 +17,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Descripción</th>
+                            <th>Estado</th> {{-- NUEVO --}}
                             <th>Instructor</th>
                             <th>Tipo</th>
                             <th>Video</th>
@@ -26,29 +27,52 @@
                     </thead>
                     <tbody>
                         @foreach ($topics as $topic)
+                            @php
+                                // A partir de la 2da iteración se bloquea
+                                $isLocked = !$loop->first; // true si NO es la primera fila
+                                $url = url('cursos/' . $topic->course_id . '/tema/' . $topic->id);
+                            @endphp
                             <tr>
                                 <td>{{ $topic->id }}</td>
+
+                                {{-- Descripción con bloqueo desde la 2da fila --}}
                                 <td>
-                                    <a
-                                        target="_blank"
-                                        href="{{ url('cursos/' . $topic->course_id . '/tema/' . $topic->id) }}"
-                                        class="text-primary font-weight-bold"
-                                        style="text-decoration: none;"
-                                    >
-                                        <i class="fas fa-link mr-1"></i>{{ $topic->description }}
-                                    </a>
+                                    @if($isLocked)
+                                        <a
+                                            class="text-muted font-weight-bold disabled-link"
+                                            title="Bloqueado según avance"
+                                            tabindex="-1"
+                                            aria-disabled="true"
+                                        >
+                                            <i class="fas fa-link mr-1"></i>{{ $topic->description }}
+                                        </a>
+                                    @else
+                                        <a
+                                            target="_blank"
+                                            href="{{ $url }}"
+                                            class="text-primary font-weight-bold"
+                                            style="text-decoration: none;"
+                                            title="Disponible"
+                                        >
+                                            <i class="fas fa-link mr-1"></i>{{ $topic->description }}
+                                        </a>
+                                    @endif
                                 </td>
+
+                                {{-- Estado --}}
+                                <td>
+                                    @if($isLocked)
+                                        <span class="badge badge-secondary">Bloqueado según avance</span>
+                                    @else
+                                        <span class="badge badge-success">Disponible</span>
+                                    @endif
+                                </td>
+
                                 <td>{{ optional($topic->user)->names }}</td>
-                                <td>
-                                    <span class="badge badge-secondary">{{ $topic->type }}</span>
-                                </td>
-                                <td class="text-truncate" style="max-width: 200px;">
-                                    {{ $topic->video }}
-                                </td>
+                                <td><span class="badge badge-secondary">{{ $topic->type }}</span></td>
+                                <td class="text-truncate" style="max-width: 200px;">{{ $topic->video }}</td>
                                 <td>{{ $topic->detail }}</td>
-                                <td>
-                                    <span class="badge badge-info">{{ $topic->point }}</span>
-                                </td>
+                                <td><span class="badge badge-info">{{ $topic->point }}</span></td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -63,21 +87,18 @@
     </div>
 </div>
 
-{{-- Estilos adicionales si se requiere --}}
 @push('styles')
-    <style>
-        .relative svg {
-            width: 44px;
-            height: 44px;
-        }
-
-        .hidden div p {
-            display: none;
-        }
-
-        .hidden div {
-            margin: 20px;
-        }
-    </style>
+<style>
+    /* Enlaces bloqueados visualmente y funcionalmente */
+    .disabled-link {
+        pointer-events: none;        /* no clic */
+        cursor: not-allowed;         /* cursor bloqueado */
+        text-decoration: none !important;
+        opacity: .7;
+    }
+    .relative svg { width: 44px; height: 44px; }
+    .hidden div p { display: none; }
+    .hidden div { margin: 20px; }
+</style>
 @endpush
 @endsection

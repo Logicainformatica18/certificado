@@ -10,9 +10,8 @@ return new class extends Migration
     {
         Schema::table('topics', function (Blueprint $table) {
             // Duración en minutos
-            $table->unsignedInteger('duration')
-                  ->default(0)
-                  ->comment('Duración en minutos');
+            $table->unsignedInteger('state')
+                  ->default(0);
             // ->after('alguna_columna'); // opcional si quieres posicionarlo
         });
     }
@@ -20,7 +19,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('duration');
+            $table->dropColumn('state');
         });
     }
 };
