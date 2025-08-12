@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aybar Corp</title>
+    <title>ComexLat</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -176,7 +176,7 @@
     </style>
     <div class="wrapper">
         <nav class="main-header navbar navbar-expand"
-            style="background: linear-gradient(to right,#023039,#0d0d0e);color:white">
+            style="background: linear-gradient(to right,#2e1d06,#0d0d0e);color:white">
 
 
 
@@ -187,10 +187,14 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('/') }}" class="nav-link">
-                        <img style="margin-top: -5px" src="{{ asset('ayba/3.png') }}" alt="" width="100px">
+                  <a href="{{ url('/') }}" class="nav-link">
+    <img
+        style="margin-top: -5px; filter: brightness(0) invert(1);"
+        src="{{ asset('ayba/1.webp') }}"
+        alt=""
+        width="100px">
+</a>
 
-                    </a>
                   </li>
                   <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ url('/') }}" style="font-family:Montalban;"class="nav-link text-white">| Academy</a>
@@ -208,16 +212,22 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4"
-            style="background: linear-gradient(to right,#023039,#0d0d0e);">
+            style="background: linear-gradient(to right,#2e1d06,#0d0d0e);">
             <!-- Brand Logo -->
-            <a href="../..//" class="brand-link text-center">
-                <h3 style="color:white"><b>
-                        <img src="{{ asset('ayba/4.png') }}" alt="AdminLTE Logo"class="" width="70%"
-                            style="">
+       <a href="../.." class="brand-link text-center">
+    <h3 style="color:white">
+        <b>
+            <img
+                src="{{ asset('ayba/1.webp') }}"
+                alt="AdminLTE Logo"
+                width="90%"
+                style="filter: brightness(0) invert(1);"
+            >
+        </b>
+    </h3>
+    <p></p>
+</a>
 
-                </h3>
-                <p></p>
-            </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
@@ -951,9 +961,9 @@
                 </div>
             </div>
             <!-- /.content-wrapper -->
-            <footer class="main-footer" style="background: linear-gradient(to right,#023039,#0d0d0e);">
+            <footer class="main-footer" style="background: linear-gradient(to right,#2e1d06,#0d0d0e);">
                 <span>
-                    <a class="text-white" href="https://anthonycode.com"target="_blank">Copyright © 2025 </a></span>
+                    <a class="text-white" href="https://anthonycode.com"target="_blank">Copyright © 2026 </a></span>
                 <div class="float-right d-none d-sm-inline-block">
                 </div>
             </footer>
@@ -1117,7 +1127,7 @@
     }
 
     .whatsapp-message {
-        background-color: #023039;
+        background-color: #2e1d06;
         color: #fff;
         padding: 10px;
         border-radius: 20px;

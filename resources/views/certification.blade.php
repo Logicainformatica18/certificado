@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta property="og:title"
-        content="Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital" />
+        content="Mi Certificación en : {{ $certification[0]->description }} en ComexLat Digital" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
@@ -17,7 +17,7 @@
 
 
 
-    <title>Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital</title>
+    <title>Mi Certificación en : {{ $certification[0]->description }} en ComexLat Digital</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -135,28 +135,28 @@
 
     <p></p>
     <?php
-    
+
     $host = $_SERVER['HTTP_HOST'];
     $url = $host . '/certificaciones/registry_detail_id=' . $registry_detail->id . '/type=' . $type . '/id=' . $registry_detail->code_certification . '/cert=' . $cert;
-    
+
     $folder = $registry_detail->registry->course->folder_certification;
     $type = $registry_detail->registry->course->type->description;
-    
+
     use Carbon\Carbon;
-    
+
     $fecha = $registry_detail->registry->fec_end;
     // Crear una instancia de Carbon con la fecha dada
     $carbonDate = Carbon::parse($fecha);
-    
+
     // Obtener el año, mes y día por separado
     $year = $carbonDate->year;
     $month = $carbonDate->month;
     $day = $carbonDate->day;
-    
+
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
     $route_certification = asset('certification3/credilotes_certificado.png');
-    
+
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(500)->generate($url));
     ?>
     <?php
@@ -164,24 +164,24 @@
     $organizationId = '77579829';
     $date = strtotime($registry_detail->registry->date_certification);
     $issueYear = date('Y', $date);
-    
+
     $issueMonth = date('m', $date);
     $expirationYear = date('Y', $date);
-    
+
     $expirationMonth = date('m', $date);
     // $url =   str_replace(":", "%3A", $url);
     //    $url =   str_replace("/", "%2F", $url);
-    
+
     // modelo url pagina
     //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
     $certId = $registry_detail->registry->description;
-    
+
     ?>
 
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#F6A42C; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#2a1b09; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#fd7e14;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -203,7 +203,7 @@
                             <canvas id="canvas1" height="1500" width="2000" alt="Responsive image"
                                 style="width: 100%; height: 100%;"></canvas>
 
-                        
+
 
                             <form action="" method="post" id="certification"></form>
                         </h1>
@@ -262,18 +262,18 @@
                     Ayba Corp reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
-                    style="border-radius:30px;background-image: linear-gradient(to left, #F6A42C, #F6A42C); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to left, #2a1b09, #2a1b09); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PNG</h4>
                 </button>
                 <script></script>
                 <button class="btn btn-outline-info" id="btnpdf"
-                    style="border-radius:30px;background-image: linear-gradient(to right, #F6A42C, #F6A42C); color:white; width:200px;height:30px;">
+                    style="border-radius:30px;background-image: linear-gradient(to right, #2a1b09, #2a1b09); color:white; width:200px;height:30px;">
 
                     <h4 style="font-size:85%;font-family:Montserrat-Bold;padding-top:0px">PDF</h4>
                 </button>
                 <p></p>
-                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #F6A42C, #F6A42C);"></div>
+                <div style="width: 100%; height: 7px; background: linear-gradient(to right, #2a1b09, #2a1b09);"></div>
                 <p></p>
                 <p style="font-size:110;font-family:Montserrat-Medium;color:#828282"><b
                         style="font-family: Montserrat-Bold">Tus logros merecen ser vistos.</b>
@@ -315,19 +315,19 @@
                 </a>
                 @php
                 $teacher =$registry_detail->registry->model_has_role->teacher->firstname." ".$registry_detail->registry->model_has_role->teacher->lastname." ".$registry_detail->registry->model_has_role->teacher->names;
-                    
+
                 @endphp
         <a href="https://www.linkedin.com/feed/?shareActive=true&text=%0A%C2%A1He%20completado%20el%20Programa%20de%20{{ $certification[0]->description }}%20con%20%23ONEDIGITALL%20!%0A%0ADicho%20Programa%20fue%20impartido%20por%20el%20Ing.%20{{$teacher}}.%0A%0AEste%20programa%20me%20ha%20brindado%20las%20herramientas%20y%20conocimientos%20necesarios%20para%20convertirme%20en%20un%20experto%20en%20{{$certification[0]->course->description}}.%20%23{{$certification[0]->course->detail}}%0A%0ASi%20a%20ti%20tambi%C3%A9n%20te%20interesa%2C%20puedes%20hacerlo%20aqu%C3%AD%3A%20https%3A%2F%2Fwa.pe%2Fp%2F7839473569464309%2F51981557469" target="_blank">Compartir en LinkedIn</a>
 
-   
-     
-                
-      
+
+
+
+
 
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook"
                         width="40px">
-                </a> 
+                </a>
 
                 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter"

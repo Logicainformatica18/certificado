@@ -20,13 +20,13 @@
                                 </div><!-- /.container-fluid -->
                             </section>
                             <!-- Button trigger modal -->
-                            <button type="button"style="border-radius:20px;background-color:#023039;color:white" class="btn" data-toggle="modal"
+                            <button type="button"style="border-radius:20px;background-color:#2a1b09;color:white" class="btn" data-toggle="modal"
                             data-target="#exampleModal"
                             onclick="New();$('#type')[0].reset();">
                             <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
                         </button>
                             <p></p>
-                     
+
 
                             <p></p>
                              <!-- /.content -->
@@ -59,7 +59,7 @@
 
                                         </div>
                                         <div class="modal-footer"style="font-family:Montserrat-Bold">
-                                            <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
+                                            <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff"
                                                 onclick="New();$('#type')[0].reset();" name="new">
                                             <input type="button" value="Guardar" class="btn btn-success"id="create"
                                                 onclick="typeStore()" name="create">

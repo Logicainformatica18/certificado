@@ -3,16 +3,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
     <!-- Favicon icon-->
     <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png">
-  
+
     <!-- Core Css -->
     <link rel="stylesheet" href="../assets/css/styles.css">
-  
-    <title>Aybar Corp</title>
+
+    <title>ComexLat</title>
   <style type="text/css" id="operaUserStyle"></style></head>
-  
+
   <body>
     <!-- Preloader -->
     <div class="preloader" style="display: none;">
@@ -42,9 +42,9 @@
     <script src="../assets/js/theme/theme.js"></script>
     <script src="../assets/js/theme/app.min.js"></script>
     <script src="../assets/js/theme/sidebarmenu.js"></script>
-  
+
     <!-- solar icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-  
-  
+
+
   </body></html>

@@ -14,12 +14,12 @@
             </div>
             <div class="row mb-2">
                 <div class="col col-lg-2 col-md-4 col-sm-12">
-              
+
                     <h1 style="font-family:Montserrat-Bold;color:#1b3d6d">Cursos</h1>
                     {{ session('success') }}
                 </div>
                 <div class="col col-lg-10 col-md-8 col-sm-12">
-                    <button type="button"style="border-radius:20px;background-color:#023039;color:white;width:150px"
+                    <button type="button"style="border-radius:20px;background-color:#2a1b09;color:white;width:150px"
                         class="btn" data-toggle="modal" data-target="#exampleModal"
                         onclick="New();$('#course')[0].reset();">
                         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
@@ -28,14 +28,14 @@
                 </div>
             </div>
 
-            
+
 
 
         </div><!-- /.container-fluid -->
     </section>
-    
 
-    
+
+
     <!-- /.content -->
     {{-- {{ $course->onEachSide(5)->links() }} --}}
     <div id="mycontent">
@@ -82,7 +82,7 @@
                         <div class="container align-content-center">
                             <div class="form-group row">
                                 Imagen Presentación
-                      
+
                                 <div class="btn btn-default btn-file col-12">
                                     <i class="fas fa-paperclip"></i> Subir
                                     <input type='file' id="imgInp" name="presentation" onchange="readImage(this,'#blah');">
@@ -98,14 +98,14 @@
                         </div>
                          Review : <textarea name="review" id="" cols="30" rows="10" class="form-control"></textarea>
                         <br>
-                     
+
 
 
 
                         <div class="container align-content-center">
                             <div class="form-group row">
                                 Curso en Emisión
-                                
+
                                 <div class="btn btn-default btn-file col-12">
                                     <i class="fas fa-paperclip"></i> Subir
                                     <input type='file' id="imgInp2" name="emision" onchange="readImage(this,'#blah2');">
@@ -114,7 +114,7 @@
 
                             </div>
 
-                           
+
 
                             <div class="size-100">
                                 <br>
@@ -122,10 +122,10 @@
                                     class="img-bordered" width="100%">
                             </div>
                         </div>
-                        
+
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" onclick="New();$('#course')[0].reset();"
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff" onclick="New();$('#course')[0].reset();"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="courseStore()"
                         name="create">

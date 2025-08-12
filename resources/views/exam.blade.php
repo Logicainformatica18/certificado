@@ -30,7 +30,7 @@
                 </button>
                 <p></p>
             </div>
-        
+
             <div class="col col-sm-12">
                 <form action="{{ route('exams.import') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -179,7 +179,7 @@
 
                     </div>
                     <div class="modal-footer"style="font-family:Montserrat-Bold">
-                        <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" onclick="New();$('#exam')[0].reset();"
+                        <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff" onclick="New();$('#exam')[0].reset();"
                             name="new">
                         <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="examStore()"
                             name="create">

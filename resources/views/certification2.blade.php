@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital" />
+    <meta property="og:title" content="Mi Certificación en : {{ $certification[0]->description }} en ComexLat Digital" />
     <meta property="og:description"
         content="El presente certificado es expedido como reconocimiento alcanzado en el proceso formativo en. {{ $certification[0]->description }}" />
     <meta name="image" id="oimage"property="og:image"
@@ -16,7 +16,7 @@
 
 
 
-    <title>Mi Certificación en : {{ $certification[0]->description }} en Aybar Corp Digital</title>
+    <title>Mi Certificación en : {{ $certification[0]->description }} en ComexLat Digital</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -109,7 +109,7 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMWDNWXGWF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #023039">
+    <nav class="navbar navbar-expand-md  shadow-sm"style="background-color: #2a1b09">
         <div class="row w-100">
             <div class="col col-sm-12 col-lg-6"style="font-family:Montalban">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -131,28 +131,28 @@
 
     <p></p>
     <?php
-    
+
     $host = $_SERVER['HTTP_HOST'];
     $url = $host . '/certificaciones/registry_detail_id=' . $registry_detail->id . '/type=' . $type . '/id=' . $registry_detail->code_certification . '/cert=' . $cert;
-    
+
     $folder = $registry_detail->registry->course->folder_certification;
     $type = $registry_detail->registry->course->type->description;
-    
+
     use Carbon\Carbon;
-    
+
     $fecha = $registry_detail->registry->fec_end;
     // Crear una instancia de Carbon con la fecha dada
     $carbonDate = Carbon::parse($fecha);
-    
+
     // Obtener el año, mes y día por separado
     $year = $carbonDate->year;
     $month = $carbonDate->month;
     $day = $carbonDate->day;
-    
+
     /////////////////////////////////////////////////////////
     $name = $registry_detail->model_has_role->student->names . ' ' . $registry_detail->model_has_role->student->firstname . ' ' . $registry_detail->model_has_role->student->lastname;
     $route_certification = asset('certification3/plantilla_one_aprobado.png');
-    
+
     $route_qr = 'data:image/png;base64,' . base64_encode(QrCode::format('png')->size(150)->generate($url));
     ?>
     <?php
@@ -160,26 +160,26 @@
     $organizationId = '77579829';
     $date = strtotime($registry_detail->registry->date_certification);
     $issueYear = date('Y', $date);
-    
+
     $issueMonth = date('m', $date);
     $expirationYear = date('Y', $date);
-    
+
     $expirationMonth = date('m', $date);
     // $url =   str_replace(":", "%3A", $url);
     //    $url =   str_replace("/", "%2F", $url);
-    
+
     // modelo url pagina
     //https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultan1t-sales
     $certId = $registry_detail->registry->description;
     //obtener nota de certificado
     $property_note= $registry_detail->registry->course->certification->note;
-   
+
     ?>
 
 
     <div class="row">
         <div class="col-12 text-center">
-            <h1 style="color:#023039; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
+            <h1 style="color:#2a1b09; font-size:250%; font-family: Montserrat-Bold;"><b>¡Felicidades!</b></h1>
             <h2 style="color:#092367;font-size:80%;font-family: Montserrat-Medium">Tu Certificado está listo.</h2>
         </div>
     </div>
@@ -256,7 +256,7 @@
 
             <div class="col-12 text-center">
 
-                <h2 style="color:#023039;font-size:120%;font-family: Montserrat-BoldItalic">
+                <h2 style="color:#2a1b09;font-size:120%;font-family: Montserrat-BoldItalic">
                     One Digitall reconoce tu dedicación. ¡No dejes de aprende y superarte cada día!
                 </h2>
                 <button class="btn btn-outline-info" id="btnpng"
@@ -304,7 +304,7 @@
 
             </div>
             <div class="col-lg-12 text-center">
-                
+
         <b style="font-family: Montserrat-Bold;color:#828282;font-size:80%">Compártelo</b> &nbsp;
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 5.png') }}" alt="Compartir en LinkedIn" width="40px">
@@ -312,19 +312,19 @@
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 3.png') }}" alt="Compartir en Facebook" width="40px">
                 </a>
-        
+
                 <a href="https://twitter.com/share?url={{ urlencode($url) }}" target="_blank">
                     <img src="{{ asset('dist/img/page_certification/Recurso 1.png') }}" alt="Compartir en Twitter" width="40px">
                 </a>
-             
+
                 <a href="#" class=""
                     onclick="linkedinCertificationGenerate('{{ $certification[0]->description }}','{{ $organizationId }}','{{ $issueYear }}','{{ $issueMonth }}','{{ $certId }}')">
                     <img src="{{ asset('dist/img/page_certification/Recurso 7.png') }}" alt="Compartir en Linkedin" width="180px">
             </a>
-    
+
             </div>
 
-          
+
 
         </div>
     </div>

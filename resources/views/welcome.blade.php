@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aybar Corp</title>
+    <title>ComexLat</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/jpg" href="{{ asset('dist/img/favicon.png') }}" />
@@ -36,7 +36,7 @@
         background: url("{{ asset('banner_lateral_2.png') }}") no-repeat left center;
         background-size: cover;
     }
-/* 
+/*
     @font-face {
         font-family: "Kohinoor Bangla";
         src: url("{{ asset('Kohinoor Bangla/KohinoorBangla-Bold.otf') }}");
@@ -99,7 +99,7 @@
                     <div class="">
                         <div class="card-body login-card-body">
                             <div class="login-logo">
-                                <h1 style="font-weight: bold;font-size:57px; color: #023039;"><b>Aybar Corp</b>
+                                <h1 style="font-weight: bold;font-size:57px; color: #2a1b09;"><b>ComexLat</b>
                                 </h1>
                             </div>
                             <p class="login-box-msg" style="color:black">Ingrese sus datos para iniciar sesión</p>
@@ -150,7 +150,7 @@
 
                                         <button type="submit"
                                             class="btn btn-primary md d-flex align-items-center justify-content-center"
-                                            style="background-color: #023039;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
+                                            style="background-color: #2a1b09;font-weight: 100%; height:50px;width:70%; border-radius: 20px;">
                                             <span style="color:white; font-size: 1.5em;">INICIAR SESIÓN</span>
                                         </button>
 
@@ -184,7 +184,7 @@
                                 <div class="d-flex justify-content-center">
                                     @if (Route::has('password.request'))
                                         <a class="login-box-msg"
-                                            href="{{ route('password.request') }}"style="color:#023039">
+                                            href="{{ route('password.request') }}"style="color:#2a1b09">
                                             ¿Olvidaste tu Contraseña?
                                         </a>
                                     @endif

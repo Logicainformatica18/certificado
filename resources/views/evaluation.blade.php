@@ -22,7 +22,7 @@
         onclick="New();$('#evaluation')[0].reset();">
         Agregar
     </button>
-   
+
 
     <p></p>
     <!-- /.content -->
@@ -49,10 +49,10 @@
                         {{ csrf_field() }}
                         Descripción : <input type="text" name="description" id="description" class="form-control">
                         Detalle : <input type="text" name="detail" id="detail" class="form-control">
-                      
+
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
-                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff" onclick="New();$('#evaluation')[0].reset();"
+                    <input type="button" value="Nuevo" class="btn" style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff" onclick="New();$('#evaluation')[0].reset();"
                         name="new">
                     <input type="button" value="Guardar" class="btn btn-success"id="create" onclick="evaluationStore()"
                         name="create">

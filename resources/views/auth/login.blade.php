@@ -8,19 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="{{ asset('ayba/1.webp') }}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="../assets/css/styles.css" />
 
-  <title>Aybar Corp</title>
+  <title>ComexLat</title>
 </head>
 
 <body>
   <!-- Preloader -->
   <div class="preloader">
 
-    <img src="{{ asset('ayba/1.png') }}" alt="loader" class="lds-ripple img-fluid" />
+    <img src="{{ asset('ayba/1.webp') }}" alt="loader" class="lds-ripple img-fluid" />
   </div>
   <div id="main-wrapper">
     <div class="position-relative overflow-hidden radial-gradient min-vh-100 w-100">
@@ -30,16 +30,16 @@
           <div class="col-lg-6 col-xl-5 col-xxl-4">
             <div class="min-vh-100 bg-body row justify-content-center align-items-center p-5">
               <div class="col-12 auth-card">
-                <a href="{{url('/')}}" class="text-nowrap logo-img d-block w-100 text-center">
-                  <img src="{{asset('ayba/1.png')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
-                 
+                <a href="{{url('/')}}" class="text-nowrap logo-img d-block w-100 text-center" style="border-radius: 20px; background-color: #2a1b09;padding:10px" >
+                  <img src="{{asset('ayba/1.webp')}}" class="dark-logo" alt="Logo-Dark" width="40%" />
+
                 </a>
                 <h2 class="mb-2 mt-4 fs-7 fw-bolder">Iniciar Sesión</h2>
                 {{-- <p class="mb-9">Your Admin Dashboard</p> --}}
                 <div class="row">
                   <div class="col-12 mb-2 mb-sm-0">
                     <a class="btn btn-link border border-muted d-flex align-items-center justify-content-center rounded-2 py-8 text-decoration-none" href="{{ url('auth/google') }}" role="button">
-                     
+
                         <img src="../assets/images/svgs/google-icon.svg" alt="matdash-img" class="img-fluid me-2" width="18" height="18" />
                       Google
                     </a>
@@ -86,32 +86,32 @@
                                         </span>
                                     @enderror
 
-                   
+
                   </div>
                   <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
-                                          
+
                         <input class="form-check-input primary" type="checkbox" name="remember"
                         id="remember" {{ old('remember') ? 'checked' : '' }} checked>
                         <label class="form-check-label text-dark" for="flexCheckChecked" >
                             Recordarme
-    
+
                       </label>
                     </div>
 
                     @if (Route::has('password.request'))
-                   
+
                     <a class="text-primary fw-medium" href="{{ route('password.request') }}">¿Olvidaste tu Contraseña?</a>
                 @endif
 
                   </div>
                   <button type="submit"
                   class="btn btn-primary w-100 py-8 mb-4 rounded-2"
-                  style="background-color: #023039;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#F6A42C">
+                  style="background-color: #000000;font-weight: 100%; height:40px;width:70%; border-radius: 20px;border-color:#2a1b09">
                   <span style="color:white; font-size: 1em;">Ingresar</span>
               </button>
 
-                
+
                   {{-- <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-medium">New to MatDash?</p>
                     <a class="text-primary fw-medium ms-2" href="../dark/authentication-register.html">Create an
@@ -124,9 +124,9 @@
 
           <div class="col-lg-6 col-xl-7 col-xxl-8 position-relative overflow-hidden   d-none d-lg-block">
             {{-- <div class="circle-top"></div> --}}
-            <img src="ayba/f_login.png" alt="">
+            <img src="{{ asset('ayba/banner.jpg') }}" alt="">
             <div>
-              
+
               {{-- <img src="../assets/images/logos/logo-icon.svg" class="circle-bottom" alt="Logo-Dark" /> --}}
             </div>
             {{-- <div class="d-lg-flex align-items-center z-index-5 position-relative h-n80">

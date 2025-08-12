@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h2><b style="font-family: Montserrat-Bold;color:#023039">Hola, {{ Auth::user()->names }}.
+                    <h2><b style="font-family: Montserrat-Bold;color:#2a1b09">Hola, {{ Auth::user()->names }}.
                             ¡Bienvenido(a)! </b></h2>
                     {{ session('success') }}
                 </div>
@@ -22,7 +22,7 @@
     <style>
         .callout.callout-custom {
 
-            border-left-color: #023039;
+            border-left-color: #2a1b09;
             /* Color celeste para la barra lateral */
             color: #1b3d6d;
             /* Color de texto (opcional) */
@@ -56,7 +56,7 @@
                     @endif
                 </div>
 
-                <h3 class="widget-user-username"><b style="font-family:Montserrat-Bold;color:#023039">{{ Auth::user()->names }}</b> </h3>
+                <h3 class="widget-user-username"><b style="font-family:Montserrat-Bold;color:#2a1b09">{{ Auth::user()->names }}</b> </h3>
                 <h5 class="widget-user-desc" style="font-family:Montserrat-Medium;color:#1b3d6d;font-size:15px;margin-top:-5px">
                     @foreach (Auth::user()->roles_ as $roless)
                         {{ $roless->name }}
@@ -68,7 +68,7 @@
         </div>
         <div class="col-lg-3" >
             <!-- Botón para abrir la modal -->
-            <button type="button"style="background-color: #023039;width:100%;height:87%;
+            <button type="button"style="background-color: #2a1b09;width:100%;height:87%;
             border-top-right-radius:50px;border-bottom-right-radius:50px;margin-left:-12px;font-family:Montserrat-Bold;font-size:20px"
              class="btn btn-primary" data-toggle="modal" data-target="#miModal">
                 Editar Datos
@@ -85,7 +85,7 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <h5><b style="font-family:Montserrat-Bold;color:#023039">&nbsp;&nbsp; Información Básica</b></h5>
+                        <h5><b style="font-family:Montserrat-Bold;color:#2a1b09">&nbsp;&nbsp; Información Básica</b></h5>
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline" id="mycontent">
                             <div class="card-body box-profile" style="font-size: 12px">
@@ -126,7 +126,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <h5><b style="font-family:Montserrat-Bold;color:#023039">&nbsp;&nbsp; Información Adicional</b></h5>
+                        <h5><b style="font-family:Montserrat-Bold;color:#2a1b09">&nbsp;&nbsp; Información Adicional</b></h5>
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline" id="mycontent">
                             <div class="card-body box-profile" style="font-size: 12px">
@@ -165,7 +165,7 @@
                     </div>
 
                     {{-- <div class="col-md-12">
-                        <h5><b style="font-family:Montserrat-Bold;color:#023039">&nbsp;&nbsp; Información Laboral</b></h5>
+                        <h5><b style="font-family:Montserrat-Bold;color:#2a1b09">&nbsp;&nbsp; Información Laboral</b></h5>
 
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline" id="mycontent">
@@ -360,7 +360,7 @@
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
                                                     <button type="button" class="btn"
-                                                    style="font-size:13px;font-family:Montserrat-Bold; color:white;background: linear-gradient(to right,#023039,#0d0d0e);"
+                                                    style="font-size:13px;font-family:Montserrat-Bold; color:white;background: linear-gradient(to right,#2a1b09,#0d0d0e);"
                                                         onclick="userUpdateProfile();">Guardar cambios</button>
                                                 </div>
                                             </div>

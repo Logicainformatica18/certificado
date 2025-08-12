@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="col col-lg-10 col-md-8 col-sm-12">
-                    <button type="button"style="border-radius:20px;background-color:#023039;color:white;width:150px"
+                    <button type="button"style="border-radius:20px;background-color:#2a1b09;color:white;width:150px"
                         class="btn" data-toggle="modal" data-target="#exampleModal"
                         onclick="New();$('#user')[0].reset();">
                         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Agregar
@@ -68,7 +68,7 @@
                                     </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 ml-3">
-                                <button name="import_button" 
+                                <button name="import_button"
                                     class="btn btn-success"style="border-radius:20px">Importar Documento</button>
                                 <p></p>
                                 </form>
@@ -111,7 +111,7 @@
                                 <form action="{{ route('users.import') }}"name="import_excel" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
-                                   
+
 
 
                                     Rango:
@@ -133,7 +133,7 @@
                         <span style="font-family: Montserrat-Bold;font-size:15px">+</span> Importar Google
                     </button>
                                 <p></p>
-                           
+
                             </div>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
     </section>
     <!-- Button trigger modal -->
 
-    
+
 
 
 
@@ -268,7 +268,7 @@
                 </div>
                 <div class="modal-footer"style="font-family:Montserrat-Bold">
                     <input type="button" value="Nuevo" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff"
                         onclick="New();$('#user')[0].reset();"   name="new">
                     <input type="button" value="Guardar" class="btn btn-success" onclick="userStore()" id="create">
                     <input type="button" value="Modificar" class="btn btn-danger" onclick="userUpdate();"
@@ -303,7 +303,7 @@
                             @endforeach
                         </select>
                         <br>
-                        <input type="button" style="color:#ffffff;background-color:#023039;font-family:Montserrat-Bold"
+                        <input type="button" style="color:#ffffff;background-color:#2a1b09;font-family:Montserrat-Bold"
                             value="Agregar" class="btn" onclick="userRoleStore()" name="create">
 
 
@@ -322,7 +322,7 @@
 
 
                     <button type="button" class="btn"
-                        style="font-family:Montserrat-SemiBold;background-color:#023039;color:#ffffff"
+                        style="font-family:Montserrat-SemiBold;background-color:#2a1b09;color:#ffffff"
                         data-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
